@@ -30,7 +30,7 @@ git push -u origin arnav/chair-stand-counter
 gh pr create --fill          # or open the PR on github.com
 ```
 
-Ask a teammate to review in the team chat. When one person approves, merge with **Squash and merge**. GitHub deletes the branch after the merge.
+Ask a teammate to review in the team chat. When one person approves, merge with **Rebase and merge**, which keeps every author's commits on `main`. GitHub deletes the branch after the merge.
 
 ## Keeping your branch up to date
 
