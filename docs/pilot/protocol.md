@@ -24,7 +24,7 @@ One page for the students running sessions. Read it once before the first partic
 Start a new recording for each trial. Name it `<code>_<trial>`, for example `P03_cs-loose`.
 
 1. **Consent.** Read the information sheet together. Sign. Tick boxes. Assign the next code.
-2. **Calibration** (`cal`). Sit still against the backrest, arms crossed on the chest, looking ahead, for 5 s. Then stand straight and still, arms crossed, for 5 s. If the app says calibration failed, redo it. Never skip it.
+2. **Calibration** (`cal`). Stand straight and still in front of the chair, arms crossed on the chest, looking ahead, for 5 s. Then sit still against the backrest, arms crossed, for 5 s. The test starts ("Go") from this seated position, as the CDC requires. If the app says calibration failed, redo it. Never skip it.
 3. **30 s chair stand, loose clothing** (`cs-loose`): saree, dhoti, lungi or other loose clothing. Arms crossed at the wrists, hands on opposite shoulders. Say "Go" and start the stopwatch. Stop at 30 s. A second student counts full stands silently and writes the count in the log.
 4. **30 s chair stand, track-pants** (`cs-track`). Same as step 3. Let the person change and rest first.
 5. **3 deliberate half-stands** (`half`). "Rise partway, then sit back down without standing up fully." Rest a few seconds between each.
