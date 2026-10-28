@@ -9,7 +9,7 @@ import { processFrame, type FrameOutcome } from "@/lib/pose/frameProcessor";
 import { createRecordingClock } from "@/lib/pose/recordingClock";
 import { isFatalIssue, type CaptureIssue } from "@/lib/record/captureIssues";
 import { recorderError, type RecorderError, type RecorderErrorKind } from "@/lib/record/recorderErrors";
-import { MAX_FRAMES } from "@/lib/record/schema";
+import { MAX_FRAMES, type RecordedFrame } from "@/lib/record/schema";
 import { holdScreenWakeLock, type WakeLockHandle } from "@/lib/record/wakeLock";
 
 export type { CameraStatus };
@@ -30,6 +30,8 @@ export interface CaptureResult extends CaptureData {
 export interface PoseRecorderOptions {
   /** Called on every recorded frame with its t (drives the phase machine). */
   readonly onRecordingTime?: (t: number) => void;
+  /** Called with every recorded frame (same t as the recording), after onRecordingTime. */
+  readonly onFrame?: (frame: RecordedFrame) => void;
   /** The capture has to end now (camera lost, tracking failed, frame limit): call stopRecording. */
   readonly onCaptureMustEnd?: (issue: CaptureIssue) => void;
 }
@@ -127,6 +129,7 @@ export function usePoseRecorder(options: PoseRecorderOptions = {}): PoseRecorder
     if (outcome.kind !== "recorded") return;
     session.addFrame(outcome.frame);
     optionsRef.current.onRecordingTime?.(outcome.frame.t);
+    optionsRef.current.onFrame?.(outcome.frame);
   }, [raise]);
 
   const startLoop = useCallback(
