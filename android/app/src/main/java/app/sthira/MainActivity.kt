@@ -11,7 +11,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Patient video is on screen: block screenshots, screen recording and the recents thumbnail.
-        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+        // Only debug builds (never shared) leave capture on, for UI review.
+        if (!BuildConfig.ALLOW_SCREEN_CAPTURE) {
+            window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+        }
         enableEdgeToEdge()
         setContent { SthiraApp() }
     }
