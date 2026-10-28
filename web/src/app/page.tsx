@@ -24,6 +24,14 @@ export default function Home() {
           Run a chair-stand test
         </Link>
         <div className="flex flex-col gap-3 sm:flex-row">
+          <Link href="/balance" className={`${linkClass} ${secondaryClass}`}>
+            4-stage balance
+          </Link>
+          <Link href="/tug" className={`${linkClass} ${secondaryClass}`}>
+            Timed Up and Go
+          </Link>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row">
           <Link href="/record" className={`${linkClass} ${secondaryClass}`}>
             Record a pilot session
           </Link>
