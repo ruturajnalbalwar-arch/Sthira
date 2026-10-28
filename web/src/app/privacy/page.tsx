@@ -18,6 +18,7 @@ const SECTIONS: readonly LegalSection[] = [
     heading: "What we do not collect",
     body: [
       "No accounts, no names, no contact details, no analytics, no advertising trackers and no cookies set by Sthira. Session forms ask for a participant code, never a name.",
+      "The pose library we use (Google MediaPipe) contains code that tries to send anonymous performance statistics, such as the library version and processing speed, to Google. Sthira blocks this: the website only allows connections to its own address, and the Android app has no internet permission at all.",
     ],
   },
   {

@@ -21,6 +21,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Link href="/terms" className="inline-flex min-h-11 items-center underline-offset-4 hover:underline">
               Terms
             </Link>
+            <Link href="/licenses" className="inline-flex min-h-11 items-center underline-offset-4 hover:underline">
+              Licences
+            </Link>
             <span className="inline-flex min-h-11 items-center">Prototype. Not a medical device.</span>
           </nav>
         </footer>
