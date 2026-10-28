@@ -4,8 +4,9 @@ import { closePhase, openPhase } from "./session";
 
 /**
  * Guided recording flow:
- * idle -> calibration-sit -> calibration-stand -> test -> done.
- * The start of `test` is the CDC "Go". All times are seconds since the recording started.
+ * idle -> calibration-stand -> calibration-sit -> test -> done.
+ * Standing is calibrated first so the person is seated at "Go", as the CDC 30-second chair stand requires;
+ * the counter starts SEATED. The start of `test` is the CDC "Go". All times are seconds since the recording started.
  */
 export type Stage = "idle" | "calibration-sit" | "calibration-stand" | "test" | "done";
 
@@ -60,7 +61,7 @@ function finish(state: PhaseState, t: number): PhaseState {
 }
 
 function startCalibration(t: number): PhaseState {
-  return enterStage(INITIAL_PHASE_STATE, "calibration-sit", t);
+  return enterStage(INITIAL_PHASE_STATE, "calibration-stand", t);
 }
 
 /** Length of the current stage, or null if it has no fixed length. */
@@ -80,8 +81,8 @@ function advance(state: PhaseState, t: number, config: MachineConfig): PhaseStat
   if (duration === null) return state;
   const boundary = state.stageStartT + duration;
   if (t < boundary) return state;
-  if (state.stage === "calibration-sit") return advance(enterStage(state, "calibration-stand", boundary), t, config);
-  if (state.stage === "calibration-stand") return advance(enterStage(state, "test", boundary), t, config);
+  if (state.stage === "calibration-stand") return advance(enterStage(state, "calibration-sit", boundary), t, config);
+  if (state.stage === "calibration-sit") return advance(enterStage(state, "test", boundary), t, config);
   return finish(state, boundary);
 }
 
@@ -133,9 +134,9 @@ export function describePhase(state: PhaseState, t: number, config: MachineConfi
     case "idle":
       return { title: "Ready", ...none };
     case "calibration-sit":
-      return { ...none, title: "Sit still", count: countdown(state, t, config.calibrationSitS) };
+      return { ...none, title: "Sit down and keep still", count: countdown(state, t, config.calibrationSitS) };
     case "calibration-stand":
-      return { ...none, title: "Stand still", count: countdown(state, t, config.calibrationStandS) };
+      return { ...none, title: "Stand up tall and keep still", count: countdown(state, t, config.calibrationStandS) };
     case "test":
       return {
         title: config.isChairStand ? CHAIR_STAND_GO : "Go",

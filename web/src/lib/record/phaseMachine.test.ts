@@ -25,8 +25,9 @@ function run(config: MachineConfig, events: readonly PhaseEvent[]): PhaseState {
   return events.reduce((state, event) => phaseReducer(state, event, config), INITIAL_PHASE_STATE);
 }
 
-const sitEnd = constants.calibrationSitS;
-const standEnd = sitEnd + constants.calibrationStandS;
+/** Protocol order: stand calibration first, then sit, so the person is seated at Go. */
+const standEnd = constants.calibrationStandS;
+const goT = standEnd + constants.calibrationSitS;
 
 describe("machineConfigFor", () => {
   it("takes the countdowns from params.json and limits only the 30 s chair stand", () => {
@@ -46,43 +47,42 @@ describe("phaseReducer", () => {
     expect(INITIAL_PHASE_STATE).toEqual({ stage: "idle", stageStartT: 0, phases: [], endT: null });
   });
 
-  it("opens calibration-sit on start", () => {
+  it("opens calibration-stand on start", () => {
     const state = run(chairStand, [{ type: "start", t: 0 }]);
-    expect(state.stage).toBe("calibration-sit");
-    expect(state.phases).toEqual([{ phase: "calibration-sit", startT: 0, endT: 0 }]);
+    expect(state.stage).toBe("calibration-stand");
+    expect(state.phases).toEqual([{ phase: "calibration-stand", startT: 0, endT: 0 }]);
   });
 
-  it("stays in calibration-sit until the sit countdown has elapsed", () => {
-    const state = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: sitEnd - 0.01 }]);
-    expect(state.stage).toBe("calibration-sit");
+  it("stays in calibration-stand until the stand countdown has elapsed", () => {
+    const state = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: standEnd - 0.01 }]);
+    expect(state.stage).toBe("calibration-stand");
   });
 
-  it("moves sit -> stand -> test at the exact countdown boundaries", () => {
+  it("moves stand -> sit -> test at the exact countdown boundaries", () => {
     const state = run(chairStand, [
       { type: "start", t: 0 },
-      { type: "tick", t: sitEnd + 0.04 },
-      { type: "tick", t: standEnd + 0.02 },
+      { type: "tick", t: standEnd + 0.04 },
+      { type: "tick", t: goT + 0.02 },
     ]);
     expect(state.stage).toBe("test");
-    expect(state.stageStartT).toBe(standEnd);
+    expect(state.stageStartT).toBe(goT);
     expect(state.phases).toEqual([
-      { phase: "calibration-sit", startT: 0, endT: sitEnd },
-      { phase: "calibration-stand", startT: sitEnd, endT: standEnd },
-      { phase: "test", startT: standEnd, endT: standEnd },
+      { phase: "calibration-stand", startT: 0, endT: standEnd },
+      { phase: "calibration-sit", startT: standEnd, endT: goT },
+      { phase: "test", startT: goT, endT: goT },
     ]);
   });
 
   it("skips straight through both countdowns if a single late tick covers them", () => {
-    const state = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: standEnd + 1 }]);
+    const state = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: goT + 1 }]);
     expect(state.stage).toBe("test");
-    expect(state.phases.map((span) => span.phase)).toEqual(["calibration-sit", "calibration-stand", "test"]);
+    expect(state.phases.map((span) => span.phase)).toEqual(["calibration-stand", "calibration-sit", "test"]);
   });
 
   it("auto-stops the chair stand at exactly chairStandDurationS after Go", () => {
-    const goT = standEnd;
     const state = run(chairStand, [
       { type: "start", t: 0 },
-      { type: "tick", t: standEnd },
+      { type: "tick", t: goT },
       { type: "tick", t: goT + constants.chairStandDurationS + 0.03 },
     ]);
     expect(state.stage).toBe("done");
@@ -93,8 +93,8 @@ describe("phaseReducer", () => {
   it("does not auto-stop trials without a fixed duration", () => {
     const state = run(balance, [
       { type: "start", t: 0 },
-      { type: "tick", t: standEnd },
-      { type: "tick", t: standEnd + constants.chairStandDurationS * 10 },
+      { type: "tick", t: goT },
+      { type: "tick", t: goT + constants.chairStandDurationS * 10 },
     ]);
     expect(state.stage).toBe("test");
   });
@@ -102,12 +102,12 @@ describe("phaseReducer", () => {
   it("stops the test on Stop and closes the test phase at that time", () => {
     const state = run(balance, [
       { type: "start", t: 0 },
-      { type: "tick", t: standEnd },
-      { type: "stop", t: standEnd + 7.5 },
+      { type: "tick", t: goT },
+      { type: "stop", t: goT + 7.5 },
     ]);
     expect(state.stage).toBe("done");
-    expect(state.endT).toBe(standEnd + 7.5);
-    expect(state.phases.at(-1)).toEqual({ phase: "test", startT: standEnd, endT: standEnd + 7.5 });
+    expect(state.endT).toBe(goT + 7.5);
+    expect(state.phases.at(-1)).toEqual({ phase: "test", startT: goT, endT: goT + 7.5 });
   });
 
   it("ignores Stop during calibration (use cancel or redo instead)", () => {
@@ -116,29 +116,29 @@ describe("phaseReducer", () => {
   });
 
   it("cancels back to idle from any active stage and drops the phases", () => {
-    const state = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: sitEnd }, { type: "cancel" }]);
+    const state = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }, { type: "cancel" }]);
     expect(state).toEqual(INITIAL_PHASE_STATE);
   });
 
-  it("redoes calibration from the stand countdown or the test, restarting the phase list", () => {
+  it("redoes calibration from the sit countdown or the test, restarting the phase list", () => {
     const fromStand = run(chairStand, [
       { type: "start", t: 0 },
-      { type: "tick", t: sitEnd },
-      { type: "redo-calibration", t: sitEnd + 2 },
+      { type: "tick", t: standEnd },
+      { type: "redo-calibration", t: standEnd + 2 },
     ]);
-    expect(fromStand.stage).toBe("calibration-sit");
-    expect(fromStand.stageStartT).toBe(sitEnd + 2);
-    expect(fromStand.phases).toEqual([{ phase: "calibration-sit", startT: sitEnd + 2, endT: sitEnd + 2 }]);
+    expect(fromStand.stage).toBe("calibration-stand");
+    expect(fromStand.stageStartT).toBe(standEnd + 2);
+    expect(fromStand.phases).toEqual([{ phase: "calibration-stand", startT: standEnd + 2, endT: standEnd + 2 }]);
 
-    const fromTest = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }, { type: "redo-calibration", t: 20 }]);
-    expect(fromTest.stage).toBe("calibration-sit");
+    const fromTest = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: goT }, { type: "redo-calibration", t: 20 }]);
+    expect(fromTest.stage).toBe("calibration-stand");
     expect(fromTest.phases).toHaveLength(1);
   });
 
   it("ignores events that do not apply to the current stage", () => {
     expect(phaseReducer(INITIAL_PHASE_STATE, { type: "tick", t: 3 }, chairStand)).toBe(INITIAL_PHASE_STATE);
     expect(phaseReducer(INITIAL_PHASE_STATE, { type: "redo-calibration", t: 3 }, chairStand)).toBe(INITIAL_PHASE_STATE);
-    const done = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }, { type: "stop", t: 20 }]);
+    const done = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: goT }, { type: "stop", t: 20 }]);
     expect(phaseReducer(done, { type: "start", t: 30 }, balance)).toBe(done);
     expect(phaseReducer(done, { type: "tick", t: 30 }, balance)).toBe(done);
   });
@@ -147,47 +147,47 @@ describe("phaseReducer", () => {
     const sitting = run(chairStand, [{ type: "start", t: 0 }, { type: "interrupt", t: 2.5 }]);
     expect(sitting.stage).toBe("done");
     expect(sitting.endT).toBe(2.5);
-    expect(sitting.phases).toEqual([{ phase: "calibration-sit", startT: 0, endT: 2.5 }]);
-    const testing = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }, { type: "interrupt", t: standEnd + 4 }]);
-    expect(testing.phases.at(-1)).toEqual({ phase: "test", startT: standEnd, endT: standEnd + 4 });
+    expect(sitting.phases).toEqual([{ phase: "calibration-stand", startT: 0, endT: 2.5 }]);
+    const testing = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: goT }, { type: "interrupt", t: goT + 4 }]);
+    expect(testing.phases.at(-1)).toEqual({ phase: "test", startT: goT, endT: goT + 4 });
   });
 
   it("ignores interrupt outside an active recording and never ends a phase before it began", () => {
     expect(phaseReducer(INITIAL_PHASE_STATE, { type: "interrupt", t: 1 }, chairStand)).toBe(INITIAL_PHASE_STATE);
-    const late = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: sitEnd }, { type: "interrupt", t: sitEnd - 1 }]);
-    expect(late.phases.at(-1)).toEqual({ phase: "calibration-stand", startT: sitEnd, endT: sitEnd });
+    const late = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }, { type: "interrupt", t: standEnd - 1 }]);
+    expect(late.phases.at(-1)).toEqual({ phase: "calibration-sit", startT: standEnd, endT: standEnd });
   });
 
   it("resets from done to idle for the next recording", () => {
-    const done = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }, { type: "stop", t: 20 }]);
+    const done = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: goT }, { type: "stop", t: 20 }]);
     expect(phaseReducer(done, { type: "reset" }, balance)).toEqual(INITIAL_PHASE_STATE);
   });
 
   it("never mutates the previous state", () => {
     const started = run(chairStand, [{ type: "start", t: 0 }]);
     const snapshot = JSON.stringify(started);
-    phaseReducer(started, { type: "tick", t: standEnd }, chairStand);
+    phaseReducer(started, { type: "tick", t: goT }, chairStand);
     expect(JSON.stringify(started)).toBe(snapshot);
   });
 });
 
 describe("describePhase", () => {
-  it("shows a whole-second countdown while sitting and standing", () => {
-    const sitting = run(chairStand, [{ type: "start", t: 0 }]);
-    expect(describePhase(sitting, 0, chairStand)).toMatchObject({ title: "Sit still", count: constants.calibrationSitS });
-    expect(describePhase(sitting, 0.2, chairStand).count).toBe(constants.calibrationSitS);
-    expect(describePhase(sitting, sitEnd - 0.5, chairStand).count).toBe(1);
+  it("shows a whole-second countdown while standing and sitting", () => {
+    const standing = run(chairStand, [{ type: "start", t: 0 }]);
+    expect(describePhase(standing, 0, chairStand)).toMatchObject({ title: "Stand up tall and keep still", count: constants.calibrationStandS });
+    expect(describePhase(standing, 0.2, chairStand).count).toBe(constants.calibrationStandS);
+    expect(describePhase(standing, standEnd - 0.5, chairStand).count).toBe(1);
 
-    const standing = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: sitEnd }]);
-    expect(describePhase(standing, sitEnd, chairStand)).toMatchObject({
-      title: "Stand still",
-      count: constants.calibrationStandS,
+    const sitting = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }]);
+    expect(describePhase(sitting, standEnd, chairStand)).toMatchObject({
+      title: "Sit down and keep still",
+      count: constants.calibrationSitS,
     });
   });
 
   it("uses the full CDC instruction for the chair stand with elapsed vs duration", () => {
-    const testing = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }]);
-    const view = describePhase(testing, standEnd + 12.4, chairStand);
+    const testing = run(chairStand, [{ type: "start", t: 0 }, { type: "tick", t: goT }]);
+    const view = describePhase(testing, goT + 12.4, chairStand);
     expect(view.title).toBe("Go! Stand up and sit down as many times as you can");
     expect(view.elapsedS).toBe(12);
     expect(view.limitS).toBe(constants.chairStandDurationS);
@@ -195,19 +195,19 @@ describe("describePhase", () => {
   });
 
   it("says just Go for other trials and has no limit", () => {
-    const testing = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }]);
-    expect(describePhase(testing, standEnd + 3, balance)).toMatchObject({ title: "Go", elapsedS: 3, limitS: null });
+    const testing = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: goT }]);
+    expect(describePhase(testing, goT + 3, balance)).toMatchObject({ title: "Go", elapsedS: 3, limitS: null });
   });
 
   it("describes idle and done", () => {
     expect(describePhase(INITIAL_PHASE_STATE, 0, chairStand).title).toBe("Ready");
-    const done = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: standEnd }, { type: "stop", t: 20 }]);
+    const done = run(balance, [{ type: "start", t: 0 }, { type: "tick", t: goT }, { type: "stop", t: 20 }]);
     expect(describePhase(done, 25, balance).title).toBe("Stop. Recording finished");
   });
 
   it("never shows a negative elapsed time or a countdown below zero", () => {
-    const sitting = run(chairStand, [{ type: "start", t: 4 }]);
-    expect(describePhase(sitting, 0, chairStand).count).toBe(constants.calibrationSitS);
-    expect(describePhase(sitting, 100, chairStand).count).toBe(0);
+    const standing = run(chairStand, [{ type: "start", t: 4 }]);
+    expect(describePhase(standing, 0, chairStand).count).toBe(constants.calibrationStandS);
+    expect(describePhase(standing, 100, chairStand).count).toBe(0);
   });
 });
