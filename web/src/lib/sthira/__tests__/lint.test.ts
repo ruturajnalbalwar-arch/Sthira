@@ -3,11 +3,11 @@ import { join, relative, sep } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import * as landmarks from '../landmarks';
 import * as mathConstants from '../mathConstants';
+import { findDisallowedNumbers } from './numericLint';
 
 const ROOT = join(__dirname, '..');
 /** Files allowed to hold numbers: model landmark indices, pure math, and type declarations. */
 const EXEMPT = new Set(['landmarks.ts', 'mathConstants.ts', 'types.ts']);
-const ALLOWED = new Set(['0', '1']);
 
 function sourceFiles(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -18,25 +18,6 @@ function sourceFiles(dir: string): string[] {
 }
 
 const DETECTOR_FILES = sourceFiles(ROOT).filter((file) => !EXEMPT.has(file));
-
-/** Keep only the ${...} expressions of a template literal; they are code. */
-const templateExpressions = (template: string): string =>
-  ` ${[...template.matchAll(/\$\{([^}]*)\}/g)].map((m) => m[1]).join(' ')} `;
-
-function stripCommentsAndStrings(source: string): string {
-  return source
-    .replace(/\/\*[\s\S]*?\*\//g, ' ')
-    .replace(/\/\/.*$/gm, ' ')
-    .replace(/`(?:\\.|[^`\\])*`/g, templateExpressions)
-    .replace(/'(?:\\.|[^'\\\n])*'|"(?:\\.|[^"\\\n])*"/g, '""');
-}
-
-const NUMBER = /(?<![\w$.])0[xXbBoO][\da-fA-F_]+n?|(?<![\w$.])\d[\d_]*(?:\.\d+)?(?:[eE][+-]?\d+)?n?(?![\w$])|(?<![\w$])\.\d+/g;
-
-export function findDisallowedNumbers(source: string): string[] {
-  const tokens = stripCommentsAndStrings(source).match(NUMBER) ?? [];
-  return tokens.filter((token) => !ALLOWED.has(token));
-}
 
 describe('numeric-literal lint', () => {
   it('scans every engine source file outside the exempt list', () => {
