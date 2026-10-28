@@ -42,3 +42,6 @@ next-env.d.ts
 
 # MediaPipe runtime and model (fetched by `npm run assets`)
 /public/mediapipe/
+
+# Test coverage reports
+/coverage/
