@@ -100,7 +100,8 @@ function addFrame(state: LiveCountState, frame: PoseFrame, counter: CounterStatu
   const { setup } = state;
   if (setup.kind === "counting") return { ...state, setup: { ...setup, chair: step(setup.chair, frame, setup.ctx) } };
   const calibrating = state.stage === "calibration-sit" || state.stage === "calibration-stand";
-  const collecting = setup.kind === "starting" ? frame.t <= setup.testStartT : setup.kind === "waiting" && calibrating;
+  // While starting, the frame that reaches Go is kept too: it is the sit phase's covering frame (see framesInSpan).
+  const collecting = setup.kind === "starting" || (setup.kind === "waiting" && calibrating);
   const collected = collecting ? { ...state, calibrationFrames: [...state.calibrationFrames, frame] } : state;
   if (setup.kind !== "starting" || frame.t < setup.testStartT) return collected;
   return addFrame(startTest(collected, setup, counter), frame, counter);

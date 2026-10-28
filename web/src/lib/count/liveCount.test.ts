@@ -152,6 +152,13 @@ describe("live count session (ready counter)", () => {
     expect(run.live.setup.kind).toBe("counting");
   });
 
+  it("uses the first frame after Go to cover the end of the sit phase when no frame lands on Go", () => {
+    const frames = sessionFrames().filter((f) => f.t !== TEST_START);
+    const run = new Driver(READY).frames(frames);
+    run.send({ type: "tick", t: TEST_START + TEST_PARAMS.chairStandDurationS });
+    expect(run.live.setup.kind).toBe("finished");
+  });
+
   it("finishes a counting run that ends exactly at Go", () => {
     const run = new Driver(READY).frames(sessionFrames(), TEST_START);
     run.send({ type: "stop", t: TEST_START });
