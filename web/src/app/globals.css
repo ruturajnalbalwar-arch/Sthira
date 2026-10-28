@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
+/*
+ * Semantic colour tokens. Every text/background pair below was checked for WCAG AA
+ * (>= 4.5:1 text, >= 3:1 UI borders) in both themes. Components use the token names
+ * (bg-surface, text-muted, ...), never raw hex.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg: #f7f7f4;
+  --surface: #ffffff;
+  --text: #1a1f1e;
+  --muted: #4a5553;
+  --border: #d5d9d6;
+  --border-strong: #8a9592;
+  --primary: #0f6e66;
+  --primary-hover: #0b5852;
+  --on-primary: #ffffff;
+  --danger: #b42318;
+  --on-danger: #ffffff;
+  --warn: #7a4f00;
+  --warn-bg: #fff4d6;
+  --success: #146c43;
+  --success-bg: #e6f4ec;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #0f1413;
+    --surface: #172020;
+    --text: #e8ecea;
+    --muted: #a9b4b1;
+    --border: #2c3836;
+    --border-strong: #5e6d6a;
+    --primary: #4fc1b5;
+    --primary-hover: #6fd0c5;
+    --on-primary: #04201d;
+    --danger: #f97066;
+    --on-danger: #1a0503;
+    --warn: #f5b83d;
+    --warn-bg: #2a2210;
+    --success: #5ccb8f;
+    --success-bg: #12261b;
   }
 }
 
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-danger: var(--danger);
+  --color-on-danger: var(--on-danger);
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  /* System font stack: nothing to download on a slow venue network. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, monospace;
+}
+
+html {
+  color-scheme: light dark;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
