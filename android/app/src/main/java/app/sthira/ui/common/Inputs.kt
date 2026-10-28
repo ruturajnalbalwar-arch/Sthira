@@ -1,5 +1,6 @@
 package app.sthira.ui.common
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,32 +10,42 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.error
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
+import app.sthira.ui.theme.SthiraType
 
 @Composable
 fun FieldError(error: String?) {
-    if (error != null) Text(error, color = Sthira.colors.danger, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+    if (error != null) Text(error, color = Sthira.colors.danger, style = SthiraType.label)
 }
 
-/** A labelled group of large, single-choice buttons (TalkBack reads them as radio buttons). */
+/**
+ * A labelled group of single-choice chips (TalkBack reads them as radio buttons). The selected
+ * chip shows a check mark, so the state never depends on colour alone.
+ */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun <T> ChoiceGroup(
@@ -46,33 +57,46 @@ fun <T> ChoiceGroup(
     error: String? = null,
     help: String? = null,
 ) {
-    val c = Sthira.colors
-    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        Text(label, fontWeight = FontWeight.SemiBold, color = c.text, fontSize = 16.sp)
-        if (help != null) Muted(help, size = 14)
+    Column(verticalArrangement = Arrangement.spacedBy(Space.s)) {
+        Text(label, style = SthiraType.titleSmall, color = Sthira.colors.text)
+        if (help != null) Muted(help)
         FlowRow(
             Modifier.selectableGroup().semantics { if (error != null) error(error) },
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(Space.s),
+            verticalArrangement = Arrangement.spacedBy(Space.s),
         ) {
-            options.forEach { option ->
-                val isSelected = option == selected
-                Surface(
-                    shape = CardShape,
-                    color = if (isSelected) c.primary else c.surface,
-                    contentColor = if (isSelected) c.onPrimary else c.text,
-                    border = BorderStroke(if (isSelected) 2.dp else 1.dp, if (error != null) c.danger else c.borderStrong),
-                    modifier = Modifier
-                        .heightIn(min = MinTarget)
-                        .selectable(selected = isSelected, role = Role.RadioButton, onClick = { onSelect(option) }),
-                ) {
-                    Row(Modifier.heightIn(min = MinTarget).padding(horizontal = 14.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Text(text(option), fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
-                    }
-                }
-            }
+            options.forEach { option -> ChoiceChip(text(option), option == selected, error != null) { onSelect(option) } }
         }
         FieldError(error)
+    }
+}
+
+@Composable
+private fun ChoiceChip(label: String, isSelected: Boolean, hasError: Boolean, onClick: () -> Unit) {
+    val c = Sthira.colors
+    val bg by animateColorAsState(if (isSelected) c.primary else c.surface, Sthira.motion(), label = "chipBg")
+    val outline = when {
+        hasError -> c.danger
+        isSelected -> c.primary
+        else -> c.muted
+    }
+    Surface(
+        shape = CardShape,
+        color = bg,
+        contentColor = if (isSelected) c.onPrimary else c.text,
+        border = BorderStroke(1.dp, outline),
+        modifier = Modifier
+            .heightIn(min = MinTarget)
+            .selectable(selected = isSelected, role = Role.RadioButton, onClick = onClick),
+    ) {
+        Row(
+            Modifier.heightIn(min = MinTarget).padding(horizontal = 14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            if (isSelected) Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(18.dp))
+            Text(label, style = SthiraType.label.copy(fontSize = SthiraType.body.fontSize))
+        }
     }
 }
 
@@ -86,23 +110,30 @@ fun LabeledField(
     number: Boolean = false,
     singleLine: Boolean = true,
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        OutlinedTextField(
-            value = value,
-            onValueChange = onChange,
-            label = { Text(label) },
-            isError = error != null,
-            singleLine = singleLine,
-            keyboardOptions = KeyboardOptions(keyboardType = if (number) KeyboardType.Decimal else KeyboardType.Text),
-            supportingText = help?.let { { Text(it) } },
-            modifier = Modifier.fillMaxWidth().semantics { if (error != null) error(error) },
-        )
-        FieldError(error)
-    }
+    val c = Sthira.colors
+    OutlinedTextField(
+        value = value,
+        onValueChange = onChange,
+        label = { Text(label) },
+        isError = error != null,
+        singleLine = singleLine,
+        textStyle = SthiraType.body,
+        keyboardOptions = KeyboardOptions(keyboardType = if (number) KeyboardType.Decimal else KeyboardType.Text),
+        supportingText = (error ?: help)?.let { { Text(it, style = SthiraType.label) } },
+        colors = OutlinedTextFieldDefaults.colors(
+            unfocusedBorderColor = c.muted, focusedBorderColor = c.primary,
+            unfocusedLabelColor = c.muted, focusedLabelColor = c.primary,
+            unfocusedSupportingTextColor = c.muted, focusedSupportingTextColor = c.muted,
+            errorBorderColor = c.danger, errorLabelColor = c.danger, errorSupportingTextColor = c.danger,
+            focusedTextColor = c.text, unfocusedTextColor = c.text, cursorColor = c.primary,
+        ),
+        modifier = Modifier.fillMaxWidth().semantics { if (error != null) error(error) },
+    )
 }
 
 @Composable
 fun CheckRow(text: String, checked: Boolean, onChange: (Boolean) -> Unit, error: String? = null) {
+    val c = Sthira.colors
     Column {
         Row(
             Modifier
@@ -112,8 +143,11 @@ fun CheckRow(text: String, checked: Boolean, onChange: (Boolean) -> Unit, error:
                 .semantics { if (error != null) error(error) },
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Checkbox(checked = checked, onCheckedChange = null)
-            Text(text, Modifier.padding(start = 8.dp), color = Sthira.colors.text, fontSize = 16.sp)
+            Checkbox(
+                checked = checked, onCheckedChange = null,
+                colors = CheckboxDefaults.colors(checkedColor = c.primary, uncheckedColor = c.muted, checkmarkColor = c.onPrimary),
+            )
+            Text(text, Modifier.padding(start = 12.dp), color = c.text, style = SthiraType.body)
         }
         FieldError(error)
     }

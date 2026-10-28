@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import app.sthira.ui.common.Body
 import app.sthira.ui.common.Heading
+import app.sthira.ui.common.LinkButton
 import app.sthira.ui.common.Muted
 import app.sthira.ui.common.ScreenScaffold
 
@@ -29,6 +30,8 @@ val PRIVACY = LegalDoc(
                     "details, and the app has no internet permission at all.",
                 "Video is never saved. When you choose to save a landmark recording, it is kept in Sthira's private storage " +
                     "on this phone. It leaves the app only when you tap Export and pick where to save it, and Delete removes it.",
+                "The pose library (Google MediaPipe) contains code that tries to send anonymous performance statistics to " +
+                    "Google. The app has no internet permission, so Android blocks it and nothing is sent.",
                 "Screenshots and screen recording are blocked while Sthira is open, and the recent-apps preview is hidden.",
             ),
         ),
@@ -96,7 +99,7 @@ val TERMS = LegalDoc(
 )
 
 @Composable
-fun LegalScreen(doc: LegalDoc, onBack: () -> Unit) {
+fun LegalScreen(doc: LegalDoc, onBack: () -> Unit, onLicences: (() -> Unit)? = null) {
     ScreenScaffold(doc.title, onBack) {
         Muted("Last updated ${doc.updated}")
         Body(doc.intro, size = 18)
@@ -106,5 +109,6 @@ fun LegalScreen(doc: LegalDoc, onBack: () -> Unit) {
                 section.body.forEach { Body(it) }
             }
         }
+        if (onLicences != null) LinkButton("Open-source licences", onLicences)
     }
 }

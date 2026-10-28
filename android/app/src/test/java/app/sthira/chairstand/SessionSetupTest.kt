@@ -47,4 +47,22 @@ class SessionSetupTest {
         assertEquals("living room", meta?.room)
         assertEquals(250.0, meta?.cameraDistanceCm ?: 0.0, 0.0)
     }
+
+    @Test
+    fun `blockers list what is missing in form order and clear when complete`() {
+        assertEquals(
+            listOf("a participant code like P07", "an age band", "sex (or Not recorded)"),
+            SessionSetup.blockers(SetupForm()),
+        )
+        assertEquals("To continue, add: an age band.", SessionSetup.blockerSentence(minimal.copy(ageBand = null)))
+        assertTrue(SessionSetup.blockers(minimal).isEmpty())
+        assertNull(SessionSetup.blockerSentence(minimal))
+    }
+
+    @Test
+    fun `inline errors appear only for fields that hold something invalid`() {
+        assertTrue(SessionSetup.inlineErrors(SetupForm()).isEmpty())
+        val typed = SessionSetup.inlineErrors(SetupForm(participantCode = "Asha", saveRecording = true, cameraHeightCm = "abc"))
+        assertEquals(setOf(SetupField.ParticipantCode, SetupField.CameraHeight), typed.keys)
+    }
 }

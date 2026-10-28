@@ -88,6 +88,47 @@ object SessionSetup {
         return SetupResult.Ok(Session(code, band, sex, if (form.saveRecording) recordingMeta(code, band, form) else null))
     }
 
+    /** Short names of what is still missing, in form order; empty when Continue may be pressed. */
+    fun blockers(form: SetupForm): List<String> {
+        val errors = (validate(form) as? SetupResult.Invalid)?.errors ?: return emptyList()
+        return SetupField.entries.filter { it in errors }.map { BLOCKER_NAMES.getValue(it) }
+    }
+
+    /** "To continue, add ..." line under the disabled button, or null when the form is complete. */
+    fun blockerSentence(form: SetupForm): String? {
+        val missing = blockers(form)
+        return if (missing.isEmpty()) null else "To continue, add: ${missing.joinToString(", ")}."
+    }
+
+    /**
+     * Errors shown inline while typing: only for fields that already hold something invalid, so an
+     * untouched form is not covered in red. Missing choices are listed by [blockers] instead.
+     */
+    fun inlineErrors(form: SetupForm): Map<SetupField, String> {
+        val all = (validate(form) as? SetupResult.Invalid)?.errors ?: return emptyMap()
+        val typed = buildSet {
+            if (form.participantCode.isNotBlank()) add(SetupField.ParticipantCode)
+            if (form.cameraHeightCm.isNotBlank()) add(SetupField.CameraHeight)
+            if (form.cameraDistanceCm.isNotBlank()) add(SetupField.CameraDistance)
+            if (form.room.length > MAX_ROOM) add(SetupField.Room)
+            if (form.notes.isNotBlank()) add(SetupField.Notes)
+        }
+        return all.filterKeys { it in typed }
+    }
+
+    private val BLOCKER_NAMES = mapOf(
+        SetupField.ParticipantCode to "a participant code like P07",
+        SetupField.AgeBand to "an age band",
+        SetupField.Sex to "sex (or Not recorded)",
+        SetupField.Clothing to "clothing",
+        SetupField.ViewAngle to "camera angle",
+        SetupField.CameraHeight to "camera height",
+        SetupField.CameraDistance to "camera distance",
+        SetupField.Room to "the room",
+        SetupField.Notes to "shorter notes",
+        SetupField.Consent to "consent confirmation",
+    )
+
     private fun positive(raw: String): Double? = raw.trim().toDoubleOrNull()?.takeIf { it.isFinite() && it > 0 }
 
     private fun recordingErrors(form: SetupForm): Map<SetupField, String> = buildMap {

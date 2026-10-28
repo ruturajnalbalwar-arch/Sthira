@@ -2,6 +2,14 @@ package app.sthira.chairstand
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.heading
+import app.sthira.ui.common.Glass
+import app.sthira.ui.theme.DisplaySize
+import app.sthira.ui.theme.Space
+import app.sthira.ui.theme.SthiraType
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,25 +46,32 @@ import app.sthira.ui.common.Muted
 import app.sthira.ui.common.Tone
 import app.sthira.ui.theme.Sthira
 
+/**
+ * The finished run, in reading order: the big number, then the CDC comparison sentence, then the
+ * attempts that did not count, then the per-attempt chips and the reference. Plain surface, not
+ * glass: result numbers are content. "Run again" lives in the bottom action bar.
+ */
 @Composable
-fun ResultCard(result: ResultView, durationS: Double, normsNote: String?, onRunAgain: () -> Unit) {
-    Banner(BannerKind.Success) {
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            Heading("Result", size = 22)
+fun ResultCard(result: ResultView, durationS: Double, normsNote: String?) {
+    Surface(
+        color = Sthira.colors.surface, contentColor = Sthira.colors.text, shape = Glass.CardShape,
+        border = BorderStroke(1.dp, Sthira.colors.border), modifier = Modifier.fillMaxWidth(),
+    ) {
+        Column(Modifier.padding(Space.m), verticalArrangement = Arrangement.spacedBy(Space.m)) {
+            Heading("Result", size = 20)
             val summary = result.summary
             if (summary == null) {
-                Body(result.noCount ?: ChairStandResults.NO_COUNT_BEFORE_GO, size = 18, bold = true)
-            } else {
-                Score(summary, durationS)
-                RepChips(summary.events)
-                Rejected(summary)
-                result.verdict?.let { Comparison(it) }
-                Muted(
-                    "Reference: $CDC_CITATION. ${normsNote ?: "US reference values."} Shown for the physiotherapist to " +
-                        "interpret; Sthira does not diagnose or predict falls.",
-                )
+                Body(result.noCount ?: ChairStandResults.NO_COUNT_BEFORE_GO, size = 18)
+                return@Column
             }
-            ActionButton("Run again", onRunAgain, tone = Tone.Secondary)
+            Score(summary, durationS)
+            result.verdict?.let { Comparison(it) }
+            Rejected(summary)
+            RepChips(summary.events)
+            Muted(
+                "Reference: $CDC_CITATION. ${normsNote ?: "US reference values."} For the physiotherapist to " +
+                    "interpret; Sthira does not diagnose or predict falls.",
+            )
         }
     }
 }
@@ -64,25 +79,32 @@ fun ResultCard(result: ResultView, durationS: Double, normsNote: String?, onRunA
 @Composable
 private fun Score(summary: ChairStandSummary, durationS: Double) {
     val word = if (summary.full == 1) "stand" else "stands"
-    val tail = if (summary.windowComplete) "in ${durationS.toInt()} s" else ", test stopped early: not a CDC score"
-    Row(verticalAlignment = Alignment.Bottom, modifier = Modifier.semantics(mergeDescendants = true) { }) {
-        Text("${summary.full}", fontSize = 72.sp, lineHeight = 76.sp, fontWeight = FontWeight.Black, color = Sthira.colors.text)
-        Text(" full $word $tail", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Sthira.colors.text, modifier = Modifier.padding(bottom = 12.dp))
+    val size = with(LocalDensity.current) { DisplaySize.result.toSp() }
+    Column(Modifier.semantics(mergeDescendants = true) { }) {
+        Row(verticalAlignment = Alignment.Bottom) {
+            Text("${summary.full}", style = SthiraType.numeric.copy(fontSize = size, lineHeight = size), color = Sthira.colors.text)
+            Text(" full $word", style = SthiraType.title, color = Sthira.colors.text, modifier = Modifier.padding(bottom = 14.dp))
+        }
+        if (summary.windowComplete) {
+            Muted("in ${durationS.toInt()} s")
+        } else {
+            Text("Test stopped early: not a CDC score", style = SthiraType.titleSmall, color = Sthira.colors.warn)
+        }
     }
 }
 
 @Composable
 private fun Rejected(summary: ChairStandSummary) {
-    Text("Not counted", fontWeight = FontWeight.Bold, color = Sthira.colors.text, fontSize = 18.sp)
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.fillMaxWidth()) {
-        listOf("Half stands" to summary.half, "Arms used" to summary.armAssisted, "Unclear on camera" to summary.uncertain).forEach { (term, n) ->
-            Surface(
-                color = Sthira.colors.bg, shape = CardShape,
-                modifier = Modifier.weight(1f).semantics(mergeDescendants = true) { contentDescription = "$term: $n" },
-            ) {
-                Column(Modifier.padding(10.dp)) {
-                    Text(term, fontSize = 13.sp, color = Sthira.colors.muted)
-                    Text("$n", fontSize = 26.sp, fontWeight = FontWeight.Bold, color = Sthira.colors.text)
+    Column(verticalArrangement = Arrangement.spacedBy(Space.s)) {
+        Text("Not counted", style = SthiraType.titleSmall, color = Sthira.colors.text, modifier = Modifier.semantics { heading() })
+        Row(horizontalArrangement = Arrangement.spacedBy(Space.s), modifier = Modifier.fillMaxWidth()) {
+            listOf("Half stands" to summary.half, "Arms used" to summary.armAssisted, "Unclear" to summary.uncertain).forEach { (term, n) ->
+                Column(
+                    Modifier.weight(1f).background(Sthira.colors.bg, CardShape).padding(12.dp)
+                        .semantics(mergeDescendants = true) { contentDescription = "$term: $n" },
+                ) {
+                    Text("$n", style = SthiraType.title, color = Sthira.colors.text)
+                    Text(term, style = SthiraType.label, color = Sthira.colors.muted)
                 }
             }
         }
@@ -96,10 +118,9 @@ private fun Comparison(verdict: Verdict) {
             BannerText("No CDC comparison for this run")
             BulletList(verdict.reasons)
         }
-        is Verdict.Compared -> Banner(BannerKind.Plain) {
-            BannerText("Next to the CDC reference", color = Sthira.colors.text)
+        is Verdict.Compared -> Column(verticalArrangement = Arrangement.spacedBy(Space.xs)) {
             val words = if (verdict.belowAverage) "Below the CDC average for this age and sex" else "At or above the CDC average for this age and sex"
-            Body(words, size = 18, bold = true)
+            Text(words, style = SthiraType.title, color = Sthira.colors.text)
             Body(verdict.sentence)
         }
     }
