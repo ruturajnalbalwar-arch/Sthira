@@ -9,6 +9,10 @@ import { parseSessionForm, type SessionField, type SessionFieldErrors, type Sess
 type Props = {
   initialValues: SessionFormValues;
   onSubmit: (meta: SessionMeta) => void;
+  /** Limits the trial list (e.g. the count screen runs only the 30 s chair stand). Defaults to every trial. */
+  trialOptions?: Readonly<Record<string, string>>;
+  /** Extra fields shown before the consent box; they are not part of the recording metadata. */
+  extra?: ReactNode;
 };
 
 const INPUT =
@@ -97,7 +101,7 @@ function ConsentField({ checked, error, onChange }: { checked: boolean; error?: 
 
 const MEASURE = { type: "number", inputMode: "decimal", min: 1, step: "any" } as const;
 
-export function SessionForm({ initialValues, onSubmit }: Props) {
+export function SessionForm({ initialValues, onSubmit, trialOptions = TRIAL_LABELS, extra }: Props) {
   const [values, setValues] = useState<SessionFormValues>(initialValues);
   const [errors, setErrors] = useState<SessionFieldErrors>({});
 
@@ -124,7 +128,7 @@ export function SessionForm({ initialValues, onSubmit }: Props) {
       </h2>
       <div className="grid gap-5 sm:grid-cols-2">
         <TextField {...bind("participantCode")} label="Participant code" helper="P + 2-3 digits, e.g. P07. Never a name." autoComplete="off" autoCapitalize="characters" spellCheck={false} />
-        <SelectField {...bind("trial")} label="Trial" options={TRIAL_LABELS} />
+        <SelectField {...bind("trial")} label="Trial" options={trialOptions} />
         <SelectField {...bind("clothing")} label="Clothing" options={CLOTHING_LABELS} />
         <SelectField {...bind("ageBand")} label="Age band" options={AGE_BAND_LABELS} />
         <SelectField {...bind("viewAngle")} label="Camera angle" options={VIEW_ANGLE_LABELS} />
@@ -133,6 +137,7 @@ export function SessionForm({ initialValues, onSubmit }: Props) {
         <TextField {...bind("cameraDistanceCm")} label="Camera distance (cm)" helper="Lens to chair front. Measure with a tape." {...MEASURE} />
       </div>
       <TextField {...bind("notes")} label="Notes (optional)" helper="Redo, problems, 'no armchair'. No names." autoComplete="off" maxLength={500} />
+      {extra}
       <ConsentField checked={values.consentConfirmed} error={errors.consentConfirmed} onChange={set("consentConfirmed")} />
       <Button type="submit" className="self-start">
         Continue to camera
