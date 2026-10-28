@@ -22,6 +22,8 @@ venv/
 *.mov
 *.webm
 recordings/
+# Pilot landmark/label JSON stays on the team laptop (consent form)
+pilot-data/
 
 # OS / editor
 .DS_Store
