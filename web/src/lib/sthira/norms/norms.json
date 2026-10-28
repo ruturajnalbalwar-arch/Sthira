@@ -1,0 +1,107 @@
+{
+  "note": "US reference values (CDC STEADI). Not validated for Indian older adults.",
+  "source_note": "Every value below was read from the primary CDC STEADI assessment PDFs (2017 sheets, hosted on cdc.gov), retrieved 2026-10-22. The 30-second chair stand table was also checked against a rendered image of the page. No state-hosted copies were used. These are US reference values for the physiotherapist to interpret. They are not diagnostic and do not predict falls.",
+  "retrieved": "2026-10-22",
+  "chairStand30s": {
+    "unit": "stands",
+    "meaning": "Number of full stands in 30 seconds with arms crossed on the chest. A score below the cut-off for the person's age band and sex is a 'below average score', which the CDC sheet says 'indicates a risk for falls'.",
+    "protocol": {
+      "durationSeconds": 30,
+      "seatHeightInches": 17,
+      "armsUsedRule": "If the patient must use his/her arms to stand, stop the test. Record '0' for the number and score.",
+      "endOfWindowRule": "If the patient is over halfway to a standing position when 30 seconds have elapsed, count it as a stand.",
+      "source": {
+        "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf",
+        "title": "STEADI Assessment: 30-Second Chair Stand",
+        "publisher": "CDC National Center for Injury Prevention and Control",
+        "year": 2017,
+        "page": 1
+      }
+    },
+    "entries": [
+      { "sex": "male", "ageMin": 60, "ageMax": 64, "belowAverageIfLessThan": 14, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "male", "ageMin": 65, "ageMax": 69, "belowAverageIfLessThan": 12, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "male", "ageMin": 70, "ageMax": 74, "belowAverageIfLessThan": 12, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "male", "ageMin": 75, "ageMax": 79, "belowAverageIfLessThan": 11, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "male", "ageMin": 80, "ageMax": 84, "belowAverageIfLessThan": 10, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "male", "ageMin": 85, "ageMax": 89, "belowAverageIfLessThan": 8, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "male", "ageMin": 90, "ageMax": 94, "belowAverageIfLessThan": 7, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "female", "ageMin": 60, "ageMax": 64, "belowAverageIfLessThan": 12, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "female", "ageMin": 65, "ageMax": 69, "belowAverageIfLessThan": 11, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "female", "ageMin": 70, "ageMax": 74, "belowAverageIfLessThan": 10, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "female", "ageMin": 75, "ageMax": 79, "belowAverageIfLessThan": 10, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "female", "ageMin": 80, "ageMax": 84, "belowAverageIfLessThan": 9, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "female", "ageMin": 85, "ageMax": 89, "belowAverageIfLessThan": 8, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } },
+      { "sex": "female", "ageMin": 90, "ageMax": 94, "belowAverageIfLessThan": 4, "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf", "title": "STEADI Assessment: 30-Second Chair Stand", "page": 1 } }
+    ]
+  },
+  "tug": {
+    "unit": "seconds",
+    "entries": [
+      {
+        "sex": "any",
+        "population": "older adult (no age band given on the sheet)",
+        "atRiskIfAtLeast": 12,
+        "meaning": "Verbatim: 'An older adult who takes >=12 seconds to complete the TUG is at risk for falling.' The sheet does not use the words 'further assessment'.",
+        "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-tug-508.pdf", "title": "STEADI Assessment: Timed Up & Go (TUG)", "page": 1 }
+      }
+    ],
+    "protocol": {
+      "walkDistanceMeters": 3,
+      "walkDistanceFeet": 10,
+      "timingRule": "On the word 'Go,' begin timing. Stop timing after patient sits back down.",
+      "chair": "The sheet says 'sit back in a standard arm chair'.",
+      "footwearAndAids": "Patients wear their regular footwear and can use a walking aid, if needed.",
+      "source": {
+        "url": "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-tug-508.pdf",
+        "title": "STEADI Assessment: Timed Up & Go (TUG)",
+        "publisher": "CDC National Center for Injury Prevention and Control",
+        "year": 2017,
+        "page": 1
+      }
+    }
+  },
+  "balance4Stage": {
+    "unit": "seconds",
+    "stages": [
+      { "stage": 1, "name": "feet side-by-side", "cdcText": "Stand with your feet side-by-side." },
+      { "stage": 2, "name": "semi-tandem", "cdcText": "Place the instep of one foot so it is touching the big toe of the other foot." },
+      { "stage": 3, "name": "tandem", "cdcText": "Tandem stand: Place one foot in front of the other, heel touching toe." },
+      { "stage": 4, "name": "single leg", "cdcText": "Stand on one foot." }
+    ],
+    "protocol": {
+      "stageDurationSeconds": 10,
+      "progressionRule": "If the patient can hold a position for 10 seconds without moving their feet or needing support, go on to the next position. If not, STOP the test.",
+      "allowedMovement": "You can hold your arms out, or move your body to help keep your balance, but don't move your feet.",
+      "otherRules": "Patients should not use an assistive device (cane or walker) and they should keep their eyes open.",
+      "source": {
+        "url": "https://www.cdc.gov/steadi/media/pdfs/STEADI-Assessment-4Stage-508.pdf",
+        "title": "STEADI Assessment: The 4-Stage Balance Test",
+        "publisher": "CDC National Center for Injury Prevention and Control",
+        "year": 2017,
+        "pages": [1, 2]
+      }
+    },
+    "entries": [
+      {
+        "sex": "any",
+        "population": "older adult (no age band given on the sheet)",
+        "stage": 3,
+        "increasedRiskIfHoldLessThan": 10,
+        "meaning": "Verbatim: 'An older adult who cannot hold the tandem stand for at least 10 seconds is at increased risk of falling.'",
+        "source": { "url": "https://www.cdc.gov/steadi/media/pdfs/STEADI-Assessment-4Stage-508.pdf", "title": "STEADI Assessment: The 4-Stage Balance Test", "page": 1 }
+      }
+    ]
+  },
+  "unverified": [],
+  "notProvidedBySource": [
+    "Chair-stand cut-offs for ages below 60 or above 94: the CDC table covers 60-64 to 90-94 only.",
+    "TUG cut-offs by age band or sex: the CDC sheet gives one value (>=12 s) for older adults.",
+    "Balance cut-offs for stages 1, 2 and 4: the CDC sheet gives a risk statement for the tandem stage only.",
+    "Any Indian reference values: none exist in the CDC sources."
+  ],
+  "urlNotes": [
+    "The 4-stage balance PDF is at STEADI-Assessment-4Stage-508.pdf (found via search). The URL pattern steadi-assessment-4stagebalance-508.pdf returned 404.",
+    "Direct curl downloads from cdc.gov returned 403 (bot block). The PDFs were fetched through a web fetch tool and their text was extracted locally."
+  ]
+}
