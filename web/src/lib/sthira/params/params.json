@@ -1,0 +1,27 @@
+{
+  "version": "1",
+  "generatedAt": "2026-10-22T00:00:00Z",
+  "params": {
+    "chairStandDurationS": {
+      "value": 30,
+      "class": "protocol-constant",
+      "unit": "s",
+      "source": "CDC STEADI 30-Second Chair Stand",
+      "date": "2026-10-22"
+    },
+    "calibrationSitS": {
+      "value": 5,
+      "class": "protocol-constant",
+      "unit": "s",
+      "source": "Sthira protocol v1: 5 s per posture, enough frames at >=10 fps for a stable median",
+      "date": "2026-10-22"
+    },
+    "calibrationStandS": {
+      "value": 5,
+      "class": "protocol-constant",
+      "unit": "s",
+      "source": "Sthira protocol v1: 5 s per posture, enough frames at >=10 fps for a stable median",
+      "date": "2026-10-22"
+    }
+  }
+}
