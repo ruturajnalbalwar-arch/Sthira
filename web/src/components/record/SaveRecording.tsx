@@ -17,6 +17,8 @@ type Props = {
   result: AssembleResult;
   onFileSaved: (kind: SavedFile) => void;
   onNext: () => void;
+  /** Text of the button that leaves this review (and of its unsaved-files prompt). */
+  nextLabel?: string;
 };
 
 type SaveState = "idle" | "saving" | SaveOutcome | "failed";
@@ -89,7 +91,7 @@ function Problems({ capture, result }: Pick<Props, "capture" | "result">) {
   );
 }
 
-export function SaveRecording({ capture, result, onFileSaved, onNext }: Props) {
+export function SaveRecording({ capture, result, onFileSaved, onNext, nextLabel = "Record the next trial" }: Props) {
   const [states, setStates] = useState<Record<SavedFile, SaveState>>({ landmarks: "idle", video: "idle" });
   const headingRef = useRef<HTMLHeadingElement>(null);
   const meta = result.ok ? result.recording.meta : result.raw.meta;
@@ -122,7 +124,7 @@ export function SaveRecording({ capture, result, onFileSaved, onNext }: Props) {
 
   const handleNext = () => {
     const unsaved = KINDS.filter((kind) => !isDone(states[kind]));
-    if (unsaved.length > 0 && !window.confirm(`Not saved yet: ${unsaved.join(" and ")}. Discard and record the next trial?`)) return;
+    if (unsaved.length > 0 && !window.confirm(`Not saved yet: ${unsaved.join(" and ")}. Discard and ${nextLabel.toLowerCase()}?`)) return;
     onNext();
   };
 
@@ -159,7 +161,7 @@ export function SaveRecording({ capture, result, onFileSaved, onNext }: Props) {
         </div>
       ))}
       <Button variant={variant("next")} onClick={handleNext} className="self-start">
-        Record the next trial
+        {nextLabel}
       </Button>
     </section>
   );

@@ -3,6 +3,8 @@ import Link from "next/link";
 const linkClass =
   "inline-flex min-h-11 items-center justify-center rounded-lg px-5 text-base font-semibold transition-colors duration-200";
 
+const secondaryClass = "border border-border-strong bg-surface hover:bg-bg";
+
 export default function Home() {
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col justify-center gap-8 px-4 py-12">
@@ -17,13 +19,18 @@ export default function Home() {
           CDC reference norms for the physiotherapist to interpret; Sthira does not diagnose.
         </p>
       </header>
-      <nav aria-label="Tools" className="flex flex-col gap-3 sm:flex-row">
-        <Link href="/record" className={`${linkClass} bg-primary text-on-primary hover:bg-primary-hover`}>
-          Record a pilot session
+      <nav aria-label="Tools" className="flex flex-col gap-3">
+        <Link href="/count" className={`${linkClass} min-h-14 bg-primary text-lg text-on-primary hover:bg-primary-hover sm:self-start`}>
+          Run a chair-stand test
         </Link>
-        <Link href="/label" className={`${linkClass} border border-border-strong bg-surface hover:bg-bg`}>
-          Label recordings
-        </Link>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Link href="/record" className={`${linkClass} ${secondaryClass}`}>
+            Record a pilot session
+          </Link>
+          <Link href="/label" className={`${linkClass} ${secondaryClass}`}>
+            Label recordings
+          </Link>
+        </div>
       </nav>
     </main>
   );
