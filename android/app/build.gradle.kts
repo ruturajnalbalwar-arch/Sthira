@@ -39,7 +39,10 @@ android {
     }
 
     buildTypes {
+        // Debug builds may be screenshotted for UI review over adb; release builds always block capture (FLAG_SECURE).
+        debug { buildConfigField("boolean", "ALLOW_SCREEN_CAPTURE", "true") }
         release {
+            buildConfigField("boolean", "ALLOW_SCREEN_CAPTURE", "false")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -54,7 +57,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions { jvmTarget = "17" }
-    buildFeatures { compose = true }
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
     composeOptions { kotlinCompilerExtensionVersion = "1.5.8" }
     androidResources { noCompress += "task" }
     // Unit tests read the shared engine fixtures (test-only; nothing is packaged).
@@ -91,6 +97,10 @@ dependencies {
     implementation("androidx.camera:camera-view:$camerax")
 
     implementation("com.google.mediapipe:tasks-vision:1.1.1")
+
+    // Debug only: @Preview annotations and the preview renderer for the src/debug previews (font scale 200%).
+    debugImplementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
 
     testImplementation("junit:junit:4.13.2")
 }
