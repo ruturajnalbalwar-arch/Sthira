@@ -10,6 +10,7 @@ import androidx.camera.core.resolutionselector.ResolutionSelector
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -57,6 +58,7 @@ fun CameraPane(
     onSample: (PoseSample) -> Unit,
     onStatus: (CameraStatus) -> Unit,
     modifier: Modifier = Modifier,
+    overlays: @Composable BoxScope.() -> Unit = {},
 ) {
     val context = LocalContext.current
     val owner = LocalLifecycleOwner.current
@@ -83,6 +85,7 @@ fun CameraPane(
     ) {
         AndroidView(factory = { previewView }, modifier = Modifier.fillMaxSize())
         PoseOverlay(overlay, Modifier.fillMaxSize())
+        overlays()
     }
 }
 

@@ -21,6 +21,7 @@ data class SthiraColors(
     val warnBg: Color,
     val success: Color,
     val successBg: Color,
+    val isDark: Boolean = false,
 )
 
 val LightTokens = SthiraColors(
@@ -55,6 +56,7 @@ val DarkTokens = SthiraColors(
     warnBg = Color(0xFF2A2210),
     success = Color(0xFF5CCB8F),
     successBg = Color(0xFF12261B),
+    isDark = true,
 )
 
 val LocalSthiraColors = staticCompositionLocalOf { LightTokens }

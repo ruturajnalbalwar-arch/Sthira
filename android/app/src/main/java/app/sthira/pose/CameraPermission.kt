@@ -49,7 +49,10 @@ private fun hasCamera(context: Context): Boolean =
  * needed; after a permanent denial it offers the app's system settings page.
  */
 @Composable
-fun CameraPermissionGate(content: @Composable () -> Unit) {
+fun CameraPermissionGate(
+    denied: @Composable (card: @Composable () -> Unit) -> Unit = { it() },
+    content: @Composable () -> Unit,
+) {
     val context = LocalContext.current
     var state by remember { mutableStateOf(if (hasCamera(context)) Permission.Granted else Permission.NotAsked) }
     val launcher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
@@ -73,7 +76,7 @@ fun CameraPermissionGate(content: @Composable () -> Unit) {
         content()
         return
     }
-    PermissionCard(state, onAsk = { launcher.launch(Manifest.permission.CAMERA) }, onSettings = { openAppSettings(context) })
+    denied { PermissionCard(state, onAsk = { launcher.launch(Manifest.permission.CAMERA) }, onSettings = { openAppSettings(context) }) }
 }
 
 private fun openAppSettings(context: Context) {

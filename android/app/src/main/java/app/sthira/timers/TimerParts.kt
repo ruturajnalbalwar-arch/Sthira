@@ -1,49 +1,63 @@
 package app.sthira.timers
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import app.sthira.engine.timers.BalanceStage
 import app.sthira.engine.timers.CdcSource
 import app.sthira.ui.common.Banner
 import app.sthira.ui.common.BannerKind
 import app.sthira.ui.common.BannerText
-import app.sthira.ui.common.Body
 import app.sthira.ui.common.BulletList
-import app.sthira.ui.common.CardShape
+import app.sthira.ui.common.Glass
 import app.sthira.ui.common.Muted
+import app.sthira.ui.theme.DisplaySize
+import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
+import app.sthira.ui.theme.SthiraType
 import java.util.Locale
 
 fun formatSeconds(seconds: Double): String = String.format(Locale.US, "%.1f s", seconds)
 
-/** The running time, readable across the room. Screen readers get the label only, not every tenth. */
+/** The running time, readable across the room. TalkBack hears the label, not every tenth of a second. */
 @Composable
 fun BigTime(seconds: Double, label: String) {
-    val size = with(LocalDensity.current) { 64.dp.toSp() }
+    val size = with(LocalDensity.current) { DisplaySize.timer.toSp() }
     Surface(
-        color = Sthira.colors.surface, contentColor = Sthira.colors.text, shape = CardShape,
+        color = Sthira.colors.surface, contentColor = Sthira.colors.text, shape = Glass.CardShape,
         border = BorderStroke(1.dp, Sthira.colors.border), modifier = Modifier.fillMaxWidth(),
     ) {
         Column(
-            Modifier.padding(20.dp).clearAndSetSemantics { contentDescription = label },
+            Modifier.padding(vertical = Space.l, horizontal = Space.m).clearAndSetSemantics { contentDescription = label },
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Text(label.uppercase(Locale.US), fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = Sthira.colors.muted)
-            Text(formatSeconds(seconds), fontSize = size, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace)
+            Text(label, style = SthiraType.label, color = Sthira.colors.muted)
+            Text(formatSeconds(seconds), style = SthiraType.numeric.copy(fontSize = size, lineHeight = size))
         }
     }
 }
@@ -56,11 +70,11 @@ fun ResultBanner(meets: Boolean, title: String, content: @Composable () -> Unit)
     }
 }
 
-/** The CDC source line, as plain text: the app is offline, so it shows the reference instead of a link. */
+/** The CDC source line as plain text: the app is offline, so it names the reference instead of linking. */
 @Composable
 fun CdcNote(source: CdcSource) {
     Muted(
-        "Reference values from ${source.title} (${source.url}). US data, not validated for older adults in India. " +
+        "Reference: ${source.title} (${source.url}). US data, not validated for older adults in India. " +
             "For the physiotherapist to interpret; Sthira does not diagnose.",
     )
 }
@@ -73,7 +87,56 @@ fun TimerError(errors: List<String>) {
     }
 }
 
+/** 1-4 stage stepper. Each dot says its state with an icon or number and to TalkBack in words. */
 @Composable
-fun Instructions(text: String) {
-    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) { Body(text) }
+fun StageStepper(stages: List<BalanceStage>, statuses: List<StepStatus>) {
+    val c = Sthira.colors
+    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top) {
+        stages.forEachIndexed { i, stage ->
+            val status = statuses.getOrElse(i) { StepStatus.Upcoming }
+            Column(
+                Modifier.weight(1f).semantics(mergeDescendants = true) {
+                    contentDescription = "Stage ${stage.stage} of ${stages.size}, ${stage.name}: ${status.spoken}"
+                },
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Connector(visible = i > 0, Modifier.weight(1f))
+                    StepDot(stage.stage, status)
+                    Connector(visible = i < stages.lastIndex, Modifier.weight(1f))
+                }
+                Text(
+                    stage.name, style = SthiraType.label, textAlign = TextAlign.Center,
+                    color = if (status == StepStatus.Current) c.text else c.muted,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun Connector(visible: Boolean, modifier: Modifier) {
+    Box(modifier.height(2.dp).background(if (visible) Sthira.colors.border else Color.Transparent))
+}
+
+@Composable
+private fun StepDot(number: Int, status: StepStatus) {
+    val c = Sthira.colors
+    val (fill, fg, ring) = when (status) {
+        StepStatus.Held -> Triple(c.success, c.bg, c.success)
+        StepStatus.Lost -> Triple(c.danger, c.onDanger, c.danger)
+        StepStatus.Current -> Triple(c.primary, c.onPrimary, c.primary)
+        StepStatus.Upcoming, StepStatus.Skipped -> Triple(c.surface, c.muted, c.muted)
+    }
+    Box(
+        Modifier.size(36.dp).background(fill, CircleShape).border(1.dp, ring, CircleShape),
+        contentAlignment = Alignment.Center,
+    ) {
+        when (status) {
+            StepStatus.Held -> Icon(Icons.Filled.Check, contentDescription = null, tint = fg, modifier = Modifier.size(20.dp))
+            StepStatus.Lost -> Icon(Icons.Filled.Close, contentDescription = null, tint = fg, modifier = Modifier.size(20.dp))
+            else -> Text("$number", style = SthiraType.titleSmall, color = fg)
+        }
+    }
 }
