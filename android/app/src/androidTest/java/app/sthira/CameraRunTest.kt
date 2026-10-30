@@ -7,6 +7,8 @@ import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.printToLog
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import app.sthira.chairstand.ChairStandResults
@@ -116,6 +118,13 @@ class CameraRunTest {
         rule.onNode(hasText("This run had capture problems")).assertDoesNotExist()
         rule.shot("e-07-done-untuned")
 
+        // The bottom bar is rebuilt on the ViewModel's background coroutine: retry, and dump the screen if it never shows.
+        try {
+            rule.eventually(5_000) { rule.button("Run again").assertExists() }
+        } catch (e: AssertionError) {
+            rule.onRoot().printToLog("SEMANTICS")
+            throw e
+        }
         rule.tapButton("Run again")
         rule.waitFor(hasText(START))
         rule.onNode(hasText(ChairStandResults.NO_COUNT_NOT_TUNED)).assertDoesNotExist()
@@ -168,7 +177,8 @@ class CameraRunTest {
     fun editSessionReturnsToTheFilledForm() {
         rule.waitLive()
         rule.tapButton("Edit session")
-        rule.field("Participant code").assert(hasText("P07"))
+        // The ViewModel handles this on a background coroutine that waitForIdle() does not track.
+        rule.eventually { rule.field("Participant code").assert(hasText("P07")) }
         rule.button("Continue to camera").assertIsEnabled()
         rule.tapButton("Continue to camera")
         rule.waitLive()
