@@ -103,8 +103,9 @@ fun StageStepper(stages: List<BalanceStage>, statuses: List<StepStatus>) {
                     StepDot(stage.stage, status)
                     Connector(visible = i < stages.lastIndex, Modifier.weight(1f))
                 }
+                // A zero-width space after each hyphen lets "semi-tandem" wrap as "semi- / tandem", never mid-word.
                 Text(
-                    stage.name, style = SthiraType.label, textAlign = TextAlign.Center,
+                    stage.name.replace("-", "-\u200B"), style = SthiraType.label, textAlign = TextAlign.Center,
                     color = if (status == StepStatus.Current) c.text else c.muted,
                 )
             }
