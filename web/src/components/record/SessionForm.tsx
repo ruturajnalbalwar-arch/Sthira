@@ -127,7 +127,7 @@ export function SessionForm({ initialValues, onSubmit, trialOptions = TRIAL_LABE
         1. Session details
       </h2>
       <div className="grid gap-5 sm:grid-cols-2">
-        <TextField {...bind("participantCode")} label="Participant code" helper="P + 2-3 digits, e.g. P07. Never a name." autoComplete="off" autoCapitalize="characters" spellCheck={false} />
+        <TextField {...bind("participantCode")} label="Participant code" helper="Any code you choose, like A11 (letters, digits, - and _). Never a name." autoComplete="off" autoCapitalize="characters" spellCheck={false} />
         <SelectField {...bind("trial")} label="Trial" options={trialOptions} />
         <SelectField {...bind("clothing")} label="Clothing" options={CLOTHING_LABELS} />
         <SelectField {...bind("ageBand")} label="Age band" options={AGE_BAND_LABELS} />

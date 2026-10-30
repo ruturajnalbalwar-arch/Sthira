@@ -35,7 +35,7 @@ fun SetupFormUi(form: SetupForm, onChange: (SetupEdit) -> Unit) {
         Section("Participant") {
             LabeledField(
                 "Participant code", form.participantCode, { onChange { f -> f.copy(participantCode = it.uppercase()) } },
-                error = errors[SetupField.ParticipantCode], help = "A code like P07. Never a name.",
+                error = errors[SetupField.ParticipantCode], help = "Any code you choose, like A11 (letters, digits, - and _). Never a name.",
             )
         }
         Section("Age and sex") {
