@@ -66,7 +66,7 @@ data class ChairStandUiState(
 }
 
 sealed interface ChairStandEvent {
-    data class FormChanged(val form: SetupForm) : ChairStandEvent
+    class FormChanged(val edit: SetupEdit) : ChairStandEvent
     data object Submit : ChairStandEvent
     data object EditSession : ChairStandEvent
     data class Camera(val status: CameraStatus) : ChairStandEvent

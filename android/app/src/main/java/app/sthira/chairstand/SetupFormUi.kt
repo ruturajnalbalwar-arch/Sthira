@@ -21,29 +21,35 @@ import app.sthira.ui.common.LabeledField
 import app.sthira.ui.common.Muted
 import app.sthira.ui.theme.Space
 
+/**
+ * One change to the form, applied by the ViewModel to its latest form. Sending an edit instead of a
+ * whole new form means two changes made before the next recomposition cannot overwrite each other.
+ */
+typealias SetupEdit = (SetupForm) -> SetupForm
+
 /** Participant, age and sex (for the CDC reference) and the optional pilot recording, as three clearly spaced sections. */
 @Composable
-fun SetupFormUi(form: SetupForm, onChange: (SetupForm) -> Unit) {
+fun SetupFormUi(form: SetupForm, onChange: (SetupEdit) -> Unit) {
     val errors = SessionSetup.inlineErrors(form)
     Column(verticalArrangement = Arrangement.spacedBy(Space.l)) {
         Section("Participant") {
             LabeledField(
-                "Participant code", form.participantCode, { onChange(form.copy(participantCode = it.uppercase())) },
+                "Participant code", form.participantCode, { onChange { f -> f.copy(participantCode = it.uppercase()) } },
                 error = errors[SetupField.ParticipantCode], help = "A code like P07. Never a name.",
             )
         }
         Section("Age and sex") {
             ChoiceGroup(
-                "Age band", AgeBand.entries, form.ageBand, { it.label }, { onChange(form.copy(ageBand = it)) },
+                "Age band", AgeBand.entries, form.ageBand, { it.label }, { onChange { f -> f.copy(ageBand = it) } },
                 help = "Adults only. CDC chair-stand values exist for 60-64 to 90-94.",
             )
             ChoiceGroup(
-                "Sex", NormSex.entries, form.sex, { it.label }, { onChange(form.copy(sex = it)) },
+                "Sex", NormSex.entries, form.sex, { it.label }, { onChange { f -> f.copy(sex = it) } },
                 help = "CDC lists separate values for women and men. Used on this screen only; never saved.",
             )
         }
         Section("Pilot recording (optional)") {
-            CheckRow("Save a landmark recording of this run", form.saveRecording, { onChange(form.copy(saveRecording = it)) })
+            CheckRow("Save a landmark recording of this run", form.saveRecording, { onChange { f -> f.copy(saveRecording = it) } })
             AnimatedVisibility(form.saveRecording) { RecordingFields(form, errors, onChange) }
         }
     }
@@ -58,24 +64,24 @@ private fun Section(title: String, content: @Composable () -> Unit) {
 }
 
 @Composable
-private fun RecordingFields(form: SetupForm, errors: Map<SetupField, String>, onChange: (SetupForm) -> Unit) {
+private fun RecordingFields(form: SetupForm, errors: Map<SetupField, String>, onChange: (SetupEdit) -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(Space.m)) {
         Muted("Landmarks and these details only: no video, no name. Kept inside the app until you tap Export.")
-        ChoiceGroup("Clothing", Clothing.entries, form.clothing, { it.label }, { onChange(form.copy(clothing = it)) })
-        ChoiceGroup("Camera angle", ViewAngle.entries, form.viewAngle, { it.label }, { onChange(form.copy(viewAngle = it)) })
+        ChoiceGroup("Clothing", Clothing.entries, form.clothing, { it.label }, { onChange { f -> f.copy(clothing = it) } })
+        ChoiceGroup("Camera angle", ViewAngle.entries, form.viewAngle, { it.label }, { onChange { f -> f.copy(viewAngle = it) } })
         LabeledField(
-            "Camera height (cm, floor to lens)", form.cameraHeightCm, { onChange(form.copy(cameraHeightCm = it)) },
+            "Camera height (cm, floor to lens)", form.cameraHeightCm, { onChange { f -> f.copy(cameraHeightCm = it) } },
             error = errors[SetupField.CameraHeight], number = true,
         )
         LabeledField(
-            "Camera distance (cm, lens to chair front)", form.cameraDistanceCm, { onChange(form.copy(cameraDistanceCm = it)) },
+            "Camera distance (cm, lens to chair front)", form.cameraDistanceCm, { onChange { f -> f.copy(cameraDistanceCm = it) } },
             error = errors[SetupField.CameraDistance], number = true,
         )
-        LabeledField("Room", form.room, { onChange(form.copy(room = it)) }, error = errors[SetupField.Room], help = "e.g. living room")
-        LabeledField("Notes (optional)", form.notes, { onChange(form.copy(notes = it)) }, error = errors[SetupField.Notes], singleLine = false)
+        LabeledField("Room", form.room, { onChange { f -> f.copy(room = it) } }, error = errors[SetupField.Room], help = "e.g. living room")
+        LabeledField("Notes (optional)", form.notes, { onChange { f -> f.copy(notes = it) } }, error = errors[SetupField.Notes], singleLine = false)
         CheckRow(
             "Written consent has been signed by the participant", form.consentConfirmed,
-            { onChange(form.copy(consentConfirmed = it)) },
+            { onChange { f -> f.copy(consentConfirmed = it) } },
         )
     }
 }
