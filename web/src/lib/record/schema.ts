@@ -28,7 +28,9 @@ export { POSE_LANDMARK_COUNT };
 export const MAX_FRAMES = 60 * 60 * 10; // ten minutes at 60 fps
 const MAX_PHASES = 16;
 const MAX_TEXT = 200;
-const MAX_NOTES = 500;
+/** Shared with the session form, so the input stops where validation would. */
+export const MAX_ROOM = 80;
+export const MAX_NOTES = 500;
 /** The code is part of every saved file name, so it is limited to characters that are safe there. Same limit as the labelling tool ids. */
 export const MAX_PARTICIPANT_CODE = 40;
 
@@ -47,7 +49,7 @@ export const sessionMetaSchema = z.object({
   viewAngle: z.enum(VIEW_ANGLES),
   cameraHeightCm: positiveMeasure,
   cameraDistanceCm: positiveMeasure,
-  room: z.string().trim().min(1, "Describe the room, e.g. 'hostel common room'").max(80),
+  room: z.string().trim().min(1, "Describe the room, e.g. 'hostel common room'").max(MAX_ROOM),
   notes: z.string().trim().max(MAX_NOTES).default(""),
   consentConfirmed: z.literal(true, { error: "Written consent must be signed before recording" }),
 });

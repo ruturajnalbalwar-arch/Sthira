@@ -1,49 +1,9 @@
 import Link from "next/link";
 import normsJson from "@/lib/sthira/norms/norms.json";
 import paramsJson from "@/lib/sthira/params/params.json";
+import { testCards, type TestCard } from "@/lib/home/testCards";
 import { readProtocolConstants } from "@/lib/sthira/params/protocol";
 import { readTimerNorms } from "@/lib/timers/norms";
-
-type TestCard = {
-  href: string;
-  title: string;
-  /** What the person being tested does, in everyday words. */
-  task: string;
-  /** How long it takes, read from params.json / norms.json; null when that file did not load. */
-  time: string | null;
-  primary?: boolean;
-};
-
-function testCards(): TestCard[] {
-  const protocol = readProtocolConstants(paramsJson);
-  const timers = readTimerNorms(normsJson);
-  const balance = timers.ok ? timers.norms.balance : null;
-  const tug = timers.ok ? timers.norms.tug : null;
-  return [
-    {
-      href: "/count",
-      title: "Chair stand",
-      task: "Stand up and sit down as many times as you can, arms crossed on the chest.",
-      time: protocol.ok ? `${protocol.constants.chairStandDurationS} seconds` : null,
-      primary: true,
-    },
-    {
-      href: "/balance",
-      title: "Balance",
-      task: "Stand still in four foot positions, each a little harder.",
-      time: balance === null ? null : `${balance.stages.length} × ${balance.stageDurationS} seconds`,
-    },
-    {
-      href: "/tug",
-      title: "Timed Up and Go",
-      task:
-        tug === null
-          ? "Stand up, walk a short way at a normal pace, turn, walk back and sit down."
-          : `Stand up, walk ${tug.walkDistanceMeters} metres at a normal pace, turn, walk back and sit down.`,
-      time: null,
-    },
-  ];
-}
 
 function Card({ card }: { card: TestCard }) {
   const tone = card.primary
@@ -77,7 +37,7 @@ export default function Home() {
       </header>
       <nav aria-label="Tests">
         <ul className="flex flex-col gap-4">
-          {testCards().map((card) => (
+          {testCards(readProtocolConstants(paramsJson), readTimerNorms(normsJson)).map((card) => (
             <Card key={card.href} card={card} />
           ))}
         </ul>

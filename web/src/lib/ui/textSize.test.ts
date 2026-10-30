@@ -20,6 +20,27 @@ describe("textSizeBootScript", () => {
     expect(script).toContain("try");
   });
 
+  it("applies only a stored non-default size, and survives storage that throws", () => {
+    const run = (stored: string | null, throws = false): string | undefined => {
+      const doc = { documentElement: { dataset: {} as Record<string, string> } };
+      const storage = {
+        getItem: () => {
+          if (throws) throw new Error("blocked");
+          return stored;
+        },
+      };
+      new Function("localStorage", "document", textSizeBootScript())(storage, doc);
+      return doc.documentElement.dataset.textSize;
+    };
+
+    expect(run("large")).toBe("large");
+    expect(run("largest")).toBe("largest");
+    expect(run("normal")).toBeUndefined();
+    expect(run(null)).toBeUndefined();
+    expect(run('"><script>')).toBeUndefined();
+    expect(() => run("large", true)).not.toThrow();
+  });
+
   it("relies on the default being the first size, which needs no attribute", () => {
     expect(TEXT_SIZES[0].value).toBe(DEFAULT_TEXT_SIZE);
   });
