@@ -1,7 +1,5 @@
 package app.sthira.ui.common
 
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -17,17 +15,15 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.error
 import androidx.compose.ui.platform.testTag
@@ -78,23 +74,24 @@ fun <T> ChoiceGroup(
 @Composable
 private fun ChoiceChip(label: String, isSelected: Boolean, hasError: Boolean, onClick: () -> Unit) {
     val c = Sthira.colors
-    val bg by animateColorAsState(if (isSelected) c.primary else c.surface, Sthira.motion(), label = "chipBg")
-    val outline = when {
-        hasError -> c.danger
-        isSelected -> c.primary
-        else -> c.muted
-    }
-    Surface(
-        shape = CardShape,
-        color = bg,
-        contentColor = if (isSelected) c.onPrimary else c.text,
-        border = BorderStroke(1.dp, outline),
+    // Raised when free, pressed in when selected. The selection is never the shadow alone: a check
+    // mark, a primary outline and primary text come with it.
+    NeuSurface(
         modifier = Modifier
             .heightIn(min = MinTarget)
             .selectable(selected = isSelected, role = Role.RadioButton, onClick = onClick),
+        shape = Neu.ButtonShape,
+        depth = if (isSelected) NeuDepth.Inset else NeuDepth.Raised,
+        elevation = 4.dp,
+        rim = when {
+            hasError -> c.danger
+            isSelected -> c.primary
+            else -> null
+        },
+        contentColor = if (isSelected) c.primary else c.text,
     ) {
         Row(
-            Modifier.heightIn(min = MinTarget).padding(horizontal = 14.dp),
+            Modifier.heightIn(min = MinTarget).padding(horizontal = 14.dp).align(Alignment.Center),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
@@ -104,6 +101,7 @@ private fun ChoiceChip(label: String, isSelected: Boolean, hasError: Boolean, on
     }
 }
 
+/** A text field set into the surface: a pressed-in well with a 3:1 outline, help or the error below it. */
 @Composable
 fun LabeledField(
     label: String,
@@ -115,24 +113,31 @@ fun LabeledField(
     singleLine: Boolean = true,
 ) {
     val c = Sthira.colors
-    OutlinedTextField(
-        value = value,
-        onValueChange = onChange,
-        label = { Text(label) },
-        isError = error != null,
-        singleLine = singleLine,
-        textStyle = SthiraType.body,
-        keyboardOptions = KeyboardOptions(keyboardType = if (number) KeyboardType.Decimal else KeyboardType.Text),
-        supportingText = (error ?: help)?.let { { Text(it, style = SthiraType.label) } },
-        colors = OutlinedTextFieldDefaults.colors(
-            unfocusedBorderColor = c.muted, focusedBorderColor = c.primary,
-            unfocusedLabelColor = c.muted, focusedLabelColor = c.primary,
-            unfocusedSupportingTextColor = c.muted, focusedSupportingTextColor = c.muted,
-            errorBorderColor = c.danger, errorLabelColor = c.danger, errorSupportingTextColor = c.danger,
-            focusedTextColor = c.text, unfocusedTextColor = c.text, cursorColor = c.primary,
-        ),
-        modifier = Modifier.fillMaxWidth().semantics { if (error != null) error(error) },
-    )
+    Column(verticalArrangement = Arrangement.spacedBy(Space.xs)) {
+        NeuSurface(shape = Neu.FieldShape, depth = NeuDepth.Inset, elevation = 4.dp) {
+            OutlinedTextField(
+                value = value,
+                onValueChange = onChange,
+                label = { Text(label) },
+                isError = error != null,
+                singleLine = singleLine,
+                textStyle = SthiraType.body,
+                shape = Neu.FieldShape,
+                keyboardOptions = KeyboardOptions(keyboardType = if (number) KeyboardType.Decimal else KeyboardType.Text),
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedContainerColor = Color.Transparent, focusedContainerColor = Color.Transparent,
+                    errorContainerColor = Color.Transparent,
+                    unfocusedBorderColor = c.muted, focusedBorderColor = c.primary,
+                    unfocusedLabelColor = c.muted, focusedLabelColor = c.primary,
+                    errorBorderColor = c.danger, errorLabelColor = c.danger,
+                    focusedTextColor = c.text, unfocusedTextColor = c.text, cursorColor = c.primary,
+                ),
+                modifier = Modifier.fillMaxWidth().semantics { if (error != null) error(error) },
+            )
+        }
+        if (error != null) FieldError(error)
+        else if (help != null) Text(help, style = SthiraType.label, color = c.muted, modifier = Modifier.padding(horizontal = 4.dp))
+    }
 }
 
 @Composable
@@ -147,10 +152,14 @@ fun CheckRow(text: String, checked: Boolean, onChange: (Boolean) -> Unit, error:
                 .semantics { if (error != null) error(error) },
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Checkbox(
-                checked = checked, onCheckedChange = null,
-                colors = CheckboxDefaults.colors(checkedColor = c.primary, uncheckedColor = c.muted, checkmarkColor = c.onPrimary),
-            )
+            // Raised box when off (with a 3:1 outline so it is findable), pressed in with a check when on.
+            NeuSurface(
+                Modifier.size(28.dp), shape = RoundedCornerShape(8.dp), elevation = 3.dp,
+                depth = if (checked) NeuDepth.Inset else NeuDepth.Raised,
+                rim = if (checked) c.primary else c.muted, rimWidth = if (checked) 2.dp else 1.dp,
+            ) {
+                if (checked) Icon(Icons.Filled.Check, contentDescription = null, tint = c.primary, modifier = Modifier.align(Alignment.Center).size(20.dp))
+            }
             Text(text, Modifier.padding(start = 12.dp), color = c.text, style = SthiraType.body)
         }
         FieldError(error)

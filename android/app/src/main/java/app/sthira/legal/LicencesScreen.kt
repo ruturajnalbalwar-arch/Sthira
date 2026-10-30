@@ -19,6 +19,8 @@ import app.sthira.ui.common.Body
 import app.sthira.ui.common.Heading
 import app.sthira.ui.common.LinkButton
 import app.sthira.ui.common.Muted
+import app.sthira.ui.common.NeuDepth
+import app.sthira.ui.common.NeuSurface
 import app.sthira.ui.common.ScreenScaffold
 import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
@@ -53,13 +55,12 @@ fun LicencesScreen(onBack: () -> Unit, onOpen: (LicenceText) -> Unit) {
     ScreenScaffold("Open-source licences", onBack) {
         Body("Sthira is built with these open-source components. Thank you to their authors.")
         COMPONENTS.forEach { component ->
-            Column(
-                Modifier.fillMaxWidth().background(Sthira.colors.surface, RoundedCornerShape(16.dp)).padding(Space.m),
-                verticalArrangement = Arrangement.spacedBy(Space.xs),
-            ) {
-                Text(component.name, style = SthiraType.titleSmall, color = Sthira.colors.text)
-                Muted("${component.by} · ${component.licence.title}")
-                component.note?.let { Body(it) }
+            NeuSurface(Modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp), depth = NeuDepth.Inset, elevation = 4.dp) {
+                Column(Modifier.padding(Space.m), verticalArrangement = Arrangement.spacedBy(Space.xs)) {
+                    Text(component.name, style = SthiraType.titleSmall, color = Sthira.colors.text)
+                    Muted("${component.by} · ${component.licence.title}")
+                    component.note?.let { Body(it) }
+                }
             }
         }
         Heading("Full licence texts", size = 20)

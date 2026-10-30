@@ -5,17 +5,17 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.heading
-import app.sthira.ui.common.Glass
+import app.sthira.ui.common.Neu
+import app.sthira.ui.common.NeuDepth
+import app.sthira.ui.common.NeuSurface
 import app.sthira.ui.theme.DisplaySize
 import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.SthiraType
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -48,15 +48,12 @@ import app.sthira.ui.theme.Sthira
 
 /**
  * The finished run, in reading order: the big number, then the CDC comparison sentence, then the
- * attempts that did not count, then the per-attempt chips and the reference. Plain surface, not
- * glass: result numbers are content. "Run again" lives in the bottom action bar.
+ * attempts that did not count, then the per-attempt chips and the reference. A raised surface: result
+ * numbers are content. "Run again" lives in the bottom action bar.
  */
 @Composable
 fun ResultCard(result: ResultView, durationS: Double, normsNote: String?) {
-    Surface(
-        color = Sthira.colors.surface, contentColor = Sthira.colors.text, shape = Glass.CardShape,
-        border = BorderStroke(1.dp, Sthira.colors.border), modifier = Modifier.fillMaxWidth(),
-    ) {
+    NeuSurface(Modifier.fillMaxWidth(), shape = Neu.CardShape) {
         Column(Modifier.padding(Space.m), verticalArrangement = Arrangement.spacedBy(Space.m)) {
             Heading("Result", size = 20)
             // No early return here: returning out of the inline Column lambda corrupts the composer's
@@ -101,12 +98,14 @@ private fun Rejected(summary: ChairStandSummary) {
         Text("Not counted", style = SthiraType.titleSmall, color = Sthira.colors.text, modifier = Modifier.semantics { heading() })
         Row(horizontalArrangement = Arrangement.spacedBy(Space.s), modifier = Modifier.fillMaxWidth()) {
             listOf("Half stands" to summary.half, "Arms used" to summary.armAssisted, "Unclear" to summary.uncertain).forEach { (term, n) ->
-                Column(
-                    Modifier.weight(1f).background(Sthira.colors.bg, CardShape).padding(12.dp)
-                        .semantics(mergeDescendants = true) { contentDescription = "$term: $n" },
+                NeuSurface(
+                    Modifier.weight(1f).semantics(mergeDescendants = true) { contentDescription = "$term: $n" },
+                    shape = CardShape, depth = NeuDepth.Inset, elevation = 3.dp,
                 ) {
-                    Text("$n", style = SthiraType.title, color = Sthira.colors.text)
-                    Text(term, style = SthiraType.label, color = Sthira.colors.muted)
+                    Column(Modifier.padding(12.dp)) {
+                        Text("$n", style = SthiraType.title, color = Sthira.colors.text)
+                        Text(term, style = SthiraType.label, color = Sthira.colors.muted)
+                    }
                 }
             }
         }

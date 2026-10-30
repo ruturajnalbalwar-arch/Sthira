@@ -44,8 +44,8 @@ import app.sthira.ui.theme.SthiraType
 private val MaxContentWidth = 720.dp
 
 /**
- * Every screen: the teal backdrop, a glass top app bar (back arrow + title) on inner screens, an
- * optional floating glass action bar that keeps the primary action reachable, and scrolling
+ * Every screen: the flat soft backdrop, a soft top app bar (back arrow + title) on inner screens, an
+ * optional floating soft action bar that keeps the primary action reachable, and scrolling
  * content that passes under both bars.
  */
 @Composable
@@ -57,12 +57,12 @@ fun ScreenScaffold(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Box(Modifier.fillMaxSize()) {
-        GlassBackdrop()
+        NeuBackdrop()
         Scaffold(
             containerColor = Color.Transparent,
             contentColor = Sthira.colors.text,
-            topBar = { if (onBack != null) GlassTopBar(title, onBack) },
-            bottomBar = { if (bottomBar != null) GlassActionBar(bottomBar) },
+            topBar = { if (onBack != null) NeuTopBar(title, onBack) },
+            bottomBar = { if (bottomBar != null) NeuActionBar(bottomBar) },
         ) { padding ->
             val dir = LocalLayoutDirection.current
             Column(
@@ -89,8 +89,8 @@ fun ScreenScaffold(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun GlassTopBar(title: String, onBack: () -> Unit) {
-    GlassBar(Modifier.fillMaxWidth()) {
+private fun NeuTopBar(title: String, onBack: () -> Unit) {
+    NeuBar(Modifier.fillMaxWidth()) {
         TopAppBar(
             title = {
                 // The M3 bar is a fixed 64dp, so at large font scales the title is one line with an ellipsis;
@@ -115,14 +115,13 @@ private fun GlassTopBar(title: String, onBack: () -> Unit) {
     }
 }
 
-/** Glass sheet anchored to the bottom edge for the screen's main action(s); the nav-bar inset sits inside it. */
+/** Soft sheet anchored to the bottom edge for the screen's main action(s); the nav-bar inset sits inside it. */
 @Composable
-private fun GlassActionBar(content: @Composable ColumnScope.() -> Unit) {
-    GlassSurface(
+private fun NeuActionBar(content: @Composable ColumnScope.() -> Unit) {
+    NeuSurface(
         Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
         elevation = 8.dp,
-        dense = true,
     ) {
         Box(Modifier.fillMaxWidth().navigationBarsPadding().imePadding(), contentAlignment = Alignment.Center) {
             Column(

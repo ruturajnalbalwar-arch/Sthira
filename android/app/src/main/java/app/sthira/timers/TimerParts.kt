@@ -1,6 +1,5 @@
 package app.sthira.timers
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +15,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,7 +32,9 @@ import app.sthira.ui.common.Banner
 import app.sthira.ui.common.BannerKind
 import app.sthira.ui.common.BannerText
 import app.sthira.ui.common.BulletList
-import app.sthira.ui.common.Glass
+import app.sthira.ui.common.Neu
+import app.sthira.ui.common.NeuDepth
+import app.sthira.ui.common.NeuSurface
 import app.sthira.ui.common.Muted
 import app.sthira.ui.theme.DisplaySize
 import app.sthira.ui.theme.Space
@@ -48,10 +48,7 @@ fun formatSeconds(seconds: Double): String = String.format(Locale.US, "%.1f s", 
 @Composable
 fun BigTime(seconds: Double, label: String) {
     val size = with(LocalDensity.current) { DisplaySize.timer.toSp() }
-    Surface(
-        color = Sthira.colors.surface, contentColor = Sthira.colors.text, shape = Glass.CardShape,
-        border = BorderStroke(1.dp, Sthira.colors.border), modifier = Modifier.fillMaxWidth(),
-    ) {
+    NeuSurface(Modifier.fillMaxWidth(), shape = Neu.CardShape, depth = NeuDepth.Inset, elevation = 6.dp) {
         Column(
             Modifier.padding(vertical = Space.l, horizontal = Space.m).clearAndSetSemantics { contentDescription = label },
             horizontalAlignment = Alignment.CenterHorizontally,

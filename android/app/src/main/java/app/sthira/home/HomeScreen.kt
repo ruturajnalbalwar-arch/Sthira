@@ -40,8 +40,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import app.sthira.R
 import app.sthira.ui.common.BannerKind
-import app.sthira.ui.common.GlassBackdrop
-import app.sthira.ui.common.GlassSurface
+import app.sthira.ui.common.NeuBackdrop
+import app.sthira.ui.common.NeuDepth
+import app.sthira.ui.common.NeuSurface
 import app.sthira.ui.common.LinkButton
 import app.sthira.ui.common.Muted
 import app.sthira.ui.common.StatusChip
@@ -75,7 +76,7 @@ fun HomeScreen(onAction: (HomeAction) -> Unit, vm: HomeViewModel = viewModel()) 
 @Composable
 fun HomeContent(counterBadge: CounterBadge, onAction: (HomeAction) -> Unit) {
     Box(Modifier.fillMaxSize()) {
-        GlassBackdrop()
+        NeuBackdrop()
         BoxWithConstraints(Modifier.fillMaxSize().safeDrawingPadding()) {
             val viewport = maxHeight
             Column(
@@ -109,11 +110,12 @@ fun HomeContent(counterBadge: CounterBadge, onAction: (HomeAction) -> Unit) {
 private fun BrandHeader() {
     val c = Sthira.colors
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-        Image(
-            painterResource(R.drawable.ic_launcher_foreground), contentDescription = null,
-            colorFilter = ColorFilter.tint(c.onPrimary),
-            modifier = Modifier.size(52.dp).background(c.primary, RoundedCornerShape(14.dp)),
-        )
+        NeuSurface(Modifier.size(52.dp), shape = RoundedCornerShape(14.dp), elevation = 5.dp, fill = c.primary) {
+            Image(
+                painterResource(R.drawable.ic_launcher_foreground), contentDescription = null,
+                colorFilter = ColorFilter.tint(c.onPrimary), modifier = Modifier.fillMaxSize(),
+            )
+        }
         Column(Modifier.semantics(mergeDescendants = true) { heading() }) {
             Text("Sthira", style = SthiraType.headline, color = c.text)
             Text("Steady scores for home physiotherapy", style = SthiraType.body, color = c.muted)
@@ -134,15 +136,15 @@ private fun TrustChips() {
 private fun TestCard(info: TestCardInfo, badge: CounterBadge?, onClick: () -> Unit) {
     val c = Sthira.colors
     val spoken = listOfNotNull(info.title, info.measures, "takes ${info.duration}", badge?.label).joinToString(". ")
-    GlassSurface(Modifier.fillMaxWidth(), onClick = onClick, onClickLabel = "Open") {
-        // The clickable glass merges this one description, so TalkBack reads the card as a single button.
+    NeuSurface(Modifier.fillMaxWidth(), onClick = onClick, onClickLabel = "Open") {
+        // The clickable surface merges this one description, so TalkBack reads the card as a single button.
         Row(
             Modifier.padding(Space.m).heightIn(min = 72.dp).clearAndSetSemantics { contentDescription = spoken },
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(14.dp),
         ) {
-            Box(Modifier.size(48.dp).background(c.primary.copy(alpha = 0.16f), CircleShape), contentAlignment = Alignment.Center) {
-                Icon(info.icon, contentDescription = null, tint = c.primary, modifier = Modifier.size(28.dp))
+            NeuSurface(Modifier.size(48.dp), shape = CircleShape, depth = NeuDepth.Inset, elevation = 3.dp) {
+                Icon(info.icon, contentDescription = null, tint = c.primary, modifier = Modifier.align(Alignment.Center).size(28.dp))
             }
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(Space.xs)) {
                 Text(info.title, style = SthiraType.titleSmall, color = c.text)
@@ -160,11 +162,9 @@ private fun TestCard(info: TestCardInfo, badge: CounterBadge?, onClick: () -> Un
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun Footer(onAction: (HomeAction) -> Unit, modifier: Modifier = Modifier) {
-    // Plain card, not glass: it is reading text, not a control.
-    Column(
-        modifier.fillMaxWidth().background(Sthira.colors.surface, RoundedCornerShape(16.dp)).padding(Space.m),
-        verticalArrangement = Arrangement.spacedBy(Space.xs),
-    ) {
+    // A pressed-in well: it is reading text, not a control.
+    NeuSurface(modifier.fillMaxWidth(), shape = RoundedCornerShape(16.dp), depth = NeuDepth.Inset, elevation = 4.dp) {
+    Column(Modifier.padding(Space.m), verticalArrangement = Arrangement.spacedBy(Space.xs)) {
         Muted(
             "Scores appear next to CDC reference values (US data, not validated for India) for the physiotherapist to " +
                 "interpret. Sthira does not diagnose or predict falls.",
@@ -175,5 +175,6 @@ private fun Footer(onAction: (HomeAction) -> Unit, modifier: Modifier = Modifier
             LinkButton("Licences", { onAction(HomeAction.Licences) })
         }
         Muted("Prototype. Not a medical device.")
+    }
     }
 }

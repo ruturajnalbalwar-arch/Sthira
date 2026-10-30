@@ -41,8 +41,8 @@ import app.sthira.pose.CameraPane
 import app.sthira.pose.CameraStatus
 import app.sthira.pose.PoseSample
 import app.sthira.ui.common.BulletList
-import app.sthira.ui.common.Glass
-import app.sthira.ui.common.GlassSurface
+import app.sthira.ui.common.Neu
+import app.sthira.ui.common.NeuSurface
 import app.sthira.ui.theme.DisplaySize
 import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
@@ -64,7 +64,7 @@ private const val IDLE_HINT = "Whole body, head to feet, and the chair in view, 
 @Composable
 private fun display(size: Dp): TextUnit = with(LocalDensity.current) { size.toSp() }
 
-/** Full-bleed camera with the pose skeleton and glass overlays for the step, the count and problems. */
+/** Full-bleed camera with the pose skeleton and soft overlay panels for the step, the count and problems. */
 @Composable
 fun CameraStage(state: ChairStandUiState, overlay: PoseSample?, onSample: (PoseSample) -> Unit, onStatus: (CameraStatus) -> Unit) {
     CameraPane(lens = state.lens, overlay = overlay, onSample = onSample, onStatus = onStatus) { CameraOverlays(state) }
@@ -89,7 +89,7 @@ private fun StatusPill(state: ChairStandUiState, modifier: Modifier) {
         CameraStatus.Starting -> "Starting camera..."
         is CameraStatus.Failed -> "Camera stopped"
     }
-    GlassSurface(modifier, shape = Glass.ChipShape, elevation = 0.dp) {
+    NeuSurface(modifier, shape = Neu.ChipShape, elevation = 3.dp, overlay = true) {
         Text(text, style = SthiraType.label, color = Sthira.colors.text, modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp))
     }
 }
@@ -108,7 +108,7 @@ private fun WarningPills(state: ChairStandUiState, modifier: Modifier) {
 @Composable
 private fun Pill(visible: Boolean, text: String, tone: Color, assertive: Boolean = false) {
     AnimatedVisibility(visible, enter = fadeIn(Sthira.motion()), exit = fadeOut(Sthira.motion())) {
-        GlassSurface(shape = Glass.CardShape, elevation = 0.dp) {
+        NeuSurface(shape = Neu.CardShape, elevation = 4.dp, overlay = true) {
             Text(
                 text, style = SthiraType.titleSmall, color = tone, textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 14.dp, vertical = 10.dp).semantics {
@@ -145,7 +145,7 @@ private fun BoxScope.StagePanel(state: ChairStandUiState) {
 
 @Composable
 private fun Panel(content: @Composable () -> Unit) {
-    GlassSurface(Modifier.fillMaxWidth(), elevation = 0.dp) {
+    NeuSurface(Modifier.fillMaxWidth(), elevation = 4.dp, overlay = true) {
         Column(
             Modifier.fillMaxWidth().padding(Space.m),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -258,7 +258,7 @@ fun RepChips(events: List<RepEvent>, modifier: Modifier = Modifier, compact: Boo
                 RepKind.UNCERTAIN -> c.muted
             }
             val spoken = "Attempt ${i + 1}: $label, ${if (counted) "counted" else "not counted"}"
-            GlassSurface(shape = Glass.ChipShape, elevation = 0.dp, modifier = Modifier.clearAndSetSemantics { contentDescription = spoken }) {
+            NeuSurface(shape = Neu.ChipShape, elevation = 3.dp, overlay = true, modifier = Modifier.clearAndSetSemantics { contentDescription = spoken }) {
                 Row(
                     Modifier.heightIn(min = if (compact) 36.dp else 44.dp).padding(horizontal = 12.dp),
                     verticalAlignment = Alignment.CenterVertically,
