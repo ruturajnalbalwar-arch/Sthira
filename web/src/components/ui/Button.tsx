@@ -10,7 +10,7 @@ const VARIANTS: Record<Variant, string> = {
   danger: "bg-danger text-on-danger hover:opacity-90",
 };
 
-/** 48px minimum target at the default 18px root (larger with the text-size switch); visible focus ring comes from the global :focus-visible style. */
+/** 3rem minimum target: 54px at the default 18px root, larger with the text-size switch; visible focus ring comes from the global :focus-visible style. */
 export function Button({ variant = "primary", className = "", type = "button", ...rest }: Props) {
   return (
     <button

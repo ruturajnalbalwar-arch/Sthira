@@ -27,7 +27,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.sthira.engine.ChairStandSummary
@@ -160,7 +159,7 @@ fun SavedRecordingsList(items: List<SavedRecording>, onExport: (String) -> Unit,
 private fun SavedRow(item: SavedRecording, onExport: (String) -> Unit, onDelete: (String) -> Unit) {
     var confirm by remember(item.fileName) { mutableStateOf(false) }
     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        Text(item.fileName, fontSize = 14.sp, color = Sthira.colors.text, fontWeight = FontWeight.SemiBold)
+        Text(item.fileName, style = SthiraType.label, color = Sthira.colors.text)
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             ActionButton("Export", { onExport(item.fileName) }, Modifier.weight(1f))
             if (confirm) {

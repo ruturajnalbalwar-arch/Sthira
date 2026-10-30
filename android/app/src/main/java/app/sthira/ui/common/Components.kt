@@ -116,7 +116,7 @@ fun toneIcon(kind: BannerKind): ImageVector? = when (kind) {
 
 /** Short notice title. Colour defaults to the surrounding tone; keep it to one line of meaning. */
 @Composable
-fun BannerText(text: String, color: Color = Color.Unspecified, size: Int = 17) {
+fun BannerText(text: String, color: Color = Color.Unspecified, size: Int = 19) {
     Text(text, style = SthiraType.titleSmall.copy(fontSize = size.sp, lineHeight = (size + 6).sp), color = color)
 }
 

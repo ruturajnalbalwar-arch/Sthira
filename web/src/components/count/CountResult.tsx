@@ -19,7 +19,7 @@ type Props = {
 };
 
 const NO_COUNT: Partial<Record<LiveCountView["kind"], string>> = {
-  "not-tuned": "No automatic count in this preview. Use your hand count, and save the recording.",
+  "not-tuned": "No automatic count for this run. Use your hand count, and save the recording.",
   "calibration-failed": "No count: calibration did not pass, so the stands were not counted. Save the recording, then run again.",
   "context-failed": "No count: the counter could not start. Save the recording and tell the coordinator.",
   waiting: "No count: the test was stopped before Go.",
@@ -84,7 +84,10 @@ function Score({ summary, durationS }: { summary: ChairStandSummary; durationS: 
   );
 }
 
-function SourceNote({ norms }: { norms: ChairStandNorms }) {
+const DOES_NOT_DIAGNOSE = "Shown for the physiotherapist to interpret; Sthira does not diagnose.";
+
+function SourceNote({ norms }: { norms: ChairStandNorms | null }) {
+  if (norms === null) return <p className="text-base text-muted">{DOES_NOT_DIAGNOSE}</p>;
   const { url, title, year } = norms.source;
   return (
     <p className="text-base text-muted">
@@ -92,7 +95,7 @@ function SourceNote({ norms }: { norms: ChairStandNorms }) {
       <a href={url} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline">
         {title} ({year})
       </a>
-      . {norms.note} Shown for the physiotherapist to interpret; Sthira does not diagnose.
+      . {norms.note} {DOES_NOT_DIAGNOSE}
     </p>
   );
 }
@@ -115,7 +118,7 @@ export function CountResult({ countView, norms, ageBand, sex, durationS, onRunAg
           <RepChips events={summary.events} />
           <Rejected summary={summary} />
           {verdict !== null && <Comparison verdict={verdict} />}
-          {norms.ok && <SourceNote norms={norms.norms} />}
+          <SourceNote norms={norms.ok ? norms.norms : null} />
         </>
       )}
       <Button variant="secondary" onClick={onRunAgain} className="self-start">

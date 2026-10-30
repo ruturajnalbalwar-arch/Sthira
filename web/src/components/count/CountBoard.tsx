@@ -41,7 +41,8 @@ function LiveCount({ view }: { view: Extract<LiveCountView, { kind: "counting" }
   const full = view.summary.full;
   return (
     <div className="flex w-full flex-col items-center gap-3">
-      <p className="flex items-baseline gap-3">
+      {/* Wraps instead of overflowing when the text-size switch enlarges the rem-sized digits on a narrow phone. */}
+      <p className="flex flex-wrap items-baseline justify-center gap-x-3">
         <span className={`${BIG} text-[9rem] sm:text-[12rem]`}>{full}</span>
         <span className="text-2xl font-bold sm:text-4xl">{full === 1 ? "stand" : "stands"}</span>
       </p>
@@ -94,7 +95,7 @@ function TestDetail({ phaseView, countView }: Pick<Props, "phaseView" | "countVi
       return (
         <>
           <Elapsed phaseView={phaseView} />
-          <p className="text-xl font-bold">Automatic counting is off in this preview. Count the stands by hand.</p>
+          <p className="text-xl font-bold">No automatic count for this run. Count the stands by hand.</p>
         </>
       );
     default:

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import type { SpanMark } from "@/lib/label/reducer";
 import {
   LABELS_SCHEMA,
+  MAX_NOTES,
   formatIssues,
   labelFileName,
   labelsSchema,
@@ -77,7 +78,7 @@ export function ExportPanel({ recordingRef, labeller, events, spans, notes, onNo
         <textarea
           id={notesId}
           value={notes}
-          maxLength={500}
+          maxLength={MAX_NOTES}
           onChange={(event) => onNotesChange(event.target.value)}
           aria-describedby={`${notesId}-hint`}
           rows={3}

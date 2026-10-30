@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-full flex-col">
         <header className="border-b border-border bg-surface px-4 py-2">
-          <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3">
+          <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-x-3 gap-y-1">
             <Link href="/" className="inline-flex min-h-12 items-center text-xl font-black tracking-tight text-primary">
               Sthira
               <span className="sr-only">, home</span>
