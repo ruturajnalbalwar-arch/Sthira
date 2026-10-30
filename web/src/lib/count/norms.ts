@@ -20,16 +20,24 @@ const entrySchema = z.object({
   source: sourceSchema,
 });
 
+const citationSchema = sourceSchema.extend({ year: z.number().int() });
+
 const normsFileSchema = z.object({
   note: z.string().min(1),
-  chairStand30s: z.object({ entries: z.array(entrySchema).min(1) }),
+  chairStand30s: z.object({
+    protocol: z.object({ source: citationSchema }),
+    entries: z.array(entrySchema).min(1),
+  }),
 });
 
 export type ChairStandNormEntry = z.infer<typeof entrySchema>;
+export type ChairStandCitation = z.infer<typeof citationSchema>;
 
 /** The serialisable slice of norms.json the count screen needs. */
 export interface ChairStandNorms {
   readonly note: string;
+  /** The CDC sheet cited under every result. */
+  readonly source: ChairStandCitation;
   readonly entries: readonly ChairStandNormEntry[];
 }
 
@@ -43,7 +51,9 @@ export function parseChairStandNorms(json: unknown): NormsParseResult {
   if (!parsed.success) {
     return { ok: false, errors: parsed.error.issues.map((issue) => `${issue.path.join(".")}: ${issue.message}`) };
   }
-  return { ok: true, norms: { note: parsed.data.note, entries: parsed.data.chairStand30s.entries } };
+  const { protocol, entries } = parsed.data.chairStand30s;
+  const { url, title, year } = protocol.source;
+  return { ok: true, norms: { note: parsed.data.note, source: { url, title, year }, entries } };
 }
 
 export type NormLookup =

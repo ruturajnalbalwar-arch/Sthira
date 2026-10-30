@@ -3,8 +3,8 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import type { LiveCountView } from "@/lib/count/liveCount";
-import { lookupChairStandNorm, type NormLookup, type NormSex, type NormsParseResult } from "@/lib/count/norms";
-import { CDC_CITATION, chairStandVerdict, type Verdict } from "@/lib/count/verdict";
+import { lookupChairStandNorm, type ChairStandNorms, type NormLookup, type NormSex, type NormsParseResult } from "@/lib/count/norms";
+import { chairStandVerdict, type Verdict } from "@/lib/count/verdict";
 import type { ChairStandSummary } from "@/lib/sthira/chairStand";
 import { RepChips } from "./RepChips";
 
@@ -18,10 +18,8 @@ type Props = {
   onRunAgain: () => void;
 };
 
-const CDC_URL = "https://www.cdc.gov/steadi/media/pdfs/steadi-assessment-30sec-508.pdf";
-
 const NO_COUNT: Partial<Record<LiveCountView["kind"], string>> = {
-  "not-tuned": "No count: the counter is not tuned yet. Save the recording; it is pilot data for tuning.",
+  "not-tuned": "No automatic count in this preview. Use your hand count, and save the recording.",
   "calibration-failed": "No count: calibration did not pass, so the stands were not counted. Save the recording, then run again.",
   "context-failed": "No count: the counter could not start. Save the recording and tell the coordinator.",
   waiting: "No count: the test was stopped before Go.",
@@ -86,14 +84,15 @@ function Score({ summary, durationS }: { summary: ChairStandSummary; durationS: 
   );
 }
 
-function SourceNote({ note }: { note: string | null }) {
+function SourceNote({ norms }: { norms: ChairStandNorms }) {
+  const { url, title, year } = norms.source;
   return (
-    <p className="text-sm text-muted">
+    <p className="text-base text-muted">
       Reference:{" "}
-      <a href={CDC_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline">
-        {CDC_CITATION}
+      <a href={url} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline">
+        {title} ({year})
       </a>
-      . {note ?? "US reference values."} Shown for the physiotherapist to interpret; Sthira does not diagnose.
+      . {norms.note} Shown for the physiotherapist to interpret; Sthira does not diagnose.
     </p>
   );
 }
@@ -116,7 +115,7 @@ export function CountResult({ countView, norms, ageBand, sex, durationS, onRunAg
           <RepChips events={summary.events} />
           <Rejected summary={summary} />
           {verdict !== null && <Comparison verdict={verdict} />}
-          <SourceNote note={norms.ok ? norms.norms.note : null} />
+          {norms.ok && <SourceNote norms={norms.norms} />}
         </>
       )}
       <Button variant="secondary" onClick={onRunAgain} className="self-start">

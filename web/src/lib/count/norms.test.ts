@@ -16,6 +16,12 @@ describe("parseChairStandNorms", () => {
     expect(norms.entries.every((entry) => entry.source.url.startsWith("https://www.cdc.gov/"))).toBe(true);
   });
 
+  it("reads the citation shown under a result from the protocol source in norms.json", () => {
+    const norms = realNorms();
+    const { source } = normsJson.chairStand30s.protocol;
+    expect(norms.source).toEqual({ url: source.url, title: source.title, year: source.year });
+  });
+
   it("rejects a malformed file instead of throwing", () => {
     const result = parseChairStandNorms({ note: "x", chairStand30s: { entries: [{ sex: "any" }] } });
     expect(result.ok).toBe(false);
