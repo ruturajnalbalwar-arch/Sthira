@@ -54,7 +54,7 @@ import app.sthira.ui.theme.Sthira
 @Composable
 fun ResultCard(result: ResultView, durationS: Double, normsNote: String?) {
     NeuSurface(Modifier.fillMaxWidth(), shape = Neu.CardShape) {
-        Column(Modifier.padding(Space.m), verticalArrangement = Arrangement.spacedBy(Space.m)) {
+        Column(Modifier.fillMaxWidth().padding(Space.m), verticalArrangement = Arrangement.spacedBy(Space.m)) {
             Heading("Result", size = 20)
             // No early return here: returning out of the inline Column lambda corrupts the composer's
             // group stack with this Compose compiler (crash "Stack.pop Index -1" when the run finishes).

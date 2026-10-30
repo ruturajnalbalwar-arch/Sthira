@@ -50,7 +50,7 @@ fun BigTime(seconds: Double, label: String) {
     val size = with(LocalDensity.current) { DisplaySize.timer.toSp() }
     NeuSurface(Modifier.fillMaxWidth(), shape = Neu.CardShape, depth = NeuDepth.Inset, elevation = 6.dp) {
         Column(
-            Modifier.padding(vertical = Space.l, horizontal = Space.m).clearAndSetSemantics { contentDescription = label },
+            Modifier.fillMaxWidth().padding(vertical = Space.l, horizontal = Space.m).clearAndSetSemantics { contentDescription = label },
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(label, style = SthiraType.label, color = Sthira.colors.muted)
