@@ -28,6 +28,8 @@ export { POSE_LANDMARK_COUNT };
 export const MAX_FRAMES = 60 * 60 * 10; // ten minutes at 60 fps
 const MAX_PHASES = 16;
 const MAX_TEXT = 200;
+/** The code is part of every saved file name, so it is limited to characters that are safe there. Same limit as the labelling tool ids. */
+export const MAX_PARTICIPANT_CODE = 40;
 
 const positiveMeasure = z.number().positive("Enter a measured value greater than 0");
 
@@ -35,7 +37,9 @@ export const sessionMetaSchema = z.object({
   participantCode: z
     .string()
     .trim()
-    .regex(/^P\d{2,3}$/, "Use a participant code like P07, never a name"),
+    .min(1, "Enter a participant code")
+    .max(MAX_PARTICIPANT_CODE, `Use at most ${MAX_PARTICIPANT_CODE} characters`)
+    .regex(/^[A-Za-z0-9_-]+$/, "Use letters, digits, - or _ only (it is part of the file name)"),
   ageBand: z.enum(AGE_BANDS),
   clothing: z.enum(CLOTHING),
   trial: z.enum(TRIALS),

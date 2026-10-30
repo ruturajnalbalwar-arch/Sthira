@@ -17,9 +17,27 @@ class SessionSetupTest {
     }
 
     @Test
-    fun `names are rejected as participant codes`() {
-        val result = SessionSetup.validate(minimal.copy(participantCode = "Asha")) as SetupResult.Invalid
-        assertTrue(SetupField.ParticipantCode in result.errors)
+    fun `any code of letters, digits, dash and underscore is accepted`() {
+        listOf("A11", "P07", "p7", "W3-B12", "7", "ab_9", "KOL-2026-014", "x".repeat(SessionSetup.MAX_CODE)).forEach { code ->
+            val result = SessionSetup.validate(minimal.copy(participantCode = code)) as SetupResult.Ok
+            assertEquals(code, result.session.participantCode)
+        }
+    }
+
+    @Test
+    fun `a code that cannot be part of a file name is refused with the reason`() {
+        listOf("A 11", "A/11", "..", "a:b", "A.11", "A\\11", "ab\ncd").forEach { code ->
+            val result = SessionSetup.validate(minimal.copy(participantCode = code)) as SetupResult.Invalid
+            assertTrue("'$code' should be refused", result.errors[SetupField.ParticipantCode]?.contains("letters, digits") == true)
+        }
+    }
+
+    @Test
+    fun `an empty code and a code over the length limit are refused`() {
+        val empty = SessionSetup.validate(minimal.copy(participantCode = "  ")) as SetupResult.Invalid
+        assertEquals("Enter a participant code", empty.errors[SetupField.ParticipantCode])
+        val tooLong = SessionSetup.validate(minimal.copy(participantCode = "x".repeat(SessionSetup.MAX_CODE + 1))) as SetupResult.Invalid
+        assertTrue(tooLong.errors[SetupField.ParticipantCode]?.contains("${SessionSetup.MAX_CODE}") == true)
     }
 
     @Test
@@ -51,7 +69,7 @@ class SessionSetupTest {
     @Test
     fun `blockers list what is missing in form order and clear when complete`() {
         assertEquals(
-            listOf("a participant code like P07", "an age band", "sex (or Not recorded)"),
+            listOf("a participant code", "an age band", "sex (or Not recorded)"),
             SessionSetup.blockers(SetupForm()),
         )
         assertEquals("To continue, add: an age band.", SessionSetup.blockerSentence(minimal.copy(ageBand = null)))
@@ -62,7 +80,7 @@ class SessionSetupTest {
     @Test
     fun `inline errors appear only for fields that hold something invalid`() {
         assertTrue(SessionSetup.inlineErrors(SetupForm()).isEmpty())
-        val typed = SessionSetup.inlineErrors(SetupForm(participantCode = "Asha", saveRecording = true, cameraHeightCm = "abc"))
+        val typed = SessionSetup.inlineErrors(SetupForm(participantCode = "A 11", saveRecording = true, cameraHeightCm = "abc"))
         assertEquals(setOf(SetupField.ParticipantCode, SetupField.CameraHeight), typed.keys)
     }
 }

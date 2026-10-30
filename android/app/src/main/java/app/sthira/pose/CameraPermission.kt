@@ -33,7 +33,8 @@ import app.sthira.ui.common.BannerText
 import app.sthira.ui.common.Body
 import app.sthira.ui.common.Tone
 
-private enum class Permission { Granted, NotAsked, Denied, Blocked }
+/** Internal so the on-device tests can render every card state without the system permission dialog. */
+internal enum class Permission { Granted, NotAsked, Denied, Blocked }
 
 private fun Context.findActivity(): Activity? = when (this) {
     is Activity -> this
@@ -86,7 +87,7 @@ private fun openAppSettings(context: Context) {
 }
 
 @Composable
-private fun PermissionCard(state: Permission, onAsk: () -> Unit, onSettings: () -> Unit) {
+internal fun PermissionCard(state: Permission, onAsk: () -> Unit, onSettings: () -> Unit) {
     val kind = if (state == Permission.NotAsked) BannerKind.Plain else BannerKind.Warn
     Banner(kind) {
         Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {

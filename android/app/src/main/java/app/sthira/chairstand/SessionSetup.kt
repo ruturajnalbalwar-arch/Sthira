@@ -70,14 +70,25 @@ sealed interface SetupResult {
 }
 
 object SessionSetup {
-    private val CODE = Regex("^P\\d{2,3}$")
+    /** The code becomes part of the saved file name, so only characters that are safe there are allowed. */
+    private val CODE_CHARS = Regex("^[A-Za-z0-9_-]+$")
+
+    /** Same limit as the ids in the labelling tool. */
+    const val MAX_CODE = 40
     const val MAX_ROOM = 80
     const val MAX_NOTES = 500
+
+    private fun codeError(code: String): String? = when {
+        code.isEmpty() -> "Enter a participant code"
+        code.length > MAX_CODE -> "Use at most $MAX_CODE characters"
+        !CODE_CHARS.matches(code) -> "Use letters, digits, - or _ only (it is part of the file name)"
+        else -> null
+    }
 
     fun validate(form: SetupForm): SetupResult {
         val code = form.participantCode.trim()
         val errors = buildMap {
-            if (!CODE.matches(code)) put(SetupField.ParticipantCode, "Use a participant code like P07, never a name")
+            codeError(code)?.let { put(SetupField.ParticipantCode, it) }
             if (form.ageBand == null) put(SetupField.AgeBand, "Choose an age band")
             if (form.sex == null) put(SetupField.Sex, "Choose one, or Not recorded")
             if (form.saveRecording) putAll(recordingErrors(form))
@@ -117,7 +128,7 @@ object SessionSetup {
     }
 
     private val BLOCKER_NAMES = mapOf(
-        SetupField.ParticipantCode to "a participant code like P07",
+        SetupField.ParticipantCode to "a participant code",
         SetupField.AgeBand to "an age band",
         SetupField.Sex to "sex (or Not recorded)",
         SetupField.Clothing to "clothing",

@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.SystemClock
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import app.sthira.engine.CounterResult
 import app.sthira.engine.PoseFrame
 import app.sthira.pose.CameraStatus
 import app.sthira.pose.FrameClock
@@ -76,6 +75,12 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun onEvent(event: ChairStandEvent) {
+        // Form edits only touch the form: apply them at once, atomically, to the latest form (a queued
+        // whole-form copy could be built from a stale form and undo an earlier edit).
+        if (event is ChairStandEvent.FormChanged) {
+            _state.update { it.copy(form = event.edit(it.form)) }
+            return
+        }
         inbox.trySend(Msg.Ui(event))
     }
 
@@ -125,7 +130,7 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
         val now = SystemClock.elapsedRealtimeNanos()
         val ui = _state.value
         when (event) {
-            is ChairStandEvent.FormChanged -> _state.update { it.copy(form = event.form) }
+            is ChairStandEvent.FormChanged -> _state.update { it.copy(form = event.edit(it.form)) }
             ChairStandEvent.Submit -> submit()
             ChairStandEvent.EditSession -> if (!run.isRunning) {
                 run = m.reset(run)
@@ -235,11 +240,6 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
     private fun initialState(load: ConfigLoad): ChairStandUiState = when (load) {
         is ConfigLoad.Unavailable -> ChairStandUiState(unavailable = load.errors)
         is ConfigLoad.Ok -> ChairStandUiState(
-            counter = when (val c = load.config.counter) {
-                is CounterResult.Ready -> CounterNotice.Ready
-                is CounterResult.Untuned -> CounterNotice.Untuned(c.missing)
-                is CounterResult.Invalid -> CounterNotice.Invalid(c.errors)
-            },
             durationS = load.config.protocol.chairStandDurationS,
             normsNote = load.config.normsNote,
         )

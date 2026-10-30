@@ -30,12 +30,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.error
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
 import app.sthira.ui.theme.SthiraType
+
+/** Tag on the check mark of the selected choice chip, for the on-device tests. */
+const val CHOICE_CHECK_TAG = "choice-check"
 
 @Composable
 fun FieldError(error: String?) {
@@ -94,7 +98,7 @@ private fun ChoiceChip(label: String, isSelected: Boolean, hasError: Boolean, on
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
-            if (isSelected) Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(18.dp))
+            if (isSelected) Icon(Icons.Filled.Check, contentDescription = null, modifier = Modifier.size(18.dp).testTag(CHOICE_CHECK_TAG))
             Text(label, style = SthiraType.label.copy(fontSize = SthiraType.body.fontSize))
         }
     }

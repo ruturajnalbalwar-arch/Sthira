@@ -6,7 +6,7 @@ import app.sthira.engine.norms.chairStandVerdict
 /** Pure mapping from the live count to what the screen shows. Wording follows the web app. */
 object ChairStandResults {
     const val NO_COUNT_NOT_TUNED = "No count: the counter is not tuned yet. This run was a rehearsal of the setup."
-    const val NO_COUNT_INVALID = "No count: the counter settings in params.json are invalid."
+    const val NO_COUNT_INVALID = "No count: the counter settings in this version are invalid."
     const val NO_COUNT_CALIBRATION = "No count: calibration did not pass, so the stands were not counted. Run again."
     const val NO_COUNT_CONTEXT = "No count: the counter could not start."
     const val NO_COUNT_BEFORE_GO = "No count: the test was stopped before Go."
