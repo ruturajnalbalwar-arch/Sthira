@@ -9,15 +9,16 @@ import androidx.compose.ui.unit.sp
 
 /**
  * One type scale for the whole app: display / headline / title / body / label.
- * Body text is never below 16sp; label (14sp) is only for short metadata.
+ * Body text is 18sp and label 16sp: most people reading the screen are over 60. All sizes are in sp,
+ * so the phone's own font-size setting scales them further.
  */
 object SthiraType {
-    val headline = TextStyle(fontSize = 26.sp, lineHeight = 32.sp, fontWeight = FontWeight.Bold)
-    val title = TextStyle(fontSize = 20.sp, lineHeight = 26.sp, fontWeight = FontWeight.SemiBold)
-    val titleSmall = TextStyle(fontSize = 17.sp, lineHeight = 22.sp, fontWeight = FontWeight.SemiBold)
-    val body = TextStyle(fontSize = 16.sp, lineHeight = 24.sp, fontWeight = FontWeight.Normal)
-    val bodyLarge = TextStyle(fontSize = 18.sp, lineHeight = 26.sp, fontWeight = FontWeight.Normal)
-    val label = TextStyle(fontSize = 14.sp, lineHeight = 20.sp, fontWeight = FontWeight.SemiBold)
+    val headline = TextStyle(fontSize = 28.sp, lineHeight = 34.sp, fontWeight = FontWeight.Bold)
+    val title = TextStyle(fontSize = 22.sp, lineHeight = 28.sp, fontWeight = FontWeight.SemiBold)
+    val titleSmall = TextStyle(fontSize = 19.sp, lineHeight = 25.sp, fontWeight = FontWeight.SemiBold)
+    val body = TextStyle(fontSize = 18.sp, lineHeight = 27.sp, fontWeight = FontWeight.Normal)
+    val bodyLarge = TextStyle(fontSize = 20.sp, lineHeight = 28.sp, fontWeight = FontWeight.Normal)
+    val label = TextStyle(fontSize = 16.sp, lineHeight = 22.sp, fontWeight = FontWeight.SemiBold)
     /** Tabular figures so timers and counts do not jitter as digits change. */
     val numeric = TextStyle(fontFeatureSettings = "tnum", fontWeight = FontWeight.Black)
 }
@@ -40,7 +41,7 @@ val SthiraTypography = Typography(
     titleMedium = SthiraType.titleSmall,
     bodyLarge = SthiraType.body,
     bodyMedium = SthiraType.body,
-    labelLarge = SthiraType.label.copy(fontSize = 16.sp),
+    labelLarge = SthiraType.label.copy(fontSize = 18.sp),
     labelMedium = SthiraType.label,
 )
 
