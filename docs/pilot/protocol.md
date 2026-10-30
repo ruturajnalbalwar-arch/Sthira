@@ -1,6 +1,6 @@
 # Sthira pilot recording protocol (v1, 23 Oct 2026)
 
-One page for the students running sessions. Read it once before the first participant. Use participant codes only (P01, P02, ...). Never write a name in any file, file name or log.
+One page for the students running sessions. Read it once before the first participant. Use participant codes only (any code you choose, for example P01, P02 or A11: letters, digits, - and _). Never write a name in any file, file name or log.
 
 ## Equipment
 - Recording laptop with the Sthira app open in record mode (or a phone, if that is what the demo will use). Charger plugged in.
