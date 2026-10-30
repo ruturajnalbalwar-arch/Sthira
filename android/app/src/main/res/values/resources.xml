@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Sthira</string>
-    <color name="ic_launcher_background">#0F6E66</color>
+    <color name="ic_launcher_background">#8A3D00</color>
     <style name="Theme.Sthira" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

@@ -47,12 +47,12 @@ import app.sthira.ui.theme.SthiraColors
  * live camera are nearly opaque because shadows cannot separate a panel from video.
  */
 object Neu {
-    const val LIGHT_BASE = 0xE8ECEA
-    const val DARK_BASE = 0x1B2321
+    const val LIGHT_BASE = 0xF1ECE4
+    const val DARK_BASE = 0x221C15
     const val LIGHT_HIGHLIGHT = 0xFFFFFF
-    const val DARK_HIGHLIGHT = 0x2B3835
-    const val LIGHT_SHADE = 0xB4BFBB
-    const val DARK_SHADE = 0x090D0C
+    const val DARK_HIGHLIGHT = 0x342B21
+    const val LIGHT_SHADE = 0xC9BDAB
+    const val DARK_SHADE = 0x0C0906
 
     /** Panels over the camera: nearly opaque so text keeps AA contrast over a black or a white frame. */
     const val OVERLAY_ALPHA = 0.96
