@@ -2,7 +2,8 @@
 
 /*
  * Semantic colour tokens. Every text/background pair below was checked for WCAG AA
- * (>= 4.5:1 text, >= 3:1 UI borders) in both themes. Components use the token names
+ * (>= 4.5:1 text, >= 3:1 UI borders) in both themes; body, muted and primary text also reach
+ * AAA (>= 7:1) because most people reading the screen are older adults. Components use the token names
  * (bg-surface, text-muted, ...), never raw hex.
  */
 :root {
@@ -12,8 +13,8 @@
   --muted: #4a5553;
   --border: #d5d9d6;
   --border-strong: #8a9592;
-  --primary: #0f6e66;
-  --primary-hover: #0b5852;
+  --primary: #0a5c55;
+  --primary-hover: #084a44;
   --on-primary: #ffffff;
   --danger: #b42318;
   --on-danger: #ffffff;
@@ -64,8 +65,22 @@
   --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, monospace;
 }
 
+/*
+ * Text size. Everything is sized in rem, so the root size scales the whole page: text, buttons
+ * and gaps together. 18px is the default because the people reading the screen are mostly over
+ * 60; the switch in the header (TextSizeSwitch) picks a larger step and remembers it.
+ */
 html {
   color-scheme: light dark;
+  font-size: 112.5%;
+}
+
+html[data-text-size="large"] {
+  font-size: 125%;
+}
+
+html[data-text-size="largest"] {
+  font-size: 137.5%;
 }
 
 body {

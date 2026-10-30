@@ -94,7 +94,7 @@ function TestDetail({ phaseView, countView }: Pick<Props, "phaseView" | "countVi
       return (
         <>
           <Elapsed phaseView={phaseView} />
-          <p className="text-xl font-bold">Counting is off: the counter is not tuned yet.</p>
+          <p className="text-xl font-bold">Automatic counting is off in this preview. Count the stands by hand.</p>
         </>
       );
     default:

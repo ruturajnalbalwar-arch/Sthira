@@ -2,41 +2,33 @@ import type { CounterStatus } from "@/lib/count/counterStatus";
 
 type Props = { counter: CounterStatus };
 
+/** Technical detail for the Sthira team only, folded away so patients and physiotherapists see plain words. */
+function TeamDetails({ items }: { items: readonly string[] }) {
+  return (
+    <details className="text-sm">
+      <summary className="flex min-h-12 cursor-pointer items-center font-semibold">Details for the Sthira team</summary>
+      <ul className="flex flex-col gap-1 pt-1 font-mono break-all">
+        {items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </details>
+  );
+}
+
 /** Says plainly when the counter cannot count. Shown above the camera, before and during a run. */
 export function CounterNotice({ counter }: Props) {
   if (counter.status === "ready") return null;
-  if (counter.status === "invalid") {
-    return (
-      <section role="alert" className="flex flex-col gap-2 rounded-xl border-2 border-danger bg-surface p-4 text-danger">
-        <h2 className="text-xl font-bold">Counter settings are invalid</h2>
-        <p className="font-semibold">params.json did not pass validation, so no stands are counted. The run can still be recorded as pilot data.</p>
-        <ul className="list-disc pl-5 font-mono text-sm break-all">
-          {counter.errors.map((message) => (
-            <li key={message}>{message}</li>
-          ))}
-        </ul>
-      </section>
-    );
-  }
+  const items = counter.status === "invalid" ? counter.errors : counter.missing.map((name) => `missing in params.json: ${name}`);
   return (
-    <section aria-labelledby="untuned-heading" className="flex flex-col gap-2 rounded-xl border-2 border-warn bg-warn-bg p-4 text-warn">
-      <h2 id="untuned-heading" className="text-xl font-bold">
-        Counter not tuned yet
+    <section aria-labelledby="counter-notice-heading" className="flex flex-col gap-2 rounded-xl border-2 border-warn bg-warn-bg p-4 text-warn">
+      <h2 id="counter-notice-heading" className="text-xl font-bold">
+        Automatic counting is off in this preview
       </h2>
-      <p className="font-semibold">
-        The camera, pose overlay and guided calibration run so the setup can be rehearsed, but no stands are counted and no score is shown until
-        the detector settings are fitted from pilot recordings. Save each run: it is extra pilot data.
+      <p className="text-lg font-semibold">
+        The camera, body outline and setup steps work, but stands are not counted yet. Count the stands by hand and save the recording.
       </p>
-      <details className="text-sm">
-        <summary className="flex min-h-11 cursor-pointer items-center font-semibold">Missing from params.json ({counter.missing.length})</summary>
-        <ul className="flex flex-wrap gap-2 pt-1 font-mono">
-          {counter.missing.map((name) => (
-            <li key={name} className="rounded border border-warn px-2 py-0.5">
-              {name}
-            </li>
-          ))}
-        </ul>
-      </details>
+      <TeamDetails items={items} />
     </section>
   );
 }
