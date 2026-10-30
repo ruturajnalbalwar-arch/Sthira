@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import type { PoseFrame } from "@/lib/sthira/types";
-import { POSE_LANDMARK_COUNT, RECORDING_SCHEMA, recordedFrameSchema, recordingSchema, sessionMetaSchema, type RecordedFrame, type SessionMeta } from "./schema";
+import { MAX_PARTICIPANT_CODE, POSE_LANDMARK_COUNT, RECORDING_SCHEMA, recordedFrameSchema, recordingSchema, sessionMetaSchema, type RecordedFrame, type SessionMeta } from "./schema";
 import { buildRecording, closePhase, effectiveFps, openPhase, recordingFileBase } from "./session";
 
 const validMeta: SessionMeta = {
@@ -31,9 +31,16 @@ describe("session metadata validation", () => {
     expect(sessionMetaSchema.safeParse(validMeta).success).toBe(true);
   });
 
-  test("rejects a real name in place of a participant code", () => {
-    const result = sessionMetaSchema.safeParse({ ...validMeta, participantCode: "Priya" });
-    expect(result.success).toBe(false);
+  test("accepts any participant code of letters, digits, dash and underscore", () => {
+    for (const code of ["A11", "P07", "p7", "W3-B12", "7", "KOL_2026-014", "x".repeat(MAX_PARTICIPANT_CODE)]) {
+      expect(sessionMetaSchema.safeParse({ ...validMeta, participantCode: code }).success, code).toBe(true);
+    }
+  });
+
+  test("rejects a code that cannot be part of a file name, an empty code and an over-long code", () => {
+    for (const code of ["A 11", "A/11", "..", "a:b", "A.11", "A\\11", "", "   ", "x".repeat(MAX_PARTICIPANT_CODE + 1)]) {
+      expect(sessionMetaSchema.safeParse({ ...validMeta, participantCode: code }).success, JSON.stringify(code)).toBe(false);
+    }
   });
 
   test("rejects recording without signed consent", () => {
