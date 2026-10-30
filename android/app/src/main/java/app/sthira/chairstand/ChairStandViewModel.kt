@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.SystemClock
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import app.sthira.engine.CounterResult
 import app.sthira.engine.PoseFrame
 import app.sthira.pose.CameraStatus
 import app.sthira.pose.FrameClock
@@ -241,11 +240,6 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
     private fun initialState(load: ConfigLoad): ChairStandUiState = when (load) {
         is ConfigLoad.Unavailable -> ChairStandUiState(unavailable = load.errors)
         is ConfigLoad.Ok -> ChairStandUiState(
-            counter = when (val c = load.config.counter) {
-                is CounterResult.Ready -> CounterNotice.Ready
-                is CounterResult.Untuned -> CounterNotice.Untuned(c.missing)
-                is CounterResult.Invalid -> CounterNotice.Invalid(c.errors)
-            },
             durationS = load.config.protocol.chairStandDurationS,
             normsNote = load.config.normsNote,
         )

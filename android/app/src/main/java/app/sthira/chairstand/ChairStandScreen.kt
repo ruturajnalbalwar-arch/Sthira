@@ -52,7 +52,6 @@ fun ChairStandScreen(onBack: () -> Unit, vm: ChairStandViewModel = viewModel()) 
             bottomBar = { ContinueBar(state.form) { vm.onEvent(ChairStandEvent.Submit) } },
         ) {
             Muted("Counted from head and shoulder height, so loose clothing is fine. Use participant codes, never names.")
-            CounterStatusCard(state.counter)
             PrivacyRow()
             Message(state.message) { vm.onEvent(ChairStandEvent.DismissMessage) }
             SetupFormUi(state.form) { vm.onEvent(ChairStandEvent.FormChanged(it)) }
@@ -82,7 +81,6 @@ private fun RunScreen(state: ChairStandUiState, session: Session, vm: ChairStand
             if (state.stage == Stage.Done && result != null) ResultCard(result, state.durationS, state.normsNote)
             RecordingCard(state.recording, export) { vm.onEvent(ChairStandEvent.Delete(it)) }
             Message(state.message) { vm.onEvent(ChairStandEvent.DismissMessage) }
-            CounterStatusCard(state.counter)
             SessionLine(session, canEdit = !state.isRunning) { vm.onEvent(ChairStandEvent.EditSession) }
             ActionButton(
                 if (state.lens == Lens.Back) "Switch to front camera" else "Switch to back camera",

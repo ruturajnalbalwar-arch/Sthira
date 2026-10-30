@@ -33,7 +33,7 @@ import org.junit.runner.RunWith
 class ChairStandSetupTest {
     @get:Rule val rule = createAndroidComposeRule<MainActivity>()
 
-    private val codeError = "Use a participant code like P07, never a name"
+    private val codeError = "Use letters, digits, - or _ only"
     private val continueText = "Continue to camera"
 
     @Before
@@ -54,9 +54,9 @@ class ChairStandSetupTest {
 
     @Test
     fun emptyFormListsEveryMissingChoiceInOrder() {
-        rule.eventually { assertBlocked("To continue, add: a participant code like P07, an age band, sex (or Not recorded).") }
+        rule.eventually { assertBlocked("To continue, add: a participant code, an age band, sex (or Not recorded).") }
         rule.eventually { rule.onNode(hasText(codeError, substring = true)).assertDoesNotExist() }
-        rule.eventually { rule.onNode(hasText("Counter not tuned yet")).assertExists() }
+        rule.eventually { rule.onNode(hasText("Counter not tuned yet")).assertDoesNotExist() }
     }
 
     @Test
@@ -66,8 +66,9 @@ class ChairStandSetupTest {
         rule.waitForIdle()
         // input -> (what the field holds after upper-casing, valid?)
         val cases = listOf(
-            "" to ("" to false), "Ravi" to ("RAVI" to false), "P7" to ("P7" to false), "p07" to ("P07" to true),
-            "P07" to ("P07" to true), "P123" to ("P123" to true), "P1234" to ("P1234" to false),
+            "" to ("" to false), "Ravi" to ("RAVI" to true), "P7" to ("P7" to true), "p07" to ("P07" to true),
+            "A11" to ("A11" to true), "W3-B12" to ("W3-B12" to true), "P1234" to ("P1234" to true),
+            "A 11" to ("A 11" to false), "A/11" to ("A/11" to false),
         )
         cases.forEach { (input, expected) ->
             val (stored, valid) = expected
@@ -77,7 +78,7 @@ class ChairStandSetupTest {
                 rule.eventually { assertContinueEnabled() }
                 rule.eventually { rule.onNode(hasText(codeError, substring = true)).assertDoesNotExist() }
             } else {
-                rule.eventually { assertBlocked("To continue, add: a participant code like P07.") }
+                rule.eventually { assertBlocked("To continue, add: a participant code.") }
                 // An empty field shows only the help line; a typed bad code shows the error.
                 rule.eventually {
                     val errors = rule.onAllNodes(hasText(codeError, substring = true)).fetchSemanticsNodes().size
@@ -196,16 +197,11 @@ class ChairStandSetupTest {
     }
 
     @Test
-    fun whyExpanderListsWhatParamsJsonIsMissing() {
-        val missing = (createCounter(asset("params.json")) as CounterResult.Untuned).missing
-        rule.eventually { rule.onNode(hasText("Missing from params.json", substring = true)).assertDoesNotExist() }
-        rule.tapButton("Why?")
-        rule.eventually { rule.onNode(hasText("Missing from params.json (${missing.size}):", substring = true)).assertExists() }
-        missing.forEach { rule.onNode(hasText(it)).assertExists() }
-        rule.tapButton("Hide details")
+    fun noDeveloperDetailsAreShownOnTheSetupScreen() {
         rule.waitForIdle()
-        rule.eventually { rule.onNode(hasText("Missing from params.json", substring = true)).assertDoesNotExist() }
-        rule.eventually { rule.button("Why?").assertExists() }
+        listOf("Counter not tuned yet", "Missing from params.json", "Why?", "Hide details", "leaveSeatFraction").forEach {
+            rule.onNode(hasText(it, substring = true)).assertDoesNotExist()
+        }
     }
 
     @Test

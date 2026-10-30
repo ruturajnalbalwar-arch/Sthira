@@ -7,13 +7,6 @@ import app.sthira.pose.Lens
 import app.sthira.record.CaptureIssue
 import app.sthira.record.SavedRecording
 
-/** How the counter can run with the shipped params.json. */
-sealed interface CounterNotice {
-    data object Ready : CounterNotice
-    data class Untuned(val missing: List<String>) : CounterNotice
-    data class Invalid(val errors: List<String>) : CounterNotice
-}
-
 /** What the board shows about the count right now. */
 sealed interface CountView {
     data object Waiting : CountView
@@ -40,7 +33,6 @@ data class LiveStats(val fps: Double?, val personDetected: Boolean, val framesRe
 
 data class ChairStandUiState(
     val unavailable: List<String>? = null,
-    val counter: CounterNotice = CounterNotice.Ready,
     val durationS: Double = 0.0,
     val normsNote: String? = null,
     val form: SetupForm = SetupForm(),

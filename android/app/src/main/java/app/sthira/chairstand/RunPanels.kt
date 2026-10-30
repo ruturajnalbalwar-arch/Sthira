@@ -13,10 +13,7 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.semantics
@@ -28,7 +25,6 @@ import app.sthira.ui.common.BannerKind
 import app.sthira.ui.common.BannerText
 import app.sthira.ui.common.Body
 import app.sthira.ui.common.BulletList
-import app.sthira.ui.common.LinkButton
 import app.sthira.ui.common.Tone
 import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
@@ -74,40 +70,6 @@ fun RunAlerts(state: ChairStandUiState) {
         Banner(BannerKind.Warn) {
             BannerText("This run had capture problems")
             BulletList(state.issues.map { it.text })
-        }
-    }
-}
-
-/** Compact counter status: one line and one sentence, details behind "Why?". Nothing when ready. */
-@Composable
-fun CounterStatusCard(notice: CounterNotice) {
-    if (notice == CounterNotice.Ready) return
-    var open by rememberSaveable { mutableStateOf(false) }
-    val invalid = notice is CounterNotice.Invalid
-    Banner(if (invalid) BannerKind.Danger else BannerKind.Warn) {
-        BannerText(if (invalid) "Counter settings are invalid" else "Counter not tuned yet")
-        Body(
-            if (invalid) "No stands are counted until params.json is fixed."
-            else "Camera and calibration can be rehearsed, but no stands are counted yet.",
-        )
-        LinkButton(if (open) "Hide details" else "Why?", { open = !open })
-        AnimatedVisibility(open) {
-            Column(verticalArrangement = Arrangement.spacedBy(Space.s)) {
-                when (notice) {
-                    is CounterNotice.Untuned -> {
-                        Body(
-                            "The detector settings are fitted from pilot recordings and none are invented. Until they are " +
-                                "fitted, no count or score is shown. Missing from params.json (${notice.missing.size}):",
-                        )
-                        BulletList(notice.missing, mono = true)
-                    }
-                    is CounterNotice.Invalid -> {
-                        Body("params.json did not pass validation:")
-                        BulletList(notice.errors, mono = true)
-                    }
-                    CounterNotice.Ready -> Unit
-                }
-            }
         }
     }
 }
