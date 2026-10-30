@@ -59,19 +59,21 @@ fun ResultCard(result: ResultView, durationS: Double, normsNote: String?) {
     ) {
         Column(Modifier.padding(Space.m), verticalArrangement = Arrangement.spacedBy(Space.m)) {
             Heading("Result", size = 20)
+            // No early return here: returning out of the inline Column lambda corrupts the composer's
+            // group stack with this Compose compiler (crash "Stack.pop Index -1" when the run finishes).
             val summary = result.summary
             if (summary == null) {
                 Body(result.noCount ?: ChairStandResults.NO_COUNT_BEFORE_GO, size = 18)
-                return@Column
+            } else {
+                Score(summary, durationS)
+                result.verdict?.let { Comparison(it) }
+                Rejected(summary)
+                RepChips(summary.events)
+                Muted(
+                    "Reference: $CDC_CITATION. ${normsNote ?: "US reference values."} For the physiotherapist to " +
+                        "interpret; Sthira does not diagnose or predict falls.",
+                )
             }
-            Score(summary, durationS)
-            result.verdict?.let { Comparison(it) }
-            Rejected(summary)
-            RepChips(summary.events)
-            Muted(
-                "Reference: $CDC_CITATION. ${normsNote ?: "US reference values."} For the physiotherapist to " +
-                    "interpret; Sthira does not diagnose or predict falls.",
-            )
         }
     }
 }
