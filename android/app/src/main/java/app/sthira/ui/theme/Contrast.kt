@@ -3,8 +3,8 @@ package app.sthira.ui.theme
 import kotlin.math.pow
 
 /**
- * WCAG 2.x contrast maths on 0xRRGGBB colours, plus the alpha compositing a translucent glass
- * fill gets on top of an unknown backdrop. Pure Kotlin so it runs in plain JVM unit tests.
+ * WCAG 2.x contrast maths on 0xRRGGBB colours, plus the alpha compositing a translucent
+ * panel fill gets on top of an unknown backdrop (the live camera). Pure Kotlin so it runs in plain JVM unit tests.
  */
 object Contrast {
     const val AA_TEXT = 4.5
@@ -38,8 +38,8 @@ object Contrast {
         return (mix(16) shl 16) or (mix(8) shl 8) or mix(0)
     }
 
-    /** The lowest contrast [text] gets on the glass over any backdrop between black and white. */
-    fun worstOnGlass(text: Int, fill: Int, alpha: Double): Double {
+    /** The lowest contrast [text] gets on the panel over any backdrop between black and white. */
+    fun worstOverBackdrop(text: Int, fill: Int, alpha: Double): Double {
         val onBlack = over(fill, alpha, BLACK)
         val onWhite = over(fill, alpha, WHITE)
         // Composite luminance moves monotonically between the two extremes. If the text's luminance

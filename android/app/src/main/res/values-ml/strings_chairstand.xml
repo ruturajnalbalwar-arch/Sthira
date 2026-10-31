@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Malayalam. 30-second chair-stand test screen. -->
+<resources>
+    <string name="cs_title">30 സെക്കൻഡ് കസേരയിൽ നിന്ന് എഴുന്നേൽക്കൽ</string>
+    <string name="cs_privacy_row">ഒന്നും സേവ് ചെയ്യുകയോ അയയ്ക്കുകയോ ഇല്ല: ശരീരനില തിരിച്ചറിയൽ ഈ ഫോണിൽ തന്നെയാണ് നടക്കുന്നത്.</string>
+    <string name="cs_step_of">%2$d ൽ ഘട്ടം %1$d</string>
+    <string name="cs_step_person">വ്യക്തിയെക്കുറിച്ച്</string>
+    <string name="cs_step_camera">ക്യാമറ</string>
+
+    <string name="cs_age_label">പ്രായ വിഭാഗം</string>
+    <string name="cs_age_help">CDC മൂല്യങ്ങൾ 60 വയസ്സും അതിനു മുകളിലും ഉള്ളവർക്ക് മാത്രമാണ്. 80+ ന് CDC യുടെ 80-84 മൂല്യം ഉപയോഗിക്കുന്നു.</string>
+    <string name="cs_sex_label">ലിംഗം</string>
+    <string name="cs_sex_help">CDC സ്ത്രീകൾക്കും പുരുഷന്മാർക്കും വെവ്വേറെ മൂല്യങ്ങൾ നൽകുന്നു. ഇത് സേവ് ചെയ്യില്ല.</string>
+    <string name="cs_age_under_60">60 ൽ താഴെ</string>
+    <string name="cs_age_60_64">60-64</string>
+    <string name="cs_age_65_69">65-69</string>
+    <string name="cs_age_70_74">70-74</string>
+    <string name="cs_age_75_79">75-79</string>
+    <string name="cs_age_80_plus">80+</string>
+    <string name="cs_sex_female">സ്ത്രീ</string>
+    <string name="cs_sex_male">പുരുഷൻ</string>
+    <string name="cs_sex_not_recorded">പറയാൻ താൽപ്പര്യമില്ല</string>
+
+    <string name="cs_error_age_band">പ്രായ വിഭാഗം തിരഞ്ഞെടുക്കുക</string>
+    <string name="cs_error_sex">ഒന്ന് തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ പറയാൻ താൽപ്പര്യമില്ല</string>
+
+    <string name="cs_continue_blocked">തുടരാൻ ഇവ ചേർക്കുക: %1$s.</string>
+    <string name="cs_list_separator">", "</string>
+    <string name="cs_blocker_age">പ്രായ വിഭാഗം</string>
+    <string name="cs_blocker_sex">ലിംഗം</string>
+    <string name="cs_continue">അടുത്തത്</string>
+
+    <string name="cs_unavailable_title">കസേരയിൽ നിന്ന് എഴുന്നേൽക്കൽ പരിശോധന ലഭ്യമല്ല</string>
+    <string name="cs_unavailable_body">params.json ൽ പരിശോധനയുടെ സമയദൈർഘ്യങ്ങൾ ഇല്ല അല്ലെങ്കിൽ ശരിയല്ല, അതിനാൽ പരിശോധനയുടെ സമയം അളക്കാൻ കഴിയില്ല.</string>
+
+    <string name="cs_edit_session">വിവരങ്ങൾ മാറ്റുക</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
+    <string name="cs_run_again">വീണ്ടും ചെയ്യുക</string>
+    <string name="cs_new_person">പുതിയ വ്യക്തി</string>
+    <string name="cs_waiting_camera">ക്യാമറയ്ക്കായി കാത്തിരിക്കുന്നു…</string>
+    <string name="cs_start">തുടങ്ങുക</string>
+    <string name="cs_stop">നിർത്തുക</string>
+    <string name="cs_redo_calibration">കാലിബ്രേഷൻ വീണ്ടും ചെയ്യുക</string>
+    <string name="cs_cancel_test">പരിശോധന റദ്ദാക്കുക</string>
+
+    <string name="cs_switch_camera">ക്യാമറ മാറ്റുക</string>
+    <string name="cs_switch_to_front">മുൻ ക്യാമറയിലേക്ക് മാറ്റുക</string>
+    <string name="cs_switch_to_back">പിൻ ക്യാമറയിലേക്ക് മാറ്റുക</string>
+    <string name="cs_status_separator">" · "</string>
+
+    <string name="cs_stage_ready">തയ്യാർ</string>
+    <string name="cs_stage_starting">തുടങ്ങുന്നു…</string>
+    <string name="cs_stage_stand">നിവർന്ന് എഴുന്നേറ്റ് നിൽക്കുക, അനങ്ങാതിരിക്കുക</string>
+    <string name="cs_stage_sit">ഇരിക്കുക, അനങ്ങാതിരിക്കുക</string>
+    <string name="cs_stage_go">തുടങ്ങൂ! കഴിയുന്നത്ര തവണ എഴുന്നേൽക്കുകയും ഇരിക്കുകയും ചെയ്യുക</string>
+    <string name="cs_stage_done">നിർത്തുക. പരിശോധന കഴിഞ്ഞു</string>
+    <string name="cs_camera_checklist">ശരീരം മുഴുവനും കസേരയും കാണണം, ഫോൺ 2-3 മീറ്റർ അകലെ വയ്ക്കുക</string>
+    <string name="cs_step_into_view">ക്യാമറയിൽ കാണുന്നിടത്തേക്ക് വരൂ: തല മുതൽ കാൽ വരെ ശരീരം മുഴുവൻ</string>
+
+    <string name="cs_pill_person_lost">ആളെ കാണുന്നില്ല: തല മുതൽ കാൽ വരെ ശരീരം മുഴുവൻ കാണണം</string>
+    <string name="cs_pill_unreliable">എണ്ണം വിശ്വസനീയമല്ല: വളരെയധികം എഴുന്നേൽക്കലുകൾ വ്യക്തമല്ല</string>
+    <string name="cs_pill_slow">ക്യാമറ പതുക്കെയാണ് (%1$.1f fps): ചില എഴുന്നേൽക്കലുകൾ എണ്ണാതെ പോയേക്കാം</string>
+
+    <string name="cs_elapsed_of_total">%1$d / %2$d സെ</string>
+    <string name="cs_counting_off">എണ്ണൽ ഓഫാണ്: കൗണ്ടർ ഇനിയും ക്രമീകരിച്ചിട്ടില്ല.</string>
+    <string name="cs_checking_calibration">കാലിബ്രേഷൻ പരിശോധിക്കുന്നു…</string>
+    <string name="cs_calibration_failed">കാലിബ്രേഷൻ ശരിയായില്ല. എണ്ണുന്നില്ല.</string>
+    <string name="cs_counter_failed">കൗണ്ടർ തുടങ്ങാൻ കഴിഞ്ഞില്ല.</string>
+    <string name="cs_problem_hint">കാലിബ്രേഷൻ വീണ്ടും ചെയ്യുക അമർത്തുക, അല്ലെങ്കിൽ റദ്ദാക്കുക.</string>
+
+    <plurals name="cs_seconds">
+        <item quantity="one">%1$d സെക്കൻഡ്</item>
+        <item quantity="other">%1$d സെക്കൻഡ്</item>
+    </plurals>
+    <plurals name="cs_stands_word">
+        <item quantity="one">തവണ എഴുന്നേറ്റു</item>
+        <item quantity="other">തവണ എഴുന്നേറ്റു</item>
+    </plurals>
+    <string name="cs_stands_word_spaced">" %1$s"</string>
+    <plurals name="cs_full_stands_spoken">
+        <item quantity="one">%1$d തവണ പൂർണമായി എഴുന്നേറ്റു</item>
+        <item quantity="other">%1$d തവണ പൂർണമായി എഴുന്നേറ്റു</item>
+    </plurals>
+    <plurals name="cs_seconds_left">
+        <item quantity="one">%1$d സെ ബാക്കി</item>
+        <item quantity="other">%1$d സെ ബാക്കി</item>
+    </plurals>
+
+    <string name="cs_rep_full">പൂർണം</string>
+    <string name="cs_rep_half">പകുതി</string>
+    <string name="cs_rep_arms">കൈ ഉപയോഗിച്ചു</string>
+    <string name="cs_rep_unclear">വ്യക്തമല്ല</string>
+    <string name="cs_rep_chip">%1$d %2$s</string>
+    <string name="cs_rep_spoken">ശ്രമം %1$d: %2$s, %3$s</string>
+    <string name="cs_rep_counted">എണ്ണി</string>
+    <string name="cs_rep_not_counted">എണ്ണിയില്ല</string>
+
+    <string name="cs_result_title">ഫലം</string>
+    <plurals name="cs_result_full_stands">
+        <item quantity="one">തവണ പൂർണമായി എഴുന്നേറ്റു</item>
+        <item quantity="other">തവണ പൂർണമായി എഴുന്നേറ്റു</item>
+    </plurals>
+    <string name="cs_result_in_seconds">%1$d സെക്കൻഡിൽ</string>
+    <string name="cs_result_stopped_early">പരിശോധന നേരത്തെ നിർത്തി: ഇത് CDC സ്കോർ അല്ല</string>
+    <string name="cs_result_not_counted">എണ്ണിയില്ല</string>
+    <string name="cs_result_half">പകുതി എഴുന്നേൽക്കലുകൾ</string>
+    <string name="cs_result_term_count">%1$s: %2$d</string>
+    <string name="cs_result_no_comparison">ഈ പരിശോധനയ്ക്ക് CDC താരതമ്യം ഇല്ല</string>
+    <string name="cs_result_below">ഈ പ്രായത്തിനും ലിംഗത്തിനും ഉള്ള CDC ശരാശരിയേക്കാൾ കുറവ്</string>
+    <string name="cs_result_at_or_above">ഈ പ്രായത്തിനും ലിംഗത്തിനും ഉള്ള CDC ശരാശരിക്ക് തുല്യമോ അതിൽ കൂടുതലോ</string>
+    <string name="cs_result_sentence_women">%1$d-%2$d വയസ്സുള്ള സ്ത്രീകൾക്കുള്ള CDC മൂല്യം: %3$d ൽ കുറവ് തവണ എഴുന്നേറ്റാൽ ശരാശരിയേക്കാൾ കുറവ്. ഈ പരിശോധനയിലെ സ്കോർ %4$d.</string>
+    <string name="cs_result_sentence_men">%1$d-%2$d വയസ്സുള്ള പുരുഷന്മാർക്കുള്ള CDC മൂല്യം: %3$d ൽ കുറവ് തവണ എഴുന്നേറ്റാൽ ശരാശരിയേക്കാൾ കുറവ്. ഈ പരിശോധനയിലെ സ്കോർ %4$d.</string>
+    <string name="cs_cdc_open_band_lower">%1$d-%2$d വയസ്സിനുള്ള CDC മൂല്യവുമായി താരതമ്യം ചെയ്തു. %3$d വയസ്സും അതിനു മുകളിലും ഉള്ളവർക്ക് CDC കുറഞ്ഞ മൂല്യങ്ങൾ നൽകുന്നു.</string>
+    <string name="cs_cdc_open_band_different">%1$d-%2$d വയസ്സിനുള്ള CDC മൂല്യവുമായി താരതമ്യം ചെയ്തു. %3$d വയസ്സും അതിനു മുകളിലും ഉള്ളവർക്ക് CDC വ്യത്യസ്ത മൂല്യങ്ങൾ നൽകുന്നു.</string>
+    <string name="cs_cdc_open_band_only">%1$d-%2$d വയസ്സിനുള്ള CDC മൂല്യവുമായി താരതമ്യം ചെയ്തു.</string>
+    <string name="cs_result_reference">റഫറൻസ്: %1$s. %2$s ഇതിന്റെ അർത്ഥം ഫിസിയോതെറാപ്പിസ്റ്റ് വിലയിരുത്തണം. Sthira രോഗനിർണയം നടത്തുകയോ വീഴ്ച മുൻകൂട്ടി പ്രവചിക്കുകയോ ചെയ്യുന്നില്ല.</string>
+    <string name="cs_result_us_reference">അമേരിക്കൻ റഫറൻസ് മൂല്യങ്ങൾ.</string>
+
+    <string name="cs_reason_stopped_early">പരിശോധന നേരത്തെ നിർത്തി: ഇത് CDC സ്കോർ അല്ല. CDC സ്കോറിന് മുഴുവൻ സമയവും പരിശോധന നടക്കണം.</string>
+    <string name="cs_reason_unreliable">എണ്ണം വിശ്വസനീയമല്ല: ക്യാമറയിൽ വളരെയധികം എഴുന്നേൽക്കലുകൾ വ്യക്തമായിരുന്നില്ല. പരിശോധന വീണ്ടും ചെയ്യുക.</string>
+    <string name="cs_reason_low_fps">വിശ്വസിക്കാവുന്ന എണ്ണത്തിന് ക്യാമറ വളരെ പതുക്കെയായിരുന്നു. മറ്റ് ആപ്പുകൾ അടച്ച് പരിശോധന വീണ്ടും ചെയ്യുക.</string>
+    <string name="cs_no_cdc_under_60">60 വയസ്സിൽ താഴെയുള്ളവർക്ക് CDC യിൽ കസേരയിൽ നിന്ന് എഴുന്നേൽക്കൽ മൂല്യം ഇല്ല.</string>
+    <string name="cs_no_cdc_sex">CDC സ്ത്രീകൾക്കും പുരുഷന്മാർക്കും വെവ്വേറെ മൂല്യങ്ങൾ നൽകുന്നു, പക്ഷേ ലിംഗം പറഞ്ഞിട്ടില്ല.</string>
+    <string name="cs_no_cdc_value">CDC പട്ടികയിൽ %1$s പ്രായത്തിന് മൂല്യം ഇല്ല.</string>
+    <string name="cs_no_cdc_file">CDC റഫറൻസ് ഫയൽ വായിക്കാൻ കഴിഞ്ഞില്ല.</string>
+
+    <string name="cs_no_count_not_tuned">എണ്ണമില്ല: കൗണ്ടർ ഇനിയും ക്രമീകരിച്ചിട്ടില്ല. ഇത് സജ്ജീകരണത്തിന്റെ ഒരു പരിശീലനം മാത്രമായിരുന്നു.</string>
+    <string name="cs_no_count_invalid">എണ്ണമില്ല: ഈ പതിപ്പിലെ കൗണ്ടർ സെറ്റിങ്സ് ശരിയല്ല.</string>
+    <string name="cs_no_count_calibration">എണ്ണമില്ല: കാലിബ്രേഷൻ ശരിയായില്ല, അതിനാൽ എഴുന്നേൽക്കലുകൾ എണ്ണിയില്ല. വീണ്ടും ചെയ്യുക.</string>
+    <string name="cs_no_count_context">എണ്ണമില്ല: കൗണ്ടർ തുടങ്ങാൻ കഴിഞ്ഞില്ല.</string>
+    <string name="cs_no_count_before_go">എണ്ണമില്ല: തുടങ്ങൂ എന്നതിന് മുമ്പേ പരിശോധന നിർത്തി.</string>
+
+    <string name="cs_issues_title">ഈ പരിശോധനയുടെ ചിത്രീകരണത്തിൽ പ്രശ്നങ്ങൾ ഉണ്ടായി</string>
+    <string name="cs_issue_app_hidden">പരിശോധനയ്ക്കിടെ ആപ്പ് പശ്ചാത്തലത്തിലേക്ക് പോയി, അതിനാൽ ചില ഫ്രെയിമുകൾ ഇല്ല. പരിശോധന വീണ്ടും ചെയ്യുക.</string>
+    <string name="cs_issue_detection_failed">പരിശോധനയ്ക്കിടെ ശരീരനില തിരിച്ചറിയൽ നിന്നുപോയി. പരിശോധന വീണ്ടും ചെയ്യുക.</string>
+    <string name="cs_issue_camera_ended">പരിശോധനയ്ക്കിടെ ക്യാമറ നിന്നുപോയി. പരിശോധന വീണ്ടും ചെയ്യുക.</string>
+</resources>

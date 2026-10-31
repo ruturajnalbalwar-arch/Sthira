@@ -59,7 +59,7 @@ private fun runState(stage: Stage, count: CountView) = ChairStandUiState(
 
 @Composable
 private fun Camera(state: ChairStandUiState) {
-    // A white frame is the worst case for light text on glass; the overlays must stay readable on it.
+    // A white frame is the worst case for text on the overlay panels; the overlays must stay readable on it.
     Box(Modifier.fillMaxWidth().aspectRatio(3f / 4f).background(Color.White)) { CameraOverlays(state) }
 }
 

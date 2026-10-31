@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home screen text. Tamil. -->
+<resources>
+    <string name="home_tagline">வீட்டு பிசியோதெரபிக்கு நிலையான மதிப்பெண்கள்</string>
+    <string name="home_tests_heading">ஒரு சோதனையைத் தேர்ந்தெடுங்கள்</string>
+    <string name="home_test_chair_title">30 வினாடி நாற்காலி எழுதல் சோதனை</string>
+    <string name="home_test_chair_measures">முடிந்தவரை பல முறை எழுந்து உட்காருங்கள்</string>
+    <string name="home_test_balance_title">4 நிலை சமநிலைச் சோதனை</string>
+    <string name="home_test_balance_measures">நான்கு நிலைகளில் அசையாமல் நில்லுங்கள்</string>
+    <string name="home_test_tug_title">Timed Up and Go (எழுந்து நடக்கும் சோதனை)</string>
+    <string name="home_test_tug_measures">எழுந்து, நடந்து, திரும்பி வந்து உட்காருங்கள்</string>
+    <string name="home_badge_ready">தயார்</string>
+    <string name="home_badge_not_tuned">இப்போது டைமர் மட்டும். எண்ணுதல் பின்னர் வரும்.</string>
+    <string name="home_badge_invalid">இப்போது டைமர் மட்டும். கவுண்டர் அமைப்புகளில் சிக்கல் உள்ளது.</string>
+    <string name="home_badge_missing">இப்போது டைமர் மட்டும். கவுண்டர் அமைப்புகள் கிடைக்கவில்லை.</string>
+    <string name="home_footer_disclaimer">முன்மாதிரி. இது மருத்துவக் கருவி அல்ல. நோயைக் கண்டறியாது, விழுவதை முன்கூட்டியே கணிக்காது. CDC அமெரிக்க குறிப்பு மதிப்புகளைப் பயன்படுத்துகிறது.</string>
+    <string name="home_link_privacy">தனியுரிமை</string>
+    <string name="home_link_terms">விதிமுறைகள்</string>
+    <string name="home_link_licences">உரிமங்கள்</string>
+</resources>

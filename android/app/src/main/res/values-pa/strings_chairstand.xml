@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="cs_title">30 ਸਕਿੰਟ ਕੁਰਸੀ ਤੋਂ ਉੱਠਣਾ</string>
+    <string name="cs_privacy_row">ਕੁਝ ਵੀ ਸੇਵ ਜਾਂ ਭੇਜਿਆ ਨਹੀਂ ਜਾਂਦਾ: ਸਰੀਰ ਦੀ ਸਥਿਤੀ (pose) ਦੀ ਟ੍ਰੈਕਿੰਗ ਇਸੇ ਫ਼ੋਨ ਉੱਤੇ ਚੱਲਦੀ ਹੈ।</string>
+    <string name="cs_step_of">%2$d ਵਿੱਚੋਂ ਕਦਮ %1$d</string>
+    <string name="cs_step_person">ਵਿਅਕਤੀ ਬਾਰੇ</string>
+    <string name="cs_step_camera">ਕੈਮਰਾ</string>
+
+    <string name="cs_age_label">ਉਮਰ ਸਮੂਹ</string>
+    <string name="cs_age_help">CDC ਦੇ ਮੁੱਲ 60 ਅਤੇ ਇਸ ਤੋਂ ਵੱਧ ਉਮਰ ਲਈ ਹਨ। 80+ ਲਈ CDC ਦਾ 80-84 ਵਾਲਾ ਮੁੱਲ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।</string>
+    <string name="cs_sex_label">ਲਿੰਗ</string>
+    <string name="cs_sex_help">CDC ਔਰਤਾਂ ਅਤੇ ਮਰਦਾਂ ਲਈ ਵੱਖਰੇ ਮੁੱਲ ਦਿੰਦਾ ਹੈ। ਸੇਵ ਨਹੀਂ ਹੁੰਦਾ।</string>
+    <string name="cs_age_under_60">60 ਤੋਂ ਘੱਟ</string>
+    <string name="cs_age_60_64">60-64</string>
+    <string name="cs_age_65_69">65-69</string>
+    <string name="cs_age_70_74">70-74</string>
+    <string name="cs_age_75_79">75-79</string>
+    <string name="cs_age_80_plus">80+</string>
+    <string name="cs_sex_female">ਔਰਤ</string>
+    <string name="cs_sex_male">ਮਰਦ</string>
+    <string name="cs_sex_not_recorded">ਦੱਸਣਾ ਨਹੀਂ ਚਾਹੁੰਦੇ</string>
+
+    <string name="cs_error_age_band">ਉਮਰ ਸਮੂਹ ਚੁਣੋ</string>
+    <string name="cs_error_sex">ਇੱਕ ਚੁਣੋ, ਜਾਂ ਦੱਸਣਾ ਨਹੀਂ ਚਾਹੁੰਦੇ</string>
+
+    <string name="cs_continue_blocked">ਅੱਗੇ ਵਧਣ ਲਈ ਇਹ ਭਰੋ: %1$s।</string>
+    <string name="cs_list_separator">", "</string>
+    <string name="cs_blocker_age">ਉਮਰ ਸਮੂਹ</string>
+    <string name="cs_blocker_sex">ਲਿੰਗ</string>
+    <string name="cs_continue">ਅੱਗੇ</string>
+
+    <string name="cs_unavailable_title">ਕੁਰਸੀ ਤੋਂ ਉੱਠਣ ਵਾਲਾ ਟੈਸਟ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
+    <string name="cs_unavailable_body">params.json ਵਿੱਚ ਟੈਸਟ ਦੇ ਸਮੇਂ ਨਹੀਂ ਹਨ ਜਾਂ ਗਲਤ ਹਨ, ਇਸ ਲਈ ਟੈਸਟ ਦਾ ਸਮਾਂ ਨਹੀਂ ਮਾਪਿਆ ਜਾ ਸਕਦਾ।</string>
+
+    <string name="cs_edit_session">ਵੇਰਵੇ ਬਦਲੋ</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
+    <string name="cs_run_again">ਦੁਬਾਰਾ ਚਲਾਓ</string>
+    <string name="cs_new_person">ਨਵਾਂ ਵਿਅਕਤੀ</string>
+    <string name="cs_waiting_camera">ਕੈਮਰੇ ਦੀ ਉਡੀਕ ਹੋ ਰਹੀ ਹੈ…</string>
+    <string name="cs_start">ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="cs_stop">ਰੋਕੋ</string>
+    <string name="cs_redo_calibration">ਦੁਬਾਰਾ ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਕਰੋ</string>
+    <string name="cs_cancel_test">ਟੈਸਟ ਰੱਦ ਕਰੋ</string>
+
+    <string name="cs_switch_camera">ਕੈਮਰਾ ਬਦਲੋ</string>
+    <string name="cs_switch_to_front">ਅਗਲਾ ਕੈਮਰਾ ਚਾਲੂ ਕਰੋ</string>
+    <string name="cs_switch_to_back">ਪਿਛਲਾ ਕੈਮਰਾ ਚਾਲੂ ਕਰੋ</string>
+    <string name="cs_status_separator">" · "</string>
+
+    <string name="cs_stage_ready">ਤਿਆਰ</string>
+    <string name="cs_stage_starting">ਸ਼ੁਰੂ ਹੋ ਰਿਹਾ ਹੈ…</string>
+    <string name="cs_stage_stand">ਸਿੱਧੇ ਖੜ੍ਹੇ ਹੋਵੋ ਅਤੇ ਹਿੱਲੋ ਨਾ</string>
+    <string name="cs_stage_sit">ਬੈਠ ਜਾਓ ਅਤੇ ਹਿੱਲੋ ਨਾ</string>
+    <string name="cs_stage_go">ਸ਼ੁਰੂ! ਜਿੰਨੀ ਵਾਰ ਹੋ ਸਕੇ ਉੱਠੋ ਅਤੇ ਬੈਠੋ</string>
+    <string name="cs_stage_done">ਬੱਸ। ਟੈਸਟ ਪੂਰਾ</string>
+    <string name="cs_camera_checklist">ਪੂਰਾ ਸਰੀਰ ਅਤੇ ਕੁਰਸੀ ਦਿਖਾਈ ਦੇਵੇ, ਫ਼ੋਨ 2-3 ਮੀਟਰ ਦੂਰ ਰੱਖੋ</string>
+    <string name="cs_step_into_view">ਕੈਮਰੇ ਦੇ ਸਾਹਮਣੇ ਆਓ: ਪੂਰਾ ਸਰੀਰ, ਸਿਰ ਤੋਂ ਪੈਰਾਂ ਤੱਕ</string>
+
+    <string name="cs_pill_person_lost">ਵਿਅਕਤੀ ਦਿਖਾਈ ਨਹੀਂ ਦੇ ਰਿਹਾ: ਪੂਰਾ ਸਰੀਰ, ਸਿਰ ਤੋਂ ਪੈਰਾਂ ਤੱਕ, ਦਿਖਣਾ ਚਾਹੀਦਾ ਹੈ</string>
+    <string name="cs_pill_unreliable">ਗਿਣਤੀ ਭਰੋਸੇਯੋਗ ਨਹੀਂ: ਬਹੁਤੀ ਵਾਰ ਉੱਠਣਾ ਸਾਫ਼ ਨਹੀਂ ਦਿਖਿਆ</string>
+    <string name="cs_pill_slow">ਕੈਮਰਾ ਹੌਲੀ ਹੈ (%1$.1f fps): ਕੁਝ ਵਾਰ ਉੱਠਣਾ ਗਿਣਤੀ ਤੋਂ ਰਹਿ ਸਕਦਾ ਹੈ</string>
+
+    <string name="cs_elapsed_of_total">%1$d / %2$d ਸਕਿੰਟ</string>
+    <string name="cs_counting_off">ਗਿਣਤੀ ਬੰਦ ਹੈ: ਕਾਊਂਟਰ ਅਜੇ ਟਿਊਨ ਨਹੀਂ ਹੋਇਆ।</string>
+    <string name="cs_checking_calibration">ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਜਾਂਚੀ ਜਾ ਰਹੀ ਹੈ…</string>
+    <string name="cs_calibration_failed">ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਪਾਸ ਨਹੀਂ ਹੋਈ। ਗਿਣਤੀ ਨਹੀਂ ਹੋ ਰਹੀ।</string>
+    <string name="cs_counter_failed">ਕਾਊਂਟਰ ਸ਼ੁਰੂ ਨਹੀਂ ਹੋ ਸਕਿਆ।</string>
+    <string name="cs_problem_hint">ਦੁਬਾਰਾ ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਕਰੋ ਦਬਾਓ, ਜਾਂ ਰੱਦ ਕਰੋ।</string>
+
+    <plurals name="cs_seconds">
+        <item quantity="one">%1$d ਸਕਿੰਟ</item>
+        <item quantity="other">%1$d ਸਕਿੰਟ</item>
+    </plurals>
+    <plurals name="cs_stands_word" tools:ignore="ImpliedQuantity">
+        <item quantity="one">ਵਾਰ ਉੱਠੇ</item>
+        <item quantity="other">ਵਾਰ ਉੱਠੇ</item>
+    </plurals>
+    <string name="cs_stands_word_spaced">" %1$s"</string>
+    <plurals name="cs_full_stands_spoken">
+        <item quantity="one">%1$d ਵਾਰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਉੱਠੇ</item>
+        <item quantity="other">%1$d ਵਾਰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਉੱਠੇ</item>
+    </plurals>
+    <plurals name="cs_seconds_left">
+        <item quantity="one">%1$d ਸਕਿੰਟ ਬਾਕੀ</item>
+        <item quantity="other">%1$d ਸਕਿੰਟ ਬਾਕੀ</item>
+    </plurals>
+
+    <string name="cs_rep_full">ਪੂਰਾ</string>
+    <string name="cs_rep_half">ਅੱਧਾ</string>
+    <string name="cs_rep_arms">ਬਾਹਾਂ ਵਰਤੀਆਂ</string>
+    <string name="cs_rep_unclear">ਸਾਫ਼ ਨਹੀਂ</string>
+    <string name="cs_rep_chip">%1$d %2$s</string>
+    <string name="cs_rep_spoken">ਕੋਸ਼ਿਸ਼ %1$d: %2$s, %3$s</string>
+    <string name="cs_rep_counted">ਗਿਣਿਆ ਗਿਆ</string>
+    <string name="cs_rep_not_counted">ਨਹੀਂ ਗਿਣਿਆ ਗਿਆ</string>
+
+    <string name="cs_result_title">ਨਤੀਜਾ</string>
+    <plurals name="cs_result_full_stands" tools:ignore="ImpliedQuantity">
+        <item quantity="one">ਵਾਰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਉੱਠੇ</item>
+        <item quantity="other">ਵਾਰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਉੱਠੇ</item>
+    </plurals>
+    <string name="cs_result_in_seconds">%1$d ਸਕਿੰਟ ਵਿੱਚ</string>
+    <string name="cs_result_stopped_early">ਟੈਸਟ ਜਲਦੀ ਰੋਕਿਆ ਗਿਆ: ਇਹ CDC ਸਕੋਰ ਨਹੀਂ ਹੈ</string>
+    <string name="cs_result_not_counted">ਨਹੀਂ ਗਿਣਿਆ ਗਿਆ</string>
+    <string name="cs_result_half">ਅੱਧਾ ਉੱਠਣਾ</string>
+    <string name="cs_result_term_count">%1$s: %2$d</string>
+    <string name="cs_result_no_comparison">ਇਸ ਵਾਰ CDC ਨਾਲ ਤੁਲਨਾ ਨਹੀਂ</string>
+    <string name="cs_result_below">ਇਸ ਉਮਰ ਅਤੇ ਲਿੰਗ ਲਈ CDC ਔਸਤ ਤੋਂ ਘੱਟ</string>
+    <string name="cs_result_at_or_above">ਇਸ ਉਮਰ ਅਤੇ ਲਿੰਗ ਲਈ CDC ਔਸਤ ਦੇ ਬਰਾਬਰ ਜਾਂ ਵੱਧ</string>
+    <string name="cs_result_sentence_women">%1$d-%2$d ਸਾਲ ਦੀਆਂ ਔਰਤਾਂ ਲਈ CDC ਮੁੱਲ: %3$d ਤੋਂ ਘੱਟ ਵਾਰ ਉੱਠਣਾ ਔਸਤ ਤੋਂ ਘੱਟ ਹੈ। ਇਸ ਵਾਰ ਸਕੋਰ %4$d ਆਇਆ।</string>
+    <string name="cs_result_sentence_men">%1$d-%2$d ਸਾਲ ਦੇ ਮਰਦਾਂ ਲਈ CDC ਮੁੱਲ: %3$d ਤੋਂ ਘੱਟ ਵਾਰ ਉੱਠਣਾ ਔਸਤ ਤੋਂ ਘੱਟ ਹੈ। ਇਸ ਵਾਰ ਸਕੋਰ %4$d ਆਇਆ।</string>
+    <string name="cs_cdc_open_band_lower">%1$d-%2$d ਸਾਲ ਲਈ CDC ਮੁੱਲ ਨਾਲ ਤੁਲਨਾ ਕੀਤੀ। %3$d ਅਤੇ ਇਸ ਤੋਂ ਵੱਧ ਉਮਰ ਲਈ CDC ਘੱਟ ਮੁੱਲ ਦਿੰਦਾ ਹੈ।</string>
+    <string name="cs_cdc_open_band_different">%1$d-%2$d ਸਾਲ ਲਈ CDC ਮੁੱਲ ਨਾਲ ਤੁਲਨਾ ਕੀਤੀ। %3$d ਅਤੇ ਇਸ ਤੋਂ ਵੱਧ ਉਮਰ ਲਈ CDC ਵੱਖਰੇ ਮੁੱਲ ਦਿੰਦਾ ਹੈ।</string>
+    <string name="cs_cdc_open_band_only">%1$d-%2$d ਸਾਲ ਲਈ CDC ਮੁੱਲ ਨਾਲ ਤੁਲਨਾ ਕੀਤੀ।</string>
+    <string name="cs_result_reference">ਹਵਾਲਾ: %1$s. %2$s ਨਤੀਜੇ ਦਾ ਮਤਲਬ ਫਿਜ਼ੀਓਥੈਰੇਪਿਸਟ ਤੈਅ ਕਰੇਗਾ। Sthira ਨਿਦਾਨ ਨਹੀਂ ਕਰਦੀ ਅਤੇ ਡਿੱਗਣ ਦੀ ਭਵਿੱਖਬਾਣੀ ਨਹੀਂ ਕਰਦੀ।</string>
+    <string name="cs_result_us_reference">US ਦੇ ਹਵਾਲਾ ਮੁੱਲ।</string>
+
+    <string name="cs_reason_stopped_early">ਟੈਸਟ ਜਲਦੀ ਰੋਕਿਆ ਗਿਆ: ਇਹ CDC ਸਕੋਰ ਨਹੀਂ ਹੈ। CDC ਸਕੋਰ ਲਈ ਪੂਰਾ ਤੈਅ ਸਮਾਂ ਚਾਹੀਦਾ ਹੈ।</string>
+    <string name="cs_reason_unreliable">ਗਿਣਤੀ ਭਰੋਸੇਯੋਗ ਨਹੀਂ: ਕੈਮਰੇ ਵਿੱਚ ਬਹੁਤੀ ਵਾਰ ਉੱਠਣਾ ਸਾਫ਼ ਨਹੀਂ ਦਿਖਿਆ। ਟੈਸਟ ਦੁਬਾਰਾ ਕਰੋ।</string>
+    <string name="cs_reason_low_fps">ਭਰੋਸੇਯੋਗ ਗਿਣਤੀ ਲਈ ਕੈਮਰਾ ਬਹੁਤ ਹੌਲੀ ਚੱਲਿਆ। ਹੋਰ ਐਪਾਂ ਬੰਦ ਕਰੋ ਅਤੇ ਟੈਸਟ ਦੁਬਾਰਾ ਕਰੋ।</string>
+    <string name="cs_no_cdc_under_60">60 ਤੋਂ ਘੱਟ ਉਮਰ ਦੇ ਲੋਕਾਂ ਲਈ CDC ਕੋਲ ਕੁਰਸੀ ਤੋਂ ਉੱਠਣ ਦਾ ਕੋਈ ਮੁੱਲ ਨਹੀਂ ਹੈ।</string>
+    <string name="cs_no_cdc_sex">CDC ਔਰਤਾਂ ਅਤੇ ਮਰਦਾਂ ਲਈ ਵੱਖਰੇ ਮੁੱਲ ਦਿੰਦਾ ਹੈ, ਅਤੇ ਲਿੰਗ ਨਹੀਂ ਦੱਸਿਆ ਗਿਆ।</string>
+    <string name="cs_no_cdc_value">CDC ਦੀ ਸਾਰਣੀ ਵਿੱਚ %1$s ਉਮਰ ਲਈ ਕੋਈ ਮੁੱਲ ਨਹੀਂ ਹੈ।</string>
+    <string name="cs_no_cdc_file">CDC ਦੀ ਹਵਾਲਾ ਫ਼ਾਈਲ ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ।</string>
+
+    <string name="cs_no_count_not_tuned">ਗਿਣਤੀ ਨਹੀਂ: ਕਾਊਂਟਰ ਅਜੇ ਟਿਊਨ ਨਹੀਂ ਹੋਇਆ। ਇਸ ਵਾਰ ਸਿਰਫ਼ ਸੈੱਟਅੱਪ ਦਾ ਅਭਿਆਸ ਹੋਇਆ।</string>
+    <string name="cs_no_count_invalid">ਗਿਣਤੀ ਨਹੀਂ: ਇਸ ਵਰਜ਼ਨ ਵਿੱਚ ਕਾਊਂਟਰ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਗਲਤ ਹਨ।</string>
+    <string name="cs_no_count_calibration">ਗਿਣਤੀ ਨਹੀਂ: ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਪਾਸ ਨਹੀਂ ਹੋਈ, ਇਸ ਲਈ ਉੱਠਣਾ ਨਹੀਂ ਗਿਣਿਆ ਗਿਆ। ਦੁਬਾਰਾ ਚਲਾਓ।</string>
+    <string name="cs_no_count_context">ਗਿਣਤੀ ਨਹੀਂ: ਕਾਊਂਟਰ ਸ਼ੁਰੂ ਨਹੀਂ ਹੋ ਸਕਿਆ।</string>
+    <string name="cs_no_count_before_go">ਗਿਣਤੀ ਨਹੀਂ: “ਸ਼ੁਰੂ!” ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਟੈਸਟ ਰੋਕ ਦਿੱਤਾ ਗਿਆ।</string>
+
+    <string name="cs_issues_title">ਇਸ ਵਾਰ ਕੈਮਰੇ ਤੋਂ ਫ੍ਰੇਮ ਲੈਣ ਵਿੱਚ ਦਿੱਕਤ ਆਈ</string>
+    <string name="cs_issue_app_hidden">ਟੈਸਟ ਦੌਰਾਨ ਐਪ ਪਿੱਛੇ (background) ਚਲੀ ਗਈ, ਇਸ ਲਈ ਕੁਝ ਫ੍ਰੇਮ ਗੁੰਮ ਹਨ। ਟੈਸਟ ਦੁਬਾਰਾ ਕਰੋ।</string>
+    <string name="cs_issue_detection_failed">ਟੈਸਟ ਦੌਰਾਨ ਸਰੀਰ ਦੀ ਸਥਿਤੀ ਦੀ ਟ੍ਰੈਕਿੰਗ ਰੁਕ ਗਈ। ਟੈਸਟ ਦੁਬਾਰਾ ਕਰੋ।</string>
+    <string name="cs_issue_camera_ended">ਟੈਸਟ ਦੌਰਾਨ ਕੈਮਰਾ ਬੰਦ ਹੋ ਗਿਆ। ਟੈਸਟ ਦੁਬਾਰਾ ਕਰੋ।</string>
+</resources>

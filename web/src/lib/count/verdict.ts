@@ -1,8 +1,6 @@
 import type { ChairStandSummary } from "../sthira/chairStand";
 import type { NormLookup } from "./norms";
 
-export const CDC_CITATION = "CDC STEADI Assessment: 30-Second Chair Stand (2017)";
-
 /** Why a finished run is not compared with the CDC table. Each one is shown to the physiotherapist. */
 export const NO_COMPARISON_TEXT = {
   stoppedEarly: "Test stopped early: not a CDC score. The CDC score needs the full timed window.",

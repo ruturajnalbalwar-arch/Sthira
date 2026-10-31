@@ -28,6 +28,11 @@ export { POSE_LANDMARK_COUNT };
 export const MAX_FRAMES = 60 * 60 * 10; // ten minutes at 60 fps
 const MAX_PHASES = 16;
 const MAX_TEXT = 200;
+/** Shared with the session form, so the input stops where validation would. */
+export const MAX_ROOM = 80;
+export const MAX_NOTES = 500;
+/** The code is part of every saved file name, so it is limited to characters that are safe there. Same limit as the labelling tool ids. */
+export const MAX_PARTICIPANT_CODE = 40;
 
 const positiveMeasure = z.number().positive("Enter a measured value greater than 0");
 
@@ -35,15 +40,17 @@ export const sessionMetaSchema = z.object({
   participantCode: z
     .string()
     .trim()
-    .regex(/^P\d{2,3}$/, "Use a participant code like P07, never a name"),
+    .min(1, "Enter a participant code")
+    .max(MAX_PARTICIPANT_CODE, `Use at most ${MAX_PARTICIPANT_CODE} characters`)
+    .regex(/^[A-Za-z0-9_-]+$/, "Use letters, digits, - or _ only (it is part of the file name)"),
   ageBand: z.enum(AGE_BANDS),
   clothing: z.enum(CLOTHING),
   trial: z.enum(TRIALS),
   viewAngle: z.enum(VIEW_ANGLES),
   cameraHeightCm: positiveMeasure,
   cameraDistanceCm: positiveMeasure,
-  room: z.string().trim().min(1, "Describe the room, e.g. 'hostel common room'").max(80),
-  notes: z.string().trim().max(500).default(""),
+  room: z.string().trim().min(1, "Describe the room, e.g. 'hostel common room'").max(MAX_ROOM),
+  notes: z.string().trim().max(MAX_NOTES).default(""),
   consentConfirmed: z.literal(true, { error: "Written consent must be signed before recording" }),
 });
 export type SessionMeta = z.infer<typeof sessionMetaSchema>;

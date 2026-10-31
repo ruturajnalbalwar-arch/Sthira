@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Camera, pose tracking and camera permission. Telugu. -->
+<resources>
+    <string name="pose_preview_description">గుర్తించిన శరీర ఆకారంతో కెమెరా దృశ్యం</string>
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">వ్యక్తి కనిపిస్తున్నారు</string>
+    <string name="pose_no_person">వ్యక్తి లేరు</string>
+    <string name="pose_starting_camera">కెమెరా మొదలవుతోంది…</string>
+    <string name="pose_camera_stopped">కెమెరా ఆగిపోయింది</string>
+
+    <string name="pose_error_tracking_stopped">ఈ ఫోన్‌లో శరీర భంగిమ గుర్తింపు ఆగిపోయింది. వెనక్కి వెళ్లి పరీక్షను మళ్ళీ తెరవండి.</string>
+    <string name="pose_error_model">ఈ ఫోన్‌లో పోజ్ మోడల్ లోడ్ కాలేదు.</string>
+    <string name="pose_error_camera">కెమెరా మొదలు కాలేదు. ఇతర కెమెరా యాప్‌లు మూసి, మళ్ళీ ప్రయత్నించండి.</string>
+
+    <string name="pose_perm_needed_title">ఈ పరీక్షకు కెమెరా అవసరం</string>
+    <string name="pose_perm_off_title">కెమెరా అనుమతి ఆఫ్‌లో ఉంది</string>
+    <string name="pose_perm_why">ప్రతి సారి లేవడాన్ని లెక్కించడానికి Sthira తల, భుజాలను గమనిస్తుంది. వీడియో ఈ ఫోన్‌లోనే ప్రాసెస్ అవుతుంది: అది ఎప్పుడూ సేవ్ కాదు, అప్‌లోడ్ కాదు, ఈ యాప్‌కు ఇంటర్నెట్ యాక్సెస్ లేదు.</string>
+    <string name="pose_perm_blocked">Android మళ్ళీ అడగదు. సెట్టింగ్‌లు తెరిచి, అనుమతులు, తర్వాత కెమెరా ఎంచుకుని, అనుమతి ఇవ్వండి.</string>
+    <string name="pose_perm_open_settings">సెట్టింగ్‌లు తెరవండి</string>
+    <string name="pose_perm_allow">కెమెరాకు అనుమతి ఇవ్వండి</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">বাড়িতে ফিজিওথেরাপির জন্য স্থির স্কোর</string>
+    <string name="home_tests_heading">একটি পরীক্ষা বেছে নিন</string>
+    <string name="home_test_chair_title">30 সেকেন্ডে চেয়ার থেকে ওঠা</string>
+    <string name="home_test_chair_measures">যতবার পারেন, উঠুন আর বসুন</string>
+    <string name="home_test_balance_title">4 ধাপের ভারসাম্য</string>
+    <string name="home_test_balance_measures">চারটি ভঙ্গিতে স্থির হয়ে দাঁড়ান</string>
+    <string name="home_test_tug_title">Timed Up and Go (উঠে হেঁটে ফেরা)</string>
+    <string name="home_test_tug_measures">উঠুন, হাঁটুন, ঘুরে ফিরে এসে বসুন</string>
+    <string name="home_badge_ready">তৈরি</string>
+    <string name="home_badge_not_tuned">এখন শুধু টাইমার। গোনা পরে আসবে।</string>
+    <string name="home_badge_invalid">এখন শুধু টাইমার। কাউন্টারের সেটিংয়ে সমস্যা আছে।</string>
+    <string name="home_badge_missing">এখন শুধু টাইমার। কাউন্টারের সেটিং পাওয়া যায়নি।</string>
+    <string name="home_footer_disclaimer">প্রোটোটাইপ। এটি চিকিৎসার যন্ত্র নয়। রোগ নির্ণয় করে না, পড়ে যাওয়ার পূর্বাভাসও দেয় না। CDC-র আমেরিকার রেফারেন্স মান ব্যবহার করে।</string>
+    <string name="home_link_privacy">গোপনীয়তা</string>
+    <string name="home_link_terms">শর্তাবলি</string>
+    <string name="home_link_licences">লাইসেন্স</string>
+</resources>

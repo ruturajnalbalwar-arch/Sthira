@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kannada. Camera, pose tracking and camera permission. -->
+<resources>
+    <string name="pose_preview_description">ದೇಹದ ಗೆರೆ ರೂಪ ತೋರಿಸುವ ಕ್ಯಾಮೆರಾ ನೋಟ</string>
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">ವ್ಯಕ್ತಿ ಕಾಣುತ್ತಿದ್ದಾರೆ</string>
+    <string name="pose_no_person">ವ್ಯಕ್ತಿ ಕಾಣುತ್ತಿಲ್ಲ</string>
+    <string name="pose_starting_camera">ಕ್ಯಾಮೆರಾ ಆರಂಭವಾಗುತ್ತಿದೆ…</string>
+    <string name="pose_camera_stopped">ಕ್ಯಾಮೆರಾ ನಿಂತಿದೆ</string>
+
+    <string name="pose_error_tracking_stopped">ಈ ಫೋನ್‌ನಲ್ಲಿ ದೇಹದ ಭಂಗಿ ಗುರುತಿಸುವಿಕೆ ನಿಂತುಹೋಯಿತು. ಹಿಂದೆ ಹೋಗಿ ಪರೀಕ್ಷೆಯನ್ನು ಮತ್ತೆ ತೆರೆಯಿರಿ.</string>
+    <string name="pose_error_model">ಈ ಫೋನ್‌ನಲ್ಲಿ ಭಂಗಿ ಮಾದರಿಯನ್ನು (pose model) ಲೋಡ್ ಮಾಡಲು ಆಗಲಿಲ್ಲ.</string>
+    <string name="pose_error_camera">ಕ್ಯಾಮೆರಾ ಆರಂಭವಾಗಲಿಲ್ಲ. ಬೇರೆ ಕ್ಯಾಮೆರಾ ಆ್ಯಪ್‌ಗಳನ್ನು ಮುಚ್ಚಿ, ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+
+    <string name="pose_perm_needed_title">ಈ ಪರೀಕ್ಷೆಗೆ ಕ್ಯಾಮೆರಾ ಬೇಕು</string>
+    <string name="pose_perm_off_title">ಕ್ಯಾಮೆರಾ ಅನುಮತಿ ಆಫ್ ಆಗಿದೆ</string>
+    <string name="pose_perm_why">ಪ್ರತಿ ಬಾರಿ ಎದ್ದು ನಿಂತದ್ದನ್ನು ಎಣಿಸಲು Sthira ತಲೆ ಮತ್ತು ಭುಜಗಳನ್ನು ನೋಡುತ್ತದೆ. ವಿಡಿಯೋವನ್ನು ಈ ಫೋನ್‌ನಲ್ಲಿ ಮಾತ್ರ ಪರಿಶೀಲಿಸಲಾಗುತ್ತದೆ: ಅದನ್ನು ಎಂದಿಗೂ ಉಳಿಸುವುದಿಲ್ಲ, ಅಪ್‌ಲೋಡ್ ಮಾಡುವುದಿಲ್ಲ, ಮತ್ತು ಆ್ಯಪ್‌ಗೆ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವೇ ಇಲ್ಲ.</string>
+    <string name="pose_perm_blocked">Android ಮತ್ತೆ ಕೇಳುವುದಿಲ್ಲ. Settings ತೆರೆಯಿರಿ, Permissions ಆಯ್ಕೆಮಾಡಿ, ನಂತರ Camera, ಮತ್ತು ಅನುಮತಿ ನೀಡಿ.</string>
+    <string name="pose_perm_open_settings">ಸೆಟ್ಟಿಂಗ್ಸ್ ತೆರೆಯಿರಿ</string>
+    <string name="pose_perm_allow">ಕ್ಯಾಮೆರಾಗೆ ಅನುಮತಿ ನೀಡಿ</string>
+</resources>

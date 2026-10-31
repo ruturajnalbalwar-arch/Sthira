@@ -3,6 +3,7 @@ package app.sthira.pose
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Matrix
+import android.os.SystemClock
 import androidx.camera.core.ImageProxy
 import com.google.mediapipe.framework.image.BitmapImageBuilder
 import com.google.mediapipe.framework.image.MPImage
@@ -27,13 +28,14 @@ data class PoseSample(
  * LIVE_STREAM pose landmarker, after Google's mediapipe-samples PoseLandmarkerHelper.
  * The model is loaded from assets; GPU is tried first and CPU is used if GPU setup fails.
  * Detection and tracking confidences stay at the library defaults (the web app does the same):
- * no threshold is invented here. Not thread-safe: call [detect] from one analyser thread.
+ * no threshold is invented here. Not thread-safe: call [detect] from one analyser thread
+ * ([PoseTracker] owns that thread).
  */
 class PoseLandmarkerHelper private constructor(
     private val landmarker: PoseLandmarker,
     val delegate: PoseDelegate,
 ) {
-    private var lastTimestampMs = Long.MIN_VALUE
+    private var lastTimestampMs = 0L
     private val pending = java.util.concurrent.ConcurrentHashMap<Long, Pending>()
 
     private data class Pending(val captureNs: Long, val mirrored: Boolean)
@@ -41,12 +43,13 @@ class PoseLandmarkerHelper private constructor(
     /** Rotates (and mirrors for the front camera) the RGBA frame, then queues it. Always closes [image]. */
     fun detect(image: ImageProxy, isFrontCamera: Boolean) {
         val captureNs = image.imageInfo.timestamp
-        val timestampMs = captureNs / NANOS_PER_MILLI
+        // MediaPipe needs strictly increasing timestamps in LIVE_STREAM mode. One landmarker serves
+        // both lenses, whose capture clocks need not share a base, so its timestamp is the app's own
+        // monotonic clock; the capture time travels alongside in [pending] for the run's timing.
+        val timestampMs = maxOf(lastTimestampMs + 1, SystemClock.uptimeMillis())
+        lastTimestampMs = timestampMs
         val bitmap: Bitmap
         try {
-            // MediaPipe needs strictly increasing timestamps in LIVE_STREAM mode.
-            if (timestampMs <= lastTimestampMs) return
-            lastTimestampMs = timestampMs
             val raw = image.toBitmap()
             val matrix = Matrix().apply {
                 postRotate(image.imageInfo.rotationDegrees.toFloat())
@@ -63,7 +66,10 @@ class PoseLandmarkerHelper private constructor(
     fun close() = landmarker.close()
 
     internal fun toSample(result: PoseLandmarkerResult, input: MPImage): PoseSample? {
-        val info = pending.remove(result.timestampMs()) ?: return null
+        val ts = result.timestampMs()
+        val info = pending.remove(ts) ?: return null
+        // LIVE_STREAM drops frames while the model is busy and never answers for them: forget those.
+        pending.keys.removeIf { it < ts }
         val person = result.landmarks().firstOrNull()?.map {
             RawLandmark(it.x(), it.y(), it.z(), it.visibility().orElse(null))
         }
@@ -72,7 +78,6 @@ class PoseLandmarkerHelper private constructor(
 
     companion object {
         const val MODEL_ASSET = "pose_landmarker_full.task"
-        private const val NANOS_PER_MILLI = 1_000_000L
 
         /** Creates the landmarker on GPU, falling back to CPU. Throws only if both fail. */
         fun create(

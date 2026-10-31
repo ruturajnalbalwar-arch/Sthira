@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_back">ପଛକୁ ଯାଆନ୍ତୁ</string>
+    <string name="common_text_smaller">ଲେଖା ଛୋଟ କରନ୍ତୁ</string>
+    <string name="common_text_larger">ଲେଖା ବଡ଼ କରନ୍ତୁ</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">ଲେଖାର ଆକାର %1$d%%</string>
+    <string name="common_theme_label">ଥିମ୍</string>
+    <string name="common_theme_system">ଫୋନ ପରି</string>
+    <string name="common_theme_light">ହାଲୁକା</string>
+    <string name="common_theme_dark">ଗାଢ଼</string>
+    <string name="common_language_title">ଭାଷା</string>
+    <string name="common_language_phone">ଫୋନର ଭାଷା</string>
+    <string name="common_language_phone_help">ଏହି ଫୋନର ଭାଷା ହିଁ ବ୍ୟବହାର କରନ୍ତୁ।</string>
+    <string name="common_language_change">ଭାଷା ବଦଳାନ୍ତୁ। ବର୍ତ୍ତମାନ: %1$s</string>
+    <string name="common_selected">ବଛାଯାଇଛି</string>
+
+    <string name="common_settings_title">ସେଟିଂସ</string>
+    <string name="common_start">ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="common_step_of">%2$d ମଧ୍ୟରୁ ପଦକ୍ଷେପ %1$d</string>
+    <string name="common_on">ଚାଲୁ</string>
+    <string name="common_off">ବନ୍ଦ</string>
+    <string name="common_text_size_title">ଲେଖାର ଆକାର</string>
+    <string name="common_text_smaller_short">ଛୋଟ</string>
+    <string name="common_text_larger_short">ବଡ଼</string>
+    <string name="common_text_size_sample">ଲେଖା ଏତେ ବଡ଼ ଦେଖାଯିବ।</string>
+    <string name="common_voice_title">କହି ନିର୍ଦ୍ଦେଶ</string>
+    <string name="common_voice_help">ପଦକ୍ଷେପଗୁଡ଼ିକ ଜୋରରେ ପଢ଼ି ଶୁଣାନ୍ତୁ</string>
+    <string name="common_about_title">ଆପ୍ ବିଷୟରେ</string>
+    <string name="common_about_offline">ଇଣ୍ଟରନେଟ ବିନା ଚାଲେ। ଏହି ଆପ୍‌ର ଇଣ୍ଟରନେଟ ଅନୁମତି ନାହିଁ।</string>
+</resources>

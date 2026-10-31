@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="cs_title">30 সেকেন্ডে চেয়ার থেকে ওঠা</string>
+    <string name="cs_privacy_row">কিছুই সেভ করা বা পাঠানো হয় না: শরীরের ভঙ্গি দেখার কাজ এই ফোনেই চলে।</string>
+    <string name="cs_step_of">%2$d-এর মধ্যে ধাপ %1$d</string>
+    <string name="cs_step_person">ব্যক্তির সম্পর্কে</string>
+    <string name="cs_step_camera">ক্যামেরা</string>
+
+    <string name="cs_age_label">বয়সের দল</string>
+    <string name="cs_age_help">CDC-র মান আছে 60 বছর ও তার বেশি বয়সের জন্য। 80+ হলে CDC-র 80-84 মান ব্যবহার হয়।</string>
+    <string name="cs_sex_label">লিঙ্গ</string>
+    <string name="cs_sex_help">CDC মহিলা ও পুরুষের জন্য আলাদা মান দেয়। সেভ করা হয় না।</string>
+    <string name="cs_age_under_60">60-এর কম</string>
+    <string name="cs_age_60_64">60-64</string>
+    <string name="cs_age_65_69">65-69</string>
+    <string name="cs_age_70_74">70-74</string>
+    <string name="cs_age_75_79">75-79</string>
+    <string name="cs_age_80_plus">80+</string>
+    <string name="cs_sex_female">মহিলা</string>
+    <string name="cs_sex_male">পুরুষ</string>
+    <string name="cs_sex_not_recorded">বলতে চান না</string>
+
+    <string name="cs_error_age_band">একটি বয়সের দল বাছুন</string>
+    <string name="cs_error_sex">একটি বাছুন, অথবা বলতে চান না</string>
+
+    <string name="cs_continue_blocked">এগোতে হলে যোগ করুন: %1$s।</string>
+    <string name="cs_list_separator">", "</string>
+    <string name="cs_blocker_age">বয়সের দল</string>
+    <string name="cs_blocker_sex">লিঙ্গ</string>
+    <string name="cs_continue">পরের ধাপ</string>
+
+    <string name="cs_unavailable_title">চেয়ার থেকে ওঠার পরীক্ষা এখন পাওয়া যাচ্ছে না</string>
+    <string name="cs_unavailable_body">params.json-এ পরীক্ষার সময়ের মান নেই বা ভুল, তাই পরীক্ষার সময় মাপা যাবে না।</string>
+
+    <string name="cs_edit_session">বিবরণ বদলান</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
+    <string name="cs_run_again">আবার চালান</string>
+    <string name="cs_new_person">নতুন ব্যক্তি</string>
+    <string name="cs_waiting_camera">ক্যামেরার জন্য অপেক্ষা করা হচ্ছে…</string>
+    <string name="cs_start">শুরু করুন</string>
+    <string name="cs_stop">থামান</string>
+    <string name="cs_redo_calibration">আবার ক্যালিব্রেশন করুন</string>
+    <string name="cs_cancel_test">পরীক্ষা বাতিল করুন</string>
+
+    <string name="cs_switch_camera">ক্যামেরা বদলান</string>
+    <string name="cs_switch_to_front">সামনের ক্যামেরা চালু করুন</string>
+    <string name="cs_switch_to_back">পিছনের ক্যামেরা চালু করুন</string>
+    <string name="cs_status_separator">" · "</string>
+
+    <string name="cs_stage_ready">তৈরি</string>
+    <string name="cs_stage_starting">শুরু হচ্ছে…</string>
+    <string name="cs_stage_stand">সোজা হয়ে দাঁড়ান, নড়বেন না</string>
+    <string name="cs_stage_sit">বসুন, নড়বেন না</string>
+    <string name="cs_stage_go">শুরু! যত বার পারেন উঠুন আর বসুন</string>
+    <string name="cs_stage_done">থামুন। পরীক্ষা শেষ</string>
+    <string name="cs_camera_checklist">পুরো শরীর আর চেয়ার ছবিতে থাকুক, ফোন 2-3 মিটার দূরে রাখুন</string>
+    <string name="cs_step_into_view">ছবির মধ্যে আসুন: মাথা থেকে পা পর্যন্ত পুরো শরীর</string>
+
+    <string name="cs_pill_person_lost">মানুষটিকে দেখা যাচ্ছে না: মাথা থেকে পা পর্যন্ত পুরো শরীর ছবিতে রাখুন</string>
+    <string name="cs_pill_unreliable">গোনায় ভরসা করা যায় না: অনেকগুলি ওঠা পরিষ্কার নয়</string>
+    <string name="cs_pill_slow">ক্যামেরা ধীর (%1$.1f fps): কিছু ওঠা বাদ পড়তে পারে</string>
+
+    <string name="cs_elapsed_of_total">%1$d / %2$d সেকেন্ড</string>
+    <string name="cs_counting_off">গোনা বন্ধ: কাউন্টার এখনও টিউন করা হয়নি।</string>
+    <string name="cs_checking_calibration">ক্যালিব্রেশন দেখা হচ্ছে…</string>
+    <string name="cs_calibration_failed">ক্যালিব্রেশন পাস হয়নি। গোনা হচ্ছে না।</string>
+    <string name="cs_counter_failed">কাউন্টার চালু হতে পারেনি।</string>
+    <string name="cs_problem_hint">“আবার ক্যালিব্রেশন করুন” টিপুন, অথবা বাতিল করুন।</string>
+
+    <plurals name="cs_seconds">
+        <item quantity="one">%1$d সেকেন্ড</item>
+        <item quantity="other">%1$d সেকেন্ড</item>
+    </plurals>
+    <plurals name="cs_stands_word" tools:ignore="ImpliedQuantity">
+        <item quantity="one">বার ওঠা</item>
+        <item quantity="other">বার ওঠা</item>
+    </plurals>
+    <string name="cs_stands_word_spaced">" %1$s"</string>
+    <plurals name="cs_full_stands_spoken">
+        <item quantity="one">%1$d বার পুরো ওঠা</item>
+        <item quantity="other">%1$d বার পুরো ওঠা</item>
+    </plurals>
+    <plurals name="cs_seconds_left">
+        <item quantity="one">%1$d সেকেন্ড বাকি</item>
+        <item quantity="other">%1$d সেকেন্ড বাকি</item>
+    </plurals>
+
+    <string name="cs_rep_full">পুরো</string>
+    <string name="cs_rep_half">অর্ধেক</string>
+    <string name="cs_rep_arms">হাতের ভর</string>
+    <string name="cs_rep_unclear">অস্পষ্ট</string>
+    <string name="cs_rep_chip">%1$d %2$s</string>
+    <string name="cs_rep_spoken">চেষ্টা %1$d: %2$s, %3$s</string>
+    <string name="cs_rep_counted">গোনা হয়েছে</string>
+    <string name="cs_rep_not_counted">গোনা হয়নি</string>
+
+    <string name="cs_result_title">ফলাফল</string>
+    <plurals name="cs_result_full_stands" tools:ignore="ImpliedQuantity">
+        <item quantity="one">বার পুরো ওঠা</item>
+        <item quantity="other">বার পুরো ওঠা</item>
+    </plurals>
+    <string name="cs_result_in_seconds">%1$d সেকেন্ডে</string>
+    <string name="cs_result_stopped_early">পরীক্ষা আগেই থেমে গেছে: এটি CDC স্কোর নয়</string>
+    <string name="cs_result_not_counted">গোনা হয়নি</string>
+    <string name="cs_result_half">অর্ধেক ওঠা</string>
+    <string name="cs_result_term_count">%1$s: %2$d</string>
+    <string name="cs_result_no_comparison">এই বারের জন্য CDC-র সঙ্গে তুলনা নেই</string>
+    <string name="cs_result_below">এই বয়স ও লিঙ্গের CDC গড়ের চেয়ে কম</string>
+    <string name="cs_result_at_or_above">এই বয়স ও লিঙ্গের CDC গড়ের সমান বা বেশি</string>
+    <string name="cs_result_sentence_women">%1$d-%2$d বছর বয়সী মহিলাদের জন্য CDC মান: %3$d বারের কম ওঠা গড়ের চেয়ে কম। এই বারের স্কোর %4$d।</string>
+    <string name="cs_result_sentence_men">%1$d-%2$d বছর বয়সী পুরুষদের জন্য CDC মান: %3$d বারের কম ওঠা গড়ের চেয়ে কম। এই বারের স্কোর %4$d।</string>
+    <string name="cs_cdc_open_band_lower">%1$d-%2$d বছর বয়সের CDC মানের সঙ্গে তুলনা করা হয়েছে। %3$d বছর ও তার বেশি বয়সের জন্য CDC আরও কম মান দেয়।</string>
+    <string name="cs_cdc_open_band_different">%1$d-%2$d বছর বয়সের CDC মানের সঙ্গে তুলনা করা হয়েছে। %3$d বছর ও তার বেশি বয়সের জন্য CDC আলাদা মান দেয়।</string>
+    <string name="cs_cdc_open_band_only">%1$d-%2$d বছর বয়সের CDC মানের সঙ্গে তুলনা করা হয়েছে।</string>
+    <string name="cs_result_reference">রেফারেন্স: %1$s। %2$s এর অর্থ ফিজিওথেরাপিস্ট বিচার করবেন। Sthira রোগ নির্ণয় করে না, পড়ে যাওয়ার পূর্বাভাসও দেয় না।</string>
+    <string name="cs_result_us_reference">আমেরিকার রেফারেন্স মান।</string>
+
+    <string name="cs_reason_stopped_early">পরীক্ষা আগেই থেমে গেছে: এটি CDC স্কোর নয়। CDC স্কোরের জন্য পুরো নির্দিষ্ট সময় লাগে।</string>
+    <string name="cs_reason_unreliable">গোনায় ভরসা করা যায় না: ক্যামেরায় অনেকগুলি ওঠা পরিষ্কার দেখা যায়নি। পরীক্ষাটি আবার করুন।</string>
+    <string name="cs_reason_low_fps">ক্যামেরা খুব ধীরে চলেছে, তাই গোনায় ভরসা করা যায় না। অন্য অ্যাপ বন্ধ করে পরীক্ষাটি আবার করুন।</string>
+    <string name="cs_no_cdc_under_60">60 বছরের কম বয়সীদের জন্য CDC-র চেয়ার থেকে ওঠার কোনো মান নেই।</string>
+    <string name="cs_no_cdc_sex">CDC মহিলা ও পুরুষের জন্য আলাদা মান দেয়, কিন্তু লিঙ্গ বলা হয়নি।</string>
+    <string name="cs_no_cdc_value">CDC টেবিলে %1$s বয়সের জন্য কোনো মান নেই।</string>
+    <string name="cs_no_cdc_file">CDC রেফারেন্স ফাইল পড়া যায়নি।</string>
+
+    <string name="cs_no_count_not_tuned">গোনা হয়নি: কাউন্টার এখনও টিউন করা হয়নি। এই বারটি শুধু সেটআপের মহড়া ছিল।</string>
+    <string name="cs_no_count_invalid">গোনা হয়নি: এই সংস্করণে কাউন্টারের সেটিং ভুল।</string>
+    <string name="cs_no_count_calibration">গোনা হয়নি: ক্যালিব্রেশন পাস হয়নি, তাই ওঠাগুলি গোনা হয়নি। আবার চালান।</string>
+    <string name="cs_no_count_context">গোনা হয়নি: কাউন্টার চালু হতে পারেনি।</string>
+    <string name="cs_no_count_before_go">গোনা হয়নি: “শুরু” বলার আগেই পরীক্ষা থামানো হয়েছে।</string>
+
+    <string name="cs_issues_title">এই বারে ছবি তোলায় সমস্যা হয়েছে</string>
+    <string name="cs_issue_app_hidden">পরীক্ষার সময় অ্যাপটি পিছনে চলে গিয়েছিল, তাই কিছু ফ্রেম নেই। পরীক্ষাটি আবার করুন।</string>
+    <string name="cs_issue_detection_failed">পরীক্ষার সময় শরীরের ভঙ্গি দেখা বন্ধ হয়ে গেছে। পরীক্ষাটি আবার করুন।</string>
+    <string name="cs_issue_camera_ended">পরীক্ষার সময় ক্যামেরা বন্ধ হয়ে গেছে। পরীক্ষাটি আবার করুন।</string>
+</resources>

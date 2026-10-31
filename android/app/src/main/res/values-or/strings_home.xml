@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">ଘରେ ଫିଜିଓଥେରାପି ପାଇଁ ସ୍ଥିର ସ୍କୋର</string>
+    <string name="home_tests_heading">ଗୋଟିଏ ପରୀକ୍ଷା ବାଛନ୍ତୁ</string>
+    <string name="home_test_chair_title">30 ସେକେଣ୍ଡରେ ଚେୟାରରୁ ଉଠିବା</string>
+    <string name="home_test_chair_measures">ଯେତେଥର ପାରିବେ ଉଠନ୍ତୁ ଓ ବସନ୍ତୁ</string>
+    <string name="home_test_balance_title">4 ପର୍ଯ୍ୟାୟର ସନ୍ତୁଳନ</string>
+    <string name="home_test_balance_measures">ଚାରି ଭଙ୍ଗୀରେ ସ୍ଥିର ହୋଇ ଠିଆ ହୁଅନ୍ତୁ</string>
+    <string name="home_test_tug_title">Timed Up and Go (ଉଠି ଚାଲି ଫେରିବା)</string>
+    <string name="home_test_tug_measures">ଉଠନ୍ତୁ, ଚାଲନ୍ତୁ, ବୁଲି ଫେରି ଆସି ବସନ୍ତୁ</string>
+    <string name="home_badge_ready">ପ୍ରସ୍ତୁତ</string>
+    <string name="home_badge_not_tuned">ଏବେ କେବଳ ଟାଇମର। ଗଣନା ପରେ ଆସିବ।</string>
+    <string name="home_badge_invalid">ଏବେ କେବଳ ଟାଇମର। କାଉଣ୍ଟର ସେଟିଂରେ ସମସ୍ୟା ଅଛି।</string>
+    <string name="home_badge_missing">ଏବେ କେବଳ ଟାଇମର। କାଉଣ୍ଟର ସେଟିଂ ମିଳିଲା ନାହିଁ।</string>
+    <string name="home_footer_disclaimer">ପ୍ରୋଟୋଟାଇପ୍। ଏହା ଚିକିତ୍ସା ଉପକରଣ ନୁହେଁ। ରୋଗ ନିର୍ଣ୍ଣୟ କରେ ନାହିଁ କି ପଡ଼ିଯିବାର ପୂର୍ବାନୁମାନ କରେ ନାହିଁ। CDC ର ଆମେରିକା ରେଫରେନ୍ସ ମାନ ବ୍ୟବହାର କରେ।</string>
+    <string name="home_link_privacy">ଗୋପନୀୟତା</string>
+    <string name="home_link_terms">ସର୍ତ୍ତାବଳୀ</string>
+    <string name="home_link_licences">ଲାଇସେନ୍ସ</string>
+</resources>

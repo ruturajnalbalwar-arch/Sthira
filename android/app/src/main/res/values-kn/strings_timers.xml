@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kannada. Balance and Timed Up and Go screens. -->
+<resources>
+    <string name="timer_balance_title">4 ಹಂತದ ಸಮತೋಲನ</string>
+    <string name="timer_tug_title">Timed Up and Go (ಎದ್ದು ನಡೆಯುವ ಸಮಯ)</string>
+
+    <string name="timer_seconds_value">%1$.1f ಸೆ</string>
+
+    <string name="timer_norms_invalid">norms.json ನಲ್ಲಿ CDC ಉಲ್ಲೇಖ ಮೌಲ್ಯಗಳು ಇಲ್ಲ ಅಥವಾ ಸರಿಯಿಲ್ಲ.</string>
+    <string name="timer_norms_missing">ಆ್ಯಪ್‌ನಲ್ಲಿ norms.json ಇಲ್ಲ.</string>
+
+    <string name="timer_cdc_reference">ಉಲ್ಲೇಖ: %1$s (%2$s).</string>
+    <string name="timer_cdc_caveat">ಇವು ಅಮೆರಿಕದ ಮೌಲ್ಯಗಳು. ಭಾರತದ ಹಿರಿಯರ ಮೇಲೆ ಇವುಗಳನ್ನು ಪರೀಕ್ಷಿಸಿಲ್ಲ. ಫಲಿತಾಂಶದ ಅರ್ಥವನ್ನು ಫಿಸಿಯೋಥೆರಪಿಸ್ಟ್ ನಿರ್ಧರಿಸುತ್ತಾರೆ. Sthira ರೋಗ ಪತ್ತೆ ಮಾಡುವುದಿಲ್ಲ.</string>
+
+    <string name="timer_stage_name_1">ಪಾದಗಳು ಪಕ್ಕಪಕ್ಕ</string>
+    <string name="timer_stage_name_2">ಅರ್ಧ ಟ್ಯಾಂಡೆಮ್</string>
+    <string name="timer_stage_name_3">ಟ್ಯಾಂಡೆಮ್</string>
+    <string name="timer_stage_name_4">ಒಂದೇ ಕಾಲು</string>
+
+    <string name="timer_stage_do_1">ನಿಮ್ಮ ಪಾದಗಳನ್ನು ಪಕ್ಕಪಕ್ಕ ಇಟ್ಟು ನಿಲ್ಲಿ.</string>
+    <string name="timer_stage_do_2">ಒಂದು ಪಾದದ ಒಳಬದಿ ಇನ್ನೊಂದು ಪಾದದ ಹೆಬ್ಬೆರಳಿಗೆ ತಾಗುವಂತೆ ಇಡಿ.</string>
+    <string name="timer_stage_do_3">ಒಂದು ಪಾದವನ್ನು ಇನ್ನೊಂದರ ಮುಂದೆ ಇಡಿ, ಹಿಮ್ಮಡಿ ಕಾಲ್ಬೆರಳಿಗೆ ತಾಗಬೇಕು.</string>
+    <string name="timer_stage_do_4">ಒಂದೇ ಕಾಲಿನ ಮೇಲೆ ನಿಲ್ಲಿ.</string>
+
+    <string name="timer_hold_for">%1$s ಹಾಗೇ ನಿಲ್ಲಬೇಕು</string>
+    <string name="timer_stage_of">%2$d ರಲ್ಲಿ ಹಂತ %1$d</string>
+    <string name="timer_start">ಶುರು ಮಾಡಿ</string>
+    <string name="timer_next_stage">ಮುಂದಿನ ಹಂತ</string>
+    <string name="timer_stage_passed">ಹಂತ %1$d ಪೂರ್ಣ: %2$s ನಿಂತರು</string>
+    <string name="timer_stage_stopped">ಹಂತ %1$d ನಿಂತಿತು: %2$s ಕ್ಕೆ ಸಮತೋಲನ ತಪ್ಪಿತು</string>
+    <string name="timer_voice_stop">ನಿಲ್ಲಿ</string>
+    <string name="timer_fold_open">ತೆರೆದಿದೆ</string>
+    <string name="timer_fold_closed">ಮುಚ್ಚಿದೆ</string>
+    <string name="timer_balance_lost_hint">ಪಾದಗಳು ಅಲ್ಲಾಡಿದರೆ ಅಥವಾ ವ್ಯಕ್ತಿಗೆ ಆಸರೆ ಬೇಕಾದರೆ ಸಮತೋಲನ ತಪ್ಪಿತು ಒತ್ತಿ.</string>
+    <string name="timer_balance_allowed_movement">ಸಮತೋಲನ ಕಾಯ್ದುಕೊಳ್ಳಲು ವ್ಯಕ್ತಿ ಕೈಗಳನ್ನು ಚಾಚಬಹುದು ಅಥವಾ ದೇಹವನ್ನು ಅಲ್ಲಾಡಿಸಬಹುದು. ಆದರೆ ಪಾದಗಳನ್ನು ಅಲ್ಲಾಡಿಸಬಾರದು.</string>
+    <string name="timer_balance_safety">ವ್ಯಕ್ತಿಯ ಪಕ್ಕದಲ್ಲೇ ನಿಂತು, ಹಿಡಿಯಲು ಸಿದ್ಧರಾಗಿರಿ. ಊರುಗೋಲು ಅಥವಾ ವಾಕರ್ ಬೇಡ. ಕಣ್ಣು ತೆರೆದಿರಲಿ.</string>
+    <string name="timer_balance_progression">ಪಾದಗಳನ್ನು ಅಲ್ಲಾಡಿಸದೆ, ಆಸರೆ ಇಲ್ಲದೆ ವ್ಯಕ್ತಿ ಒಂದು ಹಂತದಲ್ಲಿ %1$s ನಿಂತರೆ, ಮುಂದಿನ ಹಂತಕ್ಕೆ ಹೋಗಿ. ಇಲ್ಲದಿದ್ದರೆ, ಪರೀಕ್ಷೆ ನಿಲ್ಲಿಸಿ.</string>
+
+    <string name="timer_lost_position">ಸಮತೋಲನ ತಪ್ಪಿತು: ನಿಲ್ಲಿಸಿ</string>
+    <string name="timer_restart_stage">ಸಿದ್ಧರಿಲ್ಲ, ಹಂತ ಮತ್ತೆ ಆರಂಭಿಸಿ</string>
+    <string name="timer_start_over">ಮೊದಲಿನಿಂದ ಆರಂಭಿಸಿ</string>
+
+    <string name="timer_stage_results">ಹಂತಗಳ ಫಲಿತಾಂಶ</string>
+    <string name="timer_stage_label">ಹಂತ %1$d</string>
+    <string name="timer_outcome_held">ನಿಂತರು</string>
+    <string name="timer_outcome_lost">ಸಮತೋಲನ ತಪ್ಪಿತು</string>
+    <string name="timer_stage_result_cd">ಹಂತ %1$d: %2$s, %3$s</string>
+
+    <string name="timer_stepper_cd">%2$d ರಲ್ಲಿ ಹಂತ %1$d, %3$s: %4$s</string>
+    <string name="timer_step_held">ನಿಂತರು</string>
+    <string name="timer_step_lost">ಸಮತೋಲನ ತಪ್ಪಿತು</string>
+    <string name="timer_step_current">ಈಗಿನ ಹಂತ</string>
+    <string name="timer_step_upcoming">ಇನ್ನೂ ಆರಂಭಿಸಿಲ್ಲ</string>
+    <string name="timer_step_skipped">ಮಾಡಿಲ್ಲ</string>
+
+    <string name="timer_balance_stopped_before">ಹಂತ %1$d ರಲ್ಲಿ, ಟ್ಯಾಂಡೆಮ್ ನಿಲುವಿನ ಮೊದಲೇ ನಿಂತಿತು: ಟ್ಯಾಂಡೆಮ್‌ನಲ್ಲಿ CDC ಉಲ್ಲೇಖವಾದ %2$s ಗಿಂತ ಕಡಿಮೆ</string>
+    <string name="timer_balance_below">ಟ್ಯಾಂಡೆಮ್ ನಿಲುವು %1$s: CDC ಉಲ್ಲೇಖವಾದ %2$s ಗಿಂತ ಕಡಿಮೆ</string>
+    <string name="timer_balance_meets">ಟ್ಯಾಂಡೆಮ್ ನಿಲುವು %1$s: CDC ಉಲ್ಲೇಖವಾದ %2$s ತಲುಪಿದೆ</string>
+
+    <string name="timer_used_aid">ನಡೆಯುವ ಸಾಧನ ಬಳಸಿದರು</string>
+    <string name="timer_aid_was_used">ನಡೆಯುವ ಸಾಧನ ಬಳಸಲಾಗಿದೆ.</string>
+    <string name="timer_tug_under">%1$s: CDC ಉಲ್ಲೇಖವಾದ %2$s ಗಿಂತ ಕಡಿಮೆ</string>
+    <string name="timer_tug_at_or_above">%1$s: CDC ಉಲ್ಲೇಖವಾದ %2$s ಗೆ ಸಮ ಅಥವಾ ಹೆಚ್ಚು</string>
+
+    <string name="timer_how_heading">ಹೇಗೆ ಮಾಡುವುದು</string>
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">ಕುರ್ಚಿಯಿಂದ %1$d ಮೀಟರ್ ದೂರದಲ್ಲಿ ಒಂದು ಗೆರೆ ಗುರುತಿಸಿ.</item>
+        <item quantity="other">ಕುರ್ಚಿಯಿಂದ %1$d ಮೀಟರ್ ದೂರದಲ್ಲಿ ಒಂದು ಗೆರೆ ಗುರುತಿಸಿ.</item>
+    </plurals>
+    <string name="timer_tug_step_sit">ವ್ಯಕ್ತಿ ಕುರ್ಚಿಯಲ್ಲಿ ಹಿಂದಕ್ಕೆ ಒರಗಿ ಕುಳಿತುಕೊಳ್ಳುತ್ತಾರೆ.</string>
+    <string name="timer_tug_step_go">“ಶುರು” ಎಂದು ಹೇಳುತ್ತಲೇ ಶುರು ಒತ್ತಿ.</string>
+    <string name="timer_tug_step_walk">ಅವರು ಎದ್ದು, ಸಾಮಾನ್ಯ ವೇಗದಲ್ಲಿ ಗೆರೆಯವರೆಗೆ ನಡೆದು, ತಿರುಗಿ, ಹಿಂದೆ ನಡೆದು ಬಂದು ಕುಳಿತುಕೊಳ್ಳುತ್ತಾರೆ.</string>
+    <string name="timer_tug_step_stop">ಅವರು ಮತ್ತೆ ಕುಳಿತಾಗ ನಿಲ್ಲಿಸಿ ಒತ್ತಿ.</string>
+    <string name="timer_tug_footwear">ಅವರು ಯಾವಾಗಲೂ ಹಾಕುವ ಚಪ್ಪಲಿ ಅಥವಾ ಶೂ ಹಾಕಿಕೊಳ್ಳಲಿ. ಬೇಕಿದ್ದರೆ ನಡೆಯುವ ಸಾಧನ ಬಳಸಬಹುದು.</string>
+
+    <string name="timer_tug_go">ಶುರು</string>
+    <string name="timer_tug_stop">ಮತ್ತೆ ಕುಳಿತರು: ನಿಲ್ಲಿಸಿ</string>
+    <string name="timer_tug_run_again">ಮತ್ತೆ ಮಾಡಿ: ಶುರು</string>
+</resources>

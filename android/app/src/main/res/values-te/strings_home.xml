@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home screen text. Telugu. -->
+<resources>
+    <string name="home_tagline">ఇంటి వద్ద ఫిజియోథెరపీకి స్థిరమైన స్కోర్లు</string>
+    <string name="home_tests_heading">ఒక పరీక్షను ఎంచుకోండి</string>
+    <string name="home_test_chair_title">30 సెకన్ల కుర్చీ నుండి లేచే పరీక్ష</string>
+    <string name="home_test_chair_measures">వీలైనన్ని సార్లు లేచి కూర్చోండి</string>
+    <string name="home_test_balance_title">4 దశల బ్యాలెన్స్ పరీక్ష</string>
+    <string name="home_test_balance_measures">నాలుగు భంగిమల్లో కదలకుండా నిలబడండి</string>
+    <string name="home_test_tug_title">Timed Up and Go (లేచి నడిచే పరీక్ష)</string>
+    <string name="home_test_tug_measures">లేవండి, నడవండి, తిరిగి వచ్చి కూర్చోండి</string>
+    <string name="home_badge_ready">సిద్ధం</string>
+    <string name="home_badge_not_tuned">ప్రస్తుతం టైమర్ మాత్రమే. లెక్కింపు తర్వాత వస్తుంది.</string>
+    <string name="home_badge_invalid">ప్రస్తుతం టైమర్ మాత్రమే. కౌంటర్ సెట్టింగ్‌లలో సమస్య ఉంది.</string>
+    <string name="home_badge_missing">ప్రస్తుతం టైమర్ మాత్రమే. కౌంటర్ సెట్టింగ్‌లు కనిపించలేదు.</string>
+    <string name="home_footer_disclaimer">ప్రోటోటైప్. ఇది వైద్య పరికరం కాదు. వ్యాధి నిర్ధారణ చేయదు, పడిపోవడాన్ని ముందే చెప్పదు. CDC అమెరికా రిఫరెన్స్ విలువలను వాడుతుంది.</string>
+    <string name="home_link_privacy">గోప్యత</string>
+    <string name="home_link_terms">నిబంధనలు</string>
+    <string name="home_link_licences">లైసెన్సులు</string>
+</resources>

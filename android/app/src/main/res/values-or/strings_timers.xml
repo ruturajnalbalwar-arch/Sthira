@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="timer_balance_title">4 ପର୍ଯ୍ୟାୟର ସନ୍ତୁଳନ</string>
+    <string name="timer_tug_title">Timed Up and Go (ଉଠି ଚାଲି ଫେରିବା)</string>
+
+    <string name="timer_seconds_value">%1$.1f ସେକେଣ୍ଡ</string>
+
+    <string name="timer_norms_invalid">norms.json ରେ CDC ରେଫରେନ୍ସ ମାନ ନାହିଁ କିମ୍ବା ଭୁଲ।</string>
+    <string name="timer_norms_missing">ଆପ୍‌ରେ norms.json ନାହିଁ।</string>
+
+    <string name="timer_cdc_reference">ରେଫରେନ୍ସ: %1$s (%2$s)।</string>
+    <string name="timer_cdc_caveat">ଏଗୁଡ଼ିକ ଆମେରିକାର ମାନ। ଭାରତର ବୟସ୍କ ଲୋକଙ୍କ ଉପରେ ଏଗୁଡ଼ିକ ପରୀକ୍ଷା କରାଯାଇନାହିଁ। ଫଳାଫଳର ଅର୍ଥ ଫିଜିଓଥେରାପିଷ୍ଟ ସ୍ଥିର କରିବେ। Sthira ରୋଗ ନିର୍ଣ୍ଣୟ କରେ ନାହିଁ।</string>
+
+    <string name="timer_stage_name_1">ପାଦ ପାଖାପାଖି</string>
+    <string name="timer_stage_name_2">ଅଧା-ଟାଣ୍ଡେମ୍</string>
+    <string name="timer_stage_name_3">ଟାଣ୍ଡେମ୍</string>
+    <string name="timer_stage_name_4">ଗୋଟିଏ ଗୋଡ଼ରେ</string>
+
+    <string name="timer_stage_do_1">ପାଦ ପାଖାପାଖି ରଖି ଠିଆ ହୁଅନ୍ତୁ।</string>
+    <string name="timer_stage_do_2">ଗୋଟିଏ ପାଦର ଭିତର ପାର୍ଶ୍ୱ ଅନ୍ୟ ପାଦର ବୁଢ଼ା ଆଙ୍ଗୁଠିକୁ ଛୁଇଁ ରଖନ୍ତୁ।</string>
+    <string name="timer_stage_do_3">ଗୋଟିଏ ପାଦ ଅନ୍ୟ ପାଦର ଠିକ୍ ସାମ୍ନାରେ ରଖନ୍ତୁ, ଗୋଇଠି ଆଙ୍ଗୁଠିକୁ ଛୁଇଁଥିବ।</string>
+    <string name="timer_stage_do_4">ଗୋଟିଏ ଗୋଡ଼ରେ ଠିଆ ହୁଅନ୍ତୁ।</string>
+
+    <string name="timer_hold_for">%1$s ଧରି ରଖନ୍ତୁ</string>
+    <string name="timer_stage_of">%2$d ମଧ୍ୟରୁ ପର୍ଯ୍ୟାୟ %1$d</string>
+    <string name="timer_start">ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="timer_next_stage">ପରବର୍ତ୍ତୀ ପର୍ଯ୍ୟାୟ</string>
+    <string name="timer_stage_passed">ପର୍ଯ୍ୟାୟ %1$d ସଫଳ: %2$s ଧରି ରଖିଲେ</string>
+    <string name="timer_stage_stopped">ପର୍ଯ୍ୟାୟ %1$d ଅଟକିଲା: %2$s ରେ ସନ୍ତୁଳନ ହରାଇଲେ</string>
+    <string name="timer_voice_stop">ଅଟକନ୍ତୁ</string>
+    <string name="timer_fold_open">ଖୋଲା</string>
+    <string name="timer_fold_closed">ବନ୍ଦ</string>
+    <string name="timer_balance_lost_hint">ପାଦ ହଲିଗଲେ କିମ୍ବା ବ୍ୟକ୍ତିଙ୍କୁ ଧରିବା ଦରକାର ହେଲେ “ସନ୍ତୁଳନ ହରାଇଲେ” ଦବାନ୍ତୁ।</string>
+    <string name="timer_balance_allowed_movement">ସନ୍ତୁଳନ ରଖିବା ପାଇଁ ବ୍ୟକ୍ତି ହାତ ମେଲାଇ ରଖିପାରିବେ କିମ୍ବା ଶରୀର ହଲାଇପାରିବେ। ପାଦ ହଲାଇବା ଚଳିବ ନାହିଁ।</string>
+    <string name="timer_balance_safety">ବ୍ୟକ୍ତିଙ୍କ ପାଖରେ ଠିଆ ହୁଅନ୍ତୁ, ତାଙ୍କୁ ଧରିବା ପାଇଁ ପ୍ରସ୍ତୁତ ରୁହନ୍ତୁ। ବାଡ଼ି କିମ୍ବା ୱାକର ନୁହେଁ। ଆଖି ଖୋଲା ରହିବ।</string>
+    <string name="timer_balance_progression">ବ୍ୟକ୍ତି ପାଦ ନ ହଲାଇ ଏବଂ କୌଣସି ସାହାଯ୍ୟ ବିନା ଏକ ପର୍ଯ୍ୟାୟ %1$s ଧରି ରଖିପାରିଲେ ପରବର୍ତ୍ତୀ ପର୍ଯ୍ୟାୟକୁ ଯାଆନ୍ତୁ। ନ ପାରିଲେ ପରୀକ୍ଷା ବନ୍ଦ କରନ୍ତୁ।</string>
+
+    <string name="timer_lost_position">ସନ୍ତୁଳନ ହରାଇଲେ: ଅଟକାନ୍ତୁ</string>
+    <string name="timer_restart_stage">ପ୍ରସ୍ତୁତ ନୁହନ୍ତି, ପର୍ଯ୍ୟାୟଟି ପୁଣି ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="timer_start_over">ପ୍ରଥମରୁ ଆରମ୍ଭ କରନ୍ତୁ</string>
+
+    <string name="timer_stage_results">ପର୍ଯ୍ୟାୟର ଫଳାଫଳ</string>
+    <string name="timer_stage_label">ପର୍ଯ୍ୟାୟ %1$d</string>
+    <string name="timer_outcome_held">ଧରି ରଖିଲେ</string>
+    <string name="timer_outcome_lost">ସନ୍ତୁଳନ ହରାଇଲେ</string>
+    <string name="timer_stage_result_cd">ପର୍ଯ୍ୟାୟ %1$d: %2$s, %3$s</string>
+
+    <string name="timer_stepper_cd">ପର୍ଯ୍ୟାୟ %1$d, ମୋଟ %2$d ମଧ୍ୟରୁ, %3$s: %4$s</string>
+    <string name="timer_step_held">ଧରି ରଖିଲେ</string>
+    <string name="timer_step_lost">ସନ୍ତୁଳନ ହରାଇଲେ</string>
+    <string name="timer_step_current">ଏବେ ଚାଲିଛି</string>
+    <string name="timer_step_upcoming">ଆରମ୍ଭ ହୋଇନାହିଁ</string>
+    <string name="timer_step_skipped">କରାଯାଇନାହିଁ</string>
+
+    <string name="timer_balance_stopped_before">ପର୍ଯ୍ୟାୟ %1$d ରେ ବନ୍ଦ ହେଲା, ଟାଣ୍ଡେମ୍ ଠିଆ ଆଗରୁ: ଟାଣ୍ଡେମ୍‌ରେ CDC ରେଫରେନ୍ସ %2$s ଠାରୁ କମ୍</string>
+    <string name="timer_balance_below">ଟାଣ୍ଡେମ୍ ଠିଆ %1$s ଧରି ରଖିଲେ: CDC ରେଫରେନ୍ସ %2$s ଠାରୁ କମ୍</string>
+    <string name="timer_balance_meets">ଟାଣ୍ଡେମ୍ ଠିଆ %1$s ଧରି ରଖିଲେ: CDC ରେଫରେନ୍ସ %2$s ପୂରଣ ହେଲା</string>
+
+    <string name="timer_used_aid">ଚାଲିବା ସହାୟକ ବ୍ୟବହାର କଲେ</string>
+    <string name="timer_aid_was_used">ଚାଲିବା ସହାୟକ ବ୍ୟବହାର କରାଯାଇଥିଲା।</string>
+    <string name="timer_tug_under">%1$s: CDC ରେଫରେନ୍ସ %2$s ଠାରୁ କମ୍</string>
+    <string name="timer_tug_at_or_above">%1$s: CDC ରେଫରେନ୍ସ %2$s ସହ ସମାନ କିମ୍ବା ଅଧିକ</string>
+
+    <string name="timer_how_heading">କିପରି କରିବେ</string>
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">ଚେୟାରଠାରୁ %1$d ମିଟର ଦୂରରେ ଏକ ଗାର ଦିଅନ୍ତୁ।</item>
+        <item quantity="other">ଚେୟାରଠାରୁ %1$d ମିଟର ଦୂରରେ ଏକ ଗାର ଦିଅନ୍ତୁ।</item>
+    </plurals>
+    <string name="timer_tug_step_sit">ବ୍ୟକ୍ତି ଚେୟାରରେ ପିଠି ଲଗାଇ ବସିବେ।</string>
+    <string name="timer_tug_step_go">“ଆରମ୍ଭ” କହିବା ସହିତ ଆରମ୍ଭ ବଟନ୍ ଦବାନ୍ତୁ।</string>
+    <string name="timer_tug_step_walk">ସେ ଉଠି ଠିଆ ହେବେ, ସାଧାରଣ ଗତିରେ ଗାର ପର୍ଯ୍ୟନ୍ତ ଚାଲିବେ, ବୁଲିବେ, ଫେରି ଆସି ବସିବେ।</string>
+    <string name="timer_tug_step_stop">ସେ ପୁଣି ବସିଗଲେ ଅଟକାନ୍ତୁ ଦବାନ୍ତୁ।</string>
+    <string name="timer_tug_footwear">ସେ ସାଧାରଣତଃ ପିନ୍ଧୁଥିବା ଜୋତା ପିନ୍ଧିବେ। ଦରକାର ହେଲେ ଚାଲିବା ସହାୟକ ବ୍ୟବହାର କରିପାରିବେ।</string>
+
+    <string name="timer_tug_go">ଆରମ୍ଭ</string>
+    <string name="timer_tug_stop">ବସିଗଲେ: ଅଟକାନ୍ତୁ</string>
+    <string name="timer_tug_run_again">ପୁଣି ଚଲାନ୍ତୁ: ଆରମ୍ଭ</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home screen text. Marathi. -->
+<resources>
+    <string name="home_tagline">घरच्या फिजिओथेरपीसाठी स्थिर गुण</string>
+
+    <string name="home_tests_heading">एक चाचणी निवडा</string>
+
+    <string name="home_test_chair_title">30 सेकंद खुर्चीवरून उठणे</string>
+    <string name="home_test_chair_measures">जमेल तितक्या वेळा उठा आणि बसा</string>
+    <string name="home_test_balance_title">4 टप्प्यांचा तोल</string>
+    <string name="home_test_balance_measures">चार प्रकारे स्थिर उभे राहा</string>
+    <string name="home_test_tug_title">Timed Up and Go (उठा, चाला, परत येऊन बसा)</string>
+    <string name="home_test_tug_measures">उठा, चाला, वळून परत या आणि बसा</string>
+
+    <string name="home_badge_ready">तयार</string>
+    <string name="home_badge_not_tuned">सध्या फक्त टायमर. मोजणी नंतर येईल.</string>
+    <string name="home_badge_invalid">सध्या फक्त टायमर. मोजणीच्या सेटिंगमध्ये अडचण आहे.</string>
+    <string name="home_badge_missing">सध्या फक्त टायमर. मोजणीची सेटिंग सापडली नाही.</string>
+
+    <string name="home_footer_disclaimer">प्रोटोटाइप. हे वैद्यकीय उपकरण नाही. हे आजाराचे निदान करत नाही आणि पडण्याचा अंदाज देत नाही. CDC ची अमेरिकेतील संदर्भ मूल्ये वापरते.</string>
+    <string name="home_link_privacy">गोपनीयता</string>
+    <string name="home_link_terms">अटी</string>
+    <string name="home_link_licences">परवाने</string>
+</resources>

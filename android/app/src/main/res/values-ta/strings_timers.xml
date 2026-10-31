@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Balance and Timed Up and Go screens. Tamil. Every number is passed in as a format argument. -->
+<resources>
+    <string name="timer_balance_title">4 நிலை சமநிலைச் சோதனை</string>
+    <string name="timer_tug_title">Timed Up and Go (எழுந்து நடக்கும் சோதனை)</string>
+
+    <string name="timer_seconds_value">%1$.1f வி</string>
+
+    <string name="timer_norms_invalid">norms.json இல் CDC குறிப்பு மதிப்புகள் இல்லை அல்லது சரியில்லை.</string>
+    <string name="timer_norms_missing">ஆப்பில் norms.json இல்லை.</string>
+
+    <string name="timer_cdc_reference">ஆதாரம்: %1$s (%2$s).</string>
+    <string name="timer_cdc_caveat">இவை அமெரிக்க மதிப்புகள். இந்தியாவில் உள்ள முதியவர்களிடம் இவை சோதிக்கப்படவில்லை. முடிவின் பொருளை பிசியோதெரபிஸ்ட் முடிவு செய்வார். Sthira நோயைக் கண்டறியாது.</string>
+
+    <string name="timer_stage_name_1">பாதங்கள் அருகருகே</string>
+    <string name="timer_stage_name_2">பாதி முன்னால்</string>
+    <string name="timer_stage_name_3">ஒன்றன்பின் ஒன்று</string>
+    <string name="timer_stage_name_4">ஒற்றைக் கால்</string>
+
+    <string name="timer_stage_do_1">உங்கள் பாதங்களை அருகருகே வைத்து நில்லுங்கள்.</string>
+    <string name="timer_stage_do_2">ஒரு பாதத்தின் உள்பக்க நடுப்பகுதி, மற்ற பாதத்தின் பெருவிரலைத் தொடும்படி வையுங்கள்.</string>
+    <string name="timer_stage_do_3">ஒரு பாதத்தை மற்றொன்றின் முன் வையுங்கள், குதிகால் கால்விரலைத் தொட வேண்டும்.</string>
+    <string name="timer_stage_do_4">ஒரு காலில் நில்லுங்கள்.</string>
+
+    <string name="timer_hold_for">%1$s நேரம் நிற்க வேண்டும்</string>
+    <string name="timer_stage_of">%2$d இல் நிலை %1$d</string>
+    <string name="timer_start">தொடங்குங்கள்</string>
+    <string name="timer_next_stage">அடுத்த நிலை</string>
+    <string name="timer_stage_passed">நிலை %1$d முடிந்தது: %2$s நின்றார்</string>
+    <string name="timer_stage_stopped">நிலை %1$d நின்றது: %2$s இல் சமநிலை தவறியது</string>
+    <string name="timer_voice_stop">நிறுத்துங்கள்</string>
+    <string name="timer_fold_open">திறந்துள்ளது</string>
+    <string name="timer_fold_closed">மூடியுள்ளது</string>
+    <string name="timer_balance_lost_hint">பாதங்கள் நகர்ந்தாலோ, நபருக்குப் பிடிமானம் தேவைப்பட்டாலோ “சமநிலை தவறியது” அழுத்துங்கள்.</string>
+    <string name="timer_balance_allowed_movement">சமநிலைக்காக நபர் கைகளை விரிக்கலாம் அல்லது உடலை அசைக்கலாம். பாதங்களை மட்டும் நகர்த்தக் கூடாது.</string>
+    <string name="timer_balance_safety">நபரின் அருகில் நின்று, தாங்கிப் பிடிக்கத் தயாராக இருங்கள். கைத்தடி அல்லது வாக்கர் வேண்டாம். கண்கள் திறந்திருக்க வேண்டும்.</string>
+    <string name="timer_balance_progression">நபர் பாதங்களை நகர்த்தாமலும் பிடிமானம் இல்லாமலும் ஒரு நிலையில் %1$s நேரம் நின்றால், அடுத்த நிலைக்குச் செல்லுங்கள். இல்லையெனில் சோதனையை நிறுத்துங்கள்.</string>
+
+    <string name="timer_lost_position">சமநிலை தவறியது: நிறுத்து</string>
+    <string name="timer_restart_stage">தயாராக இல்லை, நிலையை மீண்டும் தொடங்கு</string>
+    <string name="timer_start_over">முதலிலிருந்து தொடங்கு</string>
+
+    <string name="timer_stage_results">நிலை முடிவுகள்</string>
+    <string name="timer_stage_label">நிலை %1$d</string>
+    <string name="timer_outcome_held">நின்றார்</string>
+    <string name="timer_outcome_lost">சமநிலை தவறியது</string>
+    <string name="timer_stage_result_cd">நிலை %1$d: %2$s, %3$s</string>
+
+    <string name="timer_stepper_cd">%2$d இல் நிலை %1$d, %3$s: %4$s</string>
+    <string name="timer_step_held">நின்றார்</string>
+    <string name="timer_step_lost">சமநிலை தவறியது</string>
+    <string name="timer_step_current">இப்போதைய நிலை</string>
+    <string name="timer_step_upcoming">இன்னும் தொடங்கவில்லை</string>
+    <string name="timer_step_skipped">செய்யப்படவில்லை</string>
+
+    <string name="timer_balance_stopped_before">நிலை %1$d இல் நிறுத்தப்பட்டது, ஒன்றன்பின் ஒன்று நிலைக்கு முன்பே: அந்த நிலையில் CDC குறிப்பு அளவான %2$s ஐ விடக் குறைவு</string>
+    <string name="timer_balance_below">ஒன்றன்பின் ஒன்று நிலையில் %1$s நின்றார்: CDC குறிப்பு அளவான %2$s ஐ விடக் குறைவு</string>
+    <string name="timer_balance_meets">ஒன்றன்பின் ஒன்று நிலையில் %1$s நின்றார்: CDC குறிப்பு அளவான %2$s ஐ எட்டியது</string>
+
+    <string name="timer_used_aid">நடை உதவிக் கருவி (கைத்தடி, வாக்கர் போன்றவை) பயன்படுத்தினார்</string>
+    <string name="timer_aid_was_used">நடை உதவிக் கருவி பயன்படுத்தப்பட்டது.</string>
+    <string name="timer_tug_under">%1$s: CDC குறிப்பு அளவான %2$s ஐ விடக் குறைவு</string>
+    <string name="timer_tug_at_or_above">%1$s: CDC குறிப்பு அளவான %2$s க்குச் சமம் அல்லது அதிகம்</string>
+
+    <string name="timer_how_heading">எப்படிச் செய்வது</string>
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">நாற்காலியிலிருந்து %1$d மீட்டர் தொலைவில் ஒரு கோடு குறியுங்கள்.</item>
+        <item quantity="other">நாற்காலியிலிருந்து %1$d மீட்டர் தொலைவில் ஒரு கோடு குறியுங்கள்.</item>
+    </plurals>
+    <string name="timer_tug_step_sit">நபர் நாற்காலியில் சாய்ந்து உட்காருவார்.</string>
+    <string name="timer_tug_step_go">“தொடங்கு” என்று சொல்லும்போதே தொடங்கு பொத்தானை அழுத்துங்கள்.</string>
+    <string name="timer_tug_step_walk">அவர் எழுந்து, வழக்கமான வேகத்தில் கோடு வரை நடந்து, திரும்பி, மீண்டும் நடந்து வந்து உட்காருவார்.</string>
+    <string name="timer_tug_step_stop">அவர் மீண்டும் உட்கார்ந்ததும் “நிறுத்து” அழுத்துங்கள்.</string>
+    <string name="timer_tug_footwear">அவர் வழக்கமாக அணியும் காலணிகளை அணிவார். தேவைப்பட்டால் நடை உதவிக் கருவியைப் பயன்படுத்தலாம்.</string>
+
+    <string name="timer_tug_go">தொடங்கு</string>
+    <string name="timer_tug_stop">உட்கார்ந்துவிட்டார்: நிறுத்து</string>
+    <string name="timer_tug_run_again">மீண்டும்: தொடங்கு</string>
+</resources>

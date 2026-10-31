@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home screen text. -->
+<resources>
+    <string name="home_brand" translatable="false">Sthira</string>
+    <!-- Line under the app name. "Steady" plays on the meaning of Sthira. -->
+    <string name="home_tagline">Steady scores for home physiotherapy</string>
+
+    <string name="home_tests_heading">Choose a test</string>
+
+    <!-- Test names. Keep them identical to the titles of the test screens. -->
+    <string name="home_test_chair_title">30-second chair stand</string>
+    <string name="home_test_chair_measures">Stand up and sit down as many times as you can</string>
+    <string name="home_test_balance_title">4-stage balance</string>
+    <string name="home_test_balance_measures">Stand still in four positions</string>
+    <string name="home_test_tug_title">Timed Up and Go</string>
+    <string name="home_test_tug_measures">Stand up, walk, turn back and sit down</string>
+
+    <!-- State of the camera rep counter, shown on the chair stand card. -->
+    <string name="home_badge_ready">Ready</string>
+    <!-- The counter has no tuned settings yet, so counts are not trustworthy. -->
+    <string name="home_badge_not_tuned">Timer only for now. Counting comes later.</string>
+    <string name="home_badge_invalid">Timer only for now. The counter settings have a problem.</string>
+    <string name="home_badge_missing">Timer only for now. The counter settings are missing.</string>
+
+    <!-- Small footer line. The reference values come from US data and are only shown for comparison. -->
+    <string name="home_footer_disclaimer">Prototype. Not a medical device. Does not diagnose or predict falls. Uses CDC US reference values.</string>
+    <string name="home_link_privacy">Privacy</string>
+    <string name="home_link_terms">Terms</string>
+    <!-- Link to the open-source licences. -->
+    <string name="home_link_licences">Licences</string>
+</resources>

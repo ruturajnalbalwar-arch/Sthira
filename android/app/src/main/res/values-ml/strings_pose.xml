@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Malayalam. Camera, pose tracking and camera permission. -->
+<resources>
+    <string name="pose_preview_description">ശരീരത്തിന്റെ രൂപരേഖ കാണിക്കുന്ന ക്യാമറ ദൃശ്യം</string>
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">ആളെ കാണുന്നുണ്ട്</string>
+    <string name="pose_no_person">ആളെ കാണുന്നില്ല</string>
+    <string name="pose_starting_camera">ക്യാമറ തുടങ്ങുന്നു…</string>
+    <string name="pose_camera_stopped">ക്യാമറ നിന്നു</string>
+
+    <string name="pose_error_tracking_stopped">ഈ ഫോണിൽ ശരീരനില തിരിച്ചറിയൽ നിന്നുപോയി. തിരികെ പോയി പരിശോധന വീണ്ടും തുറക്കുക.</string>
+    <string name="pose_error_model">ഈ ഫോണിൽ ശരീരനില മോഡൽ (pose model) ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.</string>
+    <string name="pose_error_camera">ക്യാമറ തുടങ്ങാൻ കഴിഞ്ഞില്ല. മറ്റ് ക്യാമറ ആപ്പുകൾ അടച്ച് വീണ്ടും ശ്രമിക്കുക.</string>
+
+    <string name="pose_perm_needed_title">ഈ പരിശോധനയ്ക്ക് ക്യാമറ വേണം</string>
+    <string name="pose_perm_off_title">ക്യാമറ അനുമതി ഓഫാണ്</string>
+    <string name="pose_perm_why">ഓരോ തവണ എഴുന്നേൽക്കുന്നതും എണ്ണാൻ Sthira തലയും തോളുകളും നോക്കുന്നു. വീഡിയോ ഈ ഫോണിൽ മാത്രമാണ് പരിശോധിക്കുന്നത്: അത് ഒരിക്കലും സേവ് ചെയ്യുകയോ അപ്‌ലോഡ് ചെയ്യുകയോ ഇല്ല, ആപ്പിന് ഇന്റർനെറ്റ് ബന്ധവും ഇല്ല.</string>
+    <string name="pose_perm_blocked">Android ഇനി ചോദിക്കില്ല. Settings തുറക്കുക, Permissions തിരഞ്ഞെടുക്കുക, പിന്നെ Camera, എന്നിട്ട് അനുമതി നൽകുക.</string>
+    <string name="pose_perm_open_settings">സെറ്റിങ്സ് തുറക്കുക</string>
+    <string name="pose_perm_allow">ക്യാമറയ്ക്ക് അനുമതി നൽകുക</string>
+</resources>

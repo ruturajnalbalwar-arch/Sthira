@@ -3,7 +3,7 @@
 import { useState, type FormEvent, type InputHTMLAttributes, type ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
 import { AGE_BAND_LABELS, CLOTHING_LABELS, TRIAL_LABELS, VIEW_ANGLE_LABELS } from "@/lib/record/labels";
-import type { SessionMeta } from "@/lib/record/schema";
+import { MAX_NOTES, MAX_ROOM, type SessionMeta } from "@/lib/record/schema";
 import { parseSessionForm, type SessionField, type SessionFieldErrors, type SessionFormValues } from "@/lib/record/sessionForm";
 
 type Props = {
@@ -127,16 +127,16 @@ export function SessionForm({ initialValues, onSubmit, trialOptions = TRIAL_LABE
         1. Session details
       </h2>
       <div className="grid gap-5 sm:grid-cols-2">
-        <TextField {...bind("participantCode")} label="Participant code" helper="P + 2-3 digits, e.g. P07. Never a name." autoComplete="off" autoCapitalize="characters" spellCheck={false} />
+        <TextField {...bind("participantCode")} label="Participant code" helper="Any code you choose, like A11 (letters, digits, - and _). Never a name." autoComplete="off" autoCapitalize="characters" spellCheck={false} />
         <SelectField {...bind("trial")} label="Trial" options={trialOptions} />
         <SelectField {...bind("clothing")} label="Clothing" options={CLOTHING_LABELS} />
         <SelectField {...bind("ageBand")} label="Age band" options={AGE_BAND_LABELS} />
         <SelectField {...bind("viewAngle")} label="Camera angle" options={VIEW_ANGLE_LABELS} />
-        <TextField {...bind("room")} label="Room" helper="e.g. hostel common room" autoComplete="off" maxLength={80} />
+        <TextField {...bind("room")} label="Room" helper="e.g. hostel common room" autoComplete="off" maxLength={MAX_ROOM} />
         <TextField {...bind("cameraHeightCm")} label="Camera height (cm)" helper="Floor to lens. Measure with a tape." {...MEASURE} />
         <TextField {...bind("cameraDistanceCm")} label="Camera distance (cm)" helper="Lens to chair front. Measure with a tape." {...MEASURE} />
       </div>
-      <TextField {...bind("notes")} label="Notes (optional)" helper="Redo, problems, 'no armchair'. No names." autoComplete="off" maxLength={500} />
+      <TextField {...bind("notes")} label="Notes (optional)" helper="Redo, problems, 'no armchair'. No names." autoComplete="off" maxLength={MAX_NOTES} />
       {extra}
       <ConsentField checked={values.consentConfirmed} error={errors.consentConfirmed} onChange={set("consentConfirmed")} />
       <Button type="submit" className="self-start">

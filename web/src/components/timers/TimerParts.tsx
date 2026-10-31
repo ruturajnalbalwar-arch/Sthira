@@ -8,7 +8,7 @@ export const formatSeconds = (seconds: number): string => `${seconds.toFixed(ONE
 export function BigTime({ seconds, label }: { seconds: number; label: string }) {
   return (
     <p className="flex flex-col items-center gap-1 rounded-2xl border border-border bg-surface p-6">
-      <span className="text-sm font-semibold uppercase tracking-wide text-muted">{label}</span>
+      <span className="text-base font-semibold text-muted">{label}</span>
       <span className="font-mono text-6xl font-bold tabular-nums sm:text-7xl">{formatSeconds(seconds)}</span>
     </p>
   );
@@ -28,7 +28,7 @@ export function ResultCard({ tone, title, children }: { tone: ResultTone; title:
 
 export function CdcNote({ source, children }: { source: CdcSource; children?: ReactNode }) {
   return (
-    <p className="text-sm text-muted">
+    <p className="text-base text-muted">
       {children} Reference values from{" "}
       <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
         {source.title}

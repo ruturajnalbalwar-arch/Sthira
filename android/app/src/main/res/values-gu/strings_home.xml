@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">ઘરે ફિઝિયોથેરાપી માટે સ્થિર સ્કોર</string>
+    <string name="home_tests_heading">એક ટેસ્ટ પસંદ કરો</string>
+    <string name="home_test_chair_title">30 સેકન્ડ ખુરશી પરથી ઊભા થવું</string>
+    <string name="home_test_chair_measures">બને એટલી વાર ઊભા થાઓ અને બેસો</string>
+    <string name="home_test_balance_title">4 તબક્કાનું સંતુલન</string>
+    <string name="home_test_balance_measures">ચાર સ્થિતિમાં સ્થિર ઊભા રહો</string>
+    <string name="home_test_tug_title">Timed Up and Go (ઊઠો, ચાલો, પાછા બેસો)</string>
+    <string name="home_test_tug_measures">ઊભા થાઓ, ચાલો, પાછા ફરીને બેસો</string>
+    <string name="home_badge_ready">તૈયાર</string>
+    <string name="home_badge_not_tuned">હમણાં ફક્ત ટાઇમર. ગણતરી પછી આવશે.</string>
+    <string name="home_badge_invalid">હમણાં ફક્ત ટાઇમર. કાઉન્ટરનાં સેટિંગમાં તકલીફ છે.</string>
+    <string name="home_badge_missing">હમણાં ફક્ત ટાઇમર. કાઉન્ટરનાં સેટિંગ મળ્યાં નથી.</string>
+    <string name="home_footer_disclaimer">પ્રોટોટાઇપ. તબીબી સાધન નથી. નિદાન કરતું નથી અને પડી જવાનું અનુમાન કરતું નથી. CDC ની US સંદર્ભ કિંમતો વાપરે છે.</string>
+    <string name="home_link_privacy">ગોપનીયતા</string>
+    <string name="home_link_terms">શરતો</string>
+    <string name="home_link_licences">લાઇસન્સ</string>
+</resources>

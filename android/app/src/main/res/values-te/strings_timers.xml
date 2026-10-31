@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Balance and Timed Up and Go screens. Telugu. Every number is passed in as a format argument. -->
+<resources>
+    <string name="timer_balance_title">4 దశల బ్యాలెన్స్ పరీక్ష</string>
+    <string name="timer_tug_title">Timed Up and Go (లేచి నడిచే పరీక్ష)</string>
+
+    <string name="timer_seconds_value">%1$.1f సె</string>
+
+    <string name="timer_norms_invalid">norms.json లో CDC రిఫరెన్స్ విలువలు లేవు లేదా సరిగా లేవు.</string>
+    <string name="timer_norms_missing">యాప్‌లో norms.json లేదు.</string>
+
+    <string name="timer_cdc_reference">ఆధారం: %1$s (%2$s).</string>
+    <string name="timer_cdc_caveat">ఇవి అమెరికా విలువలు. భారతదేశంలోని వృద్ధులపై వీటిని పరీక్షించలేదు. ఫలితం అర్థం ఏమిటో ఫిజియోథెరపిస్ట్ నిర్ణయిస్తారు. Sthira వ్యాధి నిర్ధారణ చేయదు.</string>
+
+    <string name="timer_stage_name_1">పాదాలు పక్కపక్కన</string>
+    <string name="timer_stage_name_2">సగం ముందుకు</string>
+    <string name="timer_stage_name_3">పాదం ముందు పాదం</string>
+    <string name="timer_stage_name_4">ఒంటి కాలు</string>
+
+    <string name="timer_stage_do_1">మీ పాదాలను పక్కపక్కనే పెట్టి నిలబడండి.</string>
+    <string name="timer_stage_do_2">ఒక పాదం లోపలి వైపు మధ్య భాగం, రెండో పాదం బొటనవేలిని తాకేలా పెట్టండి.</string>
+    <string name="timer_stage_do_3">ఒక పాదాన్ని మరో పాదం ముందు పెట్టండి, మడమ కాలివేళ్లను తాకాలి.</string>
+    <string name="timer_stage_do_4">ఒంటి కాలిపై నిలబడండి.</string>
+
+    <string name="timer_hold_for">%1$s సేపు నిలబడాలి</string>
+    <string name="timer_stage_of">%2$d లో దశ %1$d</string>
+    <string name="timer_start">మొదలుపెట్టండి</string>
+    <string name="timer_next_stage">తదుపరి దశ</string>
+    <string name="timer_stage_passed">దశ %1$d పూర్తి: %2$s నిలబడ్డారు</string>
+    <string name="timer_stage_stopped">దశ %1$d ఆగింది: %2$s వద్ద సమతుల్యం తప్పింది</string>
+    <string name="timer_voice_stop">ఆపండి</string>
+    <string name="timer_fold_open">తెరిచి ఉంది</string>
+    <string name="timer_fold_closed">మూసి ఉంది</string>
+    <string name="timer_balance_lost_hint">పాదాలు కదిలినా, వ్యక్తికి ఆసరా అవసరమైనా “సమతుల్యం తప్పింది” నొక్కండి.</string>
+    <string name="timer_balance_allowed_movement">బ్యాలెన్స్ కోసం వ్యక్తి చేతులు చాచవచ్చు లేదా శరీరాన్ని కదిలించవచ్చు. పాదాలను మాత్రం కదిలించకూడదు.</string>
+    <string name="timer_balance_safety">వ్యక్తి పక్కనే నిలబడి, పట్టుకోవడానికి సిద్ధంగా ఉండండి. కర్ర లేదా వాకర్ వద్దు. కళ్లు తెరిచే ఉండాలి.</string>
+    <string name="timer_balance_progression">వ్యక్తి పాదాలు కదపకుండా, ఆసరా లేకుండా ఒక దశలో %1$s సేపు నిలబడగలిగితే, తర్వాతి దశకు వెళ్లండి. లేకపోతే పరీక్ష ఆపండి.</string>
+
+    <string name="timer_lost_position">సమతుల్యం తప్పింది: ఆపండి</string>
+    <string name="timer_restart_stage">సిద్ధంగా లేరు, దశ మళ్ళీ మొదలుపెట్టండి</string>
+    <string name="timer_start_over">మొదటి నుండి మళ్ళీ</string>
+
+    <string name="timer_stage_results">దశల ఫలితాలు</string>
+    <string name="timer_stage_label">దశ %1$d</string>
+    <string name="timer_outcome_held">నిలబడ్డారు</string>
+    <string name="timer_outcome_lost">సమతుల్యం తప్పింది</string>
+    <string name="timer_stage_result_cd">దశ %1$d: %2$s, %3$s</string>
+
+    <string name="timer_stepper_cd">%2$d దశల్లో %1$dవ దశ, %3$s: %4$s</string>
+    <string name="timer_step_held">నిలబడ్డారు</string>
+    <string name="timer_step_lost">సమతుల్యం తప్పింది</string>
+    <string name="timer_step_current">ఇప్పటి దశ</string>
+    <string name="timer_step_upcoming">ఇంకా మొదలు కాలేదు</string>
+    <string name="timer_step_skipped">చేయలేదు</string>
+
+    <string name="timer_balance_stopped_before">దశ %1$d వద్ద ఆగింది, పాదం ముందు పాదం దశకు ముందే: పాదం ముందు పాదం దశలో CDC రిఫరెన్స్ %2$s కంటే తక్కువ</string>
+    <string name="timer_balance_below">పాదం ముందు పాదం దశలో %1$s నిలబడ్డారు: CDC రిఫరెన్స్ %2$s కంటే తక్కువ</string>
+    <string name="timer_balance_meets">పాదం ముందు పాదం దశలో %1$s నిలబడ్డారు: CDC రిఫరెన్స్ %2$s ను చేరుకుంది</string>
+
+    <string name="timer_used_aid">నడక సహాయం (కర్ర, వాకర్ వంటివి) వాడారు</string>
+    <string name="timer_aid_was_used">నడక సహాయం వాడారు.</string>
+    <string name="timer_tug_under">%1$s: CDC రిఫరెన్స్ %2$s కంటే తక్కువ</string>
+    <string name="timer_tug_at_or_above">%1$s: CDC రిఫరెన్స్ %2$s కు సమానం లేదా ఎక్కువ</string>
+
+    <string name="timer_how_heading">ఎలా చేయాలి</string>
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">కుర్చీ నుండి %1$d మీటరు దూరంలో ఒక గీత గీయండి.</item>
+        <item quantity="other">కుర్చీ నుండి %1$d మీటర్ల దూరంలో ఒక గీత గీయండి.</item>
+    </plurals>
+    <string name="timer_tug_step_sit">వ్యక్తి కుర్చీలో వెనక్కి ఆనుకుని కూర్చుంటారు.</string>
+    <string name="timer_tug_step_go">“మొదలు” అని అంటూనే మొదలు బటన్ నొక్కండి.</string>
+    <string name="timer_tug_step_walk">వారు లేచి, మామూలు వేగంతో గీత వరకు నడిచి, వెనక్కి తిరిగి, నడిచి వచ్చి కూర్చుంటారు.</string>
+    <string name="timer_tug_step_stop">వారు మళ్ళీ కూర్చోగానే “ఆపండి” నొక్కండి.</string>
+    <string name="timer_tug_footwear">వారు రోజూ వేసుకునే చెప్పులు లేదా బూట్లు వేసుకుంటారు. అవసరమైతే నడక సహాయం వాడవచ్చు.</string>
+
+    <string name="timer_tug_go">మొదలు</string>
+    <string name="timer_tug_stop">కూర్చున్నారు: ఆపండి</string>
+    <string name="timer_tug_run_again">మళ్ళీ: మొదలు</string>
+</resources>

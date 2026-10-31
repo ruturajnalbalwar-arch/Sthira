@@ -15,6 +15,9 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
+import app.sthira.settings.ThemeMode
 
 private fun schemeFor(t: SthiraColors, dark: Boolean): ColorScheme {
     val base = if (dark) darkColorScheme() else lightColorScheme()
@@ -29,17 +32,35 @@ private fun schemeFor(t: SthiraColors, dark: Boolean): ColorScheme {
 /** True when the user turned animations off (Developer options or Accessibility "Remove animations"). */
 val LocalReducedMotion = staticCompositionLocalOf { false }
 
-/** Light and dark themes from the web tokens. Text sizes are in sp, so the system font scale applies. */
+/**
+ * Light and dark themes from the tokens. Text sizes are in sp, so the system font scale applies, and
+ * [textScale] (the in-app A-/A+ zoom) multiplies it: 1.5 at a phone setting of 1.3 gives 1.95.
+ */
 @Composable
-fun SthiraTheme(dark: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun SthiraTheme(dark: Boolean = isSystemInDarkTheme(), textScale: Float = 1f, content: @Composable () -> Unit) {
     val tokens = if (dark) DarkTokens else LightTokens
     val resolver = LocalContext.current.contentResolver
     val reduced = remember(resolver) {
         Settings.Global.getFloat(resolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) == 0f
     }
-    CompositionLocalProvider(LocalSthiraColors provides tokens, LocalReducedMotion provides reduced) {
+    val system = LocalDensity.current
+    val density = remember(system, textScale) { Density(system.density, system.fontScale * textScale) }
+    CompositionLocalProvider(
+        LocalSthiraColors provides tokens, LocalReducedMotion provides reduced, LocalDensity provides density,
+    ) {
         MaterialTheme(colorScheme = schemeFor(tokens, dark), typography = SthiraTypography, content = content)
     }
+}
+
+/** The theme for the user's chosen [mode] (light, dark or follow the phone). */
+@Composable
+fun SthiraTheme(mode: ThemeMode, textScale: Float, content: @Composable () -> Unit) {
+    val dark = when (mode) {
+        ThemeMode.System -> isSystemInDarkTheme()
+        ThemeMode.Light -> false
+        ThemeMode.Dark -> true
+    }
+    SthiraTheme(dark = dark, textScale = textScale, content = content)
 }
 
 object Sthira {

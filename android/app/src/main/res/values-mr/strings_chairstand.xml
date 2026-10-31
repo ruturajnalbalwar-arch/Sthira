@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 30-second chair-stand test screen. Marathi. -->
+<resources>
+    <string name="cs_title">30 सेकंद खुर्चीवरून उठणे</string>
+    <string name="cs_privacy_row">काहीही सेव्ह होत नाही की पाठवले जात नाही: शरीराची ओळख याच फोनवर होते.</string>
+    <string name="cs_step_of">%2$d पैकी पायरी %1$d</string>
+    <string name="cs_step_person">व्यक्तीबद्दल</string>
+    <string name="cs_step_camera">कॅमेरा</string>
+
+    <string name="cs_age_label">वयोगट</string>
+    <string name="cs_age_help">CDC ची मूल्ये 60 आणि त्यापेक्षा जास्त वयासाठी आहेत. 80+ साठी CDC चे 80-84 चे मूल्य वापरले जाते.</string>
+    <string name="cs_sex_label">लिंग</string>
+    <string name="cs_sex_help">CDC मध्ये स्त्रिया आणि पुरुषांची मूल्ये वेगळी आहेत. हे सेव्ह होत नाही.</string>
+    <string name="cs_age_under_60">60 पेक्षा कमी</string>
+    <string name="cs_age_60_64">60-64</string>
+    <string name="cs_age_65_69">65-69</string>
+    <string name="cs_age_70_74">70-74</string>
+    <string name="cs_age_75_79">75-79</string>
+    <string name="cs_age_80_plus">80+</string>
+    <string name="cs_sex_female">स्त्री</string>
+    <string name="cs_sex_male">पुरुष</string>
+    <string name="cs_sex_not_recorded">सांगायचे नाही</string>
+
+    <string name="cs_error_age_band">वयोगट निवडा</string>
+    <string name="cs_error_sex">एक निवडा, किंवा सांगायचे नाही</string>
+
+    <string name="cs_continue_blocked">पुढे जाण्यासाठी हे भरा: %1$s.</string>
+    <string name="cs_list_separator">", "</string>
+    <string name="cs_blocker_age">वयोगट</string>
+    <string name="cs_blocker_sex">लिंग</string>
+    <string name="cs_continue">पुढे</string>
+
+    <string name="cs_unavailable_title">खुर्चीवरून उठण्याची चाचणी उपलब्ध नाही</string>
+    <string name="cs_unavailable_body">params.json मध्ये चाचणीचा कालावधी नाही किंवा चुकीचा आहे, त्यामुळे चाचणीची वेळ मोजता येत नाही.</string>
+
+    <string name="cs_edit_session">माहिती बदला</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
+    <string name="cs_run_again">पुन्हा करा</string>
+    <string name="cs_new_person">नवीन व्यक्ती</string>
+    <string name="cs_waiting_camera">कॅमेराची वाट पाहत आहे…</string>
+    <string name="cs_start">सुरू करा</string>
+    <string name="cs_stop">थांबवा</string>
+    <string name="cs_redo_calibration">कॅलिब्रेशन पुन्हा करा</string>
+    <string name="cs_cancel_test">चाचणी रद्द करा</string>
+
+    <string name="cs_switch_camera">कॅमेरा बदला</string>
+    <string name="cs_switch_to_front">समोरचा कॅमेरा वापरा</string>
+    <string name="cs_switch_to_back">मागचा कॅमेरा वापरा</string>
+    <string name="cs_status_separator">" · "</string>
+
+    <string name="cs_stage_ready">तयार</string>
+    <string name="cs_stage_starting">सुरू होत आहे…</string>
+    <string name="cs_stage_stand">सरळ उभे राहा आणि स्थिर राहा</string>
+    <string name="cs_stage_sit">खाली बसा आणि स्थिर राहा</string>
+    <string name="cs_stage_go">सुरू! जितक्या वेळा जमेल तितक्या वेळा उठा आणि बसा</string>
+    <string name="cs_stage_done">थांबा. चाचणी संपली</string>
+    <string name="cs_camera_checklist">पूर्ण शरीर आणि खुर्ची दिसावी, फोन 2-3 मीटर दूर ठेवा</string>
+    <string name="cs_step_into_view">कॅमेरासमोर या: पूर्ण शरीर, डोक्यापासून पायापर्यंत</string>
+
+    <string name="cs_pill_person_lost">व्यक्ती दिसत नाही: पूर्ण शरीर, डोक्यापासून पायापर्यंत, दिसले पाहिजे</string>
+    <string name="cs_pill_unreliable">मोजणी विश्वासार्ह नाही: बऱ्याच वेळा उभे राहणे स्पष्ट दिसले नाही</string>
+    <string name="cs_pill_slow">कॅमेरा धीमा आहे (%1$.1f fps): काही वेळा उभे राहणे सुटू शकते</string>
+
+    <string name="cs_elapsed_of_total">%1$d / %2$d से.</string>
+    <string name="cs_counting_off">मोजणी बंद आहे: मोजणी अजून सेट केलेली नाही.</string>
+    <string name="cs_checking_calibration">कॅलिब्रेशन तपासत आहे…</string>
+    <string name="cs_calibration_failed">कॅलिब्रेशन यशस्वी झाले नाही. मोजणी होत नाही.</string>
+    <string name="cs_counter_failed">मोजणी सुरू होऊ शकली नाही.</string>
+    <string name="cs_problem_hint">कॅलिब्रेशन पुन्हा करा दाबा, किंवा रद्द करा.</string>
+
+    <plurals name="cs_seconds">
+        <item quantity="one">%1$d सेकंद</item>
+        <item quantity="other">%1$d सेकंद</item>
+    </plurals>
+    <plurals name="cs_stands_word">
+        <item quantity="one">वेळा</item>
+        <item quantity="other">वेळा</item>
+    </plurals>
+    <string name="cs_stands_word_spaced">" %1$s"</string>
+    <plurals name="cs_full_stands_spoken">
+        <item quantity="one">%1$d वेळा पूर्ण उभे राहिले</item>
+        <item quantity="other">%1$d वेळा पूर्ण उभे राहिले</item>
+    </plurals>
+    <plurals name="cs_seconds_left">
+        <item quantity="one">%1$d से. बाकी</item>
+        <item quantity="other">%1$d से. बाकी</item>
+    </plurals>
+
+    <string name="cs_rep_full">पूर्ण</string>
+    <string name="cs_rep_half">अर्धे</string>
+    <string name="cs_rep_arms">हातांचा आधार घेतला</string>
+    <string name="cs_rep_unclear">अस्पष्ट</string>
+    <string name="cs_rep_chip">%1$d %2$s</string>
+    <string name="cs_rep_spoken">प्रयत्न %1$d: %2$s, %3$s</string>
+    <string name="cs_rep_counted">मोजले</string>
+    <string name="cs_rep_not_counted">मोजले नाही</string>
+
+    <string name="cs_result_title">निकाल</string>
+    <plurals name="cs_result_full_stands">
+        <item quantity="one">वेळा पूर्ण उभे राहिले</item>
+        <item quantity="other">वेळा पूर्ण उभे राहिले</item>
+    </plurals>
+    <string name="cs_result_in_seconds">%1$d से. मध्ये</string>
+    <string name="cs_result_stopped_early">चाचणी मध्येच थांबली: हा CDC गुण नाही</string>
+    <string name="cs_result_not_counted">मोजले नाही</string>
+    <string name="cs_result_half">अर्धे उभे राहिले</string>
+    <string name="cs_result_term_count">%1$s: %2$d</string>
+    <string name="cs_result_no_comparison">या वेळी CDC शी तुलना नाही</string>
+    <string name="cs_result_below">या वयाच्या आणि लिंगाच्या CDC सरासरीपेक्षा कमी</string>
+    <string name="cs_result_at_or_above">या वयाच्या आणि लिंगाच्या CDC सरासरीइतके किंवा जास्त</string>
+    <string name="cs_result_sentence_women">%1$d-%2$d वयाच्या स्त्रियांसाठी CDC मूल्य: %3$d पेक्षा कमी वेळा उभे राहणे सरासरीपेक्षा कमी आहे. या वेळचे गुण: %4$d.</string>
+    <string name="cs_result_sentence_men">%1$d-%2$d वयाच्या पुरुषांसाठी CDC मूल्य: %3$d पेक्षा कमी वेळा उभे राहणे सरासरीपेक्षा कमी आहे. या वेळचे गुण: %4$d.</string>
+    <string name="cs_cdc_open_band_lower">CDC च्या या वयोगटाच्या मूल्याशी तुलना केली: %1$d-%2$d. %3$d आणि त्यापेक्षा जास्त वयासाठी CDC ने कमी मूल्ये दिली आहेत.</string>
+    <string name="cs_cdc_open_band_different">CDC च्या या वयोगटाच्या मूल्याशी तुलना केली: %1$d-%2$d. %3$d आणि त्यापेक्षा जास्त वयासाठी CDC ने वेगळी मूल्ये दिली आहेत.</string>
+    <string name="cs_cdc_open_band_only">CDC च्या या वयोगटाच्या मूल्याशी तुलना केली: %1$d-%2$d.</string>
+    <string name="cs_result_reference">संदर्भ: %1$s. %2$s याचा अर्थ फिजिओथेरपिस्टनी ठरवायचा आहे. Sthira आजाराचे निदान करत नाही आणि पडण्याचा अंदाज देत नाही.</string>
+    <string name="cs_result_us_reference">अमेरिकेतील संदर्भ मूल्ये.</string>
+
+    <string name="cs_reason_stopped_early">चाचणी मध्येच थांबली: हा CDC गुण नाही. CDC गुणासाठी पूर्ण ठरलेला वेळ लागतो.</string>
+    <string name="cs_reason_unreliable">मोजणी विश्वासार्ह नाही: कॅमेरावर बऱ्याच वेळा उभे राहणे स्पष्ट दिसले नाही. चाचणी पुन्हा करा.</string>
+    <string name="cs_reason_low_fps">कॅमेरा इतका धीमा चालला की मोजणीवर विश्वास ठेवता येत नाही. इतर ॲप्स बंद करा आणि चाचणी पुन्हा करा.</string>
+    <string name="cs_no_cdc_under_60">60 पेक्षा कमी वयाच्या लोकांसाठी CDC मध्ये खुर्चीवरून उठण्याचे मूल्य नाही.</string>
+    <string name="cs_no_cdc_sex">CDC मध्ये स्त्रिया आणि पुरुषांची मूल्ये वेगळी आहेत, आणि लिंग सांगितले नाही.</string>
+    <string name="cs_no_cdc_value">CDC तक्त्यात या वयासाठी मूल्य नाही: %1$s.</string>
+    <string name="cs_no_cdc_file">CDC संदर्भ फाइल वाचता आली नाही.</string>
+
+    <string name="cs_no_count_not_tuned">मोजणी नाही: मोजणी अजून सेट केलेली नाही. ही फक्त तयारीची सराव फेरी होती.</string>
+    <string name="cs_no_count_invalid">मोजणी नाही: या आवृत्तीत मोजणीची सेटिंग चुकीची आहे.</string>
+    <string name="cs_no_count_calibration">मोजणी नाही: कॅलिब्रेशन यशस्वी झाले नाही, त्यामुळे उभे राहणे मोजले नाही. पुन्हा करा.</string>
+    <string name="cs_no_count_context">मोजणी नाही: मोजणी सुरू होऊ शकली नाही.</string>
+    <string name="cs_no_count_before_go">मोजणी नाही: चाचणी सुरू होण्याआधीच थांबवली.</string>
+
+    <string name="cs_issues_title">या वेळी रेकॉर्डिंगमध्ये अडचण आली</string>
+    <string name="cs_issue_app_hidden">चाचणीदरम्यान ॲप मागे गेले, त्यामुळे काही फ्रेम सुटल्या. चाचणी पुन्हा करा.</string>
+    <string name="cs_issue_detection_failed">चाचणीदरम्यान शरीराची ओळख थांबली. चाचणी पुन्हा करा.</string>
+    <string name="cs_issue_camera_ended">चाचणीदरम्यान कॅमेरा बंद झाला. चाचणी पुन्हा करा.</string>
+</resources>

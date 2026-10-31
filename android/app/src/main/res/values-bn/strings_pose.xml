@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pose_preview_description">ক্যামেরার ছবি, শরীরের রেখা সহ</string>
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">মানুষ দেখা যাচ্ছে</string>
+    <string name="pose_no_person">কেউ নেই</string>
+    <string name="pose_starting_camera">ক্যামেরা চালু হচ্ছে…</string>
+    <string name="pose_camera_stopped">ক্যামেরা বন্ধ</string>
+
+    <string name="pose_error_tracking_stopped">এই ফোনে শরীরের ভঙ্গি দেখা বন্ধ হয়ে গেছে। ফিরে গিয়ে পরীক্ষাটি আবার খুলুন।</string>
+    <string name="pose_error_model">এই ফোনে পোজ মডেল লোড করা যায়নি।</string>
+    <string name="pose_error_camera">ক্যামেরা চালু হয়নি। অন্য ক্যামেরা অ্যাপ বন্ধ করে আবার চেষ্টা করুন।</string>
+
+    <string name="pose_perm_needed_title">এই পরীক্ষার জন্য ক্যামেরা লাগবে</string>
+    <string name="pose_perm_off_title">ক্যামেরার অনুমতি বন্ধ আছে</string>
+    <string name="pose_perm_why">প্রতিবার ওঠা গোনার জন্য Sthira মাথা আর কাঁধ দেখে। ভিডিও শুধু এই ফোনেই প্রসেস হয়: কখনও সেভ বা আপলোড হয় না, আর অ্যাপটির ইন্টারনেট ব্যবহারের সুযোগ নেই।</string>
+    <string name="pose_perm_blocked">Android আর জিজ্ঞেস করবে না। সেটিংস খুলুন, অনুমতি বাছুন, তারপর ক্যামেরা বাছুন, আর অনুমতি দিন।</string>
+    <string name="pose_perm_open_settings">সেটিংস খুলুন</string>
+    <string name="pose_perm_allow">ক্যামেরার অনুমতি দিন</string>
+</resources>

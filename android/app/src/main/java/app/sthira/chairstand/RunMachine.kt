@@ -7,11 +7,11 @@ import app.sthira.pose.FpsMeter
 import app.sthira.pose.FrameClock
 import app.sthira.pose.PoseMapper
 import app.sthira.pose.PoseSample
-import app.sthira.record.CaptureIssue
 
 /**
  * State of one chair-stand run, from camera frames and clock ticks. Run time t = 0 is the first
- * frame after Start, so the standing calibration span begins exactly on a frame.
+ * frame after Start in which a person is detected, so the standing calibration span begins exactly on
+ * a frame that has the person in it (an empty room is never calibrated).
  */
 data class RunState(
     val clock: FrameClock = FrameClock(),
@@ -31,18 +31,15 @@ data class RunState(
     val geometry: VideoGeometry get() = VideoGeometry(imageWidth.toDouble(), imageHeight.toDouble())
 }
 
-/** [frame] is the run frame to record (null outside an active run or for a dropped frame). */
-data class FrameOutcome(val state: RunState, val frame: PoseFrame?)
-
 /** Pure transitions for a run. Times in nanoseconds are on the elapsedRealtime clock. */
 class RunMachine(private val config: PhaseConfig, private val counter: CounterResult) {
 
     fun requestStart(s: RunState): RunState =
         if (s.phase.stage == Stage.Idle && !s.startRequested) s.copy(startRequested = true, issues = emptySet()) else s
 
-    fun onFrame(s: RunState, sample: PoseSample, nowNs: Long): FrameOutcome {
+    fun onFrame(s: RunState, sample: PoseSample, nowNs: Long): RunState {
         val mapped = s.clock.map(sample.captureNs, nowNs)
-        val realtimeNs = mapped.realtimeNs ?: return FrameOutcome(s.copy(clock = mapped.clock), null)
+        val realtimeNs = mapped.realtimeNs ?: return s.copy(clock = mapped.clock)
         val landmarks = PoseMapper.toLandmarks(sample.person, unmirror = sample.mirrored)
         val seen = s.copy(
             clock = mapped.clock,
@@ -51,14 +48,14 @@ class RunMachine(private val config: PhaseConfig, private val counter: CounterRe
             imageHeight = sample.imageHeight,
             personDetected = landmarks.isNotEmpty(),
         )
-        val started = if (seen.startRequested) begin(seen, realtimeNs) else seen
+        // After Start, calibration begins only on a frame where the landmarker found a person.
+        val started = if (seen.startRequested && seen.personDetected) begin(seen, realtimeNs) else seen
         val origin = started.originNs
-        if (origin == null || !started.phase.stage.isActive) return FrameOutcome(started, null)
+        if (origin == null || !started.phase.stage.isActive) return started
         val t = (realtimeNs - origin) / NANOS
         val ticked = apply(started, PhaseEvent.Tick(t)).copy(nowT = t)
-        if (!ticked.phase.stage.isActive) return FrameOutcome(ticked, null)
-        val frame = PoseFrame(t, landmarks)
-        return FrameOutcome(ticked.copy(live = LiveCount.onFrame(ticked.live, frame, counter)), frame)
+        if (!ticked.phase.stage.isActive) return ticked
+        return ticked.copy(live = LiveCount.onFrame(ticked.live, PoseFrame(t, landmarks), counter))
     }
 
     fun onTick(s: RunState, nowNs: Long): RunState {
@@ -70,7 +67,7 @@ class RunMachine(private val config: PhaseConfig, private val counter: CounterRe
 
     fun redoCalibration(s: RunState, nowNs: Long): RunState = timed(s, nowNs) { PhaseEvent.RedoCalibration(it) }
 
-    /** Ends an active run early (camera lost, app hidden, frame limit) and records why. */
+    /** Ends an active run early (camera lost, app hidden) and records why. */
     fun interrupt(s: RunState, nowNs: Long, issue: CaptureIssue): RunState {
         if (s.startRequested && s.originNs == null) return s.copy(startRequested = false, issues = s.issues + issue)
         if (!s.phase.stage.isActive) return s

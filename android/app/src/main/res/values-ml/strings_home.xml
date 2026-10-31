@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Malayalam. Home screen text. -->
+<resources>
+    <string name="home_tagline">വീട്ടിലെ ഫിസിയോതെറാപ്പിക്ക് സ്ഥിരതയുള്ള സ്കോറുകൾ</string>
+
+    <string name="home_tests_heading">ഒരു പരിശോധന തിരഞ്ഞെടുക്കുക</string>
+
+    <string name="home_test_chair_title">30 സെക്കൻഡ് കസേരയിൽ നിന്ന് എഴുന്നേൽക്കൽ</string>
+    <string name="home_test_chair_measures">കഴിയുന്നത്ര തവണ എഴുന്നേറ്റ് ഇരിക്കുക</string>
+    <string name="home_test_balance_title">4 ഘട്ട ബാലൻസ്</string>
+    <string name="home_test_balance_measures">നാല് രീതിയിൽ അനങ്ങാതെ നിൽക്കുക</string>
+    <string name="home_test_tug_title">Timed Up and Go (എഴുന്നേറ്റ് നടക്കാനുള്ള സമയം)</string>
+    <string name="home_test_tug_measures">എഴുന്നേറ്റ്, നടന്ന്, തിരിഞ്ഞു വന്ന് ഇരിക്കുക</string>
+
+    <string name="home_badge_ready">തയ്യാർ</string>
+    <string name="home_badge_not_tuned">ഇപ്പോൾ ടൈമർ മാത്രം. എണ്ണൽ പിന്നീട് വരും.</string>
+    <string name="home_badge_invalid">ഇപ്പോൾ ടൈമർ മാത്രം. കൗണ്ടർ സെറ്റിങ്സിൽ പ്രശ്നമുണ്ട്.</string>
+    <string name="home_badge_missing">ഇപ്പോൾ ടൈമർ മാത്രം. കൗണ്ടർ സെറ്റിങ്സ് കണ്ടെത്തിയില്ല.</string>
+
+    <string name="home_footer_disclaimer">പരീക്ഷണ മാതൃക. മെഡിക്കൽ ഉപകരണമല്ല. രോഗനിർണയം നടത്തുന്നില്ല, വീഴ്ച മുൻകൂട്ടി പ്രവചിക്കുന്നില്ല. CDC യുടെ അമേരിക്കൻ റഫറൻസ് മൂല്യങ്ങൾ ഉപയോഗിക്കുന്നു.</string>
+    <string name="home_link_privacy">സ്വകാര്യത</string>
+    <string name="home_link_terms">നിബന്ധനകൾ</string>
+    <string name="home_link_licences">ലൈസൻസുകൾ</string>
+</resources>

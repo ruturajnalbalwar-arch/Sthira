@@ -48,11 +48,25 @@ describe("parseSessionForm", () => {
     Object.values(result.errors).forEach((message) => expect(message).not.toMatch(/expected|received|invalid input/i));
   });
 
-  it("rejects a name, zero or negative measurements and text in number fields", () => {
-    const result = parseSessionForm({ ...filled, participantCode: "Priya", cameraHeightCm: "0", cameraDistanceCm: "abc" });
+  it("takes any code of letters, digits, dash and underscore", () => {
+    for (const participantCode of ["A11", " w3-B12 ", "7", "Priya"]) {
+      const result = parseSessionForm({ ...filled, participantCode });
+      expect(result.ok, participantCode).toBe(true);
+      if (result.ok) expect(result.meta.participantCode).toBe(participantCode.trim());
+    }
+  });
+
+  it("explains why a code with a space or slash is refused", () => {
+    const result = parseSessionForm({ ...filled, participantCode: "A 11" });
     expect(result.ok).toBe(false);
     if (result.ok) return;
-    expect(result.errors.participantCode).toMatch(/never a name/);
+    expect(result.errors.participantCode).toMatch(/letters, digits/i);
+  });
+
+  it("rejects zero or negative measurements and text in number fields", () => {
+    const result = parseSessionForm({ ...filled, cameraHeightCm: "0", cameraDistanceCm: "abc" });
+    expect(result.ok).toBe(false);
+    if (result.ok) return;
     expect(result.errors.cameraHeightCm).toMatch(/greater than 0/);
     expect(result.errors.cameraDistanceCm).toMatch(/cm/);
   });

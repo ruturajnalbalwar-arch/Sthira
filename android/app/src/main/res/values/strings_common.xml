@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared UI text: top bar, text size, theme and language controls. -->
+<resources>
+    <!-- Back arrow in the top bar, read by TalkBack. -->
+    <string name="common_back">Back</string>
+
+    <!-- Text size control. The two glyphs are a small and a big letter A, shown on the buttons. -->
+    <string name="common_text_zoom_out_glyph" translatable="false">A−</string>
+    <string name="common_text_zoom_in_glyph" translatable="false">A+</string>
+    <!-- TalkBack name of the A- button. -->
+    <string name="common_text_smaller">Make text smaller</string>
+    <!-- TalkBack name of the A+ button. -->
+    <string name="common_text_larger">Make text larger</string>
+    <!-- The current text zoom level shown between A- and A+, for example 125%. -->
+    <string name="common_text_size_percent">%1$d%%</string>
+    <!-- Read by TalkBack, for example "Text size 125%". -->
+    <string name="common_text_size_state">Text size %1$d%%</string>
+
+    <!-- Colour theme: follow the phone, always light, or always dark. -->
+    <string name="common_theme_label">Theme</string>
+    <!-- Theme option: use the phone's own light or dark setting. -->
+    <string name="common_theme_system">Same as phone</string>
+    <string name="common_theme_light">Light</string>
+    <string name="common_theme_dark">Dark</string>
+
+    <!-- Language picker screen title. -->
+    <string name="common_language_title">Language</string>
+    <!-- Language button label in Settings. Kept in English and Hindi in every language so anyone can find it. -->
+    <string name="common_language_button" translatable="false">Language / भाषा</string>
+    <!-- Language option: use the language set on the phone. -->
+    <string name="common_language_phone">Phone language</string>
+    <string name="common_language_phone_help">Use the same language as this phone.</string>
+    <!-- TalkBack name of the language button. %1$s is the current language name. -->
+    <string name="common_language_change">Change language. Now: %1$s</string>
+    <!-- TalkBack hint on a language in the list that is already chosen. -->
+    <string name="common_selected">Selected</string>
+
+    <!-- Each language in its own script. Never translated. -->
+    <string name="common_lang_en" translatable="false">English</string>
+    <string name="common_lang_hi" translatable="false">हिन्दी</string>
+    <string name="common_lang_bn" translatable="false">বাংলা</string>
+    <string name="common_lang_mr" translatable="false">मराठी</string>
+    <string name="common_lang_te" translatable="false">తెలుగు</string>
+    <string name="common_lang_ta" translatable="false">தமிழ்</string>
+    <string name="common_lang_gu" translatable="false">ગુજરાતી</string>
+    <string name="common_lang_kn" translatable="false">ಕನ್ನಡ</string>
+    <string name="common_lang_or" translatable="false">ଓଡ଼ିଆ</string>
+    <string name="common_lang_ml" translatable="false">മലയാളം</string>
+    <string name="common_lang_pa" translatable="false">ਪੰਜਾਬੀ</string>
+
+    <!-- Settings screen title and the Home button that opens it. -->
+    <string name="common_settings_title">Settings</string>
+    <!-- Shown on each Home test card, and usable on any start button. -->
+    <string name="common_start">Start</string>
+    <!-- Step indicator, for example: Step 2 of 3. %1$d is the current step, %2$d the number of steps. -->
+    <string name="common_step_of">Step %1$d of %2$d</string>
+    <!-- State word next to an on/off switch. -->
+    <string name="common_on">On</string>
+    <string name="common_off">Off</string>
+    <!-- Settings section: text size. -->
+    <string name="common_text_size_title">Text size</string>
+    <!-- Short words under the A- and A+ buttons in Settings. -->
+    <string name="common_text_smaller_short">Smaller</string>
+    <string name="common_text_larger_short">Larger</string>
+    <!-- Sample line under the text size buttons; it grows as the text is made larger. -->
+    <string name="common_text_size_sample">This is how big the text will look.</string>
+    <!-- Settings section: the phone reads the test steps out loud. -->
+    <string name="common_voice_title">Voice instructions</string>
+    <!-- Label of the voice on/off switch. -->
+    <string name="common_voice_help">Read the steps out loud</string>
+    <!-- Settings section about the app. -->
+    <string name="common_about_title">About</string>
+    <!-- The app never uses the internet; the manifest has no internet permission. -->
+    <string name="common_about_offline">Works without internet. This app has no internet permission.</string>
+</resources>

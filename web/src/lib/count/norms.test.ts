@@ -16,6 +16,25 @@ describe("parseChairStandNorms", () => {
     expect(norms.entries.every((entry) => entry.source.url.startsWith("https://www.cdc.gov/"))).toBe(true);
   });
 
+  it("reads the citation shown under a result from the protocol source in norms.json", () => {
+    const norms = realNorms();
+    const { source } = normsJson.chairStand30s.protocol;
+    expect(norms.source).toEqual({ url: source.url, title: source.title, year: source.year });
+  });
+
+  it("rejects a file whose chair-stand citation is missing or malformed, so no result goes out uncited", () => {
+    const { protocol, ...withoutProtocol } = normsJson.chairStand30s;
+    const noCitation = parseChairStandNorms({ ...normsJson, chairStand30s: withoutProtocol });
+    const fractionalYear = parseChairStandNorms({
+      ...normsJson,
+      chairStand30s: { ...normsJson.chairStand30s, protocol: { ...protocol, source: { ...protocol.source, year: 2017.5 } } },
+    });
+
+    expect(noCitation.ok).toBe(false);
+    if (!noCitation.ok) expect(noCitation.errors.some((error) => error.startsWith("chairStand30s.protocol"))).toBe(true);
+    expect(fractionalYear.ok).toBe(false);
+  });
+
   it("rejects a malformed file instead of throwing", () => {
     const result = parseChairStandNorms({ note: "x", chairStand30s: { entries: [{ sex: "any" }] } });
     expect(result.ok).toBe(false);

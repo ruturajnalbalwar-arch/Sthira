@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Balance and Timed Up and Go screens. Every number (seconds, metres, stage numbers, CDC cut-offs)
+  comes from norms.json and is passed in as a format argument. Never write a number into a string.
+-->
+<resources>
+    <!-- Screen titles. They match the test names on the home screen. -->
+    <string name="timer_balance_title">4-stage balance</string>
+    <string name="timer_tug_title">Timed Up and Go</string>
+
+    <!-- A time in seconds with one decimal, for example "7.4 s". "s" is the short unit for seconds. -->
+    <string name="timer_seconds_value">%1$.1f s</string>
+
+    <!-- Errors when the bundled CDC reference file cannot be read. "norms.json" is a file name: do not translate it. -->
+    <string name="timer_norms_invalid">The CDC reference values in norms.json are missing or invalid.</string>
+    <string name="timer_norms_missing">norms.json is missing from the app.</string>
+
+    <!-- Source line under every result. %1$s is the CDC sheet title (kept in English), %2$s its web address. -->
+    <string name="timer_cdc_reference">Reference: %1$s (%2$s).</string>
+    <string name="timer_cdc_caveat">These are US values. They are not tested for older adults in India. The physiotherapist decides what the result means. Sthira does not diagnose.</string>
+
+    <!-- Folded section with the full rules, on both screens. TalkBack says "open" or "closed" after the heading. -->
+    <string name="timer_how_heading">How to run it</string>
+    <string name="timer_fold_open">open</string>
+    <string name="timer_fold_closed">closed</string>
+
+    <!-- ===== 4-stage balance ===== -->
+
+    <!-- CDC names of the four foot positions, shown large above the current stage. Keep them short. -->
+    <string name="timer_stage_name_1">Feet side by side</string>
+    <string name="timer_stage_name_2">Semi-tandem</string>
+    <string name="timer_stage_name_3">Tandem</string>
+    <string name="timer_stage_name_4">Single leg</string>
+
+    <!-- The one short line shown for each stage, and spoken aloud when the stage starts (CDC meaning, plain words). -->
+    <string name="timer_stage_do_1">Stand with your feet side by side.</string>
+    <string name="timer_stage_do_2">Put the middle of one foot against the big toe of the other foot.</string>
+    <string name="timer_stage_do_3">Put one foot just in front of the other, heel touching toe.</string>
+    <string name="timer_stage_do_4">Stand on one foot.</string>
+
+    <!-- Large line above the stage name. %1$d is the stage number, %2$d the number of stages. -->
+    <string name="timer_stage_of">Stage %1$d of %2$d</string>
+    <!-- Label above the big timer. %1$s is the hold time, for example "10.0 s". -->
+    <string name="timer_hold_for">Hold for %1$s</string>
+    <!-- Line after a stage. %1$d is the stage number, %2$s the time held, for example "10.0 s". -->
+    <string name="timer_stage_passed">Stage %1$d passed: held for %2$s</string>
+    <string name="timer_stage_stopped">Stage %1$d stopped: lost balance at %2$s</string>
+    <!-- Said aloud by the phone when a stage ends. -->
+    <string name="timer_voice_stop">Stop</string>
+    <string name="timer_balance_lost_hint">Press Lost balance if the feet move or the person needs support.</string>
+    <string name="timer_balance_allowed_movement">The person may hold their arms out or move their body to keep balance. They must not move their feet.</string>
+    <string name="timer_balance_safety">Stand beside the person, ready to steady them. No cane or walker. Eyes open.</string>
+    <!-- CDC rule for moving on. %1$s is the hold time, for example "10.0 s". -->
+    <string name="timer_balance_progression">If the person holds a stage for %1$s without moving their feet or needing support, go on to the next stage. If not, stop the test.</string>
+
+    <!-- Buttons. "Lost balance" means the person moved their feet or needed support. -->
+    <string name="timer_start">Start</string>
+    <string name="timer_lost_position">Lost balance: stop</string>
+    <string name="timer_next_stage">Next stage</string>
+    <string name="timer_restart_stage">Not ready, restart stage</string>
+    <string name="timer_start_over">Start over</string>
+
+    <!-- Results table. -->
+    <string name="timer_stage_results">Stage results</string>
+    <string name="timer_stage_label">Stage %1$d</string>
+    <string name="timer_outcome_held">Held</string>
+    <string name="timer_outcome_lost">Lost balance</string>
+    <!-- TalkBack for one results row. %1$d stage number, %2$s time held, %3$s "Held" or "Lost balance". -->
+    <string name="timer_stage_result_cd">Stage %1$d: %2$s, %3$s</string>
+
+    <!-- TalkBack for one stage dot. %1$d stage, %2$d number of stages, %3$s stage name, %4$s its state below. -->
+    <string name="timer_stepper_cd">Stage %1$d of %2$d, %3$s: %4$s</string>
+    <!-- Spoken state of a stage dot. "not run" means the test stopped before this stage. -->
+    <string name="timer_step_held">held</string>
+    <string name="timer_step_lost">lost balance</string>
+    <string name="timer_step_current">current</string>
+    <string name="timer_step_upcoming">not started</string>
+    <string name="timer_step_skipped">not run</string>
+
+    <!-- Balance result. The tandem stand is the CDC reference stage. %1$d stage number, %2$s the CDC hold time. -->
+    <string name="timer_balance_stopped_before">Stopped at stage %1$d, before the tandem stand: below the CDC reference of %2$s in tandem</string>
+    <!-- %1$s time held, %2$s the CDC hold time. -->
+    <string name="timer_balance_below">Tandem stand held %1$s: below the CDC reference of %2$s</string>
+    <string name="timer_balance_meets">Tandem stand held %1$s: meets the CDC reference of %2$s</string>
+
+    <!-- ===== Timed Up and Go ===== -->
+
+    <string name="timer_used_aid">Used a walking aid</string>
+    <string name="timer_aid_was_used">A walking aid was used.</string>
+    <!-- TUG result. %1$s the measured time, %2$s the CDC cut-off time. -->
+    <string name="timer_tug_under">%1$s: under the CDC reference of %2$s</string>
+    <string name="timer_tug_at_or_above">%1$s: at or above the CDC reference of %2$s</string>
+
+    <!-- Number in front of each of the three short TUG steps. %1$d is 1, 2 or 3, %2$s the step. -->
+    <string name="timer_tug_numbered" translatable="false">%1$d. %2$s</string>
+    <!-- Step 1 of the TUG set-up. %1$d is the walking distance in metres from norms.json. -->
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">Mark a line %1$d metre from the chair.</item>
+        <item quantity="other">Mark a line %1$d metres from the chair.</item>
+    </plurals>
+    <string name="timer_tug_step_sit">The person sits back in the chair.</string>
+    <!-- "Go" in quotes is the word the physio says aloud. It matches the Go button. -->
+    <string name="timer_tug_step_go">Press Go as you say “Go”.</string>
+    <string name="timer_tug_step_walk">They stand up, walk to the line at a normal pace, turn, walk back and sit down.</string>
+    <string name="timer_tug_step_stop">Press Stop when they sit back down.</string>
+    <string name="timer_tug_footwear">They wear their usual shoes. They can use a walking aid if needed.</string>
+
+    <!-- TUG buttons. "Go" is also the word said aloud to start. -->
+    <string name="timer_tug_go">Go</string>
+    <string name="timer_tug_stop">Sat back down: stop</string>
+    <string name="timer_tug_run_again">Run again: Go</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kannada. Home screen text. -->
+<resources>
+    <string name="home_tagline">ಮನೆಯಲ್ಲಿ ಫಿಸಿಯೋಥೆರಪಿಗೆ ಸ್ಥಿರವಾದ ಅಂಕಗಳು</string>
+
+    <string name="home_tests_heading">ಒಂದು ಪರೀಕ್ಷೆಯನ್ನು ಆರಿಸಿ</string>
+
+    <string name="home_test_chair_title">30 ಸೆಕೆಂಡ್ ಕುರ್ಚಿಯಿಂದ ಏಳುವುದು</string>
+    <string name="home_test_chair_measures">ಸಾಧ್ಯವಾದಷ್ಟು ಬಾರಿ ಎದ್ದು ಕುಳಿತುಕೊಳ್ಳಿ</string>
+    <string name="home_test_balance_title">4 ಹಂತದ ಸಮತೋಲನ</string>
+    <string name="home_test_balance_measures">ನಾಲ್ಕು ಭಂಗಿಗಳಲ್ಲಿ ಅಲುಗಾಡದೆ ನಿಲ್ಲಿ</string>
+    <string name="home_test_tug_title">Timed Up and Go (ಎದ್ದು ನಡೆಯುವ ಸಮಯ)</string>
+    <string name="home_test_tug_measures">ಎದ್ದು, ನಡೆದು, ತಿರುಗಿ ಬಂದು ಕುಳಿತುಕೊಳ್ಳಿ</string>
+
+    <string name="home_badge_ready">ಸಿದ್ಧ</string>
+    <string name="home_badge_not_tuned">ಈಗ ಟೈಮರ್ ಮಾತ್ರ. ಎಣಿಕೆ ನಂತರ ಬರುತ್ತದೆ.</string>
+    <string name="home_badge_invalid">ಈಗ ಟೈಮರ್ ಮಾತ್ರ. ಕೌಂಟರ್ ಸೆಟ್ಟಿಂಗ್‌ನಲ್ಲಿ ಸಮಸ್ಯೆ ಇದೆ.</string>
+    <string name="home_badge_missing">ಈಗ ಟೈಮರ್ ಮಾತ್ರ. ಕೌಂಟರ್ ಸೆಟ್ಟಿಂಗ್ ಸಿಗಲಿಲ್ಲ.</string>
+
+    <string name="home_footer_disclaimer">ಪ್ರಾಯೋಗಿಕ ಮಾದರಿ. ವೈದ್ಯಕೀಯ ಸಾಧನವಲ್ಲ. ರೋಗ ಪತ್ತೆ ಮಾಡುವುದಿಲ್ಲ, ಬೀಳುವುದನ್ನು ಮುಂಚಿತವಾಗಿ ಹೇಳುವುದಿಲ್ಲ. CDC ಯ ಅಮೆರಿಕದ ಉಲ್ಲೇಖ ಮೌಲ್ಯಗಳನ್ನು ಬಳಸುತ್ತದೆ.</string>
+    <string name="home_link_privacy">ಗೌಪ್ಯತೆ</string>
+    <string name="home_link_terms">ನಿಯಮಗಳು</string>
+    <string name="home_link_licences">ಪರವಾನಗಿಗಳು</string>
+</resources>

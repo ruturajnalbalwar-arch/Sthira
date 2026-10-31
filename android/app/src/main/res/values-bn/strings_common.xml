@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_back">ফিরে যান</string>
+    <string name="common_text_smaller">লেখা ছোট করুন</string>
+    <string name="common_text_larger">লেখা বড় করুন</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">লেখার আকার %1$d%%</string>
+    <string name="common_theme_label">থিম</string>
+    <string name="common_theme_system">ফোনের মতো</string>
+    <string name="common_theme_light">হালকা</string>
+    <string name="common_theme_dark">গাঢ়</string>
+    <string name="common_language_title">ভাষা</string>
+    <string name="common_language_phone">ফোনের ভাষা</string>
+    <string name="common_language_phone_help">এই ফোনের ভাষাই ব্যবহার করুন।</string>
+    <string name="common_language_change">ভাষা বদলান। এখন: %1$s</string>
+    <string name="common_selected">বাছাই করা হয়েছে</string>
+
+    <string name="common_settings_title">সেটিংস</string>
+    <string name="common_start">শুরু করুন</string>
+    <string name="common_step_of">%2$d-এর মধ্যে ধাপ %1$d</string>
+    <string name="common_on">চালু</string>
+    <string name="common_off">বন্ধ</string>
+    <string name="common_text_size_title">লেখার আকার</string>
+    <string name="common_text_smaller_short">ছোট</string>
+    <string name="common_text_larger_short">বড়</string>
+    <string name="common_text_size_sample">লেখা এত বড় দেখাবে।</string>
+    <string name="common_voice_title">বলে দেওয়া নির্দেশ</string>
+    <string name="common_voice_help">ধাপগুলো জোরে পড়ে শোনান</string>
+    <string name="common_about_title">অ্যাপ সম্পর্কে</string>
+    <string name="common_about_offline">ইন্টারনেট ছাড়াই চলে। এই অ্যাপের ইন্টারনেটের অনুমতি নেই।</string>
+</resources>

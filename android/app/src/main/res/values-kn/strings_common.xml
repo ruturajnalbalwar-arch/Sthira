@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kannada. Shared UI text: top bar, text size, theme and language controls. -->
+<resources>
+    <string name="common_back">ಹಿಂದೆ</string>
+
+    <string name="common_text_smaller">ಅಕ್ಷರ ಚಿಕ್ಕದು ಮಾಡಿ</string>
+    <string name="common_text_larger">ಅಕ್ಷರ ದೊಡ್ಡದು ಮಾಡಿ</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">ಅಕ್ಷರದ ಗಾತ್ರ %1$d%%</string>
+
+    <string name="common_theme_label">ಬಣ್ಣದ ಶೈಲಿ</string>
+    <string name="common_theme_system">ಫೋನ್‌ನಲ್ಲಿರುವಂತೆ</string>
+    <string name="common_theme_light">ಬೆಳಕು</string>
+    <string name="common_theme_dark">ಕತ್ತಲು</string>
+
+    <string name="common_language_title">ಭಾಷೆ</string>
+    <string name="common_language_phone">ಫೋನ್‌ನ ಭಾಷೆ</string>
+    <string name="common_language_phone_help">ಈ ಫೋನ್‌ನಲ್ಲಿರುವ ಭಾಷೆಯನ್ನೇ ಬಳಸಿ.</string>
+    <string name="common_language_change">ಭಾಷೆ ಬದಲಿಸಿ. ಈಗ: %1$s</string>
+    <string name="common_selected">ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ</string>
+
+    <string name="common_settings_title">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
+    <string name="common_start">ಪ್ರಾರಂಭಿಸಿ</string>
+    <string name="common_step_of">%2$d ರಲ್ಲಿ ಹಂತ %1$d</string>
+    <string name="common_on">ಆನ್</string>
+    <string name="common_off">ಆಫ್</string>
+    <string name="common_text_size_title">ಅಕ್ಷರದ ಗಾತ್ರ</string>
+    <string name="common_text_smaller_short">ಚಿಕ್ಕದು</string>
+    <string name="common_text_larger_short">ದೊಡ್ಡದು</string>
+    <string name="common_text_size_sample">ಅಕ್ಷರಗಳು ಇಷ್ಟು ದೊಡ್ಡದಾಗಿ ಕಾಣುತ್ತವೆ.</string>
+    <string name="common_voice_title">ಧ್ವನಿ ಸೂಚನೆಗಳು</string>
+    <string name="common_voice_help">ಹಂತಗಳನ್ನು ಜೋರಾಗಿ ಓದಿ ಹೇಳಿ</string>
+    <string name="common_about_title">ಆ್ಯಪ್ ಬಗ್ಗೆ</string>
+    <string name="common_about_offline">ಇಂಟರ್ನೆಟ್ ಇಲ್ಲದೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ. ಈ ಆ್ಯಪ್‌ಗೆ ಇಂಟರ್ನೆಟ್ ಅನುಮತಿ ಇಲ್ಲ.</string>
+</resources>

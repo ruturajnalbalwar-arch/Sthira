@@ -1,8 +1,6 @@
 package app.sthira.ui.common
 
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -17,11 +15,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Warning
-import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -34,19 +29,28 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
 import app.sthira.ui.theme.SthiraType
 
-/** Minimum touch target (Android accessibility guidance); the big actions use more. */
+/** Minimum touch target (Android accessibility guidance); main actions use [MainTarget] or [BigTarget]. */
 val MinTarget = 48.dp
-val BigTarget = 60.dp
+/** The least height of a main action button. */
+val MainTarget = 56.dp
+val BigTarget = 64.dp
 val CardShape = RoundedCornerShape(16.dp)
 
 enum class Tone { Primary, Secondary, Danger }
 
+/**
+ * A button that looks like a button. Primary is solid black (white in dark) with white (black) text;
+ * Secondary is outlined 2dp; Danger is solid in the danger colour. Disabled is grey with grey text,
+ * still readable. At least [MainTarget] tall ([BigTarget] when [big]); long labels wrap, centred.
+ */
 @Composable
 fun ActionButton(
     text: String,
@@ -58,36 +62,42 @@ fun ActionButton(
     icon: ImageVector? = null,
 ) {
     val c = Sthira.colors
-    val mod = modifier.heightIn(min = if (big) BigTarget else MinTarget)
-    val padding = PaddingValues(horizontal = 20.dp, vertical = 10.dp)
-    val label: @Composable () -> Unit = {
-        if (icon != null) Icon(icon, contentDescription = null, Modifier.padding(end = Space.s).size(20.dp))
-        Text(text, style = if (big) SthiraType.titleSmall else SthiraType.label.copy(fontSize = SthiraType.body.fontSize))
+    val (fill, content) = when (tone) {
+        Tone.Primary -> c.primary to c.onPrimary
+        Tone.Danger -> c.danger to c.onDanger
+        Tone.Secondary -> null to c.text
     }
-    if (tone == Tone.Secondary) {
-        OutlinedButton(
-            onClick = onClick, enabled = enabled, modifier = mod, shape = CardShape, contentPadding = padding,
-            border = BorderStroke(1.dp, if (enabled) c.muted else c.border),
-            colors = ButtonDefaults.outlinedButtonColors(contentColor = c.text),
-        ) { label() }
-        return
+    NeuSurface(
+        modifier.heightIn(min = if (big) BigTarget else MainTarget),
+        shape = Neu.ButtonShape, onClick = onClick, enabled = enabled, fill = fill, contentColor = content,
+        rim = if (tone == Tone.Secondary) c.text else null, rimWidth = Neu.StrongEdgeWidth,
+    ) {
+        Row(
+            Modifier.align(Alignment.Center).padding(horizontal = 20.dp, vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            if (icon != null) Icon(icon, contentDescription = null, Modifier.padding(end = Space.s).size(if (big) 26.dp else 22.dp))
+            Text(
+                text, textAlign = TextAlign.Center,
+                style = if (big) SthiraType.title else SthiraType.titleSmall,
+            )
+        }
     }
-    val danger = tone == Tone.Danger
-    Button(
-        onClick = onClick, enabled = enabled, modifier = mod, shape = CardShape, contentPadding = padding,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = if (danger) c.danger else c.primary,
-            contentColor = if (danger) c.onDanger else c.onPrimary,
-            disabledContainerColor = c.border,
-            disabledContentColor = c.muted,
-        ),
-    ) { label() }
 }
 
+/**
+ * A text link. Underlined because the palette is black and white: colour alone cannot mark a link.
+ * [small] is the compact footer style (16sp, tight padding) that still keeps a 48dp touch target.
+ */
 @Composable
-fun LinkButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
-    TextButton(onClick = onClick, modifier = modifier.heightIn(min = MinTarget)) {
-        Text(text, color = Sthira.colors.primary, style = SthiraType.label.copy(fontSize = SthiraType.body.fontSize))
+fun LinkButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, small: Boolean = false) {
+    TextButton(
+        onClick = onClick,
+        modifier = modifier.heightIn(min = MinTarget),
+        contentPadding = if (small) PaddingValues(horizontal = Space.s) else ButtonDefaults.TextButtonContentPadding,
+    ) {
+        val size = if (small) SthiraType.label.fontSize else SthiraType.body.fontSize
+        Text(text, color = Sthira.colors.primary, style = SthiraType.label.copy(fontSize = size, textDecoration = TextDecoration.Underline))
     }
 }
 
@@ -99,14 +109,13 @@ enum class BannerKind { Danger, Warn, Success, Plain }
  */
 @Composable
 fun Banner(kind: BannerKind, modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
-    val c = Sthira.colors
     val tone = toneColor(kind)
     val live = if (kind == BannerKind.Danger) LiveRegionMode.Assertive else LiveRegionMode.Polite
-    Surface(
-        color = c.surface, contentColor = c.text, shape = CardShape,
-        border = BorderStroke(1.dp, if (kind == BannerKind.Plain) c.border else tone),
-        modifier = modifier.fillMaxWidth().animateContentSize(Sthira.motion())
+    NeuSurface(
+        modifier.fillMaxWidth().animateContentSize(Sthira.motion())
             .semantics { if (kind != BannerKind.Plain) liveRegion = live },
+        shape = CardShape, rim = if (kind == BannerKind.Plain) null else tone,
+        rimWidth = if (kind == BannerKind.Plain) Neu.EdgeWidth else Neu.StrongEdgeWidth,
     ) {
         Row(Modifier.padding(Space.m), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             toneIcon(kind)?.let { Icon(it, contentDescription = null, tint = tone, modifier = Modifier.size(22.dp)) }
@@ -131,7 +140,7 @@ fun toneIcon(kind: BannerKind): ImageVector? = when (kind) {
 
 /** Short notice title. Colour defaults to the surrounding tone; keep it to one line of meaning. */
 @Composable
-fun BannerText(text: String, color: Color = Color.Unspecified, size: Int = 17) {
+fun BannerText(text: String, color: Color = Color.Unspecified, size: Int = 19) {
     Text(text, style = SthiraType.titleSmall.copy(fontSize = size.sp, lineHeight = (size + 6).sp), color = color)
 }
 
@@ -168,24 +177,24 @@ fun BulletList(items: List<String>, color: Color = Color.Unspecified, mono: Bool
     }
 }
 
-/** A small pill with an optional icon, for status and metadata. Text carries the meaning, not colour. */
+/** A small outlined pill with an optional icon, for status and metadata. Text carries the meaning, not colour. */
 @Composable
 fun StatusChip(text: String, kind: BannerKind, modifier: Modifier = Modifier, icon: ImageVector? = toneIcon(kind)) {
     val c = Sthira.colors
-    val (fg, bg) = when (kind) {
+    val (fg, fill) = when (kind) {
         BannerKind.Warn -> c.warn to c.warnBg
         BannerKind.Success -> c.success to c.successBg
-        BannerKind.Danger -> c.danger to c.surface
-        BannerKind.Plain -> c.text to c.surface
+        BannerKind.Danger -> c.danger to null
+        BannerKind.Plain -> c.text to null
     }
-    Row(
-        modifier
-            .background(bg, Glass.ChipShape)
-            .padding(horizontal = 10.dp, vertical = 4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
-    ) {
-        if (icon != null) Icon(icon, contentDescription = null, tint = fg, modifier = Modifier.size(16.dp))
-        Text(text, color = fg, style = SthiraType.label)
+    NeuSurface(modifier, shape = Neu.ChipShape, fill = fill, contentColor = fg, rim = fg) {
+        Row(
+            Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            if (icon != null) Icon(icon, contentDescription = null, tint = fg, modifier = Modifier.size(16.dp))
+            Text(text, color = fg, style = SthiraType.label)
+        }
     }
 }

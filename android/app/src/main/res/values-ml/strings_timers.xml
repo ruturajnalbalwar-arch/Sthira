@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Malayalam. Balance and Timed Up and Go screens. -->
+<resources>
+    <string name="timer_balance_title">4 ഘട്ട ബാലൻസ്</string>
+    <string name="timer_tug_title">Timed Up and Go (എഴുന്നേറ്റ് നടക്കാനുള്ള സമയം)</string>
+
+    <string name="timer_seconds_value">%1$.1f സെ</string>
+
+    <string name="timer_norms_invalid">norms.json ലെ CDC റഫറൻസ് മൂല്യങ്ങൾ ഇല്ല അല്ലെങ്കിൽ ശരിയല്ല.</string>
+    <string name="timer_norms_missing">ആപ്പിൽ norms.json ഇല്ല.</string>
+
+    <string name="timer_cdc_reference">റഫറൻസ്: %1$s (%2$s).</string>
+    <string name="timer_cdc_caveat">ഇവ അമേരിക്കൻ മൂല്യങ്ങളാണ്. ഇന്ത്യയിലെ പ്രായമായവരിൽ ഇവ പരിശോധിച്ചിട്ടില്ല. ഫലത്തിന്റെ അർത്ഥം ഫിസിയോതെറാപ്പിസ്റ്റ് തീരുമാനിക്കുന്നു. Sthira രോഗനിർണയം നടത്തുന്നില്ല.</string>
+
+    <string name="timer_stage_name_1">പാദങ്ങൾ അടുത്തടുത്ത്</string>
+    <string name="timer_stage_name_2">പകുതി ടാൻഡം</string>
+    <string name="timer_stage_name_3">ടാൻഡം</string>
+    <string name="timer_stage_name_4">ഒറ്റക്കാൽ</string>
+
+    <string name="timer_stage_do_1">പാദങ്ങൾ അടുത്തടുത്ത് വെച്ച് നിൽക്കുക.</string>
+    <string name="timer_stage_do_2">ഒരു പാദത്തിന്റെ ഉൾവശം മറ്റേ പാദത്തിന്റെ പെരുവിരലിൽ തൊടുന്ന രീതിയിൽ വെക്കുക.</string>
+    <string name="timer_stage_do_3">ഒരു പാദം മറ്റേതിന്റെ മുന്നിൽ വെക്കുക, ഉപ്പൂറ്റി കാൽവിരലിൽ തൊടണം.</string>
+    <string name="timer_stage_do_4">ഒറ്റക്കാലിൽ നിൽക്കുക.</string>
+
+    <string name="timer_hold_for">%1$s അങ്ങനെ തന്നെ നിൽക്കണം</string>
+    <string name="timer_stage_of">%2$d ൽ ഘട്ടം %1$d</string>
+    <string name="timer_start">തുടങ്ങുക</string>
+    <string name="timer_next_stage">അടുത്ത ഘട്ടം</string>
+    <string name="timer_stage_passed">ഘട്ടം %1$d പൂർത്തിയായി: %2$s നിന്നു</string>
+    <string name="timer_stage_stopped">ഘട്ടം %1$d നിർത്തി: %2$s ൽ നില തെറ്റി</string>
+    <string name="timer_voice_stop">നിർത്തൂ</string>
+    <string name="timer_fold_open">തുറന്നിരിക്കുന്നു</string>
+    <string name="timer_fold_closed">അടച്ചിരിക്കുന്നു</string>
+    <string name="timer_balance_lost_hint">പാദങ്ങൾ അനങ്ങിയാലോ ആൾക്ക് താങ്ങ് വേണ്ടിവന്നാലോ നില തെറ്റി അമർത്തുക.</string>
+    <string name="timer_balance_allowed_movement">ബാലൻസ് നിലനിർത്താൻ ആൾക്ക് കൈകൾ നീട്ടാം അല്ലെങ്കിൽ ശരീരം അനക്കാം. പക്ഷേ പാദങ്ങൾ അനക്കരുത്.</string>
+    <string name="timer_balance_safety">ആളുടെ അരികിൽ നിന്ന്, താങ്ങാൻ തയ്യാറായിരിക്കുക. വടിയോ വാക്കറോ പാടില്ല. കണ്ണുകൾ തുറന്നിരിക്കണം.</string>
+    <string name="timer_balance_progression">പാദങ്ങൾ അനക്കാതെയും താങ്ങില്ലാതെയും ആൾ ഒരു ഘട്ടത്തിൽ %1$s നിന്നാൽ, അടുത്ത ഘട്ടത്തിലേക്ക് പോകുക. ഇല്ലെങ്കിൽ, പരിശോധന നിർത്തുക.</string>
+
+    <string name="timer_lost_position">നില തെറ്റി: നിർത്തുക</string>
+    <string name="timer_restart_stage">തയ്യാറായില്ല, ഘട്ടം വീണ്ടും തുടങ്ങുക</string>
+    <string name="timer_start_over">ആദ്യം മുതൽ തുടങ്ങുക</string>
+
+    <string name="timer_stage_results">ഘട്ടങ്ങളുടെ ഫലം</string>
+    <string name="timer_stage_label">ഘട്ടം %1$d</string>
+    <string name="timer_outcome_held">നിന്നു</string>
+    <string name="timer_outcome_lost">നില തെറ്റി</string>
+    <string name="timer_stage_result_cd">ഘട്ടം %1$d: %2$s, %3$s</string>
+
+    <string name="timer_stepper_cd">%2$d ൽ ഘട്ടം %1$d, %3$s: %4$s</string>
+    <string name="timer_step_held">നിന്നു</string>
+    <string name="timer_step_lost">നില തെറ്റി</string>
+    <string name="timer_step_current">ഇപ്പോഴത്തെ ഘട്ടം</string>
+    <string name="timer_step_upcoming">തുടങ്ങിയിട്ടില്ല</string>
+    <string name="timer_step_skipped">ചെയ്തില്ല</string>
+
+    <string name="timer_balance_stopped_before">ഘട്ടം %1$d ൽ, ടാൻഡം നിൽപ്പിന് മുമ്പേ നിർത്തി: ടാൻഡത്തിലെ CDC റഫറൻസായ %2$s നേക്കാൾ കുറവ്</string>
+    <string name="timer_balance_below">ടാൻഡം നിൽപ്പ് %1$s: CDC റഫറൻസായ %2$s നേക്കാൾ കുറവ്</string>
+    <string name="timer_balance_meets">ടാൻഡം നിൽപ്പ് %1$s: CDC റഫറൻസായ %2$s എത്തി</string>
+
+    <string name="timer_used_aid">നടക്കാനുള്ള സഹായ ഉപകരണം ഉപയോഗിച്ചു</string>
+    <string name="timer_aid_was_used">നടക്കാനുള്ള സഹായ ഉപകരണം ഉപയോഗിച്ചു.</string>
+    <string name="timer_tug_under">%1$s: CDC റഫറൻസായ %2$s നേക്കാൾ കുറവ്</string>
+    <string name="timer_tug_at_or_above">%1$s: CDC റഫറൻസായ %2$s ന് തുല്യമോ അതിൽ കൂടുതലോ</string>
+
+    <string name="timer_how_heading">എങ്ങനെ ചെയ്യാം</string>
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">കസേരയിൽ നിന്ന് %1$d മീറ്റർ അകലെ ഒരു വര അടയാളപ്പെടുത്തുക.</item>
+        <item quantity="other">കസേരയിൽ നിന്ന് %1$d മീറ്റർ അകലെ ഒരു വര അടയാളപ്പെടുത്തുക.</item>
+    </plurals>
+    <string name="timer_tug_step_sit">ആൾ കസേരയിൽ പിന്നിലേക്ക് ചാരി ഇരിക്കുന്നു.</string>
+    <string name="timer_tug_step_go">“തുടങ്ങൂ” എന്ന് പറയുമ്പോൾ തന്നെ തുടങ്ങൂ അമർത്തുക.</string>
+    <string name="timer_tug_step_walk">അവർ എഴുന്നേറ്റ്, സാധാരണ വേഗത്തിൽ വര വരെ നടന്ന്, തിരിഞ്ഞ്, തിരികെ നടന്ന് ഇരിക്കുന്നു.</string>
+    <string name="timer_tug_step_stop">അവർ തിരികെ ഇരിക്കുമ്പോൾ നിർത്തുക അമർത്തുക.</string>
+    <string name="timer_tug_footwear">അവർ സാധാരണ ഇടുന്ന ചെരിപ്പ് അല്ലെങ്കിൽ ഷൂ ഇടണം. ആവശ്യമെങ്കിൽ നടക്കാനുള്ള സഹായ ഉപകരണം ഉപയോഗിക്കാം.</string>
+
+    <string name="timer_tug_go">തുടങ്ങൂ</string>
+    <string name="timer_tug_stop">തിരികെ ഇരുന്നു: നിർത്തുക</string>
+    <string name="timer_tug_run_again">വീണ്ടും ചെയ്യുക: തുടങ്ങൂ</string>
+</resources>

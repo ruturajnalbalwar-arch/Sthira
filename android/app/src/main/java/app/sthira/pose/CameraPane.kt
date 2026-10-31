@@ -23,13 +23,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
+import app.sthira.R
+import app.sthira.ui.common.UiText
+import app.sthira.ui.common.uiText
+import kotlinx.coroutines.flow.StateFlow
 
 enum class Lens { Back, Front }
 
@@ -37,7 +40,7 @@ sealed interface CameraStatus {
     data object Starting : CameraStatus
     data class Live(val delegate: PoseDelegate) : CameraStatus
     /** [trackingStopped]: the camera ran but pose detection failed. */
-    data class Failed(val message: String, val trackingStopped: Boolean = false) : CameraStatus
+    data class Failed(val message: UiText, val trackingStopped: Boolean = false) : CameraStatus
 }
 
 private const val PORTRAIT_RATIO = 3f / 4f
@@ -48,14 +51,15 @@ private fun fourByThree(): ResolutionSelector =
     ResolutionSelector.Builder().setAspectRatioStrategy(AspectRatioStrategy.RATIO_4_3_FALLBACK_AUTO_STRATEGY).build()
 
 /**
- * Live camera preview with the pose overlay. Frames go to [onSample] on a background thread.
+ * Live camera preview with the pose overlay. Frames are analysed by [tracker] (already loaded, and
+ * kept across lens switches); the skeleton is drawn from [overlay], the latest sample only.
  * PreviewView uses COMPATIBLE (TextureView) mode so the window's FLAG_SECURE also covers the preview.
  */
 @Composable
 fun CameraPane(
     lens: Lens,
-    overlay: PoseSample?,
-    onSample: (PoseSample) -> Unit,
+    tracker: PoseTracker,
+    overlay: StateFlow<PoseSample?>,
     onStatus: (CameraStatus) -> Unit,
     modifier: Modifier = Modifier,
     overlays: @Composable BoxScope.() -> Unit = {},
@@ -63,7 +67,6 @@ fun CameraPane(
     val context = LocalContext.current
     val owner = LocalLifecycleOwner.current
     val orientation = LocalConfiguration.current.orientation
-    val sample by rememberUpdatedState(onSample)
     val status by rememberUpdatedState(onStatus)
     val previewView = remember {
         PreviewView(context).apply {
@@ -71,17 +74,18 @@ fun CameraPane(
             scaleType = PreviewView.ScaleType.FILL_CENTER
         }
     }
-    DisposableEffect(lens, owner, orientation) {
-        val session = CameraSession(context, owner, previewView, lens, { sample(it) }, { status(it) })
+    DisposableEffect(lens, owner, orientation, tracker) {
+        val session = CameraSession(context, owner, previewView, lens, tracker) { status(it) }
         session.start()
         onDispose { session.stop() }
     }
     val ratio = if (orientation == Configuration.ORIENTATION_LANDSCAPE) LANDSCAPE_RATIO else PORTRAIT_RATIO
+    val description = stringResource(R.string.pose_preview_description)
     Box(
         modifier
             .fillMaxWidth()
             .aspectRatio(ratio)
-            .semantics { contentDescription = "Camera preview with the tracked body outline" },
+            .semantics { contentDescription = description },
     ) {
         AndroidView(factory = { previewView }, modifier = Modifier.fillMaxSize())
         PoseOverlay(overlay, Modifier.fillMaxSize())
@@ -89,75 +93,66 @@ fun CameraPane(
     }
 }
 
-/** One bind of the camera and one pose landmarker; [stop] releases both. */
+/** One bind of the camera to the shared [tracker]; [stop] releases the camera only. */
 private class CameraSession(
     private val context: Context,
     private val owner: LifecycleOwner,
     private val previewView: PreviewView,
     private val lens: Lens,
-    private val onSample: (PoseSample) -> Unit,
+    private val tracker: PoseTracker,
     private val onStatus: (CameraStatus) -> Unit,
 ) {
-    private val analysisExecutor: ExecutorService = Executors.newSingleThreadExecutor()
-    @Volatile private var helper: PoseLandmarkerHelper? = null
     @Volatile private var stopped = false
     private var provider: ProcessCameraProvider? = null
+    private var analysis: ImageAnalysis? = null
+    private val main = ContextCompat.getMainExecutor(context)
 
     fun start() {
         onStatus(CameraStatus.Starting)
-        analysisExecutor.execute {
-            val created = try {
-                PoseLandmarkerHelper.create(context, onSample) { onStatus(CameraStatus.Failed("Pose tracking stopped on this phone. Go back and open the test again.", trackingStopped = true)) }
-            } catch (e: RuntimeException) {
-                onStatus(CameraStatus.Failed("The pose model could not be loaded on this phone."))
-                return@execute
-            }
-            if (stopped) {
-                created.close()
-                return@execute
-            }
-            helper = created
-            ContextCompat.getMainExecutor(context).execute { bind(created) }
-        }
-    }
-
-    private fun bind(created: PoseLandmarkerHelper) {
         val future = ProcessCameraProvider.getInstance(context)
         future.addListener({
             if (stopped) return@addListener
             try {
                 val cameraProvider = future.get()
                 provider = cameraProvider
-                bindUseCases(cameraProvider, created)
-                onStatus(CameraStatus.Live(created.delegate))
+                bindUseCases(cameraProvider)
             } catch (e: Exception) {
                 // No such camera, camera in use by another app, or binding refused by the device.
-                onStatus(CameraStatus.Failed("The camera could not start. Close other camera apps and try again."))
+                onStatus(CameraStatus.Failed(uiText(R.string.pose_error_camera)))
+                return@addListener
             }
-        }, ContextCompat.getMainExecutor(context))
+            // The preview is already showing; report Live once the (usually preloaded) model is ready.
+            tracker.whenReady { ready -> main.execute { if (!stopped) onStatus(ready.toStatus()) } }
+        }, main)
     }
 
-    private fun bindUseCases(cameraProvider: ProcessCameraProvider, created: PoseLandmarkerHelper) {
+    private fun PoseTracker.Ready.toStatus(): CameraStatus = when (this) {
+        is PoseTracker.Ready.Loaded -> CameraStatus.Live(delegate)
+        PoseTracker.Ready.Failed -> CameraStatus.Failed(uiText(R.string.pose_error_model))
+    }
+
+    private fun bindUseCases(cameraProvider: ProcessCameraProvider) {
         val rotation = previewView.display?.rotation ?: android.view.Surface.ROTATION_0
         val preview = Preview.Builder().setResolutionSelector(fourByThree()).setTargetRotation(rotation).build()
             .also { it.setSurfaceProvider(previewView.surfaceProvider) }
         val front = lens == Lens.Front
-        val analysis = ImageAnalysis.Builder()
+        val imageAnalysis = ImageAnalysis.Builder()
             .setResolutionSelector(fourByThree())
             .setTargetRotation(rotation)
             .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
             .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_RGBA_8888)
             .build()
-            .also { it.setAnalyzer(analysisExecutor) { image -> created.detect(image, front) } }
+            .also { it.setAnalyzer(tracker.analysisExecutor) { image -> tracker.analyze(image, front) } }
+        analysis = imageAnalysis
         val selector = if (front) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
         cameraProvider.unbindAll()
-        cameraProvider.bindToLifecycle(owner, selector, preview, analysis)
+        cameraProvider.bindToLifecycle(owner, selector, preview, imageAnalysis)
     }
 
     fun stop() {
         stopped = true
+        // No more frames from this lens reach the shared landmarker.
+        analysis?.clearAnalyzer()
         provider?.unbindAll()
-        analysisExecutor.execute { helper?.close() }
-        analysisExecutor.shutdown()
     }
 }
