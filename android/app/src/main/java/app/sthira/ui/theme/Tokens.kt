@@ -4,7 +4,12 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
-/** Colour tokens, copied from web/src/app/globals.css so both apps look the same. */
+/**
+ * Colour tokens: a black-and-white palette. Light is black on a light grey screen with white cards;
+ * dark is white on near-black. The screen grey is not pure white (or pure black) so the soft shadows
+ * can still be seen. Danger, warn and success keep a muted hue but always come with an icon and a word.
+ * NeuContrastTest checks every text pair against WCAG AA.
+ */
 @Immutable
 data class SthiraColors(
     val bg: Color,
@@ -25,37 +30,37 @@ data class SthiraColors(
 )
 
 val LightTokens = SthiraColors(
-    bg = Color(0xFFFAF7F2),
+    bg = Color(0xFFEDEDED),
     surface = Color(0xFFFFFFFF),
-    text = Color(0xFF1F1A14),
-    muted = Color(0xFF54493C),
-    border = Color(0xFFE2DACD),
-    borderStrong = Color(0xFF8F806C),
-    primary = Color(0xFF8A3D00),
+    text = Color(0xFF000000),
+    muted = Color(0xFF444444),
+    border = Color(0xFFD0D0D0),
+    borderStrong = Color(0xFF7A7A7A),
+    primary = Color(0xFF000000),
     onPrimary = Color(0xFFFFFFFF),
-    danger = Color(0xFFA8102F),
+    danger = Color(0xFF9B2C2C),
     onDanger = Color(0xFFFFFFFF),
-    warn = Color(0xFF5E4A00),
-    warnBg = Color(0xFFFFF6CC),
-    success = Color(0xFF0F5C38),
-    successBg = Color(0xFFE6F4EC),
+    warn = Color(0xFF5C4A12),
+    warnBg = Color(0xFFF5EFD9),
+    success = Color(0xFF2F5D45),
+    successBg = Color(0xFFE3EFE8),
 )
 
 val DarkTokens = SthiraColors(
-    bg = Color(0xFF15110C),
-    surface = Color(0xFF1F1912),
-    text = Color(0xFFF2ECE4),
-    muted = Color(0xFFBDB2A3),
-    border = Color(0xFF3A3128),
-    borderStrong = Color(0xFF7A6D5E),
-    primary = Color(0xFFFFB15C),
-    onPrimary = Color(0xFF2A1500),
-    danger = Color(0xFFFF8A94),
-    onDanger = Color(0xFF2A0008),
-    warn = Color(0xFFF2CC4D),
-    warnBg = Color(0xFF2A2410),
-    success = Color(0xFF5CCB8F),
-    successBg = Color(0xFF12261B),
+    bg = Color(0xFF181818),
+    surface = Color(0xFF242424),
+    text = Color(0xFFFFFFFF),
+    muted = Color(0xFFBDBDBD),
+    border = Color(0xFF3A3A3A),
+    borderStrong = Color(0xFF8A8A8A),
+    primary = Color(0xFFFFFFFF),
+    onPrimary = Color(0xFF000000),
+    danger = Color(0xFFF2A0A0),
+    onDanger = Color(0xFF000000),
+    warn = Color(0xFFE6D08A),
+    warnBg = Color(0xFF2E2A1C),
+    success = Color(0xFF9ED2B4),
+    successBg = Color(0xFF1C2A22),
     isDark = true,
 )
 

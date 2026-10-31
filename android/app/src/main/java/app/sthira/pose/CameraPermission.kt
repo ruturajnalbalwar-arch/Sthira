@@ -22,10 +22,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import app.sthira.R
 import app.sthira.ui.common.ActionButton
 import app.sthira.ui.common.Banner
 import app.sthira.ui.common.BannerKind
@@ -91,18 +93,16 @@ internal fun PermissionCard(state: Permission, onAsk: () -> Unit, onSettings: ()
     val kind = if (state == Permission.NotAsked) BannerKind.Plain else BannerKind.Warn
     Banner(kind) {
         Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            BannerText(if (state == Permission.NotAsked) "Camera needed for this test" else "Camera permission is off")
-            Body(
-                "Sthira watches the head and shoulders to count each stand. The video is processed on this phone only: " +
-                    "it is never uploaded, and the app has no internet access.",
-            )
+            BannerText(stringResource(if (state == Permission.NotAsked) R.string.pose_perm_needed_title else R.string.pose_perm_off_title))
+            Body(stringResource(R.string.pose_perm_why))
+            val allow = stringResource(R.string.pose_perm_allow)
             when (state) {
                 Permission.Blocked -> {
-                    Body("Android will not ask again. Open Settings, choose Permissions, then Camera, and allow it.")
-                    ActionButton("Open settings", onSettings, Modifier.fillMaxWidth(), big = true)
+                    Body(stringResource(R.string.pose_perm_blocked))
+                    ActionButton(stringResource(R.string.pose_perm_open_settings), onSettings, Modifier.fillMaxWidth(), big = true)
                 }
-                Permission.Denied -> ActionButton("Allow camera", onAsk, Modifier.fillMaxWidth(), big = true)
-                else -> ActionButton("Allow camera", onAsk, Modifier.fillMaxWidth(), big = true, tone = Tone.Primary)
+                Permission.Denied -> ActionButton(allow, onAsk, Modifier.fillMaxWidth(), big = true)
+                else -> ActionButton(allow, onAsk, Modifier.fillMaxWidth(), big = true, tone = Tone.Primary)
             }
         }
     }

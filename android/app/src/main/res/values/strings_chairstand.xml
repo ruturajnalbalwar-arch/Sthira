@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  30-second chair-stand test screen. Users are home physiotherapists; participants are adults 60+.
+  Keep sentences short and plain. No em or en dashes. Numbers and the CDC citation are inserted by
+  the app; keep every %1$s / %1$d placeholder.
+-->
+<resources>
+    <!-- Screen title in the top bar. -->
+    <string name="cs_title">30-second chair stand</string>
+    <string name="cs_setup_intro">Counted from head and shoulder height, so loose clothing is fine. Use participant codes, never names.</string>
+    <string name="cs_privacy_row">Nothing is saved or sent: pose tracking runs on this phone.</string>
+
+    <!-- Setup form -->
+    <string name="cs_code_label">Participant code</string>
+    <string name="cs_code_help">A code you choose, like A11. Never a name.</string>
+    <string name="cs_age_label">Age band</string>
+    <!-- CDC = US Centers for Disease Control and Prevention. Keep "80-84" as written. -->
+    <string name="cs_age_help">CDC values exist for ages 60 and over. 80+ uses the CDC 80-84 value.</string>
+    <string name="cs_sex_label">Sex</string>
+    <string name="cs_sex_help">CDC lists separate values for women and men. Not saved.</string>
+    <!-- Age band choices. Ranges are years of age. -->
+    <string name="cs_age_under_60">Under 60</string>
+    <string name="cs_age_60_64">60-64</string>
+    <string name="cs_age_65_69">65-69</string>
+    <string name="cs_age_70_74">70-74</string>
+    <string name="cs_age_75_79">75-79</string>
+    <string name="cs_age_80_plus">80+</string>
+    <string name="cs_sex_female">Female</string>
+    <string name="cs_sex_male">Male</string>
+    <string name="cs_sex_not_recorded">Not recorded</string>
+
+    <string name="cs_error_code_empty">Enter a participant code</string>
+    <!-- %1$d: the maximum number of characters. -->
+    <string name="cs_error_code_too_long">Use at most %1$d characters</string>
+    <string name="cs_error_code_chars">Use letters, digits, - or _ only</string>
+    <string name="cs_error_age_band">Choose an age band</string>
+    <string name="cs_error_sex">Choose one, or Not recorded</string>
+
+    <!-- Under the disabled Continue button. %1$s: the missing items joined by cs_list_separator. -->
+    <string name="cs_continue_blocked">To continue, add: %1$s.</string>
+    <!-- Separator between list items, with its spaces. -->
+    <string name="cs_list_separator">", "</string>
+    <string name="cs_blocker_code">a participant code</string>
+    <string name="cs_blocker_age">an age band</string>
+    <string name="cs_blocker_sex">sex (or Not recorded)</string>
+    <string name="cs_continue">Continue to camera</string>
+
+    <string name="cs_unavailable_title">The chair-stand test is not available</string>
+    <string name="cs_unavailable_body">The protocol durations in params.json are missing or invalid, so the test cannot be timed.</string>
+
+    <!-- Run screen. %1$s: participant code, %2$s: age band, %3$s: sex. -->
+    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
+    <string name="cs_edit_session">Edit session</string>
+    <string name="cs_run_again">Run again</string>
+    <string name="cs_waiting_camera">Waiting for the camera…</string>
+    <string name="cs_start">Start calibration and test</string>
+    <string name="cs_stop">Stop</string>
+    <string name="cs_redo_calibration">Redo calibration</string>
+    <string name="cs_cancel_test">Cancel test</string>
+
+    <!-- Camera switch button on the camera view. Short visible label, then the TalkBack descriptions. -->
+    <string name="cs_switch_camera">Switch camera</string>
+    <string name="cs_switch_to_front">Switch to front camera</string>
+    <string name="cs_switch_to_back">Switch to back camera</string>
+    <!-- Separator between parts of the camera status pill, with its spaces. -->
+    <string name="cs_status_separator">" · "</string>
+
+    <!-- Step instructions, read out by the physio from about 3 m away. -->
+    <string name="cs_stage_ready">Ready</string>
+    <string name="cs_stage_starting">Starting…</string>
+    <string name="cs_stage_stand">Stand up tall and keep still</string>
+    <string name="cs_stage_sit">Sit down and keep still</string>
+    <string name="cs_stage_go">Go! Stand up and sit down as many times as you can</string>
+    <string name="cs_stage_done">Stop. Test finished</string>
+    <string name="cs_idle_hint">Whole body, head to feet, and the chair in view, standing and sitting</string>
+    <!-- Shown after Start while no person is in the camera picture; calibration waits for them. -->
+    <string name="cs_step_into_view">Step into view: whole body, head to feet</string>
+
+    <string name="cs_pill_person_lost">Cannot see the person: whole body, head to feet, in view</string>
+    <string name="cs_pill_unreliable">Count not reliable: too many unclear stands</string>
+    <!-- %1$.1f: frames per second the camera reached. -->
+    <string name="cs_pill_slow">Camera slow (%1$.1f fps): stands may be missed</string>
+
+    <!-- %1$d: seconds elapsed, %2$d: test length in seconds. "s" = seconds. -->
+    <string name="cs_elapsed_of_total">%1$d / %2$d s</string>
+    <!-- The counter has no fitted settings yet, so nothing is counted. -->
+    <string name="cs_counting_off">Counting is off: the counter is not tuned yet.</string>
+    <string name="cs_checking_calibration">Checking calibration…</string>
+    <string name="cs_calibration_failed">Calibration did not pass. Not counting.</string>
+    <string name="cs_counter_failed">The counter could not start.</string>
+    <string name="cs_problem_hint">Press Redo calibration, or Cancel.</string>
+
+    <!-- TalkBack for the calibration countdown. -->
+    <plurals name="cs_seconds">
+        <item quantity="one">%1$d second</item>
+        <item quantity="other">%1$d seconds</item>
+    </plurals>
+    <!-- Word after the big live number (the number itself is drawn separately). -->
+    <plurals name="cs_stands_word">
+        <item quantity="one">stand</item>
+        <item quantity="other">stands</item>
+    </plurals>
+    <!-- A word placed after a big number, with the leading space. %1$s: the word. -->
+    <string name="cs_stands_word_spaced">" %1$s"</string>
+    <!-- TalkBack for the live count. -->
+    <plurals name="cs_full_stands_spoken">
+        <item quantity="one">%1$d full stand</item>
+        <item quantity="other">%1$d full stands</item>
+    </plurals>
+    <!-- Time left in the test. "s" = seconds. -->
+    <plurals name="cs_seconds_left">
+        <item quantity="one">%1$d s left</item>
+        <item quantity="other">%1$d s left</item>
+    </plurals>
+
+    <!-- One chip per attempt. -->
+    <string name="cs_rep_full">Full</string>
+    <string name="cs_rep_half">Half</string>
+    <string name="cs_rep_arms">Arms used</string>
+    <string name="cs_rep_unclear">Unclear</string>
+    <!-- %1$d: attempt number, %2$s: kind (Full, Half...). -->
+    <string name="cs_rep_chip">%1$d %2$s</string>
+    <!-- TalkBack. %1$d: attempt number, %2$s: kind, %3$s: counted or not counted. -->
+    <string name="cs_rep_spoken">Attempt %1$d: %2$s, %3$s</string>
+    <string name="cs_rep_counted">counted</string>
+    <string name="cs_rep_not_counted">not counted</string>
+
+    <!-- Result card -->
+    <string name="cs_result_title">Result</string>
+    <!-- Words after the big result number. -->
+    <plurals name="cs_result_full_stands">
+        <item quantity="one">full stand</item>
+        <item quantity="other">full stands</item>
+    </plurals>
+    <!-- %1$d: test length in seconds. -->
+    <string name="cs_result_in_seconds">in %1$d s</string>
+    <string name="cs_result_stopped_early">Test stopped early: not a CDC score</string>
+    <string name="cs_result_not_counted">Not counted</string>
+    <string name="cs_result_half">Half stands</string>
+    <!-- TalkBack. %1$s: kind of attempt, %2$d: how many. -->
+    <string name="cs_result_term_count">%1$s: %2$d</string>
+    <string name="cs_result_no_comparison">No CDC comparison for this run</string>
+    <string name="cs_result_below">Below the CDC average for this age and sex</string>
+    <string name="cs_result_at_or_above">At or above the CDC average for this age and sex</string>
+    <!-- %1$d-%2$d: CDC age range, %3$d: CDC value, %4$d: this run's full stands. -->
+    <string name="cs_result_sentence_women">CDC value for women aged %1$d-%2$d: fewer than %3$d stands is below average. This run scored %4$d.</string>
+    <string name="cs_result_sentence_men">CDC value for men aged %1$d-%2$d: fewer than %3$d stands is below average. This run scored %4$d.</string>
+    <!-- For the 80+ band. %1$d-%2$d: the CDC row used, %3$d: the age where the next CDC row starts. -->
+    <string name="cs_cdc_open_band_lower">Compared with the CDC value for ages %1$d-%2$d. CDC lists lower values for ages %3$d and over.</string>
+    <string name="cs_cdc_open_band_different">Compared with the CDC value for ages %1$d-%2$d. CDC lists different values for ages %3$d and over.</string>
+    <string name="cs_cdc_open_band_only">Compared with the CDC value for ages %1$d-%2$d.</string>
+    <!-- %1$s: CDC citation (not translated), %2$s: note from the reference file (not translated) or cs_result_us_reference. -->
+    <string name="cs_result_reference">Reference: %1$s. %2$s For the physiotherapist to interpret. Sthira does not diagnose or predict falls.</string>
+    <string name="cs_result_us_reference">US reference values.</string>
+
+    <!-- Why a finished run is not compared with the CDC values. -->
+    <string name="cs_reason_stopped_early">Test stopped early: not a CDC score. The CDC score needs the full timed window.</string>
+    <string name="cs_reason_unreliable">Count not reliable: too many stands were unclear on camera. Repeat the test.</string>
+    <string name="cs_reason_low_fps">The camera ran too slowly for a dependable count. Close other apps and repeat the test.</string>
+    <string name="cs_no_cdc_under_60">CDC has no chair-stand value for people under 60.</string>
+    <string name="cs_no_cdc_sex">CDC gives separate values for women and men, and sex was not recorded.</string>
+    <!-- %1$s: the age band. -->
+    <string name="cs_no_cdc_value">The CDC table has no value for age %1$s.</string>
+    <string name="cs_no_cdc_file">The CDC reference file could not be read.</string>
+
+    <!-- A run without a score. -->
+    <string name="cs_no_count_not_tuned">No count: the counter is not tuned yet. This run was a rehearsal of the setup.</string>
+    <string name="cs_no_count_invalid">No count: the counter settings in this version are invalid.</string>
+    <string name="cs_no_count_calibration">No count: calibration did not pass, so the stands were not counted. Run again.</string>
+    <string name="cs_no_count_context">No count: the counter could not start.</string>
+    <string name="cs_no_count_before_go">No count: the test was stopped before Go.</string>
+
+    <string name="cs_issues_title">This run had capture problems</string>
+    <string name="cs_issue_app_hidden">The app went to the background during the test, so frames are missing. Run the test again.</string>
+    <string name="cs_issue_detection_failed">Pose tracking stopped during the test. Run the test again.</string>
+    <string name="cs_issue_camera_ended">The camera stopped during the test. Run the test again.</string>
+</resources>

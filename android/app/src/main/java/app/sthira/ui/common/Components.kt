@@ -4,6 +4,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
@@ -14,6 +15,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -27,6 +29,7 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.sthira.ui.theme.Space
@@ -71,10 +74,19 @@ fun ActionButton(
     }
 }
 
+/**
+ * A text link. Underlined because the palette is black and white: colour alone cannot mark a link.
+ * [small] is the compact footer style (16sp, tight padding) that still keeps a 48dp touch target.
+ */
 @Composable
-fun LinkButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
-    TextButton(onClick = onClick, modifier = modifier.heightIn(min = MinTarget)) {
-        Text(text, color = Sthira.colors.primary, style = SthiraType.label.copy(fontSize = SthiraType.body.fontSize))
+fun LinkButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, small: Boolean = false) {
+    TextButton(
+        onClick = onClick,
+        modifier = modifier.heightIn(min = MinTarget),
+        contentPadding = if (small) PaddingValues(horizontal = Space.s) else ButtonDefaults.TextButtonContentPadding,
+    ) {
+        val size = if (small) SthiraType.label.fontSize else SthiraType.body.fontSize
+        Text(text, color = Sthira.colors.primary, style = SthiraType.label.copy(fontSize = size, textDecoration = TextDecoration.Underline))
     }
 }
 

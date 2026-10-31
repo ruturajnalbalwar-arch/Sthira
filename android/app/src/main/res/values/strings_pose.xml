@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Camera, pose tracking and camera permission. Keep sentences short and plain. No em or en dashes. -->
+<resources>
+    <!-- TalkBack description of the camera area. -->
+    <string name="pose_preview_description">Camera preview with the tracked body outline</string>
+    <!-- Status pill parts. "fps" = frames per second. -->
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">person in view</string>
+    <string name="pose_no_person">no person</string>
+    <string name="pose_starting_camera">Starting camera…</string>
+    <string name="pose_camera_stopped">Camera stopped</string>
+
+    <string name="pose_error_tracking_stopped">Pose tracking stopped on this phone. Go back and open the test again.</string>
+    <string name="pose_error_model">The pose model could not be loaded on this phone.</string>
+    <string name="pose_error_camera">The camera could not start. Close other camera apps and try again.</string>
+
+    <!-- Camera permission card -->
+    <string name="pose_perm_needed_title">Camera needed for this test</string>
+    <string name="pose_perm_off_title">Camera permission is off</string>
+    <string name="pose_perm_why">Sthira watches the head and shoulders to count each stand. The video is processed on this phone only: it is never saved or uploaded, and the app has no internet access.</string>
+    <string name="pose_perm_blocked">Android will not ask again. Open Settings, choose Permissions, then Camera, and allow it.</string>
+    <string name="pose_perm_open_settings">Open settings</string>
+    <string name="pose_perm_allow">Allow camera</string>
+</resources>

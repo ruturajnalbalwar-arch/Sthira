@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
@@ -21,11 +22,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import app.sthira.R
 import app.sthira.engine.timers.BalanceStage
 import app.sthira.engine.timers.CdcSource
 import app.sthira.ui.common.Banner
@@ -36,13 +39,15 @@ import app.sthira.ui.common.Neu
 import app.sthira.ui.common.NeuDepth
 import app.sthira.ui.common.NeuSurface
 import app.sthira.ui.common.Muted
+import app.sthira.ui.common.UiText
+import app.sthira.ui.common.asString
 import app.sthira.ui.theme.DisplaySize
 import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
 import app.sthira.ui.theme.SthiraType
-import java.util.Locale
 
-fun formatSeconds(seconds: Double): String = String.format(Locale.US, "%.1f s", seconds)
+private val STEP_DOT_SIZE = 36.dp
+private val STEP_ICON_SIZE = 20.dp
 
 /** The running time, readable across the room. TalkBack hears the label, not every tenth of a second. */
 @Composable
@@ -54,7 +59,7 @@ fun BigTime(seconds: Double, label: String) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(label, style = SthiraType.label, color = Sthira.colors.muted)
-            Text(formatSeconds(seconds), style = SthiraType.numeric.copy(fontSize = size, lineHeight = size))
+            Text(stringResource(R.string.timer_seconds_value, seconds), style = SthiraType.numeric.copy(fontSize = size, lineHeight = size))
         }
     }
 }
@@ -70,17 +75,16 @@ fun ResultBanner(meets: Boolean, title: String, content: @Composable () -> Unit)
 /** The CDC source line as plain text: the app is offline, so it names the reference instead of linking. */
 @Composable
 fun CdcNote(source: CdcSource) {
-    Muted(
-        "Reference: ${source.title} (${source.url}). US data, not validated for older adults in India. " +
-            "For the physiotherapist to interpret; Sthira does not diagnose.",
-    )
+    // The CDC sheet title is a document name, so it stays in English.
+    Muted(stringResource(R.string.timer_cdc_reference, source.title, source.url))
+    Muted(stringResource(R.string.timer_cdc_caveat))
 }
 
 @Composable
-fun TimerError(errors: List<String>) {
+fun TimerError(errors: List<UiText>) {
     Banner(BannerKind.Danger) {
-        BannerText("The CDC reference values in norms.json are missing or invalid.")
-        BulletList(errors, mono = true)
+        BannerText(stringResource(R.string.timer_norms_invalid))
+        BulletList(errors.map { it.asString() }, mono = true)
     }
 }
 
@@ -91,10 +95,10 @@ fun StageStepper(stages: List<BalanceStage>, statuses: List<StepStatus>) {
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top) {
         stages.forEachIndexed { i, stage ->
             val status = statuses.getOrElse(i) { StepStatus.Upcoming }
+            val name = TimerTexts.stageName(stage).asString()
+            val spoken = stringResource(R.string.timer_stepper_cd, stage.stage, stages.size, name, stringResource(status.spoken))
             Column(
-                Modifier.weight(1f).semantics(mergeDescendants = true) {
-                    contentDescription = "Stage ${stage.stage} of ${stages.size}, ${stage.name}: ${status.spoken}"
-                },
+                Modifier.weight(1f).semantics(mergeDescendants = true) { contentDescription = spoken },
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(6.dp),
             ) {
@@ -105,7 +109,7 @@ fun StageStepper(stages: List<BalanceStage>, statuses: List<StepStatus>) {
                 }
                 // A zero-width space after each hyphen lets "semi-tandem" wrap as "semi- / tandem", never mid-word.
                 Text(
-                    stage.name.replace("-", "-\u200B"), style = SthiraType.label, textAlign = TextAlign.Center,
+                    name.replace("-", "-\u200B"), style = SthiraType.label, textAlign = TextAlign.Center,
                     color = if (status == StepStatus.Current) c.text else c.muted,
                 )
             }
@@ -127,14 +131,15 @@ private fun StepDot(number: Int, status: StepStatus) {
         StepStatus.Current -> Triple(c.primary, c.onPrimary, c.primary)
         StepStatus.Upcoming, StepStatus.Skipped -> Triple(c.surface, c.muted, c.muted)
     }
+    // A minimum, not a fixed size, so the number never clips at a large text zoom.
     Box(
-        Modifier.size(36.dp).background(fill, CircleShape).border(1.dp, ring, CircleShape),
+        Modifier.sizeIn(minWidth = STEP_DOT_SIZE, minHeight = STEP_DOT_SIZE).background(fill, CircleShape).border(1.dp, ring, CircleShape),
         contentAlignment = Alignment.Center,
     ) {
         when (status) {
-            StepStatus.Held -> Icon(Icons.Filled.Check, contentDescription = null, tint = fg, modifier = Modifier.size(20.dp))
-            StepStatus.Lost -> Icon(Icons.Filled.Close, contentDescription = null, tint = fg, modifier = Modifier.size(20.dp))
-            else -> Text("$number", style = SthiraType.titleSmall, color = fg)
+            StepStatus.Held -> Icon(Icons.Filled.Check, contentDescription = null, tint = fg, modifier = Modifier.size(STEP_ICON_SIZE))
+            StepStatus.Lost -> Icon(Icons.Filled.Close, contentDescription = null, tint = fg, modifier = Modifier.size(STEP_ICON_SIZE))
+            else -> Text("$number", Modifier.padding(horizontal = Space.xs), style = SthiraType.titleSmall, color = fg)
         }
     }
 }

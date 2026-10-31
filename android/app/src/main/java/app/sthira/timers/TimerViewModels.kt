@@ -13,6 +13,9 @@ import app.sthira.engine.timers.TimerNormsResult
 import app.sthira.engine.timers.TugNorms
 import app.sthira.engine.timers.balanceReducer
 import app.sthira.engine.timers.readTimerNorms
+import app.sthira.R
+import app.sthira.ui.common.UiText
+import app.sthira.ui.common.uiText
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,19 +29,25 @@ import java.io.IOException
 private const val TICK_MS = 50L
 private fun nowSeconds(): Double = SystemClock.elapsedRealtimeNanos() / 1_000_000_000.0
 
-/** Reads the CDC balance and TUG values from the bundled norms.json; nothing is defaulted. */
-private fun loadTimerNorms(app: Application): TimerNormsResult = try {
+/** Reads the CDC balance and TUG values from the bundled norms.json; nothing is defaulted. Null if the file is missing. */
+private fun loadTimerNorms(app: Application): TimerNormsResult? = try {
     readTimerNorms(app.assets.open("norms.json").bufferedReader().use { it.readText() })
 } catch (e: IOException) {
-    TimerNormsResult.Failed(listOf("norms.json is missing from the app."))
+    null
 }
 
-private fun TimerNormsResult.normsOrNull(): TimerNorms? = (this as? TimerNormsResult.Ok)?.norms
-private fun TimerNormsResult.errorsOrNull(): List<String>? = (this as? TimerNormsResult.Failed)?.errors
+private fun TimerNormsResult?.normsOrNull(): TimerNorms? = (this as? TimerNormsResult.Ok)?.norms
+
+/** Validation messages name JSON paths, so they stay as written (shown in a monospace list). */
+private fun TimerNormsResult?.errorsOrNull(): List<UiText>? = when (this) {
+    null -> listOf(uiText(R.string.timer_norms_missing))
+    is TimerNormsResult.Failed -> errors.map { UiText.Raw(it) }
+    is TimerNormsResult.Ok -> null
+}
 
 data class BalanceUiState(
     val norms: BalanceNorms? = null,
-    val errors: List<String>? = null,
+    val errors: List<UiText>? = null,
     val test: BalanceState = BALANCE_START,
     val nowT: Double = 0.0,
 ) {
@@ -109,7 +118,7 @@ sealed interface TugRun {
 
 data class TugUiState(
     val norms: TugNorms? = null,
-    val errors: List<String>? = null,
+    val errors: List<UiText>? = null,
     val run: TugRun = TugRun.Idle,
     val nowT: Double = 0.0,
     val usedAid: Boolean = false,
