@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Balance and Timed Up and Go screens. Marathi. -->
+<resources>
+    <string name="timer_balance_title">4 टप्प्यांचा तोल</string>
+    <string name="timer_tug_title">Timed Up and Go (उठा, चाला, परत येऊन बसा)</string>
+
+    <string name="timer_seconds_value">%1$.1f से.</string>
+
+    <string name="timer_norms_invalid">norms.json मध्ये CDC ची संदर्भ मूल्ये नाहीत किंवा चुकीची आहेत.</string>
+    <string name="timer_norms_missing">ॲपमध्ये norms.json नाही.</string>
+
+    <string name="timer_cdc_reference">संदर्भ: %1$s (%2$s).</string>
+    <string name="timer_cdc_caveat">ही अमेरिकेतील मूल्ये आहेत. भारतातील ज्येष्ठ नागरिकांवर यांची चाचणी झालेली नाही. निकालाचा अर्थ फिजिओथेरपिस्ट ठरवतात. Sthira निदान करत नाही.</string>
+
+    <string name="timer_stage_name_1">पाय शेजारी-शेजारी</string>
+    <string name="timer_stage_name_2">अर्धा पुढे (सेमी-टँडम)</string>
+    <string name="timer_stage_name_3">एका रेषेत (टँडम)</string>
+    <string name="timer_stage_name_4">एका पायावर</string>
+
+    <string name="timer_stage_cdc_1">पाय शेजारी-शेजारी ठेवून उभे राहा.</string>
+    <string name="timer_stage_cdc_2">एका पायाच्या तळव्याचा मधला भाग दुसऱ्या पायाच्या अंगठ्याला लागेल असा ठेवा.</string>
+    <string name="timer_stage_cdc_3">टँडम उभे राहणे: एक पाय दुसऱ्याच्या अगदी पुढे ठेवा, टाच अंगठ्याला लागलेली असावी.</string>
+    <string name="timer_stage_cdc_4">एका पायावर उभे राहा.</string>
+
+    <string name="timer_stage_quote">“%1$s”</string>
+    <string name="timer_stage_heading">टप्पा %1$d: %2$s</string>
+    <string name="timer_hold_for">%1$s टिकून राहा</string>
+    <string name="timer_balance_lost_hint">पाय हलले किंवा व्यक्तीला आधार लागला, तर तोल गेला दाबा.</string>
+    <string name="timer_balance_allowed_movement">तोल सांभाळण्यासाठी व्यक्ती हात पसरू शकतात किंवा शरीर हलवू शकतात. पाय हलवता कामा नये.</string>
+    <string name="timer_balance_safety">व्यक्तीच्या बाजूला उभे राहा, त्यांना सावरायला तयार. काठी किंवा वॉकर नाही. डोळे उघडे.</string>
+    <string name="timer_balance_progression">व्यक्ती पाय न हलवता आणि आधार न घेता एखाद्या टप्प्यात %1$s टिकल्या, तर पुढच्या टप्प्यावर जा. नाहीतर चाचणी थांबवा.</string>
+
+    <string name="timer_start_stage">टप्पा %1$d सुरू करा</string>
+    <string name="timer_lost_position">तोल गेला</string>
+    <string name="timer_restart_stage">तयार नाही, टप्पा पुन्हा सुरू करा</string>
+    <string name="timer_start_over">सुरुवातीपासून करा</string>
+
+    <string name="timer_stage_results">टप्प्यांचे निकाल</string>
+    <string name="timer_stage_label">टप्पा %1$d</string>
+    <string name="timer_outcome_held">टिकले</string>
+    <string name="timer_outcome_lost">तोल गेला</string>
+    <string name="timer_stage_result_cd">टप्पा %1$d: %2$s, %3$s</string>
+
+    <string name="timer_stepper_cd">टप्पा %1$d, एकूण %2$d पैकी, %3$s: %4$s</string>
+    <string name="timer_step_held">टिकले</string>
+    <string name="timer_step_lost">तोल गेला</string>
+    <string name="timer_step_current">सध्या चालू</string>
+    <string name="timer_step_upcoming">सुरू झाला नाही</string>
+    <string name="timer_step_skipped">केला नाही</string>
+
+    <string name="timer_balance_stopped_before">टप्पा %1$d वर थांबले, टँडमच्या आधी: टँडममध्ये CDC संदर्भ %2$s पेक्षा कमी</string>
+    <string name="timer_balance_below">टँडममध्ये %1$s टिकले: CDC संदर्भ %2$s पेक्षा कमी</string>
+    <string name="timer_balance_meets">टँडममध्ये %1$s टिकले: CDC संदर्भ %2$s पूर्ण झाला</string>
+
+    <string name="timer_used_aid">चालण्यासाठी आधाराचे साधन वापरले</string>
+    <string name="timer_aid_was_used">चालण्यासाठी आधाराचे साधन वापरले गेले.</string>
+    <string name="timer_tug_under">%1$s: CDC संदर्भ %2$s पेक्षा कमी</string>
+    <string name="timer_tug_at_or_above">%1$s: CDC संदर्भ %2$s इतके किंवा जास्त</string>
+
+    <string name="timer_tug_how_heading">कसे करायचे</string>
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">खुर्चीपासून %1$d मीटर अंतरावर एक रेषा आखा.</item>
+        <item quantity="other">खुर्चीपासून %1$d मीटर अंतरावर एक रेषा आखा.</item>
+    </plurals>
+    <string name="timer_tug_step_sit">व्यक्ती खुर्चीत पाठ टेकून बसतात.</string>
+    <string name="timer_tug_step_go">“चला” म्हणताच चला बटण दाबा.</string>
+    <string name="timer_tug_step_walk">ते उठतात, नेहमीच्या चालीने रेषेपर्यंत चालतात, वळतात, परत येतात आणि बसतात.</string>
+    <string name="timer_tug_step_stop">ते परत बसले की थांबवा दाबा.</string>
+    <string name="timer_tug_footwear">ते नेहमीची पादत्राणे घालतात. गरज असल्यास चालण्याचे आधार साधन वापरू शकतात.</string>
+
+    <string name="timer_tug_go">चला</string>
+    <string name="timer_tug_stop">थांबवा: परत बसले</string>
+    <string name="timer_tug_run_again">पुन्हा करा: चला</string>
+</resources>

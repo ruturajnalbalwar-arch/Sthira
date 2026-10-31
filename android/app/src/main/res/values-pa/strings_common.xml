@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_back">ਪਿੱਛੇ</string>
+    <string name="common_close">ਬੰਦ ਕਰੋ</string>
+    <string name="common_text_smaller">ਅੱਖਰ ਛੋਟੇ ਕਰੋ</string>
+    <string name="common_text_larger">ਅੱਖਰ ਵੱਡੇ ਕਰੋ</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">ਅੱਖਰਾਂ ਦਾ ਆਕਾਰ %1$d%%</string>
+    <string name="common_theme_label">ਥੀਮ</string>
+    <string name="common_theme_system">ਫ਼ੋਨ ਵਾਂਗ ਹੀ</string>
+    <string name="common_theme_light">ਲਾਈਟ</string>
+    <string name="common_theme_dark">ਡਾਰਕ</string>
+    <string name="common_theme_change">ਥੀਮ ਬਦਲੋ। ਹੁਣ: %1$s</string>
+    <string name="common_language_title">ਭਾਸ਼ਾ</string>
+    <string name="common_language_phone">ਫ਼ੋਨ ਦੀ ਭਾਸ਼ਾ</string>
+    <string name="common_language_phone_help">ਇਸ ਫ਼ੋਨ ਵਾਲੀ ਭਾਸ਼ਾ ਹੀ ਵਰਤੋ।</string>
+    <string name="common_language_change">ਭਾਸ਼ਾ ਬਦਲੋ। ਹੁਣ: %1$s</string>
+    <string name="common_selected">ਚੁਣੀ ਹੋਈ</string>
+</resources>

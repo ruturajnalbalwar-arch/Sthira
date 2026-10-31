@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kannada. Shared UI text: top bar, text size, theme and language controls. -->
+<resources>
+    <string name="common_back">ಹಿಂದೆ</string>
+    <string name="common_close">ಮುಚ್ಚಿ</string>
+
+    <string name="common_text_smaller">ಅಕ್ಷರ ಚಿಕ್ಕದು ಮಾಡಿ</string>
+    <string name="common_text_larger">ಅಕ್ಷರ ದೊಡ್ಡದು ಮಾಡಿ</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">ಅಕ್ಷರದ ಗಾತ್ರ %1$d%%</string>
+
+    <string name="common_theme_label">ಬಣ್ಣದ ಶೈಲಿ</string>
+    <string name="common_theme_system">ಫೋನ್‌ನಲ್ಲಿರುವಂತೆ</string>
+    <string name="common_theme_light">ಬೆಳಕು</string>
+    <string name="common_theme_dark">ಕತ್ತಲು</string>
+    <string name="common_theme_change">ಬಣ್ಣದ ಶೈಲಿ ಬದಲಿಸಿ. ಈಗ: %1$s</string>
+
+    <string name="common_language_title">ಭಾಷೆ</string>
+    <string name="common_language_phone">ಫೋನ್‌ನ ಭಾಷೆ</string>
+    <string name="common_language_phone_help">ಈ ಫೋನ್‌ನಲ್ಲಿರುವ ಭಾಷೆಯನ್ನೇ ಬಳಸಿ.</string>
+    <string name="common_language_change">ಭಾಷೆ ಬದಲಿಸಿ. ಈಗ: %1$s</string>
+    <string name="common_selected">ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ</string>
+</resources>

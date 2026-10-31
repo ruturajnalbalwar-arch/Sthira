@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Camera, pose tracking and camera permission. Tamil. -->
+<resources>
+    <string name="pose_preview_description">கண்காணிக்கப்படும் உடல் வடிவத்துடன் கேமரா காட்சி</string>
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">நபர் தெரிகிறார்</string>
+    <string name="pose_no_person">நபர் இல்லை</string>
+    <string name="pose_starting_camera">கேமரா தொடங்குகிறது…</string>
+    <string name="pose_camera_stopped">கேமரா நின்றது</string>
+
+    <string name="pose_error_tracking_stopped">இந்த போனில் உடல் நிலை கண்காணிப்பு நின்றுவிட்டது. பின்சென்று சோதனையை மீண்டும் திறங்கள்.</string>
+    <string name="pose_error_model">இந்த போனில் போஸ் மாடலை ஏற்ற முடியவில்லை.</string>
+    <string name="pose_error_camera">கேமராவைத் தொடங்க முடியவில்லை. மற்ற கேமரா ஆப்களை மூடிவிட்டு மீண்டும் முயலுங்கள்.</string>
+
+    <string name="pose_perm_needed_title">இந்தச் சோதனைக்கு கேமரா தேவை</string>
+    <string name="pose_perm_off_title">கேமரா அனுமதி முடக்கப்பட்டுள்ளது</string>
+    <string name="pose_perm_why">ஒவ்வொரு முறை எழுவதையும் எண்ண, Sthira தலையையும் தோள்களையும் கவனிக்கிறது. வீடியோ இந்த போனில் மட்டுமே செயலாக்கப்படுகிறது: அது ஒருபோதும் சேமிக்கப்படுவதோ பதிவேற்றப்படுவதோ இல்லை, இந்த ஆப்புக்கு இணைய அணுகல் இல்லை.</string>
+    <string name="pose_perm_blocked">Android மீண்டும் கேட்காது. அமைப்புகளைத் திறந்து, அனுமதிகள், பிறகு கேமரா என்பதைத் தேர்வு செய்து, அனுமதி கொடுங்கள்.</string>
+    <string name="pose_perm_open_settings">அமைப்புகளைத் திற</string>
+    <string name="pose_perm_allow">கேமராவை அனுமதி</string>
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Privacy policy, terms of use and the open-source licences list.
+  The full licence texts live in res/raw and are never translated. Library names and authors stay in
+  English (they are in LicencesScreen.kt). The team name and email address below are not translated.
+-->
+<resources>
+    <!-- Shared by both pages. %1$s is the date below. -->
+    <string name="legal_last_updated">Last updated %1$s</string>
+    <!-- The date both pages were last changed. Write it the way dates are written in your language. -->
+    <string name="legal_updated_date">31 October 2026</string>
+    <string name="legal_contact_heading">Contact</string>
+    <string name="legal_team_name" translatable="false">The Bakchod Trinity</string>
+    <string name="legal_contact_email" translatable="false">ruturajnalbalwar07@gmail.com</string>
+    <!-- %1$s is the team name, %2$s the email address. -->
+    <string name="legal_contact_line">Team %1$s, %2$s.</string>
+    <!-- %1$s is the contact line above. -->
+    <string name="legal_privacy_contact">Questions about privacy: %1$s</string>
+
+    <!-- ===== Privacy policy ===== -->
+    <string name="legal_privacy_title">Privacy policy</string>
+    <string name="legal_privacy_intro">Sthira is a prototype that runs CDC STEADI strength and balance tests. It is built so that video and results never leave this phone.</string>
+
+    <string name="legal_privacy_camera_heading">Camera video stays on this phone</string>
+    <string name="legal_privacy_camera_permission">Sthira asks for camera permission only when you open the chair-stand test. Each camera frame is checked by a pose model that runs on this phone.</string>
+    <!-- "Pose landmarks" are the body points (shoulders, hips, knees) the pose model finds in each frame. -->
+    <string name="legal_privacy_camera_not_saved">Video is never saved and never sent. Sthira does not save pose landmarks, counts or test results either.</string>
+    <string name="legal_privacy_offline">Sthira has no server. The app has no internet permission, so it cannot send anything.</string>
+    <!-- MediaPipe is the name of a Google software library. Do not translate it. -->
+    <string name="legal_privacy_mediapipe">The pose library (Google MediaPipe) contains code that tries to send anonymous usage statistics to Google. The app has no internet permission, so Android blocks it and nothing is sent.</string>
+    <!-- "Recent-apps preview" is the small picture of the app shown in the phone\'s list of open apps. -->
+    <string name="legal_privacy_screen_capture">In the release app, screenshots and screen recording are blocked while Sthira is open, and the recent-apps preview is hidden.</string>
+
+    <string name="legal_privacy_stored_heading">What Sthira keeps on this phone</string>
+    <string name="legal_privacy_stored_settings">Only the display settings you pick: language, light or dark theme, and text size. They stay in Sthira\'s private storage on this phone. Clearing the app\'s data or uninstalling it removes them.</string>
+
+    <string name="legal_privacy_not_collected_heading">What we do not collect</string>
+    <string name="legal_privacy_not_collected">No accounts, no names, no contact details, no analytics and no advertising trackers. Age band and sex are used only to pick the CDC reference row. They are never saved.</string>
+
+    <string name="legal_privacy_backup_heading">Backups</string>
+    <string name="legal_privacy_backup">Sthira opts out of Android cloud backup and device-to-device transfer, so nothing is copied off the phone.</string>
+
+    <!-- ===== Terms of use ===== -->
+    <string name="legal_terms_title">Terms of use</string>
+    <string name="legal_terms_intro">By using Sthira you agree to these terms. Please read the safety section before you run any test.</string>
+
+    <string name="legal_terms_prototype_heading">A prototype, not a medical device</string>
+    <string name="legal_terms_prototype">Sthira is an early research prototype. It has not been clinically validated and is not a certified medical device. It does not diagnose any condition and does not predict falls.</string>
+    <string name="legal_terms_reference">Scores are shown next to CDC STEADI reference values. These come from US data and have not been validated for older adults in India. A qualified physiotherapist must interpret every result and decide on care.</string>
+
+    <string name="legal_terms_safety_heading">Safety during tests</string>
+    <string name="legal_terms_safety">Run tests only with a physiotherapist or trained helper in charge, and a spotter standing close by. Use a stable chair without wheels, placed against a wall. Clear the floor of anything that could cause a trip. Stop the test at once if the person feels unwell, dizzy or unsteady.</string>
+
+    <string name="legal_terms_responsibilities_heading">Your responsibilities</string>
+    <string name="legal_terms_responsibilities">Get the person\'s consent before you point the camera at them or run a test. Never type a person\'s name into the app.</string>
+
+    <string name="legal_terms_warranty_heading">No warranty</string>
+    <string name="legal_terms_warranty">Sthira is provided as is, without any warranty. Counts can be wrong, for example in poor light, at a low frame rate or when the person leaves the frame. The team is not liable for decisions made using its output.</string>
+
+    <!-- ===== Open-source licences ===== -->
+    <string name="legal_licences_title">Open-source licences</string>
+    <string name="legal_licences_intro">Sthira is built with these open-source components. Thank you to their authors.</string>
+    <!-- Shown under each component. %1$s is the author, %2$s the licence name. Both stay in English. -->
+    <string name="legal_component_by_licence">%1$s · %2$s</string>
+    <!-- Note under the MediaPipe pose model. A "model card" is the model maker\'s document about what it is for. -->
+    <string name="legal_mediapipe_model_note">The model card says it is meant for uses such as fitness and counting repetitions, not for life-critical decisions.</string>
+    <string name="legal_licences_full_texts">Full licence texts</string>
+    <string name="legal_licence_read_error">The licence text could not be read.</string>
+</resources>

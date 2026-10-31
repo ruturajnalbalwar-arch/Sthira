@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Malayalam. Home screen text. -->
+<resources>
+    <string name="home_tagline">വീട്ടിലെ ഫിസിയോതെറാപ്പിക്ക് സ്ഥിരതയുള്ള സ്കോറുകൾ</string>
+    <string name="home_chip_offline">ഇന്റർനെറ്റ് ഇല്ലാതെ പ്രവർത്തിക്കും · ഇന്റർനെറ്റ് അനുമതിയില്ല</string>
+    <string name="home_chip_steadi">CDC STEADI പരിശോധനകൾ</string>
+
+    <string name="home_tests_heading">പരിശോധനകൾ</string>
+
+    <string name="home_test_chair_title">30 സെക്കൻഡ് കസേരയിൽ നിന്ന് എഴുന്നേൽക്കൽ</string>
+    <string name="home_test_chair_measures">കാലിന്റെ ബലം: പൂർണമായി എഴുന്നേൽക്കുന്നത് ക്യാമറ എണ്ണുന്നു</string>
+    <string name="home_test_chair_duration">30 സെ</string>
+    <string name="home_test_balance_title">4 ഘട്ട ബാലൻസ്</string>
+    <string name="home_test_balance_measures">നാല് രീതിയിൽ നിൽക്കുമ്പോഴുള്ള ബാലൻസ്, സമയം നിങ്ങൾ നോക്കുന്നു</string>
+    <string name="home_test_balance_duration">4 × 10 സെ</string>
+    <string name="home_test_tug_title">Timed Up and Go (എഴുന്നേറ്റ് നടക്കാനുള്ള സമയം)</string>
+    <string name="home_test_tug_measures">നടക്കാനുള്ള കഴിവ്: എഴുന്നേൽക്കുക, നടക്കുക, തിരിയുക, ഇരിക്കുക, സമയം നിങ്ങൾ നോക്കുന്നു</string>
+    <string name="home_test_tug_duration">ഒരു മിനിറ്റിൽ താഴെ</string>
+    <string name="home_card_takes">സമയം: %1$s</string>
+    <string name="home_card_open">തുറക്കുക</string>
+
+    <string name="home_badge_ready">തയ്യാർ</string>
+    <string name="home_badge_not_tuned">കൗണ്ടർ ഇനിയും ക്രമീകരിച്ചിട്ടില്ല</string>
+    <string name="home_badge_invalid">കൗണ്ടർ സെറ്റിങ്സ് ശരിയല്ല</string>
+    <string name="home_badge_missing">കൗണ്ടർ സെറ്റിങ്സ് ഇല്ല</string>
+
+    <string name="home_footer_disclaimer">പരീക്ഷണ മാതൃക. മെഡിക്കൽ ഉപകരണമല്ല. രോഗനിർണയം നടത്തുന്നില്ല, വീഴ്ച മുൻകൂട്ടി പ്രവചിക്കുന്നില്ല. CDC യുടെ അമേരിക്കൻ റഫറൻസ് മൂല്യങ്ങൾ ഉപയോഗിക്കുന്നു.</string>
+    <string name="home_link_privacy">സ്വകാര്യത</string>
+    <string name="home_link_terms">നിബന്ധനകൾ</string>
+    <string name="home_link_licences">ലൈസൻസുകൾ</string>
+</resources>

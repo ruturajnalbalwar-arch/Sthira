@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Balance and Timed Up and Go screens. Hindi. -->
+<resources>
+    <string name="timer_balance_title">4 चरण संतुलन</string>
+    <string name="timer_tug_title">Timed Up and Go (उठें, चलें, लौटकर बैठें)</string>
+
+    <string name="timer_seconds_value">%1$.1f से.</string>
+
+    <string name="timer_norms_invalid">norms.json में CDC के संदर्भ मान नहीं हैं या गलत हैं।</string>
+    <string name="timer_norms_missing">ऐप में norms.json नहीं है।</string>
+
+    <string name="timer_cdc_reference">संदर्भ: %1$s (%2$s)।</string>
+    <string name="timer_cdc_caveat">ये अमेरिका के मान हैं। भारत के बुज़ुर्गों पर इनकी जाँच नहीं हुई है। नतीजे का मतलब फ़िज़ियोथेरेपिस्ट तय करेंगे। Sthira बीमारी नहीं बताता।</string>
+
+    <string name="timer_stage_name_1">पैर साथ-साथ</string>
+    <string name="timer_stage_name_2">आधा आगे (सेमी-टैंडम)</string>
+    <string name="timer_stage_name_3">एक सीध में (टैंडम)</string>
+    <string name="timer_stage_name_4">एक पैर पर</string>
+
+    <string name="timer_stage_cdc_1">अपने पैर साथ-साथ रखकर खड़े हो जाइए।</string>
+    <string name="timer_stage_cdc_2">एक पैर के तलवे का बीच वाला हिस्सा दूसरे पैर के अँगूठे से लगाकर रखिए।</string>
+    <string name="timer_stage_cdc_3">टैंडम खड़े होना: एक पैर दूसरे के ठीक आगे रखिए, एड़ी अँगूठे से लगी हो।</string>
+    <string name="timer_stage_cdc_4">एक पैर पर खड़े हो जाइए।</string>
+
+    <string name="timer_stage_quote">“%1$s”</string>
+    <string name="timer_stage_heading">चरण %1$d: %2$s</string>
+    <string name="timer_hold_for">%1$s तक रुकें</string>
+    <string name="timer_balance_lost_hint">अगर पैर हिलें या व्यक्ति को सहारा चाहिए, तो संतुलन टूटा दबाएँ।</string>
+    <string name="timer_balance_allowed_movement">संतुलन बनाए रखने के लिए व्यक्ति हाथ फैला सकते हैं या शरीर हिला सकते हैं। पैर नहीं हिलने चाहिए।</string>
+    <string name="timer_balance_safety">व्यक्ति के बगल में खड़े रहें, उन्हें संभालने के लिए तैयार। छड़ी या वॉकर नहीं। आँखें खुली रहें।</string>
+    <string name="timer_balance_progression">अगर व्यक्ति बिना पैर हिलाए और बिना सहारे के किसी चरण में %1$s तक रुक पाते हैं, तो अगले चरण पर जाएँ। अगर नहीं, तो जाँच रोक दें।</string>
+
+    <string name="timer_start_stage">चरण %1$d शुरू करें</string>
+    <string name="timer_lost_position">संतुलन टूटा</string>
+    <string name="timer_restart_stage">तैयार नहीं, चरण फिर से शुरू करें</string>
+    <string name="timer_start_over">शुरू से करें</string>
+
+    <string name="timer_stage_results">चरणों के नतीजे</string>
+    <string name="timer_stage_label">चरण %1$d</string>
+    <string name="timer_outcome_held">टिके रहे</string>
+    <string name="timer_outcome_lost">संतुलन टूटा</string>
+    <string name="timer_stage_result_cd">चरण %1$d: %2$s, %3$s</string>
+
+    <string name="timer_stepper_cd">चरण %1$d, कुल %2$d में से, %3$s: %4$s</string>
+    <string name="timer_step_held">टिके रहे</string>
+    <string name="timer_step_lost">संतुलन टूटा</string>
+    <string name="timer_step_current">अभी चल रहा</string>
+    <string name="timer_step_upcoming">शुरू नहीं हुआ</string>
+    <string name="timer_step_skipped">नहीं किया गया</string>
+
+    <string name="timer_balance_stopped_before">चरण %1$d पर रुके, टैंडम से पहले: टैंडम में CDC संदर्भ %2$s से कम</string>
+    <string name="timer_balance_below">टैंडम में %1$s टिके: CDC संदर्भ %2$s से कम</string>
+    <string name="timer_balance_meets">टैंडम में %1$s टिके: CDC संदर्भ %2$s पूरा हुआ</string>
+
+    <string name="timer_used_aid">चलने में सहारे का साधन इस्तेमाल किया</string>
+    <string name="timer_aid_was_used">चलने में सहारे का साधन इस्तेमाल हुआ।</string>
+    <string name="timer_tug_under">%1$s: CDC संदर्भ %2$s से कम</string>
+    <string name="timer_tug_at_or_above">%1$s: CDC संदर्भ %2$s के बराबर या ज़्यादा</string>
+
+    <string name="timer_tug_how_heading">कैसे करें</string>
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">कुर्सी से %1$d मीटर दूर एक रेखा बनाएँ।</item>
+        <item quantity="other">कुर्सी से %1$d मीटर दूर एक रेखा बनाएँ।</item>
+    </plurals>
+    <string name="timer_tug_step_sit">व्यक्ति कुर्सी पर पीठ टिकाकर बैठें।</string>
+    <string name="timer_tug_step_go">“चलिए” बोलते ही चलिए बटन दबाएँ।</string>
+    <string name="timer_tug_step_walk">वे खड़े हों, अपनी आम चाल से रेखा तक चलें, मुड़ें, वापस आएँ और बैठ जाएँ।</string>
+    <string name="timer_tug_step_stop">जब वे वापस बैठ जाएँ, तब रोकें दबाएँ।</string>
+    <string name="timer_tug_footwear">वे अपने रोज़ के जूते-चप्पल पहनें। ज़रूरत हो तो चलने का सहारा ले सकते हैं।</string>
+
+    <string name="timer_tug_go">चलिए</string>
+    <string name="timer_tug_stop">रोकें: वापस बैठ गए</string>
+    <string name="timer_tug_run_again">फिर से करें: चलिए</string>
+</resources>

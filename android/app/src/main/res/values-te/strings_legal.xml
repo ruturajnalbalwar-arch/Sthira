@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Privacy policy, terms of use and the open-source licences list. Telugu. -->
+<resources>
+    <string name="legal_last_updated">చివరిగా మార్చింది %1$s</string>
+    <string name="legal_updated_date">31 అక్టోబర్ 2026</string>
+    <string name="legal_contact_heading">సంప్రదించండి</string>
+    <string name="legal_contact_line">టీమ్ %1$s, %2$s.</string>
+    <string name="legal_privacy_contact">గోప్యత గురించి ప్రశ్నలు: %1$s</string>
+
+    <string name="legal_privacy_title">గోప్యతా విధానం</string>
+    <string name="legal_privacy_intro">Sthira అనేది CDC STEADI బలం, బ్యాలెన్స్ పరీక్షలు చేసే ఒక ప్రోటోటైప్. వీడియో, ఫలితాలు ఎప్పుడూ ఈ ఫోన్ దాటి బయటకు వెళ్లకుండా దీన్ని తయారు చేశారు.</string>
+
+    <string name="legal_privacy_camera_heading">కెమెరా వీడియో ఈ ఫోన్‌లోనే ఉంటుంది</string>
+    <string name="legal_privacy_camera_permission">మీరు కుర్చీ నుండి లేచే పరీక్ష తెరిచినప్పుడు మాత్రమే Sthira కెమెరా అనుమతి అడుగుతుంది. ప్రతి కెమెరా ఫ్రేమ్‌ను ఈ ఫోన్‌లోనే నడిచే ఒక పోజ్ మోడల్ పరిశీలిస్తుంది.</string>
+    <string name="legal_privacy_camera_not_saved">వీడియో ఎప్పుడూ సేవ్ కాదు, ఎక్కడికీ పంపబడదు. Sthira శరీర బిందువులను (పోజ్ ల్యాండ్‌మార్క్‌లు), లెక్కలను, పరీక్ష ఫలితాలను కూడా సేవ్ చేయదు.</string>
+    <string name="legal_privacy_offline">Sthira కు సర్వర్ లేదు. యాప్‌కు ఇంటర్నెట్ అనుమతి లేదు, కాబట్టి అది ఏదీ పంపే వీలు లేదు.</string>
+    <string name="legal_privacy_mediapipe">పోజ్ లైబ్రరీ (Google MediaPipe) లో, పేరు లేని వినియోగ గణాంకాలను Google కు పంపడానికి ప్రయత్నించే కోడ్ ఉంది. యాప్‌కు ఇంటర్నెట్ అనుమతి లేదు, కాబట్టి Android దాన్ని అడ్డుకుంటుంది, ఏదీ పంపబడదు.</string>
+    <string name="legal_privacy_screen_capture">రిలీజ్ యాప్‌లో, Sthira తెరిచి ఉన్నప్పుడు స్క్రీన్‌షాట్‌లు, స్క్రీన్ రికార్డింగ్ అడ్డుకోబడతాయి, ఇటీవలి యాప్‌ల జాబితాలో యాప్ చిత్రం దాచబడుతుంది.</string>
+
+    <string name="legal_privacy_stored_heading">Sthira ఈ ఫోన్‌లో ఏమి ఉంచుతుంది</string>
+    <string name="legal_privacy_stored_settings">మీరు ఎంచుకున్న ప్రదర్శన సెట్టింగ్‌లు మాత్రమే: భాష, లైట్ లేదా డార్క్ థీమ్, అక్షరాల పరిమాణం. ఇవి ఈ ఫోన్‌లో Sthira ప్రైవేట్ స్టోరేజ్‌లో ఉంటాయి. యాప్ డేటాను క్లియర్ చేసినా, యాప్‌ను అన్‌ఇన్‌స్టాల్ చేసినా అవి తొలగిపోతాయి.</string>
+
+    <string name="legal_privacy_not_collected_heading">మేము ఏమి సేకరించము</string>
+    <string name="legal_privacy_not_collected">ఖాతాలు లేవు, పేర్లు లేవు, సంప్రదింపు వివరాలు లేవు, అనలిటిక్స్ లేవు, ప్రకటనల ట్రాకర్లు లేవు. వయసు వర్గం, లింగం CDC రిఫరెన్స్ వరుసను ఎంచుకోవడానికి మాత్రమే వాడతాం. వాటిని ఎప్పుడూ సేవ్ చేయము.</string>
+
+    <string name="legal_privacy_backup_heading">బ్యాకప్‌లు</string>
+    <string name="legal_privacy_backup">Sthira, Android క్లౌడ్ బ్యాకప్‌ను, ఒక ఫోన్ నుండి మరో ఫోన్‌కు బదిలీని వాడదు, కాబట్టి ఏదీ ఫోన్ బయటికి కాపీ కాదు.</string>
+
+    <string name="legal_terms_title">వినియోగ నిబంధనలు</string>
+    <string name="legal_terms_intro">Sthira ను వాడడం ద్వారా మీరు ఈ నిబంధనలకు అంగీకరిస్తున్నారు. ఏ పరీక్ష చేసే ముందైనా దయచేసి భద్రత విభాగం చదవండి.</string>
+
+    <string name="legal_terms_prototype_heading">ఇది ప్రోటోటైప్, వైద్య పరికరం కాదు</string>
+    <string name="legal_terms_prototype">Sthira ఒక ప్రారంభ దశ పరిశోధన ప్రోటోటైప్. దీన్ని క్లినికల్‌గా ధృవీకరించలేదు, ఇది సర్టిఫైడ్ వైద్య పరికరం కాదు. ఇది ఏ వ్యాధినీ నిర్ధారించదు, పడిపోవడాన్ని ముందే చెప్పదు.</string>
+    <string name="legal_terms_reference">స్కోర్లు CDC STEADI రిఫరెన్స్ విలువల పక్కన చూపబడతాయి. ఇవి అమెరికా డేటా నుండి వచ్చాయి, భారతదేశంలోని వృద్ధుల కోసం ధృవీకరించబడలేదు. ప్రతి ఫలితాన్ని అర్హత ఉన్న ఫిజియోథెరపిస్ట్ తప్పనిసరిగా అర్థం చేసుకుని, చికిత్సపై నిర్ణయం తీసుకోవాలి.</string>
+
+    <string name="legal_terms_safety_heading">పరీక్షల సమయంలో భద్రత</string>
+    <string name="legal_terms_safety">ఫిజియోథెరపిస్ట్ లేదా శిక్షణ పొందిన సహాయకుడి బాధ్యతలో, పట్టుకోవడానికి ఒకరు దగ్గరగా నిలబడి ఉన్నప్పుడు మాత్రమే పరీక్షలు చేయండి. చక్రాలు లేని, గట్టిగా ఉండే కుర్చీని గోడకు ఆనించి వాడండి. కాలు తట్టుకుని పడేలా చేసే ఏ వస్తువునైనా నేల మీద నుండి తీసేయండి. వ్యక్తికి ఒంట్లో బాగోలేకపోయినా, తల తిరిగినా, తూలుతున్నా వెంటనే పరీక్ష ఆపండి.</string>
+
+    <string name="legal_terms_responsibilities_heading">మీ బాధ్యతలు</string>
+    <string name="legal_terms_responsibilities">వ్యక్తి వైపు కెమెరా పెట్టే ముందు లేదా పరీక్ష చేసే ముందు వారి అంగీకారం తీసుకోండి. వ్యక్తి పేరును ఎప్పుడూ యాప్‌లో టైప్ చేయవద్దు.</string>
+
+    <string name="legal_terms_warranty_heading">వారంటీ లేదు</string>
+    <string name="legal_terms_warranty">Sthira ను ఉన్నది ఉన్నట్లుగా, ఎలాంటి వారంటీ లేకుండా అందిస్తున్నాం. లెక్కలు తప్పు కావచ్చు, ఉదాహరణకు వెలుతురు తక్కువగా ఉన్నప్పుడు, ఫ్రేమ్ రేట్ తక్కువగా ఉన్నప్పుడు, లేదా వ్యక్తి ఫ్రేమ్ బయటకు వెళ్లినప్పుడు. దీని ఫలితాల ఆధారంగా తీసుకునే నిర్ణయాలకు టీమ్ బాధ్యత వహించదు.</string>
+
+    <string name="legal_licences_title">ఓపెన్-సోర్స్ లైసెన్సులు</string>
+    <string name="legal_licences_intro">Sthira ఈ ఓపెన్-సోర్స్ భాగాలతో తయారైంది. వాటి రచయితలకు ధన్యవాదాలు.</string>
+    <string name="legal_component_by_licence">%1$s · %2$s</string>
+    <string name="legal_mediapipe_model_note">మోడల్ కార్డ్ ప్రకారం, ఇది ఫిట్‌నెస్, పునరావృతాలను లెక్కించడం వంటి వాటి కోసం ఉద్దేశించింది, ప్రాణాలకు సంబంధించిన నిర్ణయాల కోసం కాదు.</string>
+    <string name="legal_licences_full_texts">లైసెన్సుల పూర్తి పాఠాలు</string>
+    <string name="legal_licence_read_error">లైసెన్స్ పాఠం చదవలేకపోయాం.</string>
+</resources>

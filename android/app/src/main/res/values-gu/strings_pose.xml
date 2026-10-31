@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pose_preview_description">ટ્રૅક થયેલી શરીરની રૂપરેખા સાથે કૅમેરાનું દૃશ્ય</string>
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">વ્યક્તિ દેખાય છે</string>
+    <string name="pose_no_person">કોઈ વ્યક્તિ નથી</string>
+    <string name="pose_starting_camera">કૅમેરા શરૂ થાય છે…</string>
+    <string name="pose_camera_stopped">કૅમેરા બંધ થયો</string>
+
+    <string name="pose_error_tracking_stopped">આ ફોનમાં શરીરની સ્થિતિનું ટ્રૅકિંગ અટકી ગયું. પાછા જાઓ અને ટેસ્ટ ફરી ખોલો.</string>
+    <string name="pose_error_model">આ ફોનમાં pose મોડેલ લોડ ન થઈ શક્યું.</string>
+    <string name="pose_error_camera">કૅમેરા શરૂ ન થઈ શક્યો. કૅમેરાવાળી બીજી ઍપ બંધ કરો અને ફરી પ્રયત્ન કરો.</string>
+
+    <string name="pose_perm_needed_title">આ ટેસ્ટ માટે કૅમેરા જરૂરી છે</string>
+    <string name="pose_perm_off_title">કૅમેરાની પરવાનગી બંધ છે</string>
+    <string name="pose_perm_why">દરેક વાર ઊભા થવાનું ગણવા માટે Sthira માથું અને ખભા જુએ છે. વીડિયો ફક્ત આ ફોનમાં જ પ્રોસેસ થાય છે: તે ક્યારેય સેવ કે અપલોડ થતો નથી, અને ઍપ પાસે ઇન્ટરનેટની સુવિધા નથી.</string>
+    <string name="pose_perm_blocked">Android ફરી પૂછશે નહીં. સેટિંગ્સ ખોલો, પરવાનગીઓ (Permissions) પસંદ કરો, પછી કૅમેરા, અને મંજૂરી આપો.</string>
+    <string name="pose_perm_open_settings">સેટિંગ્સ ખોલો</string>
+    <string name="pose_perm_allow">કૅમેરાની મંજૂરી આપો</string>
+</resources>

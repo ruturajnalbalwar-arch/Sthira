@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">ਘਰ ਵਿੱਚ ਫਿਜ਼ੀਓਥੈਰੇਪੀ ਲਈ ਸਥਿਰ ਸਕੋਰ</string>
+    <string name="home_chip_offline">ਇੰਟਰਨੈੱਟ ਤੋਂ ਬਿਨਾਂ ਚੱਲਦੀ ਹੈ · ਇੰਟਰਨੈੱਟ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ</string>
+    <string name="home_chip_steadi">CDC STEADI ਟੈਸਟ</string>
+    <string name="home_tests_heading">ਟੈਸਟ</string>
+    <string name="home_test_chair_title">30 ਸਕਿੰਟ ਕੁਰਸੀ ਤੋਂ ਉੱਠਣਾ</string>
+    <string name="home_test_chair_measures">ਲੱਤਾਂ ਦੀ ਤਾਕਤ: ਪੂਰੀ ਤਰ੍ਹਾਂ ਉੱਠਣ ਦੀ ਗਿਣਤੀ ਕੈਮਰਾ ਕਰਦਾ ਹੈ</string>
+    <string name="home_test_chair_duration">30 ਸਕਿੰਟ</string>
+    <string name="home_test_balance_title">4 ਪੜਾਅ ਵਾਲਾ ਸੰਤੁਲਨ</string>
+    <string name="home_test_balance_measures">ਚਾਰ ਤਰੀਕਿਆਂ ਨਾਲ ਖੜ੍ਹੇ ਹੋ ਕੇ ਸੰਤੁਲਨ, ਸਮਾਂ ਤੁਸੀਂ ਮਾਪਦੇ ਹੋ</string>
+    <string name="home_test_balance_duration">4 × 10 ਸਕਿੰਟ</string>
+    <string name="home_test_tug_title">Timed Up and Go (ਉੱਠੋ, ਤੁਰੋ, ਵਾਪਸ ਬੈਠੋ)</string>
+    <string name="home_test_tug_measures">ਤੁਰਨ-ਫਿਰਨ ਦੀ ਸਮਰੱਥਾ: ਉੱਠਣਾ, ਤੁਰਨਾ, ਮੁੜਨਾ ਅਤੇ ਬੈਠਣਾ, ਸਮਾਂ ਤੁਸੀਂ ਮਾਪਦੇ ਹੋ</string>
+    <string name="home_test_tug_duration">ਇੱਕ ਮਿੰਟ ਤੋਂ ਘੱਟ</string>
+    <string name="home_card_takes">ਸਮਾਂ: %1$s</string>
+    <string name="home_card_open">ਖੋਲ੍ਹੋ</string>
+    <string name="home_badge_ready">ਤਿਆਰ</string>
+    <string name="home_badge_not_tuned">ਕਾਊਂਟਰ ਅਜੇ ਟਿਊਨ ਨਹੀਂ ਹੋਇਆ</string>
+    <string name="home_badge_invalid">ਕਾਊਂਟਰ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਗਲਤ ਹਨ</string>
+    <string name="home_badge_missing">ਕਾਊਂਟਰ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਨਹੀਂ ਹਨ</string>
+    <string name="home_footer_disclaimer">ਪ੍ਰੋਟੋਟਾਈਪ। ਮੈਡੀਕਲ ਯੰਤਰ ਨਹੀਂ। ਨਿਦਾਨ ਨਹੀਂ ਕਰਦੀ ਅਤੇ ਡਿੱਗਣ ਦੀ ਭਵਿੱਖਬਾਣੀ ਨਹੀਂ ਕਰਦੀ। CDC ਦੇ US ਹਵਾਲਾ ਮੁੱਲ ਵਰਤਦੀ ਹੈ।</string>
+    <string name="home_link_privacy">ਨਿੱਜਤਾ</string>
+    <string name="home_link_terms">ਸ਼ਰਤਾਂ</string>
+    <string name="home_link_licences">ਲਾਇਸੈਂਸ</string>
+</resources>

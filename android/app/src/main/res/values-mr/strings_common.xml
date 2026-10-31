@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared UI text: top bar, text size, theme and language controls. Marathi. -->
+<resources>
+    <string name="common_back">मागे</string>
+    <string name="common_close">बंद करा</string>
+
+    <string name="common_text_smaller">अक्षरे लहान करा</string>
+    <string name="common_text_larger">अक्षरे मोठी करा</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">अक्षरांचा आकार %1$d%%</string>
+
+    <string name="common_theme_label">रंगरूप</string>
+    <string name="common_theme_system">फोनप्रमाणे</string>
+    <string name="common_theme_light">फिकट</string>
+    <string name="common_theme_dark">गडद</string>
+    <string name="common_theme_change">रंगरूप बदला. सध्या: %1$s</string>
+
+    <string name="common_language_title">भाषा</string>
+    <string name="common_language_phone">फोनची भाषा</string>
+    <string name="common_language_phone_help">या फोनमध्ये असलेलीच भाषा वापरा.</string>
+    <string name="common_language_change">भाषा बदला. सध्या: %1$s</string>
+    <string name="common_selected">निवडलेली</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Malayalam. Shared UI text: top bar, text size, theme and language controls. -->
+<resources>
+    <string name="common_back">തിരികെ</string>
+    <string name="common_close">അടയ്ക്കുക</string>
+
+    <string name="common_text_smaller">അക്ഷരം ചെറുതാക്കുക</string>
+    <string name="common_text_larger">അക്ഷരം വലുതാക്കുക</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">അക്ഷര വലുപ്പം %1$d%%</string>
+
+    <string name="common_theme_label">നിറരീതി</string>
+    <string name="common_theme_system">ഫോണിലേതുപോലെ</string>
+    <string name="common_theme_light">ലൈറ്റ്</string>
+    <string name="common_theme_dark">ഡാർക്ക്</string>
+    <string name="common_theme_change">നിറരീതി മാറ്റുക. ഇപ്പോൾ: %1$s</string>
+
+    <string name="common_language_title">ഭാഷ</string>
+    <string name="common_language_phone">ഫോണിലെ ഭാഷ</string>
+    <string name="common_language_phone_help">ഈ ഫോണിലെ അതേ ഭാഷ ഉപയോഗിക്കുക.</string>
+    <string name="common_language_change">ഭാഷ മാറ്റുക. ഇപ്പോൾ: %1$s</string>
+    <string name="common_selected">തിരഞ്ഞെടുത്തു</string>
+</resources>

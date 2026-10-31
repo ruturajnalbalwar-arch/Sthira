@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="timer_balance_title">4 તબક્કાનું સંતુલન</string>
+    <string name="timer_tug_title">Timed Up and Go (ઊઠો, ચાલો, પાછા બેસો)</string>
+
+    <string name="timer_seconds_value">%1$.1f સે.</string>
+
+    <string name="timer_norms_invalid">norms.json માં CDC ની સંદર્ભ કિંમતો નથી અથવા ખોટી છે.</string>
+    <string name="timer_norms_missing">ઍપમાં norms.json નથી.</string>
+
+    <string name="timer_cdc_reference">સંદર્ભ: %1$s (%2$s).</string>
+    <string name="timer_cdc_caveat">આ US ની કિંમતો છે. ભારતના મોટી ઉંમરના લોકો પર તેની ચકાસણી થઈ નથી. પરિણામનો અર્થ ફિઝિયોથેરાપિસ્ટ નક્કી કરે છે. Sthira નિદાન કરતું નથી.</string>
+
+    <string name="timer_stage_name_1">પગ બાજુ-બાજુમાં</string>
+    <string name="timer_stage_name_2">સેમી-ટેન્ડમ</string>
+    <string name="timer_stage_name_3">ટેન્ડમ</string>
+    <string name="timer_stage_name_4">એક પગ પર</string>
+
+    <string name="timer_stage_cdc_1">પગ એકબીજાની બાજુમાં રાખીને ઊભા રહો.</string>
+    <string name="timer_stage_cdc_2">એક પગની અંદરની બાજુ બીજા પગના મોટા અંગૂઠાને અડે એ રીતે પગ મૂકો.</string>
+    <string name="timer_stage_cdc_3">ટેન્ડમ સ્ટેન્ડ: એક પગ બીજા પગની આગળ મૂકો, એડી અંગૂઠાને અડે.</string>
+    <string name="timer_stage_cdc_4">એક પગ પર ઊભા રહો.</string>
+
+    <string name="timer_stage_quote">“%1$s”</string>
+    <string name="timer_stage_heading">તબક્કો %1$d: %2$s</string>
+    <string name="timer_hold_for">%1$s સુધી સ્થિતિ જાળવો</string>
+    <string name="timer_balance_lost_hint">પગ ખસે અથવા વ્યક્તિને ટેકાની જરૂર પડે તો “સ્થિતિ છૂટી ગઈ” દબાવો.</string>
+    <string name="timer_balance_allowed_movement">સંતુલન જાળવવા વ્યક્તિ હાથ ફેલાવી શકે અથવા શરીર હલાવી શકે. પગ ખસેડવા ન જ જોઈએ.</string>
+    <string name="timer_balance_safety">વ્યક્તિની બાજુમાં ઊભા રહો, તેમને પકડવા તૈયાર રહો. લાકડી કે વૉકર નહીં. આંખો ખુલ્લી.</string>
+    <string name="timer_balance_progression">જો વ્યક્તિ પગ ખસેડ્યા વગર અને ટેકા વગર %1$s સુધી તબક્કો જાળવી રાખે, તો આગલા તબક્કા પર જાઓ. નહીં તો ટેસ્ટ બંધ કરો.</string>
+
+    <string name="timer_start_stage">તબક્કો %1$d શરૂ કરો</string>
+    <string name="timer_lost_position">સ્થિતિ છૂટી ગઈ</string>
+    <string name="timer_restart_stage">તૈયાર નથી, તબક્કો ફરી શરૂ કરો</string>
+    <string name="timer_start_over">ફરીથી શરૂઆત કરો</string>
+
+    <string name="timer_stage_results">તબક્કાનાં પરિણામ</string>
+    <string name="timer_stage_label">તબક્કો %1$d</string>
+    <string name="timer_outcome_held">જાળવી રાખી</string>
+    <string name="timer_outcome_lost">સ્થિતિ છૂટી ગઈ</string>
+    <string name="timer_stage_result_cd">તબક્કો %1$d: %2$s, %3$s</string>
+
+    <string name="timer_stepper_cd">%2$d માંથી તબક્કો %1$d, %3$s: %4$s</string>
+    <string name="timer_step_held">જાળવી રાખી</string>
+    <string name="timer_step_lost">સ્થિતિ છૂટી ગઈ</string>
+    <string name="timer_step_current">ચાલુ</string>
+    <string name="timer_step_upcoming">શરૂ નથી થયો</string>
+    <string name="timer_step_skipped">કર્યો નથી</string>
+
+    <string name="timer_balance_stopped_before">તબક્કા %1$d પર બંધ થયું, ટેન્ડમ સ્ટેન્ડ પહેલાં: ટેન્ડમમાં CDC ના %2$s ના સંદર્ભથી ઓછું</string>
+    <string name="timer_balance_below">ટેન્ડમ સ્ટેન્ડ %1$s જાળવ્યું: CDC ના %2$s ના સંદર્ભથી ઓછું</string>
+    <string name="timer_balance_meets">ટેન્ડમ સ્ટેન્ડ %1$s જાળવ્યું: CDC ના %2$s ના સંદર્ભને પહોંચે છે</string>
+
+    <string name="timer_used_aid">ચાલવા માટે ટેકો વાપર્યો</string>
+    <string name="timer_aid_was_used">ચાલવા માટે ટેકો વપરાયો.</string>
+    <string name="timer_tug_under">%1$s: CDC ના %2$s ના સંદર્ભથી ઓછું</string>
+    <string name="timer_tug_at_or_above">%1$s: CDC ના %2$s ના સંદર્ભ જેટલું અથવા વધુ</string>
+
+    <string name="timer_tug_how_heading">કેવી રીતે કરવું</string>
+    <plurals name="timer_tug_step_line">
+        <item quantity="one">ખુરશીથી %1$d મીટર દૂર એક લીટી દોરો.</item>
+        <item quantity="other">ખુરશીથી %1$d મીટર દૂર એક લીટી દોરો.</item>
+    </plurals>
+    <string name="timer_tug_step_sit">વ્યક્તિ ખુરશીમાં પીઠ ટેકવીને બેસે.</string>
+    <string name="timer_tug_step_go">“શરૂ” બોલો એ જ વખતે શરૂ દબાવો.</string>
+    <string name="timer_tug_step_walk">તેઓ ઊભા થાય, સામાન્ય ગતિએ લીટી સુધી ચાલે, વળે, પાછા ચાલે અને બેસી જાય.</string>
+    <string name="timer_tug_step_stop">તેઓ પાછા બેસી જાય ત્યારે રોકો દબાવો.</string>
+    <string name="timer_tug_footwear">તેઓ રોજનાં પગરખાં પહેરે. જરૂર હોય તો ચાલવા માટે ટેકો વાપરી શકે.</string>
+
+    <string name="timer_tug_go">શરૂ</string>
+    <string name="timer_tug_stop">રોકો: પાછા બેસી ગયા</string>
+    <string name="timer_tug_run_again">ફરી કરો: શરૂ</string>
+</resources>

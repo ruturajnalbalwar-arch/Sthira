@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_tagline">ଘରେ ଫିଜିଓଥେରାପି ପାଇଁ ସ୍ଥିର ସ୍କୋର</string>
+    <string name="home_chip_offline">ଇଣ୍ଟରନେଟ ବିନା ଚାଲେ · ଇଣ୍ଟରନେଟ ଅନୁମତି ନାହିଁ</string>
+    <string name="home_chip_steadi">CDC STEADI ପରୀକ୍ଷା</string>
+    <string name="home_tests_heading">ପରୀକ୍ଷା</string>
+    <string name="home_test_chair_title">30 ସେକେଣ୍ଡରେ ଚେୟାରରୁ ଉଠିବା</string>
+    <string name="home_test_chair_measures">ଗୋଡ଼ର ବଳ: ପୂରା ଉଠିବା କ୍ୟାମେରା ଗଣେ</string>
+    <string name="home_test_chair_duration">30 ସେକେଣ୍ଡ</string>
+    <string name="home_test_balance_title">4 ପର୍ଯ୍ୟାୟର ସନ୍ତୁଳନ</string>
+    <string name="home_test_balance_measures">ଚାରି ଭଙ୍ଗୀରେ ଠିଆ ହୋଇ ସନ୍ତୁଳନ, ସମୟ ଆପଣ ମାପିବେ</string>
+    <string name="home_test_balance_duration">4 × 10 ସେକେଣ୍ଡ</string>
+    <string name="home_test_tug_title">Timed Up and Go (ଉଠି ଚାଲି ଫେରିବା)</string>
+    <string name="home_test_tug_measures">ଚଳପ୍ରଚଳ: ଉଠିବା, ଚାଲିବା, ବୁଲିବା ଓ ବସିବା, ସମୟ ଆପଣ ମାପିବେ</string>
+    <string name="home_test_tug_duration">ଏକ ମିନିଟରୁ କମ୍</string>
+    <string name="home_card_takes">ସମୟ ଲାଗେ %1$s</string>
+    <string name="home_card_open">ଖୋଲନ୍ତୁ</string>
+    <string name="home_badge_ready">ପ୍ରସ୍ତୁତ</string>
+    <string name="home_badge_not_tuned">କାଉଣ୍ଟର ଟ୍ୟୁନ୍ କରାଯାଇନାହିଁ</string>
+    <string name="home_badge_invalid">କାଉଣ୍ଟର ସେଟିଂ ଭୁଲ</string>
+    <string name="home_badge_missing">କାଉଣ୍ଟର ସେଟିଂ ନାହିଁ</string>
+    <string name="home_footer_disclaimer">ପ୍ରୋଟୋଟାଇପ୍। ଏହା ଚିକିତ୍ସା ଉପକରଣ ନୁହେଁ। ରୋଗ ନିର୍ଣ୍ଣୟ କରେ ନାହିଁ କି ପଡ଼ିଯିବାର ପୂର୍ବାନୁମାନ କରେ ନାହିଁ। CDC ର ଆମେରିକା ରେଫରେନ୍ସ ମାନ ବ୍ୟବହାର କରେ।</string>
+    <string name="home_link_privacy">ଗୋପନୀୟତା</string>
+    <string name="home_link_terms">ସର୍ତ୍ତାବଳୀ</string>
+    <string name="home_link_licences">ଲାଇସେନ୍ସ</string>
+</resources>

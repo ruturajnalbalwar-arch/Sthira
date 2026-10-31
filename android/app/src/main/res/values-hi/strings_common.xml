@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared UI text: top bar, text size, theme and language controls. Hindi. -->
+<resources>
+    <string name="common_back">वापस</string>
+    <string name="common_close">बंद करें</string>
+
+    <string name="common_text_smaller">अक्षर छोटे करें</string>
+    <string name="common_text_larger">अक्षर बड़े करें</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">अक्षर का आकार %1$d%%</string>
+
+    <string name="common_theme_label">रंग-रूप</string>
+    <string name="common_theme_system">फ़ोन जैसा</string>
+    <string name="common_theme_light">हल्का</string>
+    <string name="common_theme_dark">गहरा</string>
+    <string name="common_theme_change">रंग-रूप बदलें। अभी: %1$s</string>
+
+    <string name="common_language_title">भाषा</string>
+    <string name="common_language_phone">फ़ोन की भाषा</string>
+    <string name="common_language_phone_help">वही भाषा इस्तेमाल करें जो इस फ़ोन में है।</string>
+    <string name="common_language_change">भाषा बदलें। अभी: %1$s</string>
+    <string name="common_selected">चुनी हुई</string>
+</resources>

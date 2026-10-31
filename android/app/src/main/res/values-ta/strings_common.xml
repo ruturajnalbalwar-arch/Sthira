@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared UI text: top bar, text size, theme and language controls. Tamil. -->
+<resources>
+    <string name="common_back">பின்செல்</string>
+    <string name="common_close">மூடு</string>
+    <string name="common_text_smaller">எழுத்தைச் சிறிதாக்கு</string>
+    <string name="common_text_larger">எழுத்தைப் பெரிதாக்கு</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">எழுத்து அளவு %1$d%%</string>
+    <string name="common_theme_label">தீம்</string>
+    <string name="common_theme_system">போனில் உள்ளபடி</string>
+    <string name="common_theme_light">லைட்</string>
+    <string name="common_theme_dark">டார்க்</string>
+    <string name="common_theme_change">தீமை மாற்று. இப்போது: %1$s</string>
+    <string name="common_language_title">மொழி</string>
+    <string name="common_language_phone">போனின் மொழி</string>
+    <string name="common_language_phone_help">இந்த போனில் உள்ள அதே மொழியைப் பயன்படுத்தும்.</string>
+    <string name="common_language_change">மொழியை மாற்று. இப்போது: %1$s</string>
+    <string name="common_selected">தேர்வு செய்யப்பட்டது</string>
+</resources>

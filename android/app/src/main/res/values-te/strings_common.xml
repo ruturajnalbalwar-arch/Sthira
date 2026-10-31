@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared UI text: top bar, text size, theme and language controls. Telugu. -->
+<resources>
+    <string name="common_back">వెనక్కి</string>
+    <string name="common_close">మూసివేయి</string>
+    <string name="common_text_smaller">అక్షరాలు చిన్నవి చేయండి</string>
+    <string name="common_text_larger">అక్షరాలు పెద్దవి చేయండి</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">అక్షరాల పరిమాణం %1$d%%</string>
+    <string name="common_theme_label">థీమ్</string>
+    <string name="common_theme_system">ఫోన్‌లో ఉన్నట్టే</string>
+    <string name="common_theme_light">లైట్</string>
+    <string name="common_theme_dark">డార్క్</string>
+    <string name="common_theme_change">థీమ్ మార్చండి. ఇప్పుడు: %1$s</string>
+    <string name="common_language_title">భాష</string>
+    <string name="common_language_phone">ఫోన్ భాష</string>
+    <string name="common_language_phone_help">ఈ ఫోన్‌లో ఉన్న భాషనే వాడండి.</string>
+    <string name="common_language_change">భాష మార్చండి. ఇప్పుడు: %1$s</string>
+    <string name="common_selected">ఎంచుకున్నది</string>
+</resources>

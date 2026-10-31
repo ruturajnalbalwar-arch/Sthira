@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cs_title">30 ସେକେଣ୍ଡରେ ଚେୟାରରୁ ଉଠିବା</string>
+    <string name="cs_setup_intro">ମୁଣ୍ଡ ଓ କାନ୍ଧର ଉଚ୍ଚତା ଦେଖି ଗଣାଯାଏ, ତେଣୁ ଢିଲା ପୋଷାକରେ ଅସୁବିଧା ନାହିଁ। ଅଂଶଗ୍ରହଣକାରୀଙ୍କ କୋଡ୍ ବ୍ୟବହାର କରନ୍ତୁ, କେବେ ବି ନାମ ନୁହେଁ।</string>
+    <string name="cs_privacy_row">କିଛି ବି ସେଭ୍ ହୁଏ ନାହିଁ କି ପଠାଯାଏ ନାହିଁ: ଶରୀରର ଭଙ୍ଗୀ ଦେଖିବା କାମ ଏହି ଫୋନରେ ହିଁ ଚାଲେ।</string>
+
+    <string name="cs_code_label">ଅଂଶଗ୍ରହଣକାରୀଙ୍କ କୋଡ୍</string>
+    <string name="cs_code_help">ଆପଣ ବାଛିଥିବା ଏକ କୋଡ୍, ଯେପରି A11। କେବେ ବି ନାମ ନୁହେଁ।</string>
+    <string name="cs_age_label">ବୟସ ବର୍ଗ</string>
+    <string name="cs_age_help">60 ବର୍ଷ ଓ ତାଠାରୁ ଅଧିକ ବୟସ ପାଇଁ CDC ମାନ ଅଛି। 80+ ପାଇଁ CDC ର 80-84 ମାନ ବ୍ୟବହାର ହୁଏ।</string>
+    <string name="cs_sex_label">ଲିଙ୍ଗ</string>
+    <string name="cs_sex_help">CDC ମହିଳା ଓ ପୁରୁଷଙ୍କ ପାଇଁ ଅଲଗା ମାନ ଦିଏ। ସେଭ୍ ହୁଏ ନାହିଁ।</string>
+    <string name="cs_age_under_60">60 ରୁ କମ୍</string>
+    <string name="cs_age_60_64">60-64</string>
+    <string name="cs_age_65_69">65-69</string>
+    <string name="cs_age_70_74">70-74</string>
+    <string name="cs_age_75_79">75-79</string>
+    <string name="cs_age_80_plus">80+</string>
+    <string name="cs_sex_female">ମହିଳା</string>
+    <string name="cs_sex_male">ପୁରୁଷ</string>
+    <string name="cs_sex_not_recorded">ଲେଖାଯାଇନାହିଁ</string>
+
+    <string name="cs_error_code_empty">ଅଂଶଗ୍ରହଣକାରୀଙ୍କ କୋଡ୍ ଲେଖନ୍ତୁ</string>
+    <string name="cs_error_code_too_long">ସର୍ବାଧିକ %1$d ଅକ୍ଷର ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="cs_error_code_chars">କେବଳ ଅକ୍ଷର, ଅଙ୍କ, - କିମ୍ବା _ ବ୍ୟବହାର କରନ୍ତୁ</string>
+    <string name="cs_error_age_band">ଏକ ବୟସ ବର୍ଗ ବାଛନ୍ତୁ</string>
+    <string name="cs_error_sex">ଗୋଟିଏ ବାଛନ୍ତୁ, କିମ୍ବା ଲେଖାଯାଇନାହିଁ</string>
+
+    <string name="cs_continue_blocked">ଆଗକୁ ଯିବା ପାଇଁ ଯୋଡ଼ନ୍ତୁ: %1$s।</string>
+    <string name="cs_list_separator">", "</string>
+    <string name="cs_blocker_code">ଅଂଶଗ୍ରହଣକାରୀଙ୍କ କୋଡ୍</string>
+    <string name="cs_blocker_age">ବୟସ ବର୍ଗ</string>
+    <string name="cs_blocker_sex">ଲିଙ୍ଗ (କିମ୍ବା ଲେଖାଯାଇନାହିଁ)</string>
+    <string name="cs_continue">କ୍ୟାମେରାକୁ ଆଗକୁ ଯାଆନ୍ତୁ</string>
+
+    <string name="cs_unavailable_title">ଚେୟାରରୁ ଉଠିବା ପରୀକ୍ଷା ଏବେ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="cs_unavailable_body">params.json ରେ ପରୀକ୍ଷାର ସମୟ ମାନ ନାହିଁ କିମ୍ବା ଭୁଲ, ତେଣୁ ପରୀକ୍ଷାର ସମୟ ମାପିହେବ ନାହିଁ।</string>
+
+    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
+    <string name="cs_edit_session">ସେସନ୍ ବଦଳାନ୍ତୁ</string>
+    <string name="cs_run_again">ପୁଣି ଚଲାନ୍ତୁ</string>
+    <string name="cs_waiting_camera">କ୍ୟାମେରା ପାଇଁ ଅପେକ୍ଷା କରାଯାଉଛି…</string>
+    <string name="cs_start">କ୍ୟାଲିବ୍ରେସନ୍ ଓ ପରୀକ୍ଷା ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="cs_stop">ଅଟକାନ୍ତୁ</string>
+    <string name="cs_redo_calibration">ପୁଣି କ୍ୟାଲିବ୍ରେସନ୍ କରନ୍ତୁ</string>
+    <string name="cs_cancel_test">ପରୀକ୍ଷା ବାତିଲ୍ କରନ୍ତୁ</string>
+
+    <string name="cs_switch_camera">କ୍ୟାମେରା ବଦଳାନ୍ତୁ</string>
+    <string name="cs_switch_to_front">ସାମ୍ନା କ୍ୟାମେରା ଚାଲୁ କରନ୍ତୁ</string>
+    <string name="cs_switch_to_back">ପଛ କ୍ୟାମେରା ଚାଲୁ କରନ୍ତୁ</string>
+    <string name="cs_status_separator">" · "</string>
+
+    <string name="cs_stage_ready">ପ୍ରସ୍ତୁତ</string>
+    <string name="cs_stage_starting">ଆରମ୍ଭ ହେଉଛି…</string>
+    <string name="cs_stage_stand">ସିଧା ଠିଆ ହୁଅନ୍ତୁ, ହଲନ୍ତୁ ନାହିଁ</string>
+    <string name="cs_stage_sit">ବସନ୍ତୁ, ହଲନ୍ତୁ ନାହିଁ</string>
+    <string name="cs_stage_go">ଆରମ୍ଭ! ଯେତେ ଥର ପାରିବେ ଉଠନ୍ତୁ ଓ ବସନ୍ତୁ</string>
+    <string name="cs_stage_done">ରୁହନ୍ତୁ। ପରୀକ୍ଷା ସରିଲା</string>
+    <string name="cs_idle_hint">ଠିଆ ଓ ବସିଥିବା ବେଳେ ମୁଣ୍ଡରୁ ପାଦ ପର୍ଯ୍ୟନ୍ତ ପୂରା ଶରୀର ଓ ଚେୟାର ଛବିରେ ରହୁ</string>
+    <string name="cs_step_into_view">ଛବି ଭିତରକୁ ଆସନ୍ତୁ: ମୁଣ୍ଡରୁ ପାଦ ପର୍ଯ୍ୟନ୍ତ ପୂରା ଶରୀର</string>
+
+    <string name="cs_pill_person_lost">ବ୍ୟକ୍ତିଙ୍କୁ ଦେଖାଯାଉନାହିଁ: ମୁଣ୍ଡରୁ ପାଦ ପର୍ଯ୍ୟନ୍ତ ପୂରା ଶରୀର ଛବିରେ ରଖନ୍ତୁ</string>
+    <string name="cs_pill_unreliable">ଗଣନା ଭରସାଯୋଗ୍ୟ ନୁହେଁ: ଅନେକ ଉଠିବା ସ୍ପଷ୍ଟ ନୁହେଁ</string>
+    <string name="cs_pill_slow">କ୍ୟାମେରା ଧୀର (%1$.1f fps): କିଛି ଉଠିବା ଛାଡ଼ିଯାଇପାରେ</string>
+
+    <string name="cs_elapsed_of_total">%1$d / %2$d ସେକେଣ୍ଡ</string>
+    <string name="cs_counting_off">ଗଣନା ବନ୍ଦ: କାଉଣ୍ଟର ଏବେ ବି ଟ୍ୟୁନ୍ କରାଯାଇନାହିଁ।</string>
+    <string name="cs_checking_calibration">କ୍ୟାଲିବ୍ରେସନ୍ ଯାଞ୍ଚ ହେଉଛି…</string>
+    <string name="cs_calibration_failed">କ୍ୟାଲିବ୍ରେସନ୍ ପାସ୍ ହେଲା ନାହିଁ। ଗଣାଯାଉନାହିଁ।</string>
+    <string name="cs_counter_failed">କାଉଣ୍ଟର ଆରମ୍ଭ ହୋଇପାରିଲା ନାହିଁ।</string>
+    <string name="cs_problem_hint">“ପୁଣି କ୍ୟାଲିବ୍ରେସନ୍ କରନ୍ତୁ” ଦବାନ୍ତୁ, କିମ୍ବା ବାତିଲ୍ କରନ୍ତୁ।</string>
+
+    <plurals name="cs_seconds">
+        <item quantity="one">%1$d ସେକେଣ୍ଡ</item>
+        <item quantity="other">%1$d ସେକେଣ୍ଡ</item>
+    </plurals>
+    <plurals name="cs_stands_word">
+        <item quantity="one">ଥର ଉଠିବା</item>
+        <item quantity="other">ଥର ଉଠିବା</item>
+    </plurals>
+    <string name="cs_stands_word_spaced">" %1$s"</string>
+    <plurals name="cs_full_stands_spoken">
+        <item quantity="one">%1$d ଥର ପୂରା ଉଠିବା</item>
+        <item quantity="other">%1$d ଥର ପୂରା ଉଠିବା</item>
+    </plurals>
+    <plurals name="cs_seconds_left">
+        <item quantity="one">%1$d ସେକେଣ୍ଡ ବାକି</item>
+        <item quantity="other">%1$d ସେକେଣ୍ଡ ବାକି</item>
+    </plurals>
+
+    <string name="cs_rep_full">ପୂରା</string>
+    <string name="cs_rep_half">ଅଧା</string>
+    <string name="cs_rep_arms">ହାତର ଭରସା</string>
+    <string name="cs_rep_unclear">ଅସ୍ପଷ୍ଟ</string>
+    <string name="cs_rep_chip">%1$d %2$s</string>
+    <string name="cs_rep_spoken">ଚେଷ୍ଟା %1$d: %2$s, %3$s</string>
+    <string name="cs_rep_counted">ଗଣାଗଲା</string>
+    <string name="cs_rep_not_counted">ଗଣାଗଲା ନାହିଁ</string>
+
+    <string name="cs_result_title">ଫଳାଫଳ</string>
+    <plurals name="cs_result_full_stands">
+        <item quantity="one">ଥର ପୂରା ଉଠିବା</item>
+        <item quantity="other">ଥର ପୂରା ଉଠିବା</item>
+    </plurals>
+    <string name="cs_result_in_seconds">%1$d ସେକେଣ୍ଡରେ</string>
+    <string name="cs_result_stopped_early">ପରୀକ୍ଷା ଆଗରୁ ବନ୍ଦ ହେଲା: ଏହା CDC ସ୍କୋର ନୁହେଁ</string>
+    <string name="cs_result_not_counted">ଗଣାଗଲା ନାହିଁ</string>
+    <string name="cs_result_half">ଅଧା ଉଠିବା</string>
+    <string name="cs_result_term_count">%1$s: %2$d</string>
+    <string name="cs_result_no_comparison">ଏହି ଥର ପାଇଁ CDC ସହ ତୁଳନା ନାହିଁ</string>
+    <string name="cs_result_below">ଏହି ବୟସ ଓ ଲିଙ୍ଗର CDC ହାରାହାରିଠାରୁ କମ୍</string>
+    <string name="cs_result_at_or_above">ଏହି ବୟସ ଓ ଲିଙ୍ଗର CDC ହାରାହାରି ସହ ସମାନ କିମ୍ବା ଅଧିକ</string>
+    <string name="cs_result_sentence_women">%1$d-%2$d ବର୍ଷ ବୟସର ମହିଳାଙ୍କ ପାଇଁ CDC ମାନ: %3$d ଥରରୁ କମ୍ ଉଠିବା ହାରାହାରିଠାରୁ କମ୍। ଏହି ଥର ସ୍କୋର %4$d।</string>
+    <string name="cs_result_sentence_men">%1$d-%2$d ବର୍ଷ ବୟସର ପୁରୁଷଙ୍କ ପାଇଁ CDC ମାନ: %3$d ଥରରୁ କମ୍ ଉଠିବା ହାରାହାରିଠାରୁ କମ୍। ଏହି ଥର ସ୍କୋର %4$d।</string>
+    <string name="cs_cdc_open_band_lower">%1$d-%2$d ବର୍ଷ ବୟସର CDC ମାନ ସହ ତୁଳନା କରାଯାଇଛି। %3$d ବର୍ଷ ଓ ତାଠାରୁ ଅଧିକ ବୟସ ପାଇଁ CDC ଆହୁରି କମ୍ ମାନ ଦିଏ।</string>
+    <string name="cs_cdc_open_band_different">%1$d-%2$d ବର୍ଷ ବୟସର CDC ମାନ ସହ ତୁଳନା କରାଯାଇଛି। %3$d ବର୍ଷ ଓ ତାଠାରୁ ଅଧିକ ବୟସ ପାଇଁ CDC ଅଲଗା ମାନ ଦିଏ।</string>
+    <string name="cs_cdc_open_band_only">%1$d-%2$d ବର୍ଷ ବୟସର CDC ମାନ ସହ ତୁଳନା କରାଯାଇଛି।</string>
+    <string name="cs_result_reference">ରେଫରେନ୍ସ: %1$s। %2$s ଏହାର ଅର୍ଥ ଫିଜିଓଥେରାପିଷ୍ଟ ବିଚାର କରିବେ। Sthira ରୋଗ ନିର୍ଣ୍ଣୟ କରେ ନାହିଁ କି ପଡ଼ିଯିବାର ପୂର୍ବାନୁମାନ କରେ ନାହିଁ।</string>
+    <string name="cs_result_us_reference">ଆମେରିକାର ରେଫରେନ୍ସ ମାନ।</string>
+
+    <string name="cs_reason_stopped_early">ପରୀକ୍ଷା ଆଗରୁ ବନ୍ଦ ହେଲା: ଏହା CDC ସ୍କୋର ନୁହେଁ। CDC ସ୍କୋର ପାଇଁ ପୂରା ନିର୍ଦ୍ଧାରିତ ସମୟ ଦରକାର।</string>
+    <string name="cs_reason_unreliable">ଗଣନା ଭରସାଯୋଗ୍ୟ ନୁହେଁ: କ୍ୟାମେରାରେ ଅନେକ ଉଠିବା ସ୍ପଷ୍ଟ ଦେଖାଗଲା ନାହିଁ। ପରୀକ୍ଷାଟି ପୁଣି କରନ୍ତୁ।</string>
+    <string name="cs_reason_low_fps">କ୍ୟାମେରା ବହୁତ ଧୀରେ ଚାଲିଲା, ତେଣୁ ଗଣନା ଉପରେ ଭରସା କରିହେବ ନାହିଁ। ଅନ୍ୟ ଆପ୍ ବନ୍ଦ କରି ପରୀକ୍ଷାଟି ପୁଣି କରନ୍ତୁ।</string>
+    <string name="cs_no_cdc_under_60">60 ବର୍ଷରୁ କମ୍ ବୟସର ଲୋକଙ୍କ ପାଇଁ CDC ର ଚେୟାରରୁ ଉଠିବା ମାନ ନାହିଁ।</string>
+    <string name="cs_no_cdc_sex">CDC ମହିଳା ଓ ପୁରୁଷଙ୍କ ପାଇଁ ଅଲଗା ମାନ ଦିଏ, କିନ୍ତୁ ଲିଙ୍ଗ ଲେଖାଯାଇନାହିଁ।</string>
+    <string name="cs_no_cdc_value">CDC ଟେବୁଲରେ %1$s ବୟସ ପାଇଁ କୌଣସି ମାନ ନାହିଁ।</string>
+    <string name="cs_no_cdc_file">CDC ରେଫରେନ୍ସ ଫାଇଲ୍ ପଢ଼ିହେଲା ନାହିଁ।</string>
+
+    <string name="cs_no_count_not_tuned">ଗଣନା ନାହିଁ: କାଉଣ୍ଟର ଏବେ ବି ଟ୍ୟୁନ୍ କରାଯାଇନାହିଁ। ଏହି ଥର କେବଳ ସେଟଅପର ଅଭ୍ୟାସ ଥିଲା।</string>
+    <string name="cs_no_count_invalid">ଗଣନା ନାହିଁ: ଏହି ସଂସ୍କରଣରେ କାଉଣ୍ଟର ସେଟିଂ ଭୁଲ।</string>
+    <string name="cs_no_count_calibration">ଗଣନା ନାହିଁ: କ୍ୟାଲିବ୍ରେସନ୍ ପାସ୍ ହେଲା ନାହିଁ, ତେଣୁ ଉଠିବା ଗଣାଗଲା ନାହିଁ। ପୁଣି ଚଲାନ୍ତୁ।</string>
+    <string name="cs_no_count_context">ଗଣନା ନାହିଁ: କାଉଣ୍ଟର ଆରମ୍ଭ ହୋଇପାରିଲା ନାହିଁ।</string>
+    <string name="cs_no_count_before_go">ଗଣନା ନାହିଁ: “ଆରମ୍ଭ” କହିବା ଆଗରୁ ପରୀକ୍ଷା ବନ୍ଦ କରାଗଲା।</string>
+
+    <string name="cs_issues_title">ଏହି ଥର ଛବି ନେବାରେ ସମସ୍ୟା ହେଲା</string>
+    <string name="cs_issue_app_hidden">ପରୀକ୍ଷା ସମୟରେ ଆପ୍ ପଛକୁ ଚାଲିଗଲା, ତେଣୁ କିଛି ଫ୍ରେମ୍ ନାହିଁ। ପରୀକ୍ଷାଟି ପୁଣି କରନ୍ତୁ।</string>
+    <string name="cs_issue_detection_failed">ପରୀକ୍ଷା ସମୟରେ ଶରୀରର ଭଙ୍ଗୀ ଦେଖିବା ବନ୍ଦ ହୋଇଗଲା। ପରୀକ୍ଷାଟି ପୁଣି କରନ୍ତୁ।</string>
+    <string name="cs_issue_camera_ended">ପରୀକ୍ଷା ସମୟରେ କ୍ୟାମେରା ବନ୍ଦ ହୋଇଗଲା। ପରୀକ୍ଷାଟି ପୁଣି କରନ୍ତୁ।</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="common_back">ফিরে যান</string>
+    <string name="common_close">বন্ধ করুন</string>
+    <string name="common_text_smaller">লেখা ছোট করুন</string>
+    <string name="common_text_larger">লেখা বড় করুন</string>
+    <string name="common_text_size_percent">%1$d%%</string>
+    <string name="common_text_size_state">লেখার আকার %1$d%%</string>
+    <string name="common_theme_label">থিম</string>
+    <string name="common_theme_system">ফোনের মতো</string>
+    <string name="common_theme_light">হালকা</string>
+    <string name="common_theme_dark">গাঢ়</string>
+    <string name="common_theme_change">থিম বদলান। এখন: %1$s</string>
+    <string name="common_language_title">ভাষা</string>
+    <string name="common_language_phone">ফোনের ভাষা</string>
+    <string name="common_language_phone_help">এই ফোনের ভাষাই ব্যবহার করুন।</string>
+    <string name="common_language_change">ভাষা বদলান। এখন: %1$s</string>
+    <string name="common_selected">বাছাই করা হয়েছে</string>
+</resources>

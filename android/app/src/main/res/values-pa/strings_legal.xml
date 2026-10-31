@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="legal_last_updated">ਆਖਰੀ ਵਾਰ ਅੱਪਡੇਟ: %1$s</string>
+    <string name="legal_updated_date">31 ਅਕਤੂਬਰ 2026</string>
+    <string name="legal_contact_heading">ਸੰਪਰਕ</string>
+    <string name="legal_contact_line">ਟੀਮ %1$s, %2$s.</string>
+    <string name="legal_privacy_contact">ਨਿੱਜਤਾ ਬਾਰੇ ਸਵਾਲ: %1$s</string>
+
+    <string name="legal_privacy_title">ਨਿੱਜਤਾ ਨੀਤੀ</string>
+    <string name="legal_privacy_intro">Sthira ਇੱਕ ਪ੍ਰੋਟੋਟਾਈਪ ਹੈ ਜੋ CDC STEADI ਤਾਕਤ ਅਤੇ ਸੰਤੁਲਨ ਦੇ ਟੈਸਟ ਚਲਾਉਂਦੀ ਹੈ। ਇਸ ਨੂੰ ਇਸ ਤਰ੍ਹਾਂ ਬਣਾਇਆ ਗਿਆ ਹੈ ਕਿ ਵੀਡੀਓ ਅਤੇ ਨਤੀਜੇ ਕਦੇ ਵੀ ਇਸ ਫ਼ੋਨ ਤੋਂ ਬਾਹਰ ਨਾ ਜਾਣ।</string>
+
+    <string name="legal_privacy_camera_heading">ਕੈਮਰੇ ਦੀ ਵੀਡੀਓ ਇਸੇ ਫ਼ੋਨ ਉੱਤੇ ਰਹਿੰਦੀ ਹੈ</string>
+    <string name="legal_privacy_camera_permission">Sthira ਕੈਮਰੇ ਦੀ ਇਜਾਜ਼ਤ ਸਿਰਫ਼ ਉਦੋਂ ਮੰਗਦੀ ਹੈ ਜਦੋਂ ਤੁਸੀਂ ਕੁਰਸੀ ਤੋਂ ਉੱਠਣ ਵਾਲਾ ਟੈਸਟ ਖੋਲ੍ਹਦੇ ਹੋ। ਕੈਮਰੇ ਦੇ ਹਰ ਫ੍ਰੇਮ ਨੂੰ ਇਸੇ ਫ਼ੋਨ ਉੱਤੇ ਚੱਲਣ ਵਾਲਾ pose ਮਾਡਲ ਜਾਂਚਦਾ ਹੈ।</string>
+    <string name="legal_privacy_camera_not_saved">ਵੀਡੀਓ ਕਦੇ ਸੇਵ ਨਹੀਂ ਹੁੰਦੀ ਅਤੇ ਕਦੇ ਭੇਜੀ ਨਹੀਂ ਜਾਂਦੀ। Sthira ਸਰੀਰ ਦੇ ਮੁੱਖ ਬਿੰਦੂ (pose landmarks), ਗਿਣਤੀ ਜਾਂ ਟੈਸਟ ਦੇ ਨਤੀਜੇ ਵੀ ਸੇਵ ਨਹੀਂ ਕਰਦੀ।</string>
+    <string name="legal_privacy_offline">Sthira ਦਾ ਕੋਈ ਸਰਵਰ ਨਹੀਂ ਹੈ। ਐਪ ਕੋਲ ਇੰਟਰਨੈੱਟ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਇਹ ਕੁਝ ਵੀ ਨਹੀਂ ਭੇਜ ਸਕਦੀ।</string>
+    <string name="legal_privacy_mediapipe">pose ਲਾਇਬ੍ਰੇਰੀ (Google MediaPipe) ਵਿੱਚ ਅਜਿਹਾ ਕੋਡ ਹੈ ਜੋ Google ਨੂੰ ਬਿਨਾਂ ਨਾਮ ਵਾਲੇ ਵਰਤੋਂ ਦੇ ਅੰਕੜੇ ਭੇਜਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦਾ ਹੈ। ਐਪ ਕੋਲ ਇੰਟਰਨੈੱਟ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ Android ਇਸ ਨੂੰ ਰੋਕ ਦਿੰਦਾ ਹੈ ਅਤੇ ਕੁਝ ਵੀ ਨਹੀਂ ਭੇਜਿਆ ਜਾਂਦਾ।</string>
+    <string name="legal_privacy_screen_capture">ਰਿਲੀਜ਼ ਐਪ ਵਿੱਚ, ਜਦੋਂ Sthira ਖੁੱਲ੍ਹੀ ਹੋਵੇ ਤਾਂ ਸਕ੍ਰੀਨਸ਼ਾਟ ਅਤੇ ਸਕ੍ਰੀਨ ਰਿਕਾਰਡਿੰਗ ਬੰਦ ਰਹਿੰਦੀ ਹੈ, ਅਤੇ ਹਾਲ ਹੀ ਵਿੱਚ ਖੋਲ੍ਹੀਆਂ ਐਪਾਂ ਦੀ ਸੂਚੀ ਵਿੱਚ ਇਸ ਦੀ ਛੋਟੀ ਤਸਵੀਰ ਲੁਕੀ ਰਹਿੰਦੀ ਹੈ।</string>
+
+    <string name="legal_privacy_stored_heading">Sthira ਇਸ ਫ਼ੋਨ ਉੱਤੇ ਕੀ ਰੱਖਦੀ ਹੈ</string>
+    <string name="legal_privacy_stored_settings">ਸਿਰਫ਼ ਤੁਹਾਡੀਆਂ ਚੁਣੀਆਂ ਡਿਸਪਲੇ ਸੈਟਿੰਗਾਂ: ਭਾਸ਼ਾ, ਲਾਈਟ ਜਾਂ ਡਾਰਕ ਥੀਮ, ਅਤੇ ਅੱਖਰਾਂ ਦਾ ਆਕਾਰ। ਇਹ ਇਸ ਫ਼ੋਨ ਉੱਤੇ Sthira ਦੀ ਨਿੱਜੀ ਸਟੋਰੇਜ ਵਿੱਚ ਰਹਿੰਦੀਆਂ ਹਨ। ਐਪ ਦਾ ਡਾਟਾ ਸਾਫ਼ ਕਰਨ ਜਾਂ ਐਪ ਅਣਇੰਸਟਾਲ ਕਰਨ ਨਾਲ ਇਹ ਹਟ ਜਾਂਦੀਆਂ ਹਨ।</string>
+
+    <string name="legal_privacy_not_collected_heading">ਅਸੀਂ ਕੀ ਇਕੱਠਾ ਨਹੀਂ ਕਰਦੇ</string>
+    <string name="legal_privacy_not_collected">ਕੋਈ ਖਾਤਾ ਨਹੀਂ, ਕੋਈ ਨਾਮ ਨਹੀਂ, ਸੰਪਰਕ ਵੇਰਵੇ ਨਹੀਂ, ਵਰਤੋਂ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ (analytics) ਨਹੀਂ ਅਤੇ ਇਸ਼ਤਿਹਾਰੀ ਟ੍ਰੈਕਰ ਨਹੀਂ। ਉਮਰ ਸਮੂਹ ਅਤੇ ਲਿੰਗ ਸਿਰਫ਼ CDC ਦੀ ਹਵਾਲਾ ਕਤਾਰ ਚੁਣਨ ਲਈ ਵਰਤੇ ਜਾਂਦੇ ਹਨ। ਇਹ ਕਦੇ ਸੇਵ ਨਹੀਂ ਹੁੰਦੇ।</string>
+
+    <string name="legal_privacy_backup_heading">ਬੈਕਅੱਪ</string>
+    <string name="legal_privacy_backup">Sthira Android ਦੇ ਕਲਾਊਡ ਬੈਕਅੱਪ ਅਤੇ ਇੱਕ ਡਿਵਾਈਸ ਤੋਂ ਦੂਜੀ ਡਿਵਾਈਸ ਵਿੱਚ ਟ੍ਰਾਂਸਫਰ ਵਿੱਚ ਸ਼ਾਮਲ ਨਹੀਂ ਹੁੰਦੀ, ਇਸ ਲਈ ਫ਼ੋਨ ਤੋਂ ਕੁਝ ਵੀ ਬਾਹਰ ਕਾਪੀ ਨਹੀਂ ਹੁੰਦਾ।</string>
+
+    <string name="legal_terms_title">ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
+    <string name="legal_terms_intro">Sthira ਵਰਤ ਕੇ ਤੁਸੀਂ ਇਨ੍ਹਾਂ ਸ਼ਰਤਾਂ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ। ਕੋਈ ਵੀ ਟੈਸਟ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਰਪਾ ਕਰਕੇ ਸੁਰੱਖਿਆ ਵਾਲਾ ਹਿੱਸਾ ਪੜ੍ਹੋ।</string>
+
+    <string name="legal_terms_prototype_heading">ਇੱਕ ਪ੍ਰੋਟੋਟਾਈਪ, ਮੈਡੀਕਲ ਯੰਤਰ ਨਹੀਂ</string>
+    <string name="legal_terms_prototype">Sthira ਖੋਜ ਲਈ ਇੱਕ ਸ਼ੁਰੂਆਤੀ ਪ੍ਰੋਟੋਟਾਈਪ ਹੈ। ਇਸ ਦੀ ਕਲੀਨਿਕਲ ਜਾਂਚ (clinical validation) ਨਹੀਂ ਹੋਈ ਅਤੇ ਇਹ ਪ੍ਰਮਾਣਿਤ ਮੈਡੀਕਲ ਯੰਤਰ ਨਹੀਂ ਹੈ। ਇਹ ਕਿਸੇ ਵੀ ਬਿਮਾਰੀ ਦਾ ਨਿਦਾਨ ਨਹੀਂ ਕਰਦੀ ਅਤੇ ਡਿੱਗਣ ਦੀ ਭਵਿੱਖਬਾਣੀ ਨਹੀਂ ਕਰਦੀ।</string>
+    <string name="legal_terms_reference">ਸਕੋਰ CDC STEADI ਦੇ ਹਵਾਲਾ ਮੁੱਲਾਂ ਦੇ ਨਾਲ ਦਿਖਾਏ ਜਾਂਦੇ ਹਨ। ਇਹ ਮੁੱਲ US ਦੇ ਡਾਟਾ ਤੋਂ ਹਨ ਅਤੇ ਭਾਰਤ ਦੇ ਵੱਡੀ ਉਮਰ ਦੇ ਲੋਕਾਂ ਲਈ ਇਨ੍ਹਾਂ ਦੀ ਜਾਂਚ ਨਹੀਂ ਹੋਈ। ਹਰ ਨਤੀਜੇ ਦਾ ਮਤਲਬ ਸਮਝਣਾ ਅਤੇ ਇਲਾਜ ਬਾਰੇ ਫ਼ੈਸਲਾ ਕਰਨਾ ਲਾਜ਼ਮੀ ਤੌਰ ਉੱਤੇ ਕਿਸੇ ਯੋਗ ਫਿਜ਼ੀਓਥੈਰੇਪਿਸਟ ਦਾ ਹੀ ਕੰਮ ਹੈ।</string>
+
+    <string name="legal_terms_safety_heading">ਟੈਸਟ ਦੌਰਾਨ ਸੁਰੱਖਿਆ</string>
+    <string name="legal_terms_safety">ਟੈਸਟ ਸਿਰਫ਼ ਉਦੋਂ ਕਰੋ ਜਦੋਂ ਫਿਜ਼ੀਓਥੈਰੇਪਿਸਟ ਜਾਂ ਸਿਖਲਾਈ ਪ੍ਰਾਪਤ ਮਦਦਗਾਰ ਜ਼ਿੰਮੇਵਾਰ ਹੋਵੇ, ਅਤੇ ਸੰਭਾਲਣ ਲਈ ਕੋਈ ਨੇੜੇ ਖੜ੍ਹਾ ਹੋਵੇ। ਪਹੀਆਂ ਤੋਂ ਬਿਨਾਂ ਮਜ਼ਬੂਤ ਕੁਰਸੀ ਕੰਧ ਨਾਲ ਲਾ ਕੇ ਰੱਖੋ। ਫ਼ਰਸ਼ ਤੋਂ ਹਰ ਉਹ ਚੀਜ਼ ਹਟਾਓ ਜਿਸ ਨਾਲ ਠੋਕਰ ਲੱਗ ਸਕੇ। ਜੇ ਵਿਅਕਤੀ ਨੂੰ ਠੀਕ ਨਾ ਲੱਗੇ, ਚੱਕਰ ਆਉਣ ਜਾਂ ਡਗਮਗਾਹਟ ਮਹਿਸੂਸ ਹੋਵੇ ਤਾਂ ਟੈਸਟ ਤੁਰੰਤ ਬੰਦ ਕਰੋ।</string>
+
+    <string name="legal_terms_responsibilities_heading">ਤੁਹਾਡੀਆਂ ਜ਼ਿੰਮੇਵਾਰੀਆਂ</string>
+    <string name="legal_terms_responsibilities">ਕਿਸੇ ਵਿਅਕਤੀ ਵੱਲ ਕੈਮਰਾ ਕਰਨ ਜਾਂ ਟੈਸਟ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਉਨ੍ਹਾਂ ਦੀ ਸਹਿਮਤੀ ਲਓ। ਐਪ ਵਿੱਚ ਕਦੇ ਵੀ ਕਿਸੇ ਵਿਅਕਤੀ ਦਾ ਨਾਮ ਨਾ ਲਿਖੋ।</string>
+
+    <string name="legal_terms_warranty_heading">ਕੋਈ ਵਾਰੰਟੀ ਨਹੀਂ</string>
+    <string name="legal_terms_warranty">Sthira ਜਿਵੇਂ ਹੈ ਉਵੇਂ ਹੀ ਦਿੱਤੀ ਜਾਂਦੀ ਹੈ, ਬਿਨਾਂ ਕਿਸੇ ਵਾਰੰਟੀ ਦੇ। ਗਿਣਤੀ ਗਲਤ ਹੋ ਸਕਦੀ ਹੈ, ਜਿਵੇਂ ਘੱਟ ਰੋਸ਼ਨੀ ਵਿੱਚ, ਘੱਟ ਫ੍ਰੇਮ ਰੇਟ ਉੱਤੇ ਜਾਂ ਜਦੋਂ ਵਿਅਕਤੀ ਫ੍ਰੇਮ ਤੋਂ ਬਾਹਰ ਚਲਾ ਜਾਵੇ। ਇਸ ਦੇ ਨਤੀਜਿਆਂ ਦੇ ਆਧਾਰ ਉੱਤੇ ਲਏ ਗਏ ਫ਼ੈਸਲਿਆਂ ਲਈ ਟੀਮ ਜ਼ਿੰਮੇਵਾਰ ਨਹੀਂ ਹੈ।</string>
+
+    <string name="legal_licences_title">ਓਪਨ-ਸੋਰਸ ਲਾਇਸੈਂਸ</string>
+    <string name="legal_licences_intro">Sthira ਇਨ੍ਹਾਂ ਓਪਨ-ਸੋਰਸ ਹਿੱਸਿਆਂ ਨਾਲ ਬਣੀ ਹੈ। ਇਨ੍ਹਾਂ ਦੇ ਲੇਖਕਾਂ ਦਾ ਧੰਨਵਾਦ।</string>
+    <string name="legal_component_by_licence">%1$s · %2$s</string>
+    <string name="legal_mediapipe_model_note">ਮਾਡਲ ਕਾਰਡ ਕਹਿੰਦਾ ਹੈ ਕਿ ਇਹ ਫਿਟਨੈੱਸ ਅਤੇ ਦੁਹਰਾਓ ਗਿਣਨ ਵਰਗੇ ਕੰਮਾਂ ਲਈ ਹੈ, ਜਾਨ ਨਾਲ ਜੁੜੇ ਫ਼ੈਸਲਿਆਂ ਲਈ ਨਹੀਂ।</string>
+    <string name="legal_licences_full_texts">ਲਾਇਸੈਂਸ ਦਾ ਪੂਰਾ ਪਾਠ</string>
+    <string name="legal_licence_read_error">ਲਾਇਸੈਂਸ ਦਾ ਪਾਠ ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।</string>
+</resources>

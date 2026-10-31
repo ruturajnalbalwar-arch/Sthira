@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Camera, pose tracking and camera permission. Hindi. -->
+<resources>
+    <string name="pose_preview_description">कैमरा दृश्य, जिसमें शरीर की पहचानी गई रेखा दिखती है</string>
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">व्यक्ति दिख रहा है</string>
+    <string name="pose_no_person">कोई व्यक्ति नहीं</string>
+    <string name="pose_starting_camera">कैमरा शुरू हो रहा है…</string>
+    <string name="pose_camera_stopped">कैमरा बंद हो गया</string>
+
+    <string name="pose_error_tracking_stopped">इस फ़ोन पर शरीर की पहचान रुक गई। वापस जाएँ और जाँच फिर से खोलें।</string>
+    <string name="pose_error_model">इस फ़ोन पर शरीर पहचानने वाला मॉडल लोड नहीं हो सका।</string>
+    <string name="pose_error_camera">कैमरा शुरू नहीं हो सका। कैमरे वाले दूसरे ऐप बंद करें और फिर कोशिश करें।</string>
+
+    <string name="pose_perm_needed_title">इस जाँच के लिए कैमरा ज़रूरी है</string>
+    <string name="pose_perm_off_title">कैमरे की अनुमति बंद है</string>
+    <string name="pose_perm_why">हर बार खड़े होने को गिनने के लिए Sthira सिर और कंधों को देखता है। वीडियो सिर्फ़ इसी फ़ोन पर जाँचा जाता है: न कभी सेव होता है, न कहीं भेजा जाता है, और ऐप के पास इंटरनेट नहीं है।</string>
+    <string name="pose_perm_blocked">Android अब दोबारा नहीं पूछेगा। सेटिंग खोलें, अनुमतियाँ चुनें, फिर कैमरा, और उसे अनुमति दें।</string>
+    <string name="pose_perm_open_settings">सेटिंग खोलें</string>
+    <string name="pose_perm_allow">कैमरे की अनुमति दें</string>
+</resources>

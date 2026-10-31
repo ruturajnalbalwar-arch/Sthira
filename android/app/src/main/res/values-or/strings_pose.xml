@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pose_preview_description">କ୍ୟାମେରାର ଛବି, ଶରୀରର ରେଖା ସହିତ</string>
+    <plurals name="pose_fps">
+        <item quantity="one">%1$d fps</item>
+        <item quantity="other">%1$d fps</item>
+    </plurals>
+    <string name="pose_person_in_view">ବ୍ୟକ୍ତି ଦେଖାଯାଉଛନ୍ତି</string>
+    <string name="pose_no_person">କେହି ନାହାନ୍ତି</string>
+    <string name="pose_starting_camera">କ୍ୟାମେରା ଚାଲୁ ହେଉଛି…</string>
+    <string name="pose_camera_stopped">କ୍ୟାମେରା ବନ୍ଦ</string>
+
+    <string name="pose_error_tracking_stopped">ଏହି ଫୋନରେ ଶରୀରର ଭଙ୍ଗୀ ଦେଖିବା ବନ୍ଦ ହୋଇଗଲା। ପଛକୁ ଯାଇ ପରୀକ୍ଷାଟି ପୁଣି ଖୋଲନ୍ତୁ।</string>
+    <string name="pose_error_model">ଏହି ଫୋନରେ ପୋଜ୍ ମଡେଲ୍ ଲୋଡ୍ ହୋଇପାରିଲା ନାହିଁ।</string>
+    <string name="pose_error_camera">କ୍ୟାମେରା ଚାଲୁ ହୋଇପାରିଲା ନାହିଁ। ଅନ୍ୟ କ୍ୟାମେରା ଆପ୍ ବନ୍ଦ କରି ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+
+    <string name="pose_perm_needed_title">ଏହି ପରୀକ୍ଷା ପାଇଁ କ୍ୟାମେରା ଦରକାର</string>
+    <string name="pose_perm_off_title">କ୍ୟାମେରା ଅନୁମତି ବନ୍ଦ ଅଛି</string>
+    <string name="pose_perm_why">ପ୍ରତି ଥର ଉଠିବା ଗଣିବା ପାଇଁ Sthira ମୁଣ୍ଡ ଓ କାନ୍ଧ ଦେଖେ। ଭିଡିଓ କେବଳ ଏହି ଫୋନରେ ପ୍ରୋସେସ୍ ହୁଏ: କେବେ ବି ସେଭ୍ କିମ୍ବା ଅପଲୋଡ୍ ହୁଏ ନାହିଁ, ଆଉ ଆପ୍‌ର ଇଣ୍ଟରନେଟ ବ୍ୟବହାରର ସୁବିଧା ନାହିଁ।</string>
+    <string name="pose_perm_blocked">Android ଆଉ ପଚାରିବ ନାହିଁ। ସେଟିଂସ୍ ଖୋଲନ୍ତୁ, ଅନୁମତି ବାଛନ୍ତୁ, ତା ପରେ କ୍ୟାମେରା ବାଛନ୍ତୁ, ଏବଂ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
+    <string name="pose_perm_open_settings">ସେଟିଂସ୍ ଖୋଲନ୍ତୁ</string>
+    <string name="pose_perm_allow">କ୍ୟାମେରା ଅନୁମତି ଦିଅନ୍ତୁ</string>
+</resources>
