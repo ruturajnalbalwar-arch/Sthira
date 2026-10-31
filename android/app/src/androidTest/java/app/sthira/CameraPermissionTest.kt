@@ -16,6 +16,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 /** Every state of the camera permission card, rendered directly (the system dialog itself is never opened). */
+private fun str(id: Int, vararg args: Any): String = targetContext.getString(id, *args)
+
 @RunWith(AndroidJUnit4::class)
 class CameraPermissionCardTest {
     @get:Rule val rule = createComposeRule()
@@ -27,35 +29,34 @@ class CameraPermissionCardTest {
         rule.setContent { SthiraTheme { PermissionCard(state, onAsk = { asks++ }, onSettings = { settings++ }) } }
     }
 
-    private val why = "Sthira watches the head and shoulders to count each stand. The video is processed on this phone only: " +
-        "it is never uploaded, and the app has no internet access."
+    private val why get() = str(R.string.pose_perm_why)
 
     @Test
     fun notAskedExplainsAndAsks() {
         show(Permission.NotAsked)
-        rule.onNode(hasText("Camera needed for this test")).assertExists()
+        rule.onNode(hasText(str(R.string.pose_perm_needed_title))).assertExists()
         rule.onNode(hasText(why)).assertExists()
-        rule.onNode(hasText("Allow camera") and hasClickAction()).tap()
+        rule.onNode(hasText(str(R.string.pose_perm_allow)) and hasClickAction()).tap()
         assertEquals(1, asks)
-        rule.onNode(hasText("Open settings")).assertDoesNotExist()
+        rule.onNode(hasText(str(R.string.pose_perm_open_settings))).assertDoesNotExist()
     }
 
     @Test
     fun deniedOnceOffersAllowAgain() {
         show(Permission.Denied)
-        rule.onNode(hasText("Camera permission is off")).assertExists()
-        rule.onNode(hasText("Allow camera") and hasClickAction()).tap()
+        rule.onNode(hasText(str(R.string.pose_perm_off_title))).assertExists()
+        rule.onNode(hasText(str(R.string.pose_perm_allow)) and hasClickAction()).tap()
         assertEquals(1, asks)
-        rule.onNode(hasText("Open settings")).assertDoesNotExist()
+        rule.onNode(hasText(str(R.string.pose_perm_open_settings))).assertDoesNotExist()
     }
 
     @Test
     fun permanentlyDeniedOffersSettings() {
         show(Permission.Blocked)
-        rule.onNode(hasText("Camera permission is off")).assertExists()
-        rule.onNode(hasText("Android will not ask again. Open Settings, choose Permissions, then Camera, and allow it.")).assertExists()
-        rule.onNode(hasText("Allow camera")).assertDoesNotExist()
-        rule.onNode(hasText("Open settings") and hasClickAction()).tap()
+        rule.onNode(hasText(str(R.string.pose_perm_off_title))).assertExists()
+        rule.onNode(hasText(str(R.string.pose_perm_blocked))).assertExists()
+        rule.onNode(hasText(str(R.string.pose_perm_allow))).assertDoesNotExist()
+        rule.onNode(hasText(str(R.string.pose_perm_open_settings)) and hasClickAction()).tap()
         assertEquals(1, settings)
         assertEquals(0, asks)
     }
@@ -70,21 +71,21 @@ class CameraDeniedFlowTest {
     fun continueWithoutPermissionShowsTheRationaleCard_andBackLeaves() {
         assumeFalse("CAMERA is granted; this test needs it revoked", cameraGranted())
         rule.openCard("30-second chair stand")
-        rule.type("Participant code", "P07")
-        rule.chip("75-79").tap()
-        rule.chip("Not recorded").tap()
-        rule.eventually { rule.button("Continue to camera").assertIsEnabled() }
-        rule.tapButton("Continue to camera")
-        rule.assertScreen("30-second chair stand")
-        rule.onNode(hasText("Camera needed for this test")).assertExists()
-        rule.onNode(hasText("Allow camera") and hasClickAction()).assertExists() // not tapped: it opens the system dialog
-        rule.onNode(hasText("Start calibration and test")).assertDoesNotExist()
+        rule.type(str(R.string.cs_code_label), "P07")
+        rule.chip(str(R.string.cs_age_75_79)).tap()
+        rule.chip(str(R.string.cs_sex_not_recorded)).tap()
+        rule.eventually { rule.button(str(R.string.cs_continue)).assertIsEnabled() }
+        rule.tapButton(str(R.string.cs_continue))
+        rule.assertScreen(str(R.string.cs_title))
+        rule.onNode(hasText(str(R.string.pose_perm_needed_title))).assertExists()
+        rule.onNode(hasText(str(R.string.pose_perm_allow)) and hasClickAction()).assertExists() // not tapped: it opens the system dialog
+        rule.onNode(hasText(str(R.string.cs_start))).assertDoesNotExist()
         rule.shot("e-01-permission-card")
         rule.tapBackArrow()
         rule.assertHome()
         // Back in: the session is kept, so the card shows again; system back leaves too.
         rule.openCard("30-second chair stand")
-        rule.onNode(hasText("Camera needed for this test")).assertExists()
+        rule.onNode(hasText(str(R.string.pose_perm_needed_title))).assertExists()
         rule.systemBack()
         rule.assertHome()
     }

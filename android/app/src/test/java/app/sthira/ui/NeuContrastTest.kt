@@ -40,6 +40,48 @@ class NeuContrastTest {
     }
 
     @Test
+    fun `every text token keeps AA on the bg and surface tokens in both themes`() {
+        listOf(LightTokens, DarkTokens).forEach { t ->
+            listOf("bg" to t.bg, "surface" to t.surface).forEach { (ground, g) ->
+                textTokens(t).forEach { (name, color) ->
+                    val ratio = Contrast.ratio(rgb(color), rgb(g))
+                    assertTrue("${if (t.isDark) "dark" else "light"} $name on $ground = ${"%.2f".format(ratio)}", ratio >= Contrast.AA_TEXT)
+                }
+            }
+        }
+    }
+
+    @Test
+    fun `the palette is black and white with the soft base equal to the screen colour`() {
+        assertEquals(Contrast.BLACK, rgb(LightTokens.text))
+        assertEquals(Contrast.BLACK, rgb(LightTokens.primary))
+        assertEquals(Contrast.WHITE, rgb(LightTokens.surface))
+        assertEquals(Contrast.WHITE, rgb(DarkTokens.text))
+        assertEquals(Contrast.WHITE, rgb(DarkTokens.primary))
+        assertEquals(Neu.LIGHT_BASE, rgb(LightTokens.bg))
+        assertEquals(Neu.DARK_BASE, rgb(DarkTokens.bg))
+    }
+
+    @Test
+    fun `strong borders are at least 3 to 1 on bg and surface`() {
+        listOf(LightTokens, DarkTokens).forEach { t ->
+            listOf(t.bg, t.surface).forEach { g ->
+                val ratio = Contrast.ratio(rgb(t.borderStrong), rgb(g))
+                assertTrue("${t.isDark} borderStrong = ${"%.2f".format(ratio)}", ratio >= Contrast.AA_UI)
+            }
+        }
+    }
+
+    @Test
+    fun `status colours keep AA on their own tinted fills`() {
+        listOf(LightTokens, DarkTokens).forEach { t ->
+            listOf(t.text to t.warnBg, t.text to t.successBg, t.danger to t.surface).forEach { (fg, g) ->
+                assertTrue(Contrast.ratio(rgb(fg), rgb(g)) >= Contrast.AA_TEXT)
+            }
+        }
+    }
+
+    @Test
     fun `camera overlay panels keep AA for every text token over a black or a white frame`() {
         listOf(LightTokens, DarkTokens).forEach { t ->
             val failures = textTokens(t).mapNotNull { (name, color) ->
@@ -64,7 +106,7 @@ class NeuContrastTest {
     fun `outlines of fields, checkboxes and selected chips are at least 3 to 1 against the base`() {
         listOf(LightTokens, DarkTokens).forEach { t ->
             // Muted outlines the fields and unchecked boxes, primary the selected chips and checked boxes,
-            // danger an invalid chip. borderStrong is only 2.85:1 in the light theme, so it is decoration only.
+            // danger an invalid chip. borderStrong also passes 3:1 (checked below).
             listOf(t.muted, t.primary, t.danger).forEach {
                 assertTrue("${t.isDark} ${Integer.toHexString(rgb(it))}", Contrast.ratio(rgb(it), base(t)) >= Contrast.AA_UI)
             }

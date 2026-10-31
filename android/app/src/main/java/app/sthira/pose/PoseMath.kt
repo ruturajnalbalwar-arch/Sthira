@@ -15,7 +15,7 @@ object PoseMapper {
      * Converts the first detected person to engine landmarks. Returns an empty list ("no person")
      * when there is no person, the count is not 33, or any value is not finite.
      * [unmirror] flips x back for the front camera: the analysed bitmap is mirrored so the overlay
-     * matches the selfie preview, but saved landmarks are never mirrored (same as the web app).
+     * matches the selfie preview, but the counter always gets unmirrored landmarks (same as the web app).
      */
     fun toLandmarks(person: List<RawLandmark>?, unmirror: Boolean): List<Landmark> {
         if (person == null || person.size != LANDMARK_COUNT) return emptyList()

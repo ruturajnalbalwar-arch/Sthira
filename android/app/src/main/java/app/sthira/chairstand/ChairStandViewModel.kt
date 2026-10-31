@@ -1,20 +1,17 @@
 package app.sthira.chairstand
 
 import android.app.Application
-import android.net.Uri
 import android.os.SystemClock
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import app.sthira.engine.PoseFrame
+import app.sthira.R
 import app.sthira.pose.CameraStatus
 import app.sthira.pose.FrameClock
 import app.sthira.pose.Lens
 import app.sthira.pose.PoseSample
-import app.sthira.record.CaptureInfo
-import app.sthira.record.CaptureIssue
-import app.sthira.record.RecordingFormat
-import app.sthira.record.RecordingStore
-import app.sthira.record.SaveResult
+import app.sthira.pose.PoseTracker
+import app.sthira.ui.common.UiText
+import app.sthira.ui.common.uiText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
@@ -25,15 +22,15 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.io.IOException
-import java.time.Instant
+import kotlin.math.ceil
+import kotlin.math.round
 
 /**
  * Chair-stand screen. Every change to the run goes through one inbox processed by a single
  * coroutine, so camera frames (MediaPipe thread), clock ticks and taps never race.
- * Nothing about landmarks or the participant is logged.
+ * Nothing about landmarks or the participant is logged or saved.
  */
 class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
-    private val store = RecordingStore(app.filesDir)
     private val config: ChairStandConfig?
     private val machine: RunMachine?
 
@@ -48,15 +45,20 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
         data class Sample(val sample: PoseSample, val nowNs: Long) : Msg
         data class Tick(val nowNs: Long) : Msg
         data class Ui(val event: ChairStandEvent) : Msg
-        data class Export(val fileName: String, val target: Uri) : Msg
     }
 
     private val inbox = Channel<Msg>(Channel.UNLIMITED)
 
+    /**
+     * Created with the screen, so the pose model loads while the setup form is open and the skeleton
+     * shows on the first camera frame. Shared by both lenses; released in [onCleared].
+     */
+    val tracker = PoseTracker(app, ::onSample) {
+        onEvent(ChairStandEvent.Camera(CameraStatus.Failed(uiText(R.string.pose_error_tracking_stopped), trackingStopped = true)))
+    }
+
     // Confined to the inbox coroutine.
     private var run = RunState()
-    private val recordedFrames = ArrayList<PoseFrame>()
-    private var startedAt: String? = null
 
     init {
         val load = loadConfig(app)
@@ -71,7 +73,6 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
                 inbox.trySend(Msg.Tick(SystemClock.elapsedRealtimeNanos()))
             }
         }
-        inbox.trySend(Msg.Ui(ChairStandEvent.DismissMessage))
     }
 
     fun onEvent(event: ChairStandEvent) {
@@ -85,17 +86,14 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     /** Called on the MediaPipe result thread. */
-    fun onSample(sample: PoseSample) {
+    private fun onSample(sample: PoseSample) {
         _overlay.value = sample
         inbox.trySend(Msg.Sample(sample, SystemClock.elapsedRealtimeNanos()))
     }
 
-    fun export(fileName: String, target: Uri) {
-        inbox.trySend(Msg.Export(fileName, target))
-    }
-
     override fun onCleared() {
         inbox.close()
+        tracker.close()
         super.onCleared()
     }
 
@@ -103,27 +101,12 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
         val m = machine ?: return
         val before = run
         when (msg) {
-            is Msg.Sample -> onFrame(m, msg)
+            is Msg.Sample -> run = m.onFrame(run, msg.sample, msg.nowNs)
             is Msg.Tick -> if (run.isRunning) run = m.onTick(run, msg.nowNs) else return
             is Msg.Ui -> onUi(m, msg.event)
-            is Msg.Export -> onExport(msg)
         }
         if (before.phase.stage != Stage.Done && run.phase.stage == Stage.Done) finishRun()
         publish()
-    }
-
-    private fun onFrame(m: RunMachine, msg: Msg.Sample) {
-        val wasStarted = run.originNs != null
-        val out = m.onFrame(run, msg.sample, msg.nowNs)
-        run = out.state
-        if (!wasStarted && run.originNs != null) startedAt = Instant.now().toString()
-        val frame = out.frame ?: return
-        if (_state.value.session?.recording == null) return
-        if (recordedFrames.size >= RecordingFormat.MAX_FRAMES) {
-            run = m.interrupt(run, msg.nowNs, CaptureIssue.FrameLimit)
-            return
-        }
-        recordedFrames.add(frame)
     }
 
     private fun onUi(m: RunMachine, event: ChairStandEvent) {
@@ -134,38 +117,34 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
             ChairStandEvent.Submit -> submit()
             ChairStandEvent.EditSession -> if (!run.isRunning) {
                 run = m.reset(run)
-                _state.update { it.copy(session = null, result = null, recording = RecordingView.Off, camera = CameraStatus.Starting) }
+                _state.update { it.copy(session = null, result = null, camera = CameraStatus.Starting) }
             }
             is ChairStandEvent.Camera -> onCamera(m, event.status, now)
             ChairStandEvent.SwitchLens -> if (!run.isRunning) {
-                run = run.copy(clock = FrameClock())
+                // The other lens has its own capture clock and its own picture: start both afresh.
+                run = run.copy(clock = FrameClock(), personDetected = false)
+                _overlay.value = null
                 _state.update { it.copy(lens = if (it.lens == Lens.Back) Lens.Front else Lens.Back) }
             }
             ChairStandEvent.StartTest -> if (ui.session != null && ui.camera is CameraStatus.Live && !run.isRunning) {
-                recordedFrames.clear()
-                startedAt = null
                 run = m.requestStart(m.reset(run))
-                _state.update { it.copy(result = null, recording = RecordingView.Off) }
+                _state.update { it.copy(result = null) }
             }
             ChairStandEvent.Stop -> run = m.stop(run, now)
             ChairStandEvent.RedoCalibration -> run = m.redoCalibration(run, now)
-            ChairStandEvent.Cancel -> {
-                run = m.cancel(run)
-                recordedFrames.clear()
-            }
+            ChairStandEvent.Cancel -> run = m.cancel(run)
             ChairStandEvent.RunAgain -> if (!run.phase.stage.isActive) {
                 run = m.reset(run)
-                recordedFrames.clear()
-                _state.update { it.copy(result = null, recording = RecordingView.Off) }
+                _state.update { it.copy(result = null) }
             }
             ChairStandEvent.AppHidden -> if (run.isRunning) run = m.interrupt(run, now, CaptureIssue.AppHidden)
-            is ChairStandEvent.Delete -> delete(event.fileName)
-            ChairStandEvent.DismissMessage -> _state.update { it.copy(message = null, savedRecordings = store.list()) }
         }
     }
 
     private fun onCamera(m: RunMachine, status: CameraStatus, now: Long) {
         if (status is CameraStatus.Starting && !run.isRunning) run = run.copy(clock = FrameClock())
+        // A stopped or restarting camera must not leave its last skeleton on screen.
+        if (status !is CameraStatus.Live) _overlay.value = null
         if (status is CameraStatus.Failed && run.isRunning) {
             val issue = if (status.trackingStopped) CaptureIssue.DetectionFailed else CaptureIssue.CameraEnded
             run = m.interrupt(run, now, issue)
@@ -180,42 +159,11 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    private fun delete(fileName: String) {
-        val deleted = store.delete(fileName)
-        _state.update { s ->
-            val recording = (s.recording as? RecordingView.Saved)?.takeIf { it.recording.fileName == fileName }
-            s.copy(
-                savedRecordings = store.list(),
-                recording = if (recording != null) RecordingView.Off else s.recording,
-                message = if (deleted) "Recording deleted from this phone." else "That recording was already gone.",
-            )
-        }
-    }
-
-    private fun onExport(msg: Msg.Export) {
-        val ok = store.export(msg.fileName, getApplication<Application>().contentResolver, msg.target)
-        val text = if (ok) "Exported. Delete the copy on this phone when you no longer need it." else "Export failed. Nothing was written."
-        _state.update { it.copy(message = text) }
-    }
-
     private fun finishRun() {
         val cfg = config ?: return
         val session = _state.value.session ?: return
         val result = ChairStandResults.resultFor(run.live.setup, cfg, session)
-        val meta = session.recording
-        if (meta == null) {
-            _state.update { it.copy(result = result, recording = RecordingView.Off) }
-            return
-        }
-        _state.update { it.copy(result = result, recording = RecordingView.Saving) }
-        val capture = CaptureInfo(startedAt ?: Instant.now().toString(), run.imageWidth, run.imageHeight, run.issues.toList())
-        val recording = when (val saved = store.save(meta, capture, run.phase.phases, recordedFrames.toList())) {
-            is SaveResult.Saved -> RecordingView.Saved(saved.recording)
-            is SaveResult.Invalid -> RecordingView.Invalid(saved.errors)
-            is SaveResult.Failed -> RecordingView.Failed(saved.message)
-        }
-        recordedFrames.clear()
-        _state.update { it.copy(recording = recording, savedRecordings = store.list()) }
+        _state.update { it.copy(result = result) }
     }
 
     private fun publish() {
@@ -229,16 +177,17 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
                 startRequested = r.startRequested,
                 countdownS = PhaseMachine.countdown(r.phase, r.nowT, cfg.phaseConfig),
                 elapsedS = elapsed?.toInt(),
-                remainingS = elapsed?.let { kotlin.math.ceil(cfg.protocol.chairStandDurationS - it).toInt().coerceAtLeast(0) },
+                remainingS = elapsed?.let { ceil(cfg.protocol.chairStandDurationS - it).toInt().coerceAtLeast(0) },
                 count = ChairStandResults.countView(r.live),
-                stats = LiveStats(r.fps.fps, r.personDetected, recordedFrames.size),
+                // Whole fps only (as displayed), so an unchanged screen is not re-emitted on every frame.
+                stats = LiveStats(r.fps.fps?.let { round(it) }, r.personDetected),
                 issues = r.issues.toList(),
             )
         }
     }
 
     private fun initialState(load: ConfigLoad): ChairStandUiState = when (load) {
-        is ConfigLoad.Unavailable -> ChairStandUiState(unavailable = load.errors)
+        is ConfigLoad.Unavailable -> ChairStandUiState(unavailable = load.errors.map { UiText.Raw(it) })
         is ConfigLoad.Ok -> ChairStandUiState(
             durationS = load.config.protocol.chairStandDurationS,
             normsNote = load.config.normsNote,

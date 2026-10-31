@@ -4,9 +4,7 @@ import app.sthira.engine.CounterResult
 import app.sthira.engine.ProtocolConstants
 import app.sthira.engine.ProtocolResult
 import app.sthira.engine.createCounter
-import app.sthira.engine.norms.NormLookup
 import app.sthira.engine.norms.NormsParseResult
-import app.sthira.engine.norms.lookupChairStandNorm
 import app.sthira.engine.norms.parseChairStandNorms
 import app.sthira.engine.readProtocolConstants
 
@@ -19,10 +17,7 @@ data class ChairStandConfig(
     val phaseConfig: PhaseConfig
         get() = PhaseConfig(protocol.calibrationStandS, protocol.calibrationSitS, protocol.chairStandDurationS)
 
-    fun normLookup(session: Session): NormLookup = when (val n = norms) {
-        is NormsParseResult.Failed -> NormLookup.NotAvailable("the CDC reference file could not be read.")
-        is NormsParseResult.Ok -> lookupChairStandNorm(n.norms, session.ageBand.label, session.sex)
-    }
+    fun normChoice(session: Session): NormChoice = NormChooser.choose(norms, session.ageBand, session.sex)
 
     val normsNote: String?
         get() = (norms as? NormsParseResult.Ok)?.norms?.note

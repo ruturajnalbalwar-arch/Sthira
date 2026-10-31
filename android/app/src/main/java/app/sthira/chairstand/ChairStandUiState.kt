@@ -4,8 +4,7 @@ import app.sthira.engine.ChairStandSummary
 import app.sthira.engine.norms.Verdict
 import app.sthira.pose.CameraStatus
 import app.sthira.pose.Lens
-import app.sthira.record.CaptureIssue
-import app.sthira.record.SavedRecording
+import app.sthira.ui.common.UiText
 
 /** What the board shows about the count right now. */
 sealed interface CountView {
@@ -18,25 +17,31 @@ sealed interface CountView {
     data class Finished(val summary: ChairStandSummary) : CountView
 }
 
-/** The result card after the run. [noCount] explains a run without a score. */
-data class ResultView(val summary: ChairStandSummary?, val verdict: Verdict?, val noCount: String?)
+/**
+ * The result card after the run. [noCount] explains a run without a score. [norm] is the CDC row used
+ * (or why none applies) and [notComparedReasons] says why a [Verdict.NotCompared] run is not compared.
+ */
+data class ResultView(
+    val summary: ChairStandSummary?,
+    val verdict: Verdict?,
+    val noCount: UiText?,
+    val norm: NormChoice? = null,
+    val notComparedReasons: List<UiText> = emptyList(),
+)
 
-sealed interface RecordingView {
-    data object Off : RecordingView
-    data object Saving : RecordingView
-    data class Saved(val recording: SavedRecording) : RecordingView
-    data class Invalid(val errors: List<String>) : RecordingView
-    data class Failed(val message: String) : RecordingView
+/** [fps] is rounded to whole frames per second, so the screen state does not change on every frame. */
+data class LiveStats(val fps: Double?, val personDetected: Boolean) {
+    /** Kept so the debug font-scale previews still build; nothing is recorded any more. */
+    @Suppress("UNUSED_PARAMETER")
+    constructor(fps: Double?, personDetected: Boolean, framesRecorded: Int) : this(fps, personDetected)
 }
 
-data class LiveStats(val fps: Double?, val personDetected: Boolean, val framesRecorded: Int)
-
 data class ChairStandUiState(
-    val unavailable: List<String>? = null,
+    val unavailable: List<UiText>? = null,
     val durationS: Double = 0.0,
     val normsNote: String? = null,
     val form: SetupForm = SetupForm(),
-    val formErrors: Map<SetupField, String> = emptyMap(),
+    val formErrors: Map<SetupField, UiText> = emptyMap(),
     val session: Session? = null,
     val lens: Lens = Lens.Back,
     val camera: CameraStatus = CameraStatus.Starting,
@@ -46,15 +51,15 @@ data class ChairStandUiState(
     val elapsedS: Int? = null,
     val remainingS: Int? = null,
     val count: CountView = CountView.Waiting,
-    val stats: LiveStats = LiveStats(null, false, 0),
+    val stats: LiveStats = LiveStats(null, false),
     val issues: List<CaptureIssue> = emptyList(),
     val result: ResultView? = null,
-    val recording: RecordingView = RecordingView.Off,
-    val savedRecordings: List<SavedRecording> = emptyList(),
-    val message: String? = null,
 ) {
     val isRunning: Boolean get() = startRequested || stage.isActive
     val personLost: Boolean get() = stage.isActive && camera is CameraStatus.Live && !stats.personDetected
+
+    /** Start was tapped but nobody is in view yet: calibration waits for a detected person. */
+    val waitingForPerson: Boolean get() = startRequested && stage == Stage.Idle && !stats.personDetected
 }
 
 sealed interface ChairStandEvent {
@@ -69,6 +74,4 @@ sealed interface ChairStandEvent {
     data object Cancel : ChairStandEvent
     data object RunAgain : ChairStandEvent
     data object AppHidden : ChairStandEvent
-    data class Delete(val fileName: String) : ChairStandEvent
-    data object DismissMessage : ChairStandEvent
 }

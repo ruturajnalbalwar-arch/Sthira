@@ -84,8 +84,8 @@ fun AppRule.assertScreen(title: String) {
 }
 
 fun AppRule.assertHome() {
-    onNodeWithTextExact("Tests").assertExists()
-    onNode(hasText("Sthira") and isHeading()).assertExists()
+    onNodeWithTextExact(targetContext.getString(R.string.home_tests_heading)).assertExists()
+    onNode(hasText(targetContext.getString(R.string.home_brand)) and isHeading()).assertExists()
 }
 
 private fun AppRule.onNodeWithTextExact(text: String) = onNode(hasText(text))
@@ -96,7 +96,7 @@ fun AppRule.openCard(title: String) {
 }
 
 fun AppRule.tapBackArrow() {
-    onNode(hasContentDescription("Back") and hasClickAction()).tap()
+    onNode(hasContentDescription(targetContext.getString(R.string.common_back)) and hasClickAction()).tap()
     waitForIdle()
 }
 
