@@ -2,7 +2,6 @@
 <!-- Shared UI text: top bar, text size, theme and language controls. Marathi. -->
 <resources>
     <string name="common_back">मागे</string>
-    <string name="common_close">बंद करा</string>
 
     <string name="common_text_smaller">अक्षरे लहान करा</string>
     <string name="common_text_larger">अक्षरे मोठी करा</string>
@@ -13,11 +12,24 @@
     <string name="common_theme_system">फोनप्रमाणे</string>
     <string name="common_theme_light">फिकट</string>
     <string name="common_theme_dark">गडद</string>
-    <string name="common_theme_change">रंगरूप बदला. सध्या: %1$s</string>
 
     <string name="common_language_title">भाषा</string>
     <string name="common_language_phone">फोनची भाषा</string>
     <string name="common_language_phone_help">या फोनमध्ये असलेलीच भाषा वापरा.</string>
     <string name="common_language_change">भाषा बदला. सध्या: %1$s</string>
     <string name="common_selected">निवडलेली</string>
+
+    <string name="common_settings_title">सेटिंग्ज</string>
+    <string name="common_start">सुरू करा</string>
+    <string name="common_step_of">%2$d पैकी पायरी %1$d</string>
+    <string name="common_on">चालू</string>
+    <string name="common_off">बंद</string>
+    <string name="common_text_size_title">अक्षरांचा आकार</string>
+    <string name="common_text_smaller_short">लहान</string>
+    <string name="common_text_larger_short">मोठा</string>
+    <string name="common_text_size_sample">अक्षरे इतकी मोठी दिसतील.</string>
+    <string name="common_voice_title">बोलून सूचना</string>
+    <string name="common_voice_help">पायऱ्या मोठ्याने वाचून दाखवा</string>
+    <string name="common_about_title">ॲपबद्दल</string>
+    <string name="common_about_offline">इंटरनेटशिवाय चालते. या ॲपला इंटरनेटची परवानगी नाही.</string>
 </resources>

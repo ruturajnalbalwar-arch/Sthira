@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="common_back">ਪਿੱਛੇ</string>
-    <string name="common_close">ਬੰਦ ਕਰੋ</string>
     <string name="common_text_smaller">ਅੱਖਰ ਛੋਟੇ ਕਰੋ</string>
     <string name="common_text_larger">ਅੱਖਰ ਵੱਡੇ ਕਰੋ</string>
     <string name="common_text_size_percent">%1$d%%</string>
@@ -10,10 +9,23 @@
     <string name="common_theme_system">ਫ਼ੋਨ ਵਾਂਗ ਹੀ</string>
     <string name="common_theme_light">ਲਾਈਟ</string>
     <string name="common_theme_dark">ਡਾਰਕ</string>
-    <string name="common_theme_change">ਥੀਮ ਬਦਲੋ। ਹੁਣ: %1$s</string>
     <string name="common_language_title">ਭਾਸ਼ਾ</string>
     <string name="common_language_phone">ਫ਼ੋਨ ਦੀ ਭਾਸ਼ਾ</string>
     <string name="common_language_phone_help">ਇਸ ਫ਼ੋਨ ਵਾਲੀ ਭਾਸ਼ਾ ਹੀ ਵਰਤੋ।</string>
     <string name="common_language_change">ਭਾਸ਼ਾ ਬਦਲੋ। ਹੁਣ: %1$s</string>
     <string name="common_selected">ਚੁਣੀ ਹੋਈ</string>
+
+    <string name="common_settings_title">ਸੈਟਿੰਗਾਂ</string>
+    <string name="common_start">ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="common_step_of">%2$d ਵਿੱਚੋਂ ਕਦਮ %1$d</string>
+    <string name="common_on">ਚਾਲੂ</string>
+    <string name="common_off">ਬੰਦ</string>
+    <string name="common_text_size_title">ਅੱਖਰਾਂ ਦਾ ਆਕਾਰ</string>
+    <string name="common_text_smaller_short">ਛੋਟਾ</string>
+    <string name="common_text_larger_short">ਵੱਡਾ</string>
+    <string name="common_text_size_sample">ਅੱਖਰ ਇੰਨੇ ਵੱਡੇ ਦਿਸਣਗੇ।</string>
+    <string name="common_voice_title">ਬੋਲ ਕੇ ਹਦਾਇਤਾਂ</string>
+    <string name="common_voice_help">ਕਦਮ ਉੱਚੀ ਪੜ੍ਹ ਕੇ ਸੁਣਾਓ</string>
+    <string name="common_about_title">ਐਪ ਬਾਰੇ</string>
+    <string name="common_about_offline">ਇੰਟਰਨੈੱਟ ਤੋਂ ਬਿਨਾਂ ਚੱਲਦੀ ਹੈ। ਇਸ ਐਪ ਕੋਲ ਇੰਟਰਨੈੱਟ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ।</string>
 </resources>

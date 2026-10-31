@@ -2,11 +2,11 @@
 <!-- 30-second chair-stand test screen. Tamil. -->
 <resources>
     <string name="cs_title">30 வினாடி நாற்காலி எழுதல் சோதனை</string>
-    <string name="cs_setup_intro">தலை, தோள் உயரத்தை வைத்து எண்ணப்படுகிறது, எனவே தளர்வான உடை இருந்தாலும் பரவாயில்லை. பங்கேற்பாளர் குறியீடுகளைப் பயன்படுத்துங்கள், பெயர்களை ஒருபோதும் வேண்டாம்.</string>
     <string name="cs_privacy_row">எதுவும் சேமிக்கப்படுவதில்லை, அனுப்பப்படுவதில்லை: உடல் நிலை கண்காணிப்பு இந்த போனிலேயே நடக்கிறது.</string>
+    <string name="cs_step_of">%2$d இல் படி %1$d</string>
+    <string name="cs_step_person">நபரைப் பற்றி</string>
+    <string name="cs_step_camera">கேமரா</string>
 
-    <string name="cs_code_label">பங்கேற்பாளர் குறியீடு</string>
-    <string name="cs_code_help">நீங்கள் தேர்வு செய்யும் குறியீடு, உதா. A11. ஒருபோதும் பெயர் வேண்டாம்.</string>
     <string name="cs_age_label">வயது பிரிவு</string>
     <string name="cs_age_help">60 வயதும் அதற்கு மேலும் உள்ளவர்களுக்கு CDC மதிப்புகள் உள்ளன. 80+ க்கு CDC 80-84 மதிப்பு பயன்படுத்தப்படும்.</string>
     <string name="cs_sex_label">பாலினம்</string>
@@ -19,29 +19,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">பெண்</string>
     <string name="cs_sex_male">ஆண்</string>
-    <string name="cs_sex_not_recorded">பதிவு செய்யவில்லை</string>
+    <string name="cs_sex_not_recorded">சொல்ல விரும்பவில்லை</string>
 
-    <string name="cs_error_code_empty">பங்கேற்பாளர் குறியீட்டை உள்ளிடுங்கள்</string>
-    <string name="cs_error_code_too_long">அதிகபட்சம் %1$d எழுத்துகள் மட்டும் பயன்படுத்துங்கள்</string>
-    <string name="cs_error_code_chars">எழுத்துகள், எண்கள், - அல்லது _ மட்டும் பயன்படுத்துங்கள்</string>
     <string name="cs_error_age_band">வயது பிரிவைத் தேர்வு செய்யுங்கள்</string>
-    <string name="cs_error_sex">ஒன்றைத் தேர்வு செய்யுங்கள், அல்லது பதிவு செய்யவில்லை</string>
+    <string name="cs_error_sex">ஒன்றைத் தேர்வு செய்யுங்கள், அல்லது சொல்ல விரும்பவில்லை</string>
 
     <string name="cs_continue_blocked">தொடர, இவற்றைச் சேருங்கள்: %1$s.</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">பங்கேற்பாளர் குறியீடு</string>
     <string name="cs_blocker_age">வயது பிரிவு</string>
-    <string name="cs_blocker_sex">பாலினம் (அல்லது பதிவு செய்யவில்லை)</string>
-    <string name="cs_continue">கேமராவுக்குத் தொடருங்கள்</string>
+    <string name="cs_blocker_sex">பாலினம்</string>
+    <string name="cs_continue">அடுத்து</string>
 
     <string name="cs_unavailable_title">நாற்காலி எழுதல் சோதனை கிடைக்கவில்லை</string>
     <string name="cs_unavailable_body">params.json இல் சோதனை நேர அளவுகள் இல்லை அல்லது சரியில்லை, எனவே சோதனைக்கு நேரம் அளக்க முடியாது.</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
-    <string name="cs_edit_session">அமர்வைத் திருத்து</string>
+    <string name="cs_edit_session">விவரங்களைத் திருத்து</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">மீண்டும் செய்</string>
+    <string name="cs_new_person">புதிய நபர்</string>
     <string name="cs_waiting_camera">கேமராவுக்காகக் காத்திருக்கிறது…</string>
-    <string name="cs_start">கேலிப்ரேஷனையும் சோதனையையும் தொடங்கு</string>
+    <string name="cs_start">தொடங்கு</string>
     <string name="cs_stop">நிறுத்து</string>
     <string name="cs_redo_calibration">கேலிப்ரேஷனை மீண்டும் செய்</string>
     <string name="cs_cancel_test">சோதனையை ரத்து செய்</string>
@@ -57,7 +54,7 @@
     <string name="cs_stage_sit">உட்கார்ந்து, அசையாமல் இருங்கள்</string>
     <string name="cs_stage_go">தொடங்குங்கள்! முடிந்தவரை பல முறை எழுந்து உட்காருங்கள்</string>
     <string name="cs_stage_done">நிறுத்துங்கள். சோதனை முடிந்தது</string>
-    <string name="cs_idle_hint">தலை முதல் கால் வரை முழு உடலும் நாற்காலியும், நிற்கும்போதும் உட்காரும்போதும் தெரிய வேண்டும்</string>
+    <string name="cs_camera_checklist">முழு உடலும் நாற்காலியும் தெரிய வேண்டும், போனை 2-3 மீட்டர் தூரத்தில் வையுங்கள்</string>
     <string name="cs_step_into_view">கேமராவில் தெரியும்படி வாருங்கள்: தலை முதல் கால் வரை முழு உடல்</string>
 
     <string name="cs_pill_person_lost">நபர் தெரியவில்லை: தலை முதல் கால் வரை முழு உடலும் தெரிய வேண்டும்</string>
@@ -123,7 +120,7 @@
     <string name="cs_reason_unreliable">எண்ணிக்கை நம்பகமானதல்ல: கேமராவில் பல எழுதல்கள் தெளிவாகத் தெரியவில்லை. சோதனையை மீண்டும் செய்யுங்கள்.</string>
     <string name="cs_reason_low_fps">நம்பகமான எண்ணிக்கைக்கு கேமரா மிகவும் மெதுவாக இயங்கியது. மற்ற ஆப்களை மூடிவிட்டு சோதனையை மீண்டும் செய்யுங்கள்.</string>
     <string name="cs_no_cdc_under_60">60 வயதுக்குக் கீழ் உள்ளவர்களுக்கு CDC நாற்காலி எழுதல் மதிப்பு இல்லை.</string>
-    <string name="cs_no_cdc_sex">CDC பெண்களுக்கும் ஆண்களுக்கும் தனித்தனி மதிப்புகளைத் தருகிறது, ஆனால் பாலினம் பதிவு செய்யப்படவில்லை.</string>
+    <string name="cs_no_cdc_sex">CDC பெண்களுக்கும் ஆண்களுக்கும் தனித்தனி மதிப்புகளைத் தருகிறது, ஆனால் பாலினம் சொல்லப்படவில்லை.</string>
     <string name="cs_no_cdc_value">CDC அட்டவணையில் %1$s வயதுக்கு மதிப்பு இல்லை.</string>
     <string name="cs_no_cdc_file">CDC குறிப்புக் கோப்பைப் படிக்க முடியவில்லை.</string>
 

@@ -2,11 +2,11 @@
 <!-- 30-second chair-stand test screen. Marathi. -->
 <resources>
     <string name="cs_title">30 सेकंद खुर्चीवरून उठणे</string>
-    <string name="cs_setup_intro">मोजणी डोके आणि खांद्यांच्या उंचीवरून होते, त्यामुळे सैल कपडे चालतील. व्यक्तीचा कोड वापरा, नाव कधीही नाही.</string>
     <string name="cs_privacy_row">काहीही सेव्ह होत नाही की पाठवले जात नाही: शरीराची ओळख याच फोनवर होते.</string>
+    <string name="cs_step_of">%2$d पैकी पायरी %1$d</string>
+    <string name="cs_step_person">व्यक्तीबद्दल</string>
+    <string name="cs_step_camera">कॅमेरा</string>
 
-    <string name="cs_code_label">व्यक्तीचा कोड</string>
-    <string name="cs_code_help">तुम्ही निवडलेला कोड, जसे A11. नाव कधीही नाही.</string>
     <string name="cs_age_label">वयोगट</string>
     <string name="cs_age_help">CDC ची मूल्ये 60 आणि त्यापेक्षा जास्त वयासाठी आहेत. 80+ साठी CDC चे 80-84 चे मूल्य वापरले जाते.</string>
     <string name="cs_sex_label">लिंग</string>
@@ -19,29 +19,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">स्त्री</string>
     <string name="cs_sex_male">पुरुष</string>
-    <string name="cs_sex_not_recorded">नोंदवले नाही</string>
+    <string name="cs_sex_not_recorded">सांगायचे नाही</string>
 
-    <string name="cs_error_code_empty">व्यक्तीचा कोड लिहा</string>
-    <string name="cs_error_code_too_long">जास्तीत जास्त %1$d अक्षरे वापरा</string>
-    <string name="cs_error_code_chars">फक्त अक्षरे, अंक, - किंवा _ वापरा</string>
     <string name="cs_error_age_band">वयोगट निवडा</string>
-    <string name="cs_error_sex">एक निवडा, किंवा नोंदवले नाही</string>
+    <string name="cs_error_sex">एक निवडा, किंवा सांगायचे नाही</string>
 
     <string name="cs_continue_blocked">पुढे जाण्यासाठी हे भरा: %1$s.</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">व्यक्तीचा कोड</string>
     <string name="cs_blocker_age">वयोगट</string>
-    <string name="cs_blocker_sex">लिंग (किंवा नोंदवले नाही)</string>
-    <string name="cs_continue">कॅमेराकडे पुढे जा</string>
+    <string name="cs_blocker_sex">लिंग</string>
+    <string name="cs_continue">पुढे</string>
 
     <string name="cs_unavailable_title">खुर्चीवरून उठण्याची चाचणी उपलब्ध नाही</string>
     <string name="cs_unavailable_body">params.json मध्ये चाचणीचा कालावधी नाही किंवा चुकीचा आहे, त्यामुळे चाचणीची वेळ मोजता येत नाही.</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
     <string name="cs_edit_session">माहिती बदला</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">पुन्हा करा</string>
+    <string name="cs_new_person">नवीन व्यक्ती</string>
     <string name="cs_waiting_camera">कॅमेराची वाट पाहत आहे…</string>
-    <string name="cs_start">कॅलिब्रेशन आणि चाचणी सुरू करा</string>
+    <string name="cs_start">सुरू करा</string>
     <string name="cs_stop">थांबवा</string>
     <string name="cs_redo_calibration">कॅलिब्रेशन पुन्हा करा</string>
     <string name="cs_cancel_test">चाचणी रद्द करा</string>
@@ -57,7 +54,7 @@
     <string name="cs_stage_sit">खाली बसा आणि स्थिर राहा</string>
     <string name="cs_stage_go">सुरू! जितक्या वेळा जमेल तितक्या वेळा उठा आणि बसा</string>
     <string name="cs_stage_done">थांबा. चाचणी संपली</string>
-    <string name="cs_idle_hint">उभे असताना आणि बसलेले असताना, पूर्ण शरीर, डोक्यापासून पायापर्यंत, आणि खुर्ची दिसली पाहिजे</string>
+    <string name="cs_camera_checklist">पूर्ण शरीर आणि खुर्ची दिसावी, फोन 2-3 मीटर दूर ठेवा</string>
     <string name="cs_step_into_view">कॅमेरासमोर या: पूर्ण शरीर, डोक्यापासून पायापर्यंत</string>
 
     <string name="cs_pill_person_lost">व्यक्ती दिसत नाही: पूर्ण शरीर, डोक्यापासून पायापर्यंत, दिसले पाहिजे</string>
@@ -123,7 +120,7 @@
     <string name="cs_reason_unreliable">मोजणी विश्वासार्ह नाही: कॅमेरावर बऱ्याच वेळा उभे राहणे स्पष्ट दिसले नाही. चाचणी पुन्हा करा.</string>
     <string name="cs_reason_low_fps">कॅमेरा इतका धीमा चालला की मोजणीवर विश्वास ठेवता येत नाही. इतर ॲप्स बंद करा आणि चाचणी पुन्हा करा.</string>
     <string name="cs_no_cdc_under_60">60 पेक्षा कमी वयाच्या लोकांसाठी CDC मध्ये खुर्चीवरून उठण्याचे मूल्य नाही.</string>
-    <string name="cs_no_cdc_sex">CDC मध्ये स्त्रिया आणि पुरुषांची मूल्ये वेगळी आहेत, आणि लिंग नोंदवले नाही.</string>
+    <string name="cs_no_cdc_sex">CDC मध्ये स्त्रिया आणि पुरुषांची मूल्ये वेगळी आहेत, आणि लिंग सांगितले नाही.</string>
     <string name="cs_no_cdc_value">CDC तक्त्यात या वयासाठी मूल्य नाही: %1$s.</string>
     <string name="cs_no_cdc_file">CDC संदर्भ फाइल वाचता आली नाही.</string>
 

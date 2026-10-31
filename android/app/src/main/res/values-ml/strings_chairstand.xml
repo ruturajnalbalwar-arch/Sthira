@@ -2,11 +2,11 @@
 <!-- Malayalam. 30-second chair-stand test screen. -->
 <resources>
     <string name="cs_title">30 സെക്കൻഡ് കസേരയിൽ നിന്ന് എഴുന്നേൽക്കൽ</string>
-    <string name="cs_setup_intro">തലയുടെയും തോളിന്റെയും ഉയരം നോക്കിയാണ് എണ്ണുന്നത്, അതിനാൽ അയഞ്ഞ വസ്ത്രം കുഴപ്പമില്ല. പങ്കെടുക്കുന്നയാളുടെ കോഡ് മാത്രം ഉപയോഗിക്കുക, ഒരിക്കലും പേര് വേണ്ട.</string>
     <string name="cs_privacy_row">ഒന്നും സേവ് ചെയ്യുകയോ അയയ്ക്കുകയോ ഇല്ല: ശരീരനില തിരിച്ചറിയൽ ഈ ഫോണിൽ തന്നെയാണ് നടക്കുന്നത്.</string>
+    <string name="cs_step_of">%2$d ൽ ഘട്ടം %1$d</string>
+    <string name="cs_step_person">വ്യക്തിയെക്കുറിച്ച്</string>
+    <string name="cs_step_camera">ക്യാമറ</string>
 
-    <string name="cs_code_label">പങ്കെടുക്കുന്നയാളുടെ കോഡ്</string>
-    <string name="cs_code_help">നിങ്ങൾ തിരഞ്ഞെടുക്കുന്ന ഒരു കോഡ്, ഉദാ. A11. ഒരിക്കലും പേര് വേണ്ട.</string>
     <string name="cs_age_label">പ്രായ വിഭാഗം</string>
     <string name="cs_age_help">CDC മൂല്യങ്ങൾ 60 വയസ്സും അതിനു മുകളിലും ഉള്ളവർക്ക് മാത്രമാണ്. 80+ ന് CDC യുടെ 80-84 മൂല്യം ഉപയോഗിക്കുന്നു.</string>
     <string name="cs_sex_label">ലിംഗം</string>
@@ -19,29 +19,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">സ്ത്രീ</string>
     <string name="cs_sex_male">പുരുഷൻ</string>
-    <string name="cs_sex_not_recorded">രേഖപ്പെടുത്തിയിട്ടില്ല</string>
+    <string name="cs_sex_not_recorded">പറയാൻ താൽപ്പര്യമില്ല</string>
 
-    <string name="cs_error_code_empty">പങ്കെടുക്കുന്നയാളുടെ കോഡ് നൽകുക</string>
-    <string name="cs_error_code_too_long">പരമാവധി %1$d അക്ഷരങ്ങൾ ഉപയോഗിക്കുക</string>
-    <string name="cs_error_code_chars">അക്ഷരങ്ങൾ, അക്കങ്ങൾ, - അല്ലെങ്കിൽ _ മാത്രം ഉപയോഗിക്കുക</string>
     <string name="cs_error_age_band">പ്രായ വിഭാഗം തിരഞ്ഞെടുക്കുക</string>
-    <string name="cs_error_sex">ഒന്ന് തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ രേഖപ്പെടുത്തിയിട്ടില്ല</string>
+    <string name="cs_error_sex">ഒന്ന് തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ പറയാൻ താൽപ്പര്യമില്ല</string>
 
     <string name="cs_continue_blocked">തുടരാൻ ഇവ ചേർക്കുക: %1$s.</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">പങ്കെടുക്കുന്നയാളുടെ കോഡ്</string>
     <string name="cs_blocker_age">പ്രായ വിഭാഗം</string>
-    <string name="cs_blocker_sex">ലിംഗം (അല്ലെങ്കിൽ രേഖപ്പെടുത്തിയിട്ടില്ല)</string>
-    <string name="cs_continue">ക്യാമറയിലേക്ക് തുടരുക</string>
+    <string name="cs_blocker_sex">ലിംഗം</string>
+    <string name="cs_continue">അടുത്തത്</string>
 
     <string name="cs_unavailable_title">കസേരയിൽ നിന്ന് എഴുന്നേൽക്കൽ പരിശോധന ലഭ്യമല്ല</string>
     <string name="cs_unavailable_body">params.json ൽ പരിശോധനയുടെ സമയദൈർഘ്യങ്ങൾ ഇല്ല അല്ലെങ്കിൽ ശരിയല്ല, അതിനാൽ പരിശോധനയുടെ സമയം അളക്കാൻ കഴിയില്ല.</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
     <string name="cs_edit_session">വിവരങ്ങൾ മാറ്റുക</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">വീണ്ടും ചെയ്യുക</string>
+    <string name="cs_new_person">പുതിയ വ്യക്തി</string>
     <string name="cs_waiting_camera">ക്യാമറയ്ക്കായി കാത്തിരിക്കുന്നു…</string>
-    <string name="cs_start">കാലിബ്രേഷനും പരിശോധനയും തുടങ്ങുക</string>
+    <string name="cs_start">തുടങ്ങുക</string>
     <string name="cs_stop">നിർത്തുക</string>
     <string name="cs_redo_calibration">കാലിബ്രേഷൻ വീണ്ടും ചെയ്യുക</string>
     <string name="cs_cancel_test">പരിശോധന റദ്ദാക്കുക</string>
@@ -57,7 +54,7 @@
     <string name="cs_stage_sit">ഇരിക്കുക, അനങ്ങാതിരിക്കുക</string>
     <string name="cs_stage_go">തുടങ്ങൂ! കഴിയുന്നത്ര തവണ എഴുന്നേൽക്കുകയും ഇരിക്കുകയും ചെയ്യുക</string>
     <string name="cs_stage_done">നിർത്തുക. പരിശോധന കഴിഞ്ഞു</string>
-    <string name="cs_idle_hint">നിൽക്കുമ്പോഴും ഇരിക്കുമ്പോഴും തല മുതൽ കാൽ വരെ ശരീരം മുഴുവനും കസേരയും കാണണം</string>
+    <string name="cs_camera_checklist">ശരീരം മുഴുവനും കസേരയും കാണണം, ഫോൺ 2-3 മീറ്റർ അകലെ വയ്ക്കുക</string>
     <string name="cs_step_into_view">ക്യാമറയിൽ കാണുന്നിടത്തേക്ക് വരൂ: തല മുതൽ കാൽ വരെ ശരീരം മുഴുവൻ</string>
 
     <string name="cs_pill_person_lost">ആളെ കാണുന്നില്ല: തല മുതൽ കാൽ വരെ ശരീരം മുഴുവൻ കാണണം</string>
@@ -123,7 +120,7 @@
     <string name="cs_reason_unreliable">എണ്ണം വിശ്വസനീയമല്ല: ക്യാമറയിൽ വളരെയധികം എഴുന്നേൽക്കലുകൾ വ്യക്തമായിരുന്നില്ല. പരിശോധന വീണ്ടും ചെയ്യുക.</string>
     <string name="cs_reason_low_fps">വിശ്വസിക്കാവുന്ന എണ്ണത്തിന് ക്യാമറ വളരെ പതുക്കെയായിരുന്നു. മറ്റ് ആപ്പുകൾ അടച്ച് പരിശോധന വീണ്ടും ചെയ്യുക.</string>
     <string name="cs_no_cdc_under_60">60 വയസ്സിൽ താഴെയുള്ളവർക്ക് CDC യിൽ കസേരയിൽ നിന്ന് എഴുന്നേൽക്കൽ മൂല്യം ഇല്ല.</string>
-    <string name="cs_no_cdc_sex">CDC സ്ത്രീകൾക്കും പുരുഷന്മാർക്കും വെവ്വേറെ മൂല്യങ്ങൾ നൽകുന്നു, പക്ഷേ ലിംഗം രേഖപ്പെടുത്തിയിട്ടില്ല.</string>
+    <string name="cs_no_cdc_sex">CDC സ്ത്രീകൾക്കും പുരുഷന്മാർക്കും വെവ്വേറെ മൂല്യങ്ങൾ നൽകുന്നു, പക്ഷേ ലിംഗം പറഞ്ഞിട്ടില്ല.</string>
     <string name="cs_no_cdc_value">CDC പട്ടികയിൽ %1$s പ്രായത്തിന് മൂല്യം ഇല്ല.</string>
     <string name="cs_no_cdc_file">CDC റഫറൻസ് ഫയൽ വായിക്കാൻ കഴിഞ്ഞില്ല.</string>
 

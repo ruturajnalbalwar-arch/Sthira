@@ -2,7 +2,6 @@
 <!-- Shared UI text: top bar, text size, theme and language controls. Telugu. -->
 <resources>
     <string name="common_back">వెనక్కి</string>
-    <string name="common_close">మూసివేయి</string>
     <string name="common_text_smaller">అక్షరాలు చిన్నవి చేయండి</string>
     <string name="common_text_larger">అక్షరాలు పెద్దవి చేయండి</string>
     <string name="common_text_size_percent">%1$d%%</string>
@@ -11,10 +10,23 @@
     <string name="common_theme_system">ఫోన్‌లో ఉన్నట్టే</string>
     <string name="common_theme_light">లైట్</string>
     <string name="common_theme_dark">డార్క్</string>
-    <string name="common_theme_change">థీమ్ మార్చండి. ఇప్పుడు: %1$s</string>
     <string name="common_language_title">భాష</string>
     <string name="common_language_phone">ఫోన్ భాష</string>
     <string name="common_language_phone_help">ఈ ఫోన్‌లో ఉన్న భాషనే వాడండి.</string>
     <string name="common_language_change">భాష మార్చండి. ఇప్పుడు: %1$s</string>
     <string name="common_selected">ఎంచుకున్నది</string>
+
+    <string name="common_settings_title">సెట్టింగ్‌లు</string>
+    <string name="common_start">ప్రారంభించండి</string>
+    <string name="common_step_of">%2$d లో దశ %1$d</string>
+    <string name="common_on">ఆన్</string>
+    <string name="common_off">ఆఫ్</string>
+    <string name="common_text_size_title">అక్షరాల పరిమాణం</string>
+    <string name="common_text_smaller_short">చిన్నది</string>
+    <string name="common_text_larger_short">పెద్దది</string>
+    <string name="common_text_size_sample">అక్షరాలు ఇంత పెద్దగా కనిపిస్తాయి.</string>
+    <string name="common_voice_title">మాటల సూచనలు</string>
+    <string name="common_voice_help">దశలను గట్టిగా చదివి వినిపించండి</string>
+    <string name="common_about_title">యాప్ గురించి</string>
+    <string name="common_about_offline">ఇంటర్నెట్ లేకుండా పనిచేస్తుంది. ఈ యాప్‌కు ఇంటర్నెట్ అనుమతి లేదు.</string>
 </resources>

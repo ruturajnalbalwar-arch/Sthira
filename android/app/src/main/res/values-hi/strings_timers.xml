@@ -17,21 +17,26 @@
     <string name="timer_stage_name_3">एक सीध में (टैंडम)</string>
     <string name="timer_stage_name_4">एक पैर पर</string>
 
-    <string name="timer_stage_cdc_1">अपने पैर साथ-साथ रखकर खड़े हो जाइए।</string>
-    <string name="timer_stage_cdc_2">एक पैर के तलवे का बीच वाला हिस्सा दूसरे पैर के अँगूठे से लगाकर रखिए।</string>
-    <string name="timer_stage_cdc_3">टैंडम खड़े होना: एक पैर दूसरे के ठीक आगे रखिए, एड़ी अँगूठे से लगी हो।</string>
-    <string name="timer_stage_cdc_4">एक पैर पर खड़े हो जाइए।</string>
+    <string name="timer_stage_do_1">अपने पैर साथ-साथ रखकर खड़े हो जाइए।</string>
+    <string name="timer_stage_do_2">एक पैर के तलवे का बीच वाला हिस्सा दूसरे पैर के अँगूठे से लगाकर रखिए।</string>
+    <string name="timer_stage_do_3">एक पैर दूसरे के ठीक आगे रखिए, एड़ी अँगूठे से लगी हो।</string>
+    <string name="timer_stage_do_4">एक पैर पर खड़े हो जाइए।</string>
 
-    <string name="timer_stage_quote">“%1$s”</string>
-    <string name="timer_stage_heading">चरण %1$d: %2$s</string>
     <string name="timer_hold_for">%1$s तक रुकें</string>
+    <string name="timer_stage_of">%2$d में से चरण %1$d</string>
+    <string name="timer_start">शुरू करें</string>
+    <string name="timer_next_stage">अगला चरण</string>
+    <string name="timer_stage_passed">चरण %1$d पूरा: %2$s तक टिके</string>
+    <string name="timer_stage_stopped">चरण %1$d रुका: %2$s पर संतुलन टूटा</string>
+    <string name="timer_voice_stop">रुकिए</string>
+    <string name="timer_fold_open">खुला</string>
+    <string name="timer_fold_closed">बंद</string>
     <string name="timer_balance_lost_hint">अगर पैर हिलें या व्यक्ति को सहारा चाहिए, तो संतुलन टूटा दबाएँ।</string>
     <string name="timer_balance_allowed_movement">संतुलन बनाए रखने के लिए व्यक्ति हाथ फैला सकते हैं या शरीर हिला सकते हैं। पैर नहीं हिलने चाहिए।</string>
     <string name="timer_balance_safety">व्यक्ति के बगल में खड़े रहें, उन्हें संभालने के लिए तैयार। छड़ी या वॉकर नहीं। आँखें खुली रहें।</string>
     <string name="timer_balance_progression">अगर व्यक्ति बिना पैर हिलाए और बिना सहारे के किसी चरण में %1$s तक रुक पाते हैं, तो अगले चरण पर जाएँ। अगर नहीं, तो जाँच रोक दें।</string>
 
-    <string name="timer_start_stage">चरण %1$d शुरू करें</string>
-    <string name="timer_lost_position">संतुलन टूटा</string>
+    <string name="timer_lost_position">संतुलन टूटा: रोकें</string>
     <string name="timer_restart_stage">तैयार नहीं, चरण फिर से शुरू करें</string>
     <string name="timer_start_over">शुरू से करें</string>
 
@@ -57,7 +62,7 @@
     <string name="timer_tug_under">%1$s: CDC संदर्भ %2$s से कम</string>
     <string name="timer_tug_at_or_above">%1$s: CDC संदर्भ %2$s के बराबर या ज़्यादा</string>
 
-    <string name="timer_tug_how_heading">कैसे करें</string>
+    <string name="timer_how_heading">कैसे करें</string>
     <plurals name="timer_tug_step_line">
         <item quantity="one">कुर्सी से %1$d मीटर दूर एक रेखा बनाएँ।</item>
         <item quantity="other">कुर्सी से %1$d मीटर दूर एक रेखा बनाएँ।</item>
@@ -69,6 +74,6 @@
     <string name="timer_tug_footwear">वे अपने रोज़ के जूते-चप्पल पहनें। ज़रूरत हो तो चलने का सहारा ले सकते हैं।</string>
 
     <string name="timer_tug_go">चलिए</string>
-    <string name="timer_tug_stop">रोकें: वापस बैठ गए</string>
+    <string name="timer_tug_stop">वापस बैठ गए: रोकें</string>
     <string name="timer_tug_run_again">फिर से करें: चलिए</string>
 </resources>

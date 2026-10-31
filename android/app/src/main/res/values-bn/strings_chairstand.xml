@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="cs_title">30 সেকেন্ডে চেয়ার থেকে ওঠা</string>
-    <string name="cs_setup_intro">মাথা আর কাঁধের উচ্চতা দেখে গোনা হয়, তাই ঢিলে জামাকাপড়ে অসুবিধা নেই। অংশগ্রহণকারীর কোড ব্যবহার করুন, কখনও নাম নয়।</string>
     <string name="cs_privacy_row">কিছুই সেভ করা বা পাঠানো হয় না: শরীরের ভঙ্গি দেখার কাজ এই ফোনেই চলে।</string>
+    <string name="cs_step_of">%2$d-এর মধ্যে ধাপ %1$d</string>
+    <string name="cs_step_person">ব্যক্তির সম্পর্কে</string>
+    <string name="cs_step_camera">ক্যামেরা</string>
 
-    <string name="cs_code_label">অংশগ্রহণকারীর কোড</string>
-    <string name="cs_code_help">আপনার বাছাই করা একটি কোড, যেমন A11। কখনও নাম নয়।</string>
     <string name="cs_age_label">বয়সের দল</string>
     <string name="cs_age_help">CDC-র মান আছে 60 বছর ও তার বেশি বয়সের জন্য। 80+ হলে CDC-র 80-84 মান ব্যবহার হয়।</string>
     <string name="cs_sex_label">লিঙ্গ</string>
@@ -18,29 +18,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">মহিলা</string>
     <string name="cs_sex_male">পুরুষ</string>
-    <string name="cs_sex_not_recorded">লেখা হয়নি</string>
+    <string name="cs_sex_not_recorded">বলতে চান না</string>
 
-    <string name="cs_error_code_empty">অংশগ্রহণকারীর কোড লিখুন</string>
-    <string name="cs_error_code_too_long">সর্বোচ্চ %1$d অক্ষর ব্যবহার করুন</string>
-    <string name="cs_error_code_chars">শুধু অক্ষর, সংখ্যা, - বা _ ব্যবহার করুন</string>
     <string name="cs_error_age_band">একটি বয়সের দল বাছুন</string>
-    <string name="cs_error_sex">একটি বাছুন, অথবা লেখা হয়নি</string>
+    <string name="cs_error_sex">একটি বাছুন, অথবা বলতে চান না</string>
 
     <string name="cs_continue_blocked">এগোতে হলে যোগ করুন: %1$s।</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">অংশগ্রহণকারীর কোড</string>
     <string name="cs_blocker_age">বয়সের দল</string>
-    <string name="cs_blocker_sex">লিঙ্গ (অথবা লেখা হয়নি)</string>
-    <string name="cs_continue">ক্যামেরায় এগিয়ে যান</string>
+    <string name="cs_blocker_sex">লিঙ্গ</string>
+    <string name="cs_continue">পরের ধাপ</string>
 
     <string name="cs_unavailable_title">চেয়ার থেকে ওঠার পরীক্ষা এখন পাওয়া যাচ্ছে না</string>
     <string name="cs_unavailable_body">params.json-এ পরীক্ষার সময়ের মান নেই বা ভুল, তাই পরীক্ষার সময় মাপা যাবে না।</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
-    <string name="cs_edit_session">সেশন বদলান</string>
+    <string name="cs_edit_session">বিবরণ বদলান</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">আবার চালান</string>
+    <string name="cs_new_person">নতুন ব্যক্তি</string>
     <string name="cs_waiting_camera">ক্যামেরার জন্য অপেক্ষা করা হচ্ছে…</string>
-    <string name="cs_start">ক্যালিব্রেশন ও পরীক্ষা শুরু করুন</string>
+    <string name="cs_start">শুরু করুন</string>
     <string name="cs_stop">থামান</string>
     <string name="cs_redo_calibration">আবার ক্যালিব্রেশন করুন</string>
     <string name="cs_cancel_test">পরীক্ষা বাতিল করুন</string>
@@ -56,7 +53,7 @@
     <string name="cs_stage_sit">বসুন, নড়বেন না</string>
     <string name="cs_stage_go">শুরু! যত বার পারেন উঠুন আর বসুন</string>
     <string name="cs_stage_done">থামুন। পরীক্ষা শেষ</string>
-    <string name="cs_idle_hint">দাঁড়ানো ও বসা অবস্থায় মাথা থেকে পা পর্যন্ত পুরো শরীর আর চেয়ার ছবিতে থাকুক</string>
+    <string name="cs_camera_checklist">পুরো শরীর আর চেয়ার ছবিতে থাকুক, ফোন 2-3 মিটার দূরে রাখুন</string>
     <string name="cs_step_into_view">ছবির মধ্যে আসুন: মাথা থেকে পা পর্যন্ত পুরো শরীর</string>
 
     <string name="cs_pill_person_lost">মানুষটিকে দেখা যাচ্ছে না: মাথা থেকে পা পর্যন্ত পুরো শরীর ছবিতে রাখুন</string>
@@ -122,7 +119,7 @@
     <string name="cs_reason_unreliable">গোনায় ভরসা করা যায় না: ক্যামেরায় অনেকগুলি ওঠা পরিষ্কার দেখা যায়নি। পরীক্ষাটি আবার করুন।</string>
     <string name="cs_reason_low_fps">ক্যামেরা খুব ধীরে চলেছে, তাই গোনায় ভরসা করা যায় না। অন্য অ্যাপ বন্ধ করে পরীক্ষাটি আবার করুন।</string>
     <string name="cs_no_cdc_under_60">60 বছরের কম বয়সীদের জন্য CDC-র চেয়ার থেকে ওঠার কোনো মান নেই।</string>
-    <string name="cs_no_cdc_sex">CDC মহিলা ও পুরুষের জন্য আলাদা মান দেয়, কিন্তু লিঙ্গ লেখা হয়নি।</string>
+    <string name="cs_no_cdc_sex">CDC মহিলা ও পুরুষের জন্য আলাদা মান দেয়, কিন্তু লিঙ্গ বলা হয়নি।</string>
     <string name="cs_no_cdc_value">CDC টেবিলে %1$s বয়সের জন্য কোনো মান নেই।</string>
     <string name="cs_no_cdc_file">CDC রেফারেন্স ফাইল পড়া যায়নি।</string>
 

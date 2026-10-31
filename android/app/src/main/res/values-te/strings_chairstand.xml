@@ -2,11 +2,11 @@
 <!-- 30-second chair-stand test screen. Telugu. -->
 <resources>
     <string name="cs_title">30 సెకన్ల కుర్చీ నుండి లేచే పరీక్ష</string>
-    <string name="cs_setup_intro">తల, భుజాల ఎత్తు చూసి లెక్కిస్తుంది, కాబట్టి వదులు బట్టలు ఉన్నా పర్వాలేదు. పాల్గొనేవారి కోడ్ వాడండి, పేర్లు ఎప్పుడూ వద్దు.</string>
     <string name="cs_privacy_row">ఏదీ సేవ్ చేయదు, ఎక్కడికీ పంపదు: శరీర భంగిమను ఈ ఫోన్‌లోనే గుర్తిస్తుంది.</string>
+    <string name="cs_step_of">%2$d లో దశ %1$d</string>
+    <string name="cs_step_person">వ్యక్తి గురించి</string>
+    <string name="cs_step_camera">కెమెరా</string>
 
-    <string name="cs_code_label">పాల్గొనేవారి కోడ్</string>
-    <string name="cs_code_help">మీరు ఎంచుకునే కోడ్, ఉదా. A11. పేరు ఎప్పుడూ వద్దు.</string>
     <string name="cs_age_label">వయసు వర్గం</string>
     <string name="cs_age_help">CDC విలువలు 60 ఏళ్లు, ఆపైన వయసు వారికి ఉన్నాయి. 80+ కి CDC 80-84 విలువను వాడుతుంది.</string>
     <string name="cs_sex_label">లింగం</string>
@@ -19,29 +19,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">స్త్రీ</string>
     <string name="cs_sex_male">పురుషుడు</string>
-    <string name="cs_sex_not_recorded">నమోదు చేయలేదు</string>
+    <string name="cs_sex_not_recorded">చెప్పడం ఇష్టం లేదు</string>
 
-    <string name="cs_error_code_empty">పాల్గొనేవారి కోడ్ ఇవ్వండి</string>
-    <string name="cs_error_code_too_long">గరిష్టంగా %1$d అక్షరాలు మాత్రమే వాడండి</string>
-    <string name="cs_error_code_chars">అక్షరాలు, అంకెలు, - లేదా _ మాత్రమే వాడండి</string>
     <string name="cs_error_age_band">వయసు వర్గం ఎంచుకోండి</string>
-    <string name="cs_error_sex">ఒకటి ఎంచుకోండి, లేదా నమోదు చేయలేదు</string>
+    <string name="cs_error_sex">ఒకటి ఎంచుకోండి, లేదా చెప్పడం ఇష్టం లేదు</string>
 
     <string name="cs_continue_blocked">కొనసాగడానికి ఇవి ఇవ్వండి: %1$s.</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">పాల్గొనేవారి కోడ్</string>
     <string name="cs_blocker_age">వయసు వర్గం</string>
-    <string name="cs_blocker_sex">లింగం (లేదా నమోదు చేయలేదు)</string>
-    <string name="cs_continue">కెమెరాకు కొనసాగండి</string>
+    <string name="cs_blocker_sex">లింగం</string>
+    <string name="cs_continue">తరువాత</string>
 
     <string name="cs_unavailable_title">కుర్చీ నుండి లేచే పరీక్ష అందుబాటులో లేదు</string>
     <string name="cs_unavailable_body">params.json లో పరీక్ష సమయాలు లేవు లేదా సరిగా లేవు, కాబట్టి పరీక్షకు సమయం లెక్కించలేము.</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
-    <string name="cs_edit_session">సెషన్ మార్చండి</string>
+    <string name="cs_edit_session">వివరాలు మార్చండి</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">మళ్ళీ చేయండి</string>
+    <string name="cs_new_person">కొత్త వ్యక్తి</string>
     <string name="cs_waiting_camera">కెమెరా కోసం వేచి ఉంది…</string>
-    <string name="cs_start">కాలిబ్రేషన్, పరీక్ష మొదలుపెట్టండి</string>
+    <string name="cs_start">మొదలుపెట్టండి</string>
     <string name="cs_stop">ఆపండి</string>
     <string name="cs_redo_calibration">కాలిబ్రేషన్ మళ్ళీ చేయండి</string>
     <string name="cs_cancel_test">పరీక్ష రద్దు చేయండి</string>
@@ -57,7 +54,7 @@
     <string name="cs_stage_sit">కూర్చుని, కదలకుండా ఉండండి</string>
     <string name="cs_stage_go">మొదలు! వీలైనన్ని సార్లు లేచి కూర్చోండి</string>
     <string name="cs_stage_done">ఆపండి. పరీక్ష అయిపోయింది</string>
-    <string name="cs_idle_hint">తల నుండి పాదాల వరకు శరీరం మొత్తం, కుర్చీ కూడా, నిలబడినప్పుడు, కూర్చున్నప్పుడు కనిపించాలి</string>
+    <string name="cs_camera_checklist">శరీరం మొత్తం, కుర్చీ కనిపించాలి, ఫోన్ 2-3 మీటర్ల దూరంలో ఉంచండి</string>
     <string name="cs_step_into_view">కెమెరాకు కనిపించేలా రండి: తల నుండి పాదాల వరకు శరీరం మొత్తం</string>
 
     <string name="cs_pill_person_lost">వ్యక్తి కనిపించడం లేదు: తల నుండి పాదాల వరకు శరీరం మొత్తం కనిపించాలి</string>
@@ -123,7 +120,7 @@
     <string name="cs_reason_unreliable">లెక్క నమ్మదగినది కాదు: కెమెరాలో చాలా సార్లు లేవడం స్పష్టంగా కనిపించలేదు. పరీక్ష మళ్ళీ చేయండి.</string>
     <string name="cs_reason_low_fps">సరైన లెక్క కోసం కెమెరా చాలా నెమ్మదిగా నడిచింది. ఇతర యాప్‌లు మూసి, పరీక్ష మళ్ళీ చేయండి.</string>
     <string name="cs_no_cdc_under_60">60 ఏళ్ల లోపు వారికి CDC కుర్చీ పరీక్ష విలువ లేదు.</string>
-    <string name="cs_no_cdc_sex">CDC స్త్రీలకు, పురుషులకు వేర్వేరు విలువలు ఇస్తుంది, కానీ లింగం నమోదు చేయలేదు.</string>
+    <string name="cs_no_cdc_sex">CDC స్త్రీలకు, పురుషులకు వేర్వేరు విలువలు ఇస్తుంది, కానీ లింగం చెప్పలేదు.</string>
     <string name="cs_no_cdc_value">CDC పట్టికలో %1$s వయసుకు విలువ లేదు.</string>
     <string name="cs_no_cdc_file">CDC రిఫరెన్స్ ఫైల్ చదవలేకపోయాం.</string>
 

@@ -2,11 +2,11 @@
 <!-- Kannada. 30-second chair-stand test screen. -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="cs_title">30 ಸೆಕೆಂಡ್ ಕುರ್ಚಿಯಿಂದ ಏಳುವುದು</string>
-    <string name="cs_setup_intro">ತಲೆ ಮತ್ತು ಭುಜದ ಎತ್ತರ ನೋಡಿ ಎಣಿಸಲಾಗುತ್ತದೆ, ಆದ್ದರಿಂದ ಸಡಿಲ ಬಟ್ಟೆ ಇದ್ದರೂ ಪರವಾಗಿಲ್ಲ. ಭಾಗವಹಿಸುವವರ ಕೋಡ್ ಮಾತ್ರ ಬಳಸಿ, ಹೆಸರು ಎಂದಿಗೂ ಬೇಡ.</string>
     <string name="cs_privacy_row">ಏನನ್ನೂ ಉಳಿಸುವುದಿಲ್ಲ, ಕಳುಹಿಸುವುದಿಲ್ಲ: ದೇಹದ ಭಂಗಿ ಗುರುತಿಸುವಿಕೆ ಈ ಫೋನ್‌ನಲ್ಲೇ ನಡೆಯುತ್ತದೆ.</string>
+    <string name="cs_step_of">%2$d ರಲ್ಲಿ ಹಂತ %1$d</string>
+    <string name="cs_step_person">ವ್ಯಕ್ತಿಯ ಬಗ್ಗೆ</string>
+    <string name="cs_step_camera">ಕ್ಯಾಮೆರಾ</string>
 
-    <string name="cs_code_label">ಭಾಗವಹಿಸುವವರ ಕೋಡ್</string>
-    <string name="cs_code_help">ನೀವು ಆರಿಸುವ ಕೋಡ್, ಉದಾ. A11. ಎಂದಿಗೂ ಹೆಸರು ಬೇಡ.</string>
     <string name="cs_age_label">ವಯಸ್ಸಿನ ಗುಂಪು</string>
     <string name="cs_age_help">CDC ಮೌಲ್ಯಗಳು 60 ಮತ್ತು ಅದಕ್ಕಿಂತ ಹೆಚ್ಚು ವಯಸ್ಸಿನವರಿಗೆ ಮಾತ್ರ ಇವೆ. 80+ ಗೆ CDC ಯ 80-84 ಮೌಲ್ಯವನ್ನು ಬಳಸಲಾಗುತ್ತದೆ.</string>
     <string name="cs_sex_label">ಲಿಂಗ</string>
@@ -19,29 +19,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">ಮಹಿಳೆ</string>
     <string name="cs_sex_male">ಪುರುಷ</string>
-    <string name="cs_sex_not_recorded">ದಾಖಲಿಸಿಲ್ಲ</string>
+    <string name="cs_sex_not_recorded">ಹೇಳಲು ಇಷ್ಟವಿಲ್ಲ</string>
 
-    <string name="cs_error_code_empty">ಭಾಗವಹಿಸುವವರ ಕೋಡ್ ಹಾಕಿ</string>
-    <string name="cs_error_code_too_long">ಹೆಚ್ಚೆಂದರೆ %1$d ಅಕ್ಷರಗಳನ್ನು ಬಳಸಿ</string>
-    <string name="cs_error_code_chars">ಅಕ್ಷರಗಳು, ಅಂಕಿಗಳು, - ಅಥವಾ _ ಮಾತ್ರ ಬಳಸಿ</string>
     <string name="cs_error_age_band">ವಯಸ್ಸಿನ ಗುಂಪು ಆರಿಸಿ</string>
-    <string name="cs_error_sex">ಒಂದನ್ನು ಆರಿಸಿ, ಅಥವಾ ದಾಖಲಿಸಿಲ್ಲ</string>
+    <string name="cs_error_sex">ಒಂದನ್ನು ಆರಿಸಿ, ಅಥವಾ ಹೇಳಲು ಇಷ್ಟವಿಲ್ಲ</string>
 
     <string name="cs_continue_blocked">ಮುಂದುವರಿಯಲು ಇವನ್ನು ಸೇರಿಸಿ: %1$s.</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">ಭಾಗವಹಿಸುವವರ ಕೋಡ್</string>
     <string name="cs_blocker_age">ವಯಸ್ಸಿನ ಗುಂಪು</string>
-    <string name="cs_blocker_sex">ಲಿಂಗ (ಅಥವಾ ದಾಖಲಿಸಿಲ್ಲ)</string>
-    <string name="cs_continue">ಕ್ಯಾಮೆರಾಗೆ ಮುಂದುವರಿಯಿರಿ</string>
+    <string name="cs_blocker_sex">ಲಿಂಗ</string>
+    <string name="cs_continue">ಮುಂದೆ</string>
 
     <string name="cs_unavailable_title">ಕುರ್ಚಿಯಿಂದ ಏಳುವ ಪರೀಕ್ಷೆ ಲಭ್ಯವಿಲ್ಲ</string>
     <string name="cs_unavailable_body">params.json ನಲ್ಲಿ ಪರೀಕ್ಷೆಯ ಅವಧಿಗಳು ಇಲ್ಲ ಅಥವಾ ಸರಿಯಿಲ್ಲ, ಆದ್ದರಿಂದ ಪರೀಕ್ಷೆಯ ಸಮಯ ಅಳೆಯಲು ಆಗುವುದಿಲ್ಲ.</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
     <string name="cs_edit_session">ವಿವರಗಳನ್ನು ಬದಲಿಸಿ</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">ಮತ್ತೆ ಮಾಡಿ</string>
+    <string name="cs_new_person">ಹೊಸ ವ್ಯಕ್ತಿ</string>
     <string name="cs_waiting_camera">ಕ್ಯಾಮೆರಾಗಾಗಿ ಕಾಯಲಾಗುತ್ತಿದೆ…</string>
-    <string name="cs_start">ಕ್ಯಾಲಿಬ್ರೇಶನ್ ಮತ್ತು ಪರೀಕ್ಷೆ ಆರಂಭಿಸಿ</string>
+    <string name="cs_start">ಆರಂಭಿಸಿ</string>
     <string name="cs_stop">ನಿಲ್ಲಿಸಿ</string>
     <string name="cs_redo_calibration">ಕ್ಯಾಲಿಬ್ರೇಶನ್ ಮತ್ತೆ ಮಾಡಿ</string>
     <string name="cs_cancel_test">ಪರೀಕ್ಷೆ ರದ್ದುಮಾಡಿ</string>
@@ -57,7 +54,7 @@
     <string name="cs_stage_sit">ಕುಳಿತುಕೊಳ್ಳಿ, ಅಲ್ಲಾಡಬೇಡಿ</string>
     <string name="cs_stage_go">ಶುರು! ಎಷ್ಟು ಸಾಧ್ಯವೋ ಅಷ್ಟು ಬಾರಿ ಎದ್ದು ಕುಳಿತುಕೊಳ್ಳಿ</string>
     <string name="cs_stage_done">ನಿಲ್ಲಿಸಿ. ಪರೀಕ್ಷೆ ಮುಗಿಯಿತು</string>
-    <string name="cs_idle_hint">ನಿಂತಾಗಲೂ ಕುಳಿತಾಗಲೂ ತಲೆಯಿಂದ ಕಾಲಿನವರೆಗೆ ಇಡೀ ದೇಹ ಮತ್ತು ಕುರ್ಚಿ ಕಾಣಬೇಕು</string>
+    <string name="cs_camera_checklist">ಇಡೀ ದೇಹ ಮತ್ತು ಕುರ್ಚಿ ಕಾಣಬೇಕು, ಫೋನ್ ಅನ್ನು 2-3 ಮೀಟರ್ ದೂರದಲ್ಲಿ ಇಡಿ</string>
     <string name="cs_step_into_view">ಕ್ಯಾಮೆರಾಗೆ ಕಾಣುವಂತೆ ಬನ್ನಿ: ತಲೆಯಿಂದ ಕಾಲಿನವರೆಗೆ ಇಡೀ ದೇಹ</string>
 
     <string name="cs_pill_person_lost">ವ್ಯಕ್ತಿ ಕಾಣುತ್ತಿಲ್ಲ: ತಲೆಯಿಂದ ಕಾಲಿನವರೆಗೆ ಇಡೀ ದೇಹ ಕಾಣಬೇಕು</string>
@@ -123,7 +120,7 @@
     <string name="cs_reason_unreliable">ಎಣಿಕೆ ನಂಬಲರ್ಹವಲ್ಲ: ಕ್ಯಾಮೆರಾದಲ್ಲಿ ತುಂಬಾ ಏಳುವಿಕೆಗಳು ಸ್ಪಷ್ಟವಾಗಿರಲಿಲ್ಲ. ಪರೀಕ್ಷೆಯನ್ನು ಮತ್ತೆ ಮಾಡಿ.</string>
     <string name="cs_reason_low_fps">ನಂಬಬಹುದಾದ ಎಣಿಕೆಗೆ ಕ್ಯಾಮೆರಾ ತುಂಬಾ ನಿಧಾನವಾಗಿತ್ತು. ಬೇರೆ ಆ್ಯಪ್‌ಗಳನ್ನು ಮುಚ್ಚಿ, ಪರೀಕ್ಷೆಯನ್ನು ಮತ್ತೆ ಮಾಡಿ.</string>
     <string name="cs_no_cdc_under_60">60 ಕ್ಕಿಂತ ಕಡಿಮೆ ವಯಸ್ಸಿನವರಿಗೆ CDC ಯಲ್ಲಿ ಕುರ್ಚಿಯಿಂದ ಏಳುವ ಮೌಲ್ಯ ಇಲ್ಲ.</string>
-    <string name="cs_no_cdc_sex">CDC ಮಹಿಳೆಯರಿಗೆ ಮತ್ತು ಪುರುಷರಿಗೆ ಬೇರೆ ಬೇರೆ ಮೌಲ್ಯಗಳನ್ನು ನೀಡುತ್ತದೆ, ಆದರೆ ಲಿಂಗವನ್ನು ದಾಖಲಿಸಿಲ್ಲ.</string>
+    <string name="cs_no_cdc_sex">CDC ಮಹಿಳೆಯರಿಗೆ ಮತ್ತು ಪುರುಷರಿಗೆ ಬೇರೆ ಬೇರೆ ಮೌಲ್ಯಗಳನ್ನು ನೀಡುತ್ತದೆ, ಆದರೆ ಲಿಂಗವನ್ನು ಹೇಳಿಲ್ಲ.</string>
     <string name="cs_no_cdc_value">CDC ಪಟ್ಟಿಯಲ್ಲಿ %1$s ವಯಸ್ಸಿಗೆ ಮೌಲ್ಯ ಇಲ್ಲ.</string>
     <string name="cs_no_cdc_file">CDC ಉಲ್ಲೇಖ ಫೈಲ್ ಓದಲು ಆಗಲಿಲ್ಲ.</string>
 

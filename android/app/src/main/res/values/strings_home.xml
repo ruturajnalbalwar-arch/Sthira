@@ -4,36 +4,23 @@
     <string name="home_brand" translatable="false">Sthira</string>
     <!-- Line under the app name. "Steady" plays on the meaning of Sthira. -->
     <string name="home_tagline">Steady scores for home physiotherapy</string>
-    <!-- Status chip: the app never uses the internet. -->
-    <string name="home_chip_offline">Works offline · No internet permission</string>
-    <!-- Status chip. CDC STEADI is the name of a US fall-prevention programme; keep the name as is. -->
-    <string name="home_chip_steadi">CDC STEADI tests</string>
 
-    <string name="home_tests_heading">Tests</string>
+    <string name="home_tests_heading">Choose a test</string>
 
     <!-- Test names. Keep them identical to the titles of the test screens. -->
     <string name="home_test_chair_title">30-second chair stand</string>
-    <string name="home_test_chair_measures">Leg strength: full stands, counted by the camera</string>
-    <!-- How long the test takes: 30 seconds. -->
-    <string name="home_test_chair_duration">30 s</string>
+    <string name="home_test_chair_measures">Stand up and sit down as many times as you can</string>
     <string name="home_test_balance_title">4-stage balance</string>
-    <string name="home_test_balance_measures">Standing balance in four positions, timed by you</string>
-    <!-- How long the test takes: four stages of 10 seconds each. -->
-    <string name="home_test_balance_duration">4 × 10 s</string>
+    <string name="home_test_balance_measures">Stand still in four positions</string>
     <string name="home_test_tug_title">Timed Up and Go</string>
-    <string name="home_test_tug_measures">Mobility: stand, walk, turn and sit, timed by you</string>
-    <string name="home_test_tug_duration">Under a minute</string>
-    <!-- Read by TalkBack on a test card. %1$s is the duration, for example "30 s". -->
-    <string name="home_card_takes">Takes %1$s</string>
-    <!-- TalkBack action on a test card: "Double tap to open". -->
-    <string name="home_card_open">Open</string>
+    <string name="home_test_tug_measures">Stand up, walk, turn back and sit down</string>
 
     <!-- State of the camera rep counter, shown on the chair stand card. -->
     <string name="home_badge_ready">Ready</string>
     <!-- The counter has no tuned settings yet, so counts are not trustworthy. -->
-    <string name="home_badge_not_tuned">Counter not tuned</string>
-    <string name="home_badge_invalid">Counter settings invalid</string>
-    <string name="home_badge_missing">Counter settings missing</string>
+    <string name="home_badge_not_tuned">Timer only for now. Counting comes later.</string>
+    <string name="home_badge_invalid">Timer only for now. The counter settings have a problem.</string>
+    <string name="home_badge_missing">Timer only for now. The counter settings are missing.</string>
 
     <!-- Small footer line. The reference values come from US data and are only shown for comparison. -->
     <string name="home_footer_disclaimer">Prototype. Not a medical device. Does not diagnose or predict falls. Uses CDC US reference values.</string>

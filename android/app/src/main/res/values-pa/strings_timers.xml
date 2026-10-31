@@ -16,33 +16,38 @@
     <string name="timer_stage_name_3">ਟੈਂਡਮ</string>
     <string name="timer_stage_name_4">ਇੱਕ ਲੱਤ ਉੱਤੇ</string>
 
-    <string name="timer_stage_cdc_1">ਪੈਰ ਨਾਲ-ਨਾਲ ਰੱਖ ਕੇ ਖੜ੍ਹੇ ਹੋਵੋ।</string>
-    <string name="timer_stage_cdc_2">ਇੱਕ ਪੈਰ ਨੂੰ ਇਸ ਤਰ੍ਹਾਂ ਰੱਖੋ ਕਿ ਉਸ ਦਾ ਅੰਦਰਲਾ ਪਾਸਾ ਦੂਜੇ ਪੈਰ ਦੇ ਵੱਡੇ ਅੰਗੂਠੇ ਨੂੰ ਛੂਹੇ।</string>
-    <string name="timer_stage_cdc_3">ਟੈਂਡਮ ਸਟੈਂਡ: ਇੱਕ ਪੈਰ ਦੂਜੇ ਪੈਰ ਦੇ ਅੱਗੇ ਰੱਖੋ, ਅੱਡੀ ਅੰਗੂਠੇ ਨੂੰ ਛੂਹੇ।</string>
-    <string name="timer_stage_cdc_4">ਇੱਕ ਪੈਰ ਉੱਤੇ ਖੜ੍ਹੇ ਹੋਵੋ।</string>
+    <string name="timer_stage_do_1">ਪੈਰ ਨਾਲ-ਨਾਲ ਰੱਖ ਕੇ ਖੜ੍ਹੇ ਹੋਵੋ।</string>
+    <string name="timer_stage_do_2">ਇੱਕ ਪੈਰ ਨੂੰ ਇਸ ਤਰ੍ਹਾਂ ਰੱਖੋ ਕਿ ਉਸ ਦਾ ਅੰਦਰਲਾ ਪਾਸਾ ਦੂਜੇ ਪੈਰ ਦੇ ਵੱਡੇ ਅੰਗੂਠੇ ਨੂੰ ਛੂਹੇ।</string>
+    <string name="timer_stage_do_3">ਇੱਕ ਪੈਰ ਦੂਜੇ ਪੈਰ ਦੇ ਅੱਗੇ ਰੱਖੋ, ਅੱਡੀ ਅੰਗੂਠੇ ਨੂੰ ਛੂਹੇ।</string>
+    <string name="timer_stage_do_4">ਇੱਕ ਪੈਰ ਉੱਤੇ ਖੜ੍ਹੇ ਹੋਵੋ।</string>
 
-    <string name="timer_stage_quote">“%1$s”</string>
-    <string name="timer_stage_heading">ਪੜਾਅ %1$d: %2$s</string>
     <string name="timer_hold_for">%1$s ਤੱਕ ਸਥਿਤੀ ਬਣਾਈ ਰੱਖੋ</string>
-    <string name="timer_balance_lost_hint">ਜੇ ਪੈਰ ਹਿੱਲਣ ਜਾਂ ਵਿਅਕਤੀ ਨੂੰ ਸਹਾਰੇ ਦੀ ਲੋੜ ਪਵੇ, ਤਾਂ “ਸਥਿਤੀ ਛੁੱਟ ਗਈ” ਦਬਾਓ।</string>
+    <string name="timer_stage_of">%2$d ਵਿੱਚੋਂ ਪੜਾਅ %1$d</string>
+    <string name="timer_start">ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="timer_next_stage">ਅਗਲਾ ਪੜਾਅ</string>
+    <string name="timer_stage_passed">ਪੜਾਅ %1$d ਪੂਰਾ: %2$s ਟਿਕੇ ਰਹੇ</string>
+    <string name="timer_stage_stopped">ਪੜਾਅ %1$d ਰੁਕਿਆ: %2$s ਤੇ ਸੰਤੁਲਨ ਵਿਗੜ ਗਿਆ</string>
+    <string name="timer_voice_stop">ਰੁਕੋ</string>
+    <string name="timer_fold_open">ਖੁੱਲ੍ਹਾ</string>
+    <string name="timer_fold_closed">ਬੰਦ</string>
+    <string name="timer_balance_lost_hint">ਜੇ ਪੈਰ ਹਿੱਲਣ ਜਾਂ ਵਿਅਕਤੀ ਨੂੰ ਸਹਾਰੇ ਦੀ ਲੋੜ ਪਵੇ, ਤਾਂ “ਸੰਤੁਲਨ ਵਿਗੜ ਗਿਆ” ਦਬਾਓ।</string>
     <string name="timer_balance_allowed_movement">ਸੰਤੁਲਨ ਬਣਾਈ ਰੱਖਣ ਲਈ ਵਿਅਕਤੀ ਬਾਹਾਂ ਫੈਲਾ ਸਕਦਾ ਹੈ ਜਾਂ ਸਰੀਰ ਹਿਲਾ ਸਕਦਾ ਹੈ। ਪੈਰ ਬਿਲਕੁਲ ਨਹੀਂ ਹਿਲਾਉਣੇ ਚਾਹੀਦੇ।</string>
     <string name="timer_balance_safety">ਵਿਅਕਤੀ ਦੇ ਕੋਲ ਖੜ੍ਹੇ ਹੋਵੋ, ਉਨ੍ਹਾਂ ਨੂੰ ਸੰਭਾਲਣ ਲਈ ਤਿਆਰ ਰਹੋ। ਸੋਟੀ ਜਾਂ ਵਾਕਰ ਨਹੀਂ। ਅੱਖਾਂ ਖੁੱਲ੍ਹੀਆਂ।</string>
     <string name="timer_balance_progression">ਜੇ ਵਿਅਕਤੀ ਪੈਰ ਹਿਲਾਏ ਬਿਨਾਂ ਅਤੇ ਸਹਾਰੇ ਤੋਂ ਬਿਨਾਂ %1$s ਤੱਕ ਪੜਾਅ ਬਣਾਈ ਰੱਖੇ, ਤਾਂ ਅਗਲੇ ਪੜਾਅ ਉੱਤੇ ਜਾਓ। ਨਹੀਂ ਤਾਂ ਟੈਸਟ ਬੰਦ ਕਰੋ।</string>
 
-    <string name="timer_start_stage">ਪੜਾਅ %1$d ਸ਼ੁਰੂ ਕਰੋ</string>
-    <string name="timer_lost_position">ਸਥਿਤੀ ਛੁੱਟ ਗਈ</string>
+    <string name="timer_lost_position">ਸੰਤੁਲਨ ਵਿਗੜ ਗਿਆ: ਰੋਕੋ</string>
     <string name="timer_restart_stage">ਤਿਆਰ ਨਹੀਂ, ਪੜਾਅ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ</string>
     <string name="timer_start_over">ਸ਼ੁਰੂ ਤੋਂ ਦੁਬਾਰਾ</string>
 
     <string name="timer_stage_results">ਪੜਾਵਾਂ ਦੇ ਨਤੀਜੇ</string>
     <string name="timer_stage_label">ਪੜਾਅ %1$d</string>
     <string name="timer_outcome_held">ਟਿਕੇ ਰਹੇ</string>
-    <string name="timer_outcome_lost">ਸਥਿਤੀ ਛੁੱਟ ਗਈ</string>
+    <string name="timer_outcome_lost">ਸੰਤੁਲਨ ਵਿਗੜ ਗਿਆ</string>
     <string name="timer_stage_result_cd">ਪੜਾਅ %1$d: %2$s, %3$s</string>
 
     <string name="timer_stepper_cd">%2$d ਵਿੱਚੋਂ ਪੜਾਅ %1$d, %3$s: %4$s</string>
     <string name="timer_step_held">ਟਿਕੇ ਰਹੇ</string>
-    <string name="timer_step_lost">ਸਥਿਤੀ ਛੁੱਟ ਗਈ</string>
+    <string name="timer_step_lost">ਸੰਤੁਲਨ ਵਿਗੜ ਗਿਆ</string>
     <string name="timer_step_current">ਹੁਣ ਚੱਲ ਰਿਹਾ</string>
     <string name="timer_step_upcoming">ਸ਼ੁਰੂ ਨਹੀਂ ਹੋਇਆ</string>
     <string name="timer_step_skipped">ਨਹੀਂ ਕੀਤਾ</string>
@@ -56,7 +61,7 @@
     <string name="timer_tug_under">%1$s: CDC ਦੇ %2$s ਵਾਲੇ ਹਵਾਲੇ ਤੋਂ ਘੱਟ</string>
     <string name="timer_tug_at_or_above">%1$s: CDC ਦੇ %2$s ਵਾਲੇ ਹਵਾਲੇ ਦੇ ਬਰਾਬਰ ਜਾਂ ਵੱਧ</string>
 
-    <string name="timer_tug_how_heading">ਇਹ ਕਿਵੇਂ ਕਰਨਾ ਹੈ</string>
+    <string name="timer_how_heading">ਇਹ ਕਿਵੇਂ ਕਰਨਾ ਹੈ</string>
     <plurals name="timer_tug_step_line">
         <item quantity="one">ਕੁਰਸੀ ਤੋਂ %1$d ਮੀਟਰ ਦੂਰ ਇੱਕ ਲਕੀਰ ਲਗਾਓ।</item>
         <item quantity="other">ਕੁਰਸੀ ਤੋਂ %1$d ਮੀਟਰ ਦੂਰ ਇੱਕ ਲਕੀਰ ਲਗਾਓ।</item>
@@ -68,6 +73,6 @@
     <string name="timer_tug_footwear">ਉਹ ਆਪਣੀਆਂ ਰੋਜ਼ ਵਾਲੀਆਂ ਜੁੱਤੀਆਂ ਪਾਉਣ। ਲੋੜ ਹੋਵੇ ਤਾਂ ਤੁਰਨ ਲਈ ਸਹਾਰਾ ਵਰਤ ਸਕਦੇ ਹਨ।</string>
 
     <string name="timer_tug_go">ਸ਼ੁਰੂ</string>
-    <string name="timer_tug_stop">ਰੋਕੋ: ਵਾਪਸ ਬੈਠ ਗਏ</string>
+    <string name="timer_tug_stop">ਵਾਪਸ ਬੈਠ ਗਏ: ਰੋਕੋ</string>
     <string name="timer_tug_run_again">ਦੁਬਾਰਾ ਕਰੋ: ਸ਼ੁਰੂ</string>
 </resources>

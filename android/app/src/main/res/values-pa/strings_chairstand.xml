@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="cs_title">30 ਸਕਿੰਟ ਕੁਰਸੀ ਤੋਂ ਉੱਠਣਾ</string>
-    <string name="cs_setup_intro">ਗਿਣਤੀ ਸਿਰ ਅਤੇ ਮੋਢਿਆਂ ਦੀ ਉਚਾਈ ਤੋਂ ਹੁੰਦੀ ਹੈ, ਇਸ ਲਈ ਢਿੱਲੇ ਕੱਪੜੇ ਠੀਕ ਹਨ। ਵਿਅਕਤੀ ਦਾ ਕੋਡ ਵਰਤੋ, ਨਾਮ ਕਦੇ ਨਹੀਂ।</string>
     <string name="cs_privacy_row">ਕੁਝ ਵੀ ਸੇਵ ਜਾਂ ਭੇਜਿਆ ਨਹੀਂ ਜਾਂਦਾ: ਸਰੀਰ ਦੀ ਸਥਿਤੀ (pose) ਦੀ ਟ੍ਰੈਕਿੰਗ ਇਸੇ ਫ਼ੋਨ ਉੱਤੇ ਚੱਲਦੀ ਹੈ।</string>
+    <string name="cs_step_of">%2$d ਵਿੱਚੋਂ ਕਦਮ %1$d</string>
+    <string name="cs_step_person">ਵਿਅਕਤੀ ਬਾਰੇ</string>
+    <string name="cs_step_camera">ਕੈਮਰਾ</string>
 
-    <string name="cs_code_label">ਵਿਅਕਤੀ ਦਾ ਕੋਡ</string>
-    <string name="cs_code_help">ਤੁਹਾਡਾ ਚੁਣਿਆ ਕੋਡ, ਜਿਵੇਂ A11। ਨਾਮ ਕਦੇ ਨਹੀਂ।</string>
     <string name="cs_age_label">ਉਮਰ ਸਮੂਹ</string>
     <string name="cs_age_help">CDC ਦੇ ਮੁੱਲ 60 ਅਤੇ ਇਸ ਤੋਂ ਵੱਧ ਉਮਰ ਲਈ ਹਨ। 80+ ਲਈ CDC ਦਾ 80-84 ਵਾਲਾ ਮੁੱਲ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।</string>
     <string name="cs_sex_label">ਲਿੰਗ</string>
@@ -18,29 +18,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">ਔਰਤ</string>
     <string name="cs_sex_male">ਮਰਦ</string>
-    <string name="cs_sex_not_recorded">ਦਰਜ ਨਹੀਂ ਕੀਤਾ</string>
+    <string name="cs_sex_not_recorded">ਦੱਸਣਾ ਨਹੀਂ ਚਾਹੁੰਦੇ</string>
 
-    <string name="cs_error_code_empty">ਵਿਅਕਤੀ ਦਾ ਕੋਡ ਲਿਖੋ</string>
-    <string name="cs_error_code_too_long">ਵੱਧ ਤੋਂ ਵੱਧ %1$d ਅੱਖਰ ਵਰਤੋ</string>
-    <string name="cs_error_code_chars">ਸਿਰਫ਼ ਅੱਖਰ, ਅੰਕ, - ਜਾਂ _ ਵਰਤੋ</string>
     <string name="cs_error_age_band">ਉਮਰ ਸਮੂਹ ਚੁਣੋ</string>
-    <string name="cs_error_sex">ਇੱਕ ਚੁਣੋ, ਜਾਂ ਦਰਜ ਨਹੀਂ ਕੀਤਾ</string>
+    <string name="cs_error_sex">ਇੱਕ ਚੁਣੋ, ਜਾਂ ਦੱਸਣਾ ਨਹੀਂ ਚਾਹੁੰਦੇ</string>
 
     <string name="cs_continue_blocked">ਅੱਗੇ ਵਧਣ ਲਈ ਇਹ ਭਰੋ: %1$s।</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">ਵਿਅਕਤੀ ਦਾ ਕੋਡ</string>
     <string name="cs_blocker_age">ਉਮਰ ਸਮੂਹ</string>
-    <string name="cs_blocker_sex">ਲਿੰਗ (ਜਾਂ ਦਰਜ ਨਹੀਂ ਕੀਤਾ)</string>
-    <string name="cs_continue">ਕੈਮਰੇ ਵੱਲ ਅੱਗੇ ਵਧੋ</string>
+    <string name="cs_blocker_sex">ਲਿੰਗ</string>
+    <string name="cs_continue">ਅੱਗੇ</string>
 
     <string name="cs_unavailable_title">ਕੁਰਸੀ ਤੋਂ ਉੱਠਣ ਵਾਲਾ ਟੈਸਟ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
     <string name="cs_unavailable_body">params.json ਵਿੱਚ ਟੈਸਟ ਦੇ ਸਮੇਂ ਨਹੀਂ ਹਨ ਜਾਂ ਗਲਤ ਹਨ, ਇਸ ਲਈ ਟੈਸਟ ਦਾ ਸਮਾਂ ਨਹੀਂ ਮਾਪਿਆ ਜਾ ਸਕਦਾ।</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
-    <string name="cs_edit_session">ਸੈਸ਼ਨ ਬਦਲੋ</string>
+    <string name="cs_edit_session">ਵੇਰਵੇ ਬਦਲੋ</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">ਦੁਬਾਰਾ ਚਲਾਓ</string>
+    <string name="cs_new_person">ਨਵਾਂ ਵਿਅਕਤੀ</string>
     <string name="cs_waiting_camera">ਕੈਮਰੇ ਦੀ ਉਡੀਕ ਹੋ ਰਹੀ ਹੈ…</string>
-    <string name="cs_start">ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਅਤੇ ਟੈਸਟ ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="cs_start">ਸ਼ੁਰੂ ਕਰੋ</string>
     <string name="cs_stop">ਰੋਕੋ</string>
     <string name="cs_redo_calibration">ਦੁਬਾਰਾ ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਕਰੋ</string>
     <string name="cs_cancel_test">ਟੈਸਟ ਰੱਦ ਕਰੋ</string>
@@ -56,7 +53,7 @@
     <string name="cs_stage_sit">ਬੈਠ ਜਾਓ ਅਤੇ ਹਿੱਲੋ ਨਾ</string>
     <string name="cs_stage_go">ਸ਼ੁਰੂ! ਜਿੰਨੀ ਵਾਰ ਹੋ ਸਕੇ ਉੱਠੋ ਅਤੇ ਬੈਠੋ</string>
     <string name="cs_stage_done">ਬੱਸ। ਟੈਸਟ ਪੂਰਾ</string>
-    <string name="cs_idle_hint">ਪੂਰਾ ਸਰੀਰ, ਸਿਰ ਤੋਂ ਪੈਰਾਂ ਤੱਕ, ਅਤੇ ਕੁਰਸੀ ਦਿਖਾਈ ਦੇਵੇ, ਖੜ੍ਹੇ ਹੋਣ ਵੇਲੇ ਵੀ ਅਤੇ ਬੈਠਣ ਵੇਲੇ ਵੀ</string>
+    <string name="cs_camera_checklist">ਪੂਰਾ ਸਰੀਰ ਅਤੇ ਕੁਰਸੀ ਦਿਖਾਈ ਦੇਵੇ, ਫ਼ੋਨ 2-3 ਮੀਟਰ ਦੂਰ ਰੱਖੋ</string>
     <string name="cs_step_into_view">ਕੈਮਰੇ ਦੇ ਸਾਹਮਣੇ ਆਓ: ਪੂਰਾ ਸਰੀਰ, ਸਿਰ ਤੋਂ ਪੈਰਾਂ ਤੱਕ</string>
 
     <string name="cs_pill_person_lost">ਵਿਅਕਤੀ ਦਿਖਾਈ ਨਹੀਂ ਦੇ ਰਿਹਾ: ਪੂਰਾ ਸਰੀਰ, ਸਿਰ ਤੋਂ ਪੈਰਾਂ ਤੱਕ, ਦਿਖਣਾ ਚਾਹੀਦਾ ਹੈ</string>
@@ -122,7 +119,7 @@
     <string name="cs_reason_unreliable">ਗਿਣਤੀ ਭਰੋਸੇਯੋਗ ਨਹੀਂ: ਕੈਮਰੇ ਵਿੱਚ ਬਹੁਤੀ ਵਾਰ ਉੱਠਣਾ ਸਾਫ਼ ਨਹੀਂ ਦਿਖਿਆ। ਟੈਸਟ ਦੁਬਾਰਾ ਕਰੋ।</string>
     <string name="cs_reason_low_fps">ਭਰੋਸੇਯੋਗ ਗਿਣਤੀ ਲਈ ਕੈਮਰਾ ਬਹੁਤ ਹੌਲੀ ਚੱਲਿਆ। ਹੋਰ ਐਪਾਂ ਬੰਦ ਕਰੋ ਅਤੇ ਟੈਸਟ ਦੁਬਾਰਾ ਕਰੋ।</string>
     <string name="cs_no_cdc_under_60">60 ਤੋਂ ਘੱਟ ਉਮਰ ਦੇ ਲੋਕਾਂ ਲਈ CDC ਕੋਲ ਕੁਰਸੀ ਤੋਂ ਉੱਠਣ ਦਾ ਕੋਈ ਮੁੱਲ ਨਹੀਂ ਹੈ।</string>
-    <string name="cs_no_cdc_sex">CDC ਔਰਤਾਂ ਅਤੇ ਮਰਦਾਂ ਲਈ ਵੱਖਰੇ ਮੁੱਲ ਦਿੰਦਾ ਹੈ, ਅਤੇ ਲਿੰਗ ਦਰਜ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।</string>
+    <string name="cs_no_cdc_sex">CDC ਔਰਤਾਂ ਅਤੇ ਮਰਦਾਂ ਲਈ ਵੱਖਰੇ ਮੁੱਲ ਦਿੰਦਾ ਹੈ, ਅਤੇ ਲਿੰਗ ਨਹੀਂ ਦੱਸਿਆ ਗਿਆ।</string>
     <string name="cs_no_cdc_value">CDC ਦੀ ਸਾਰਣੀ ਵਿੱਚ %1$s ਉਮਰ ਲਈ ਕੋਈ ਮੁੱਲ ਨਹੀਂ ਹੈ।</string>
     <string name="cs_no_cdc_file">CDC ਦੀ ਹਵਾਲਾ ਫ਼ਾਈਲ ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ।</string>
 

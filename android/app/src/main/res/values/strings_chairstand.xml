@@ -7,13 +7,14 @@
 <resources>
     <!-- Screen title in the top bar. -->
     <string name="cs_title">30-second chair stand</string>
-    <string name="cs_setup_intro">Counted from head and shoulder height, so loose clothing is fine. Use participant codes, never names.</string>
+    <!-- Step indicator at the top of each of the three steps. %1$d: this step, %2$d: number of steps. -->
+    <string name="cs_step_of">Step %1$d of %2$d</string>
+    <string name="cs_step_person">About the person</string>
+    <string name="cs_step_camera">Camera</string>
     <string name="cs_privacy_row">Nothing is saved or sent: pose tracking runs on this phone.</string>
 
-    <!-- Setup form -->
-    <string name="cs_code_label">Participant code</string>
-    <string name="cs_code_help">A code you choose, like A11. Never a name.</string>
-    <string name="cs_age_label">Age band</string>
+    <!-- Step 1: about the person. Big tiles. -->
+    <string name="cs_age_label">Age group</string>
     <!-- CDC = US Centers for Disease Control and Prevention. Keep "80-84" as written. -->
     <string name="cs_age_help">CDC values exist for ages 60 and over. 80+ uses the CDC 80-84 value.</string>
     <string name="cs_sex_label">Sex</string>
@@ -25,35 +26,33 @@
     <string name="cs_age_70_74">70-74</string>
     <string name="cs_age_75_79">75-79</string>
     <string name="cs_age_80_plus">80+</string>
-    <string name="cs_sex_female">Female</string>
-    <string name="cs_sex_male">Male</string>
-    <string name="cs_sex_not_recorded">Not recorded</string>
+    <string name="cs_sex_female">Woman</string>
+    <string name="cs_sex_male">Man</string>
+    <!-- Smaller choice under Woman and Man. -->
+    <string name="cs_sex_not_recorded">Prefer not to say</string>
 
-    <string name="cs_error_code_empty">Enter a participant code</string>
-    <!-- %1$d: the maximum number of characters. -->
-    <string name="cs_error_code_too_long">Use at most %1$d characters</string>
-    <string name="cs_error_code_chars">Use letters, digits, - or _ only</string>
     <string name="cs_error_age_band">Choose an age band</string>
-    <string name="cs_error_sex">Choose one, or Not recorded</string>
+    <string name="cs_error_sex">Choose one, or Prefer not to say</string>
 
-    <!-- Under the disabled Continue button. %1$s: the missing items joined by cs_list_separator. -->
+    <!-- Under the disabled Next button. %1$s: the missing items joined by cs_list_separator. -->
     <string name="cs_continue_blocked">To continue, add: %1$s.</string>
     <!-- Separator between list items, with its spaces. -->
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">a participant code</string>
     <string name="cs_blocker_age">an age band</string>
-    <string name="cs_blocker_sex">sex (or Not recorded)</string>
-    <string name="cs_continue">Continue to camera</string>
+    <string name="cs_blocker_sex">sex</string>
+    <string name="cs_continue">Next</string>
 
     <string name="cs_unavailable_title">The chair-stand test is not available</string>
     <string name="cs_unavailable_body">The protocol durations in params.json are missing or invalid, so the test cannot be timed.</string>
 
-    <!-- Run screen. %1$s: participant code, %2$s: age band, %3$s: sex. -->
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
-    <string name="cs_edit_session">Edit session</string>
+    <!-- Step 2: camera. %1$s: age group, %2$s: sex (also joins "Step 1 of 3" and the step name for TalkBack). -->
+    <string name="cs_details_line">%1$s · %2$s</string>
+    <string name="cs_edit_session">Edit details</string>
+    <!-- Step 3: result. -->
     <string name="cs_run_again">Run again</string>
+    <string name="cs_new_person">New person</string>
     <string name="cs_waiting_camera">Waiting for the camera…</string>
-    <string name="cs_start">Start calibration and test</string>
+    <string name="cs_start">Start</string>
     <string name="cs_stop">Stop</string>
     <string name="cs_redo_calibration">Redo calibration</string>
     <string name="cs_cancel_test">Cancel test</string>
@@ -72,7 +71,8 @@
     <string name="cs_stage_sit">Sit down and keep still</string>
     <string name="cs_stage_go">Go! Stand up and sit down as many times as you can</string>
     <string name="cs_stage_done">Stop. Test finished</string>
-    <string name="cs_idle_hint">Whole body, head to feet, and the chair in view, standing and sitting</string>
+    <!-- Short checklist on the camera before Start. "m" = metres. -->
+    <string name="cs_camera_checklist">Whole body and the chair in view, phone 2-3 m away</string>
     <!-- Shown after Start while no person is in the camera picture; calibration waits for them. -->
     <string name="cs_step_into_view">Step into view: whole body, head to feet</string>
 
@@ -158,7 +158,7 @@
     <string name="cs_reason_unreliable">Count not reliable: too many stands were unclear on camera. Repeat the test.</string>
     <string name="cs_reason_low_fps">The camera ran too slowly for a dependable count. Close other apps and repeat the test.</string>
     <string name="cs_no_cdc_under_60">CDC has no chair-stand value for people under 60.</string>
-    <string name="cs_no_cdc_sex">CDC gives separate values for women and men, and sex was not recorded.</string>
+    <string name="cs_no_cdc_sex">CDC gives separate values for women and men, and sex was not given.</string>
     <!-- %1$s: the age band. -->
     <string name="cs_no_cdc_value">The CDC table has no value for age %1$s.</string>
     <string name="cs_no_cdc_file">The CDC reference file could not be read.</string>

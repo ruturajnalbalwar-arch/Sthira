@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cs_title">30 ସେକେଣ୍ଡରେ ଚେୟାରରୁ ଉଠିବା</string>
-    <string name="cs_setup_intro">ମୁଣ୍ଡ ଓ କାନ୍ଧର ଉଚ୍ଚତା ଦେଖି ଗଣାଯାଏ, ତେଣୁ ଢିଲା ପୋଷାକରେ ଅସୁବିଧା ନାହିଁ। ଅଂଶଗ୍ରହଣକାରୀଙ୍କ କୋଡ୍ ବ୍ୟବହାର କରନ୍ତୁ, କେବେ ବି ନାମ ନୁହେଁ।</string>
     <string name="cs_privacy_row">କିଛି ବି ସେଭ୍ ହୁଏ ନାହିଁ କି ପଠାଯାଏ ନାହିଁ: ଶରୀରର ଭଙ୍ଗୀ ଦେଖିବା କାମ ଏହି ଫୋନରେ ହିଁ ଚାଲେ।</string>
+    <string name="cs_step_of">%2$d ମଧ୍ୟରୁ ପଦକ୍ଷେପ %1$d</string>
+    <string name="cs_step_person">ବ୍ୟକ୍ତିଙ୍କ ବିଷୟରେ</string>
+    <string name="cs_step_camera">କ୍ୟାମେରା</string>
 
-    <string name="cs_code_label">ଅଂଶଗ୍ରହଣକାରୀଙ୍କ କୋଡ୍</string>
-    <string name="cs_code_help">ଆପଣ ବାଛିଥିବା ଏକ କୋଡ୍, ଯେପରି A11। କେବେ ବି ନାମ ନୁହେଁ।</string>
     <string name="cs_age_label">ବୟସ ବର୍ଗ</string>
     <string name="cs_age_help">60 ବର୍ଷ ଓ ତାଠାରୁ ଅଧିକ ବୟସ ପାଇଁ CDC ମାନ ଅଛି। 80+ ପାଇଁ CDC ର 80-84 ମାନ ବ୍ୟବହାର ହୁଏ।</string>
     <string name="cs_sex_label">ଲିଙ୍ଗ</string>
@@ -18,29 +18,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">ମହିଳା</string>
     <string name="cs_sex_male">ପୁରୁଷ</string>
-    <string name="cs_sex_not_recorded">ଲେଖାଯାଇନାହିଁ</string>
+    <string name="cs_sex_not_recorded">କହିବାକୁ ଚାହାଁନ୍ତି ନାହିଁ</string>
 
-    <string name="cs_error_code_empty">ଅଂଶଗ୍ରହଣକାରୀଙ୍କ କୋଡ୍ ଲେଖନ୍ତୁ</string>
-    <string name="cs_error_code_too_long">ସର୍ବାଧିକ %1$d ଅକ୍ଷର ବ୍ୟବହାର କରନ୍ତୁ</string>
-    <string name="cs_error_code_chars">କେବଳ ଅକ୍ଷର, ଅଙ୍କ, - କିମ୍ବା _ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="cs_error_age_band">ଏକ ବୟସ ବର୍ଗ ବାଛନ୍ତୁ</string>
-    <string name="cs_error_sex">ଗୋଟିଏ ବାଛନ୍ତୁ, କିମ୍ବା ଲେଖାଯାଇନାହିଁ</string>
+    <string name="cs_error_sex">ଗୋଟିଏ ବାଛନ୍ତୁ, କିମ୍ବା କହିବାକୁ ଚାହାଁନ୍ତି ନାହିଁ</string>
 
     <string name="cs_continue_blocked">ଆଗକୁ ଯିବା ପାଇଁ ଯୋଡ଼ନ୍ତୁ: %1$s।</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">ଅଂଶଗ୍ରହଣକାରୀଙ୍କ କୋଡ୍</string>
     <string name="cs_blocker_age">ବୟସ ବର୍ଗ</string>
-    <string name="cs_blocker_sex">ଲିଙ୍ଗ (କିମ୍ବା ଲେଖାଯାଇନାହିଁ)</string>
-    <string name="cs_continue">କ୍ୟାମେରାକୁ ଆଗକୁ ଯାଆନ୍ତୁ</string>
+    <string name="cs_blocker_sex">ଲିଙ୍ଗ</string>
+    <string name="cs_continue">ପରବର୍ତ୍ତୀ</string>
 
     <string name="cs_unavailable_title">ଚେୟାରରୁ ଉଠିବା ପରୀକ୍ଷା ଏବେ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="cs_unavailable_body">params.json ରେ ପରୀକ୍ଷାର ସମୟ ମାନ ନାହିଁ କିମ୍ବା ଭୁଲ, ତେଣୁ ପରୀକ୍ଷାର ସମୟ ମାପିହେବ ନାହିଁ।</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
-    <string name="cs_edit_session">ସେସନ୍ ବଦଳାନ୍ତୁ</string>
+    <string name="cs_edit_session">ବିବରଣୀ ବଦଳାନ୍ତୁ</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">ପୁଣି ଚଲାନ୍ତୁ</string>
+    <string name="cs_new_person">ନୂଆ ବ୍ୟକ୍ତି</string>
     <string name="cs_waiting_camera">କ୍ୟାମେରା ପାଇଁ ଅପେକ୍ଷା କରାଯାଉଛି…</string>
-    <string name="cs_start">କ୍ୟାଲିବ୍ରେସନ୍ ଓ ପରୀକ୍ଷା ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="cs_start">ଆରମ୍ଭ କରନ୍ତୁ</string>
     <string name="cs_stop">ଅଟକାନ୍ତୁ</string>
     <string name="cs_redo_calibration">ପୁଣି କ୍ୟାଲିବ୍ରେସନ୍ କରନ୍ତୁ</string>
     <string name="cs_cancel_test">ପରୀକ୍ଷା ବାତିଲ୍ କରନ୍ତୁ</string>
@@ -56,7 +53,7 @@
     <string name="cs_stage_sit">ବସନ୍ତୁ, ହଲନ୍ତୁ ନାହିଁ</string>
     <string name="cs_stage_go">ଆରମ୍ଭ! ଯେତେ ଥର ପାରିବେ ଉଠନ୍ତୁ ଓ ବସନ୍ତୁ</string>
     <string name="cs_stage_done">ରୁହନ୍ତୁ। ପରୀକ୍ଷା ସରିଲା</string>
-    <string name="cs_idle_hint">ଠିଆ ଓ ବସିଥିବା ବେଳେ ମୁଣ୍ଡରୁ ପାଦ ପର୍ଯ୍ୟନ୍ତ ପୂରା ଶରୀର ଓ ଚେୟାର ଛବିରେ ରହୁ</string>
+    <string name="cs_camera_checklist">ପୂରା ଶରୀର ଓ ଚେୟାର ଛବିରେ ରହୁ, ଫୋନ୍ 2-3 ମିଟର ଦୂରରେ ରଖନ୍ତୁ</string>
     <string name="cs_step_into_view">ଛବି ଭିତରକୁ ଆସନ୍ତୁ: ମୁଣ୍ଡରୁ ପାଦ ପର୍ଯ୍ୟନ୍ତ ପୂରା ଶରୀର</string>
 
     <string name="cs_pill_person_lost">ବ୍ୟକ୍ତିଙ୍କୁ ଦେଖାଯାଉନାହିଁ: ମୁଣ୍ଡରୁ ପାଦ ପର୍ଯ୍ୟନ୍ତ ପୂରା ଶରୀର ଛବିରେ ରଖନ୍ତୁ</string>
@@ -122,7 +119,7 @@
     <string name="cs_reason_unreliable">ଗଣନା ଭରସାଯୋଗ୍ୟ ନୁହେଁ: କ୍ୟାମେରାରେ ଅନେକ ଉଠିବା ସ୍ପଷ୍ଟ ଦେଖାଗଲା ନାହିଁ। ପରୀକ୍ଷାଟି ପୁଣି କରନ୍ତୁ।</string>
     <string name="cs_reason_low_fps">କ୍ୟାମେରା ବହୁତ ଧୀରେ ଚାଲିଲା, ତେଣୁ ଗଣନା ଉପରେ ଭରସା କରିହେବ ନାହିଁ। ଅନ୍ୟ ଆପ୍ ବନ୍ଦ କରି ପରୀକ୍ଷାଟି ପୁଣି କରନ୍ତୁ।</string>
     <string name="cs_no_cdc_under_60">60 ବର୍ଷରୁ କମ୍ ବୟସର ଲୋକଙ୍କ ପାଇଁ CDC ର ଚେୟାରରୁ ଉଠିବା ମାନ ନାହିଁ।</string>
-    <string name="cs_no_cdc_sex">CDC ମହିଳା ଓ ପୁରୁଷଙ୍କ ପାଇଁ ଅଲଗା ମାନ ଦିଏ, କିନ୍ତୁ ଲିଙ୍ଗ ଲେଖାଯାଇନାହିଁ।</string>
+    <string name="cs_no_cdc_sex">CDC ମହିଳା ଓ ପୁରୁଷଙ୍କ ପାଇଁ ଅଲଗା ମାନ ଦିଏ, କିନ୍ତୁ ଲିଙ୍ଗ କୁହାଯାଇନାହିଁ।</string>
     <string name="cs_no_cdc_value">CDC ଟେବୁଲରେ %1$s ବୟସ ପାଇଁ କୌଣସି ମାନ ନାହିଁ।</string>
     <string name="cs_no_cdc_file">CDC ରେଫରେନ୍ସ ଫାଇଲ୍ ପଢ଼ିହେଲା ନାହିଁ।</string>
 

@@ -17,21 +17,26 @@
     <string name="timer_stage_name_3">ടാൻഡം</string>
     <string name="timer_stage_name_4">ഒറ്റക്കാൽ</string>
 
-    <string name="timer_stage_cdc_1">പാദങ്ങൾ അടുത്തടുത്ത് വെച്ച് നിൽക്കുക.</string>
-    <string name="timer_stage_cdc_2">ഒരു പാദത്തിന്റെ ഉൾവശം മറ്റേ പാദത്തിന്റെ പെരുവിരലിൽ തൊടുന്ന രീതിയിൽ വെക്കുക.</string>
-    <string name="timer_stage_cdc_3">ടാൻഡം നിൽപ്പ്: ഒരു പാദം മറ്റേതിന്റെ മുന്നിൽ വെക്കുക, ഉപ്പൂറ്റി കാൽവിരലിൽ തൊടണം.</string>
-    <string name="timer_stage_cdc_4">ഒറ്റക്കാലിൽ നിൽക്കുക.</string>
+    <string name="timer_stage_do_1">പാദങ്ങൾ അടുത്തടുത്ത് വെച്ച് നിൽക്കുക.</string>
+    <string name="timer_stage_do_2">ഒരു പാദത്തിന്റെ ഉൾവശം മറ്റേ പാദത്തിന്റെ പെരുവിരലിൽ തൊടുന്ന രീതിയിൽ വെക്കുക.</string>
+    <string name="timer_stage_do_3">ഒരു പാദം മറ്റേതിന്റെ മുന്നിൽ വെക്കുക, ഉപ്പൂറ്റി കാൽവിരലിൽ തൊടണം.</string>
+    <string name="timer_stage_do_4">ഒറ്റക്കാലിൽ നിൽക്കുക.</string>
 
-    <string name="timer_stage_quote">“%1$s”</string>
-    <string name="timer_stage_heading">ഘട്ടം %1$d: %2$s</string>
     <string name="timer_hold_for">%1$s അങ്ങനെ തന്നെ നിൽക്കണം</string>
+    <string name="timer_stage_of">%2$d ൽ ഘട്ടം %1$d</string>
+    <string name="timer_start">തുടങ്ങുക</string>
+    <string name="timer_next_stage">അടുത്ത ഘട്ടം</string>
+    <string name="timer_stage_passed">ഘട്ടം %1$d പൂർത്തിയായി: %2$s നിന്നു</string>
+    <string name="timer_stage_stopped">ഘട്ടം %1$d നിർത്തി: %2$s ൽ നില തെറ്റി</string>
+    <string name="timer_voice_stop">നിർത്തൂ</string>
+    <string name="timer_fold_open">തുറന്നിരിക്കുന്നു</string>
+    <string name="timer_fold_closed">അടച്ചിരിക്കുന്നു</string>
     <string name="timer_balance_lost_hint">പാദങ്ങൾ അനങ്ങിയാലോ ആൾക്ക് താങ്ങ് വേണ്ടിവന്നാലോ നില തെറ്റി അമർത്തുക.</string>
     <string name="timer_balance_allowed_movement">ബാലൻസ് നിലനിർത്താൻ ആൾക്ക് കൈകൾ നീട്ടാം അല്ലെങ്കിൽ ശരീരം അനക്കാം. പക്ഷേ പാദങ്ങൾ അനക്കരുത്.</string>
     <string name="timer_balance_safety">ആളുടെ അരികിൽ നിന്ന്, താങ്ങാൻ തയ്യാറായിരിക്കുക. വടിയോ വാക്കറോ പാടില്ല. കണ്ണുകൾ തുറന്നിരിക്കണം.</string>
     <string name="timer_balance_progression">പാദങ്ങൾ അനക്കാതെയും താങ്ങില്ലാതെയും ആൾ ഒരു ഘട്ടത്തിൽ %1$s നിന്നാൽ, അടുത്ത ഘട്ടത്തിലേക്ക് പോകുക. ഇല്ലെങ്കിൽ, പരിശോധന നിർത്തുക.</string>
 
-    <string name="timer_start_stage">ഘട്ടം %1$d തുടങ്ങുക</string>
-    <string name="timer_lost_position">നില തെറ്റി</string>
+    <string name="timer_lost_position">നില തെറ്റി: നിർത്തുക</string>
     <string name="timer_restart_stage">തയ്യാറായില്ല, ഘട്ടം വീണ്ടും തുടങ്ങുക</string>
     <string name="timer_start_over">ആദ്യം മുതൽ തുടങ്ങുക</string>
 
@@ -57,7 +62,7 @@
     <string name="timer_tug_under">%1$s: CDC റഫറൻസായ %2$s നേക്കാൾ കുറവ്</string>
     <string name="timer_tug_at_or_above">%1$s: CDC റഫറൻസായ %2$s ന് തുല്യമോ അതിൽ കൂടുതലോ</string>
 
-    <string name="timer_tug_how_heading">എങ്ങനെ ചെയ്യാം</string>
+    <string name="timer_how_heading">എങ്ങനെ ചെയ്യാം</string>
     <plurals name="timer_tug_step_line">
         <item quantity="one">കസേരയിൽ നിന്ന് %1$d മീറ്റർ അകലെ ഒരു വര അടയാളപ്പെടുത്തുക.</item>
         <item quantity="other">കസേരയിൽ നിന്ന് %1$d മീറ്റർ അകലെ ഒരു വര അടയാളപ്പെടുത്തുക.</item>
@@ -69,6 +74,6 @@
     <string name="timer_tug_footwear">അവർ സാധാരണ ഇടുന്ന ചെരിപ്പ് അല്ലെങ്കിൽ ഷൂ ഇടണം. ആവശ്യമെങ്കിൽ നടക്കാനുള്ള സഹായ ഉപകരണം ഉപയോഗിക്കാം.</string>
 
     <string name="timer_tug_go">തുടങ്ങൂ</string>
-    <string name="timer_tug_stop">നിർത്തുക: തിരികെ ഇരുന്നു</string>
+    <string name="timer_tug_stop">തിരികെ ഇരുന്നു: നിർത്തുക</string>
     <string name="timer_tug_run_again">വീണ്ടും ചെയ്യുക: തുടങ്ങൂ</string>
 </resources>

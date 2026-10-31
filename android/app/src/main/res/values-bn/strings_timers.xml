@@ -16,33 +16,38 @@
     <string name="timer_stage_name_3">টেন্ডেম</string>
     <string name="timer_stage_name_4">এক পায়ে</string>
 
-    <string name="timer_stage_cdc_1">পা পাশাপাশি রেখে দাঁড়ান।</string>
-    <string name="timer_stage_cdc_2">এক পায়ের পাতার ভেতরের দিক অন্য পায়ের বুড়ো আঙুলে ছুঁইয়ে রাখুন।</string>
-    <string name="timer_stage_cdc_3">টেন্ডেম দাঁড়ানো: এক পা অন্য পায়ের ঠিক সামনে রাখুন, গোড়ালি আঙুল ছুঁয়ে থাকবে।</string>
-    <string name="timer_stage_cdc_4">এক পায়ে দাঁড়ান।</string>
+    <string name="timer_stage_do_1">পা পাশাপাশি রেখে দাঁড়ান।</string>
+    <string name="timer_stage_do_2">এক পায়ের পাতার ভেতরের দিক অন্য পায়ের বুড়ো আঙুলে ছুঁইয়ে রাখুন।</string>
+    <string name="timer_stage_do_3">এক পা অন্য পায়ের ঠিক সামনে রাখুন, গোড়ালি আঙুল ছুঁয়ে থাকবে।</string>
+    <string name="timer_stage_do_4">এক পায়ে দাঁড়ান।</string>
 
-    <string name="timer_stage_quote">“%1$s”</string>
-    <string name="timer_stage_heading">ধাপ %1$d: %2$s</string>
     <string name="timer_hold_for">%1$s ধরে রাখুন</string>
-    <string name="timer_balance_lost_hint">পা নড়ে গেলে বা মানুষটির ধরার দরকার হলে “ভঙ্গি ভেঙেছে” টিপুন।</string>
+    <string name="timer_stage_of">%2$d-এর মধ্যে ধাপ %1$d</string>
+    <string name="timer_start">শুরু করুন</string>
+    <string name="timer_next_stage">পরের ধাপ</string>
+    <string name="timer_stage_passed">ধাপ %1$d সম্পন্ন: %2$s ধরে রেখেছেন</string>
+    <string name="timer_stage_stopped">ধাপ %1$d থেমেছে: %2$s-এ ভারসাম্য হারিয়েছেন</string>
+    <string name="timer_voice_stop">থামুন</string>
+    <string name="timer_fold_open">খোলা</string>
+    <string name="timer_fold_closed">বন্ধ</string>
+    <string name="timer_balance_lost_hint">পা নড়ে গেলে বা মানুষটির ধরার দরকার হলে “ভারসাম্য হারিয়েছেন” টিপুন।</string>
     <string name="timer_balance_allowed_movement">ভারসাম্য রাখতে মানুষটি হাত ছড়িয়ে রাখতে পারেন বা শরীর নাড়াতে পারেন। পা নাড়ানো চলবে না।</string>
     <string name="timer_balance_safety">মানুষটির পাশে দাঁড়ান, তাঁকে ধরে ফেলার জন্য তৈরি থাকুন। লাঠি বা ওয়াকার নয়। চোখ খোলা থাকবে।</string>
     <string name="timer_balance_progression">মানুষটি পা না নাড়িয়ে এবং কোনো সাহায্য ছাড়া একটি ধাপ %1$s ধরে রাখতে পারলে পরের ধাপে যান। না পারলে পরীক্ষা থামান।</string>
 
-    <string name="timer_start_stage">ধাপ %1$d শুরু করুন</string>
-    <string name="timer_lost_position">ভঙ্গি ভেঙেছে</string>
+    <string name="timer_lost_position">ভারসাম্য হারিয়েছেন: থামান</string>
     <string name="timer_restart_stage">তৈরি নন, ধাপটি আবার শুরু করুন</string>
     <string name="timer_start_over">গোড়া থেকে শুরু করুন</string>
 
     <string name="timer_stage_results">ধাপের ফলাফল</string>
     <string name="timer_stage_label">ধাপ %1$d</string>
     <string name="timer_outcome_held">ধরে রেখেছেন</string>
-    <string name="timer_outcome_lost">ভঙ্গি ভেঙেছে</string>
+    <string name="timer_outcome_lost">ভারসাম্য হারিয়েছেন</string>
     <string name="timer_stage_result_cd">ধাপ %1$d: %2$s, %3$s</string>
 
     <string name="timer_stepper_cd">ধাপ %1$d, মোট %2$d ধাপের মধ্যে, %3$s: %4$s</string>
     <string name="timer_step_held">ধরে রেখেছেন</string>
-    <string name="timer_step_lost">ভঙ্গি ভেঙেছে</string>
+    <string name="timer_step_lost">ভারসাম্য হারিয়েছেন</string>
     <string name="timer_step_current">এখন চলছে</string>
     <string name="timer_step_upcoming">শুরু হয়নি</string>
     <string name="timer_step_skipped">করা হয়নি</string>
@@ -56,7 +61,7 @@
     <string name="timer_tug_under">%1$s: CDC রেফারেন্স %2$s-এর কম</string>
     <string name="timer_tug_at_or_above">%1$s: CDC রেফারেন্স %2$s-এর সমান বা বেশি</string>
 
-    <string name="timer_tug_how_heading">কীভাবে করবেন</string>
+    <string name="timer_how_heading">কীভাবে করবেন</string>
     <plurals name="timer_tug_step_line">
         <item quantity="one">চেয়ার থেকে %1$d মিটার দূরে একটি দাগ দিন।</item>
         <item quantity="other">চেয়ার থেকে %1$d মিটার দূরে একটি দাগ দিন।</item>
@@ -68,6 +73,6 @@
     <string name="timer_tug_footwear">তিনি রোজকার জুতো পরবেন। দরকার হলে হাঁটার সহায়ক ব্যবহার করতে পারেন।</string>
 
     <string name="timer_tug_go">শুরু</string>
-    <string name="timer_tug_stop">থামান: বসে পড়েছেন</string>
+    <string name="timer_tug_stop">বসে পড়েছেন: থামান</string>
     <string name="timer_tug_run_again">আবার চালান: শুরু</string>
 </resources>

@@ -2,11 +2,11 @@
 <!-- 30-second chair-stand test screen. Hindi. -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="cs_title">30 सेकंड कुर्सी से उठना</string>
-    <string name="cs_setup_intro">गिनती सिर और कंधों की ऊँचाई से होती है, इसलिए ढीले कपड़े चल जाएँगे। व्यक्ति का कोड लिखें, नाम कभी नहीं।</string>
     <string name="cs_privacy_row">कुछ भी सेव नहीं होता, न कहीं भेजा जाता है: शरीर की पहचान इसी फ़ोन पर होती है।</string>
+    <string name="cs_step_of">%2$d में से चरण %1$d</string>
+    <string name="cs_step_person">व्यक्ति के बारे में</string>
+    <string name="cs_step_camera">कैमरा</string>
 
-    <string name="cs_code_label">व्यक्ति का कोड</string>
-    <string name="cs_code_help">आपका चुना हुआ कोड, जैसे A11। नाम कभी नहीं।</string>
     <string name="cs_age_label">उम्र का वर्ग</string>
     <string name="cs_age_help">CDC के मान 60 और उससे ज़्यादा उम्र के लिए हैं। 80+ के लिए CDC का 80-84 वाला मान लिया जाता है।</string>
     <string name="cs_sex_label">लिंग</string>
@@ -19,29 +19,26 @@
     <string name="cs_age_80_plus">80+</string>
     <string name="cs_sex_female">महिला</string>
     <string name="cs_sex_male">पुरुष</string>
-    <string name="cs_sex_not_recorded">दर्ज नहीं किया</string>
+    <string name="cs_sex_not_recorded">बताना नहीं चाहते</string>
 
-    <string name="cs_error_code_empty">व्यक्ति का कोड लिखें</string>
-    <string name="cs_error_code_too_long">ज़्यादा से ज़्यादा %1$d अक्षर लिखें</string>
-    <string name="cs_error_code_chars">सिर्फ़ अक्षर, अंक, - या _ इस्तेमाल करें</string>
     <string name="cs_error_age_band">उम्र का वर्ग चुनें</string>
-    <string name="cs_error_sex">एक चुनें, या दर्ज नहीं किया</string>
+    <string name="cs_error_sex">एक चुनें, या बताना नहीं चाहते</string>
 
     <string name="cs_continue_blocked">आगे बढ़ने के लिए जोड़ें: %1$s.</string>
     <string name="cs_list_separator">", "</string>
-    <string name="cs_blocker_code">व्यक्ति का कोड</string>
     <string name="cs_blocker_age">उम्र का वर्ग</string>
-    <string name="cs_blocker_sex">लिंग (या दर्ज नहीं किया)</string>
-    <string name="cs_continue">कैमरे पर आगे बढ़ें</string>
+    <string name="cs_blocker_sex">लिंग</string>
+    <string name="cs_continue">आगे</string>
 
     <string name="cs_unavailable_title">कुर्सी से उठने की जाँच उपलब्ध नहीं है</string>
     <string name="cs_unavailable_body">params.json में जाँच की समय-सीमा नहीं है या गलत है, इसलिए जाँच का समय नहीं नापा जा सकता।</string>
 
-    <string name="cs_session_line">%1$s · %2$s · %3$s</string>
     <string name="cs_edit_session">जानकारी बदलें</string>
+    <string name="cs_details_line">%1$s · %2$s</string>
     <string name="cs_run_again">फिर से करें</string>
+    <string name="cs_new_person">नया व्यक्ति</string>
     <string name="cs_waiting_camera">कैमरे का इंतज़ार…</string>
-    <string name="cs_start">कैलिब्रेशन और जाँच शुरू करें</string>
+    <string name="cs_start">शुरू करें</string>
     <string name="cs_stop">रोकें</string>
     <string name="cs_redo_calibration">कैलिब्रेशन फिर से करें</string>
     <string name="cs_cancel_test">जाँच रद्द करें</string>
@@ -57,7 +54,7 @@
     <string name="cs_stage_sit">बैठ जाइए और स्थिर रहिए</string>
     <string name="cs_stage_go">शुरू! जितनी बार हो सके, खड़े होइए और बैठिए</string>
     <string name="cs_stage_done">रुकिए। जाँच पूरी हुई</string>
-    <string name="cs_idle_hint">खड़े और बैठे दोनों समय पूरा शरीर, सिर से पैर तक, और कुर्सी दिखनी चाहिए</string>
+    <string name="cs_camera_checklist">पूरा शरीर और कुर्सी दिखे, फ़ोन 2-3 मीटर दूर रखें</string>
     <string name="cs_step_into_view">कैमरे के सामने आइए: पूरा शरीर, सिर से पैर तक</string>
 
     <string name="cs_pill_person_lost">व्यक्ति नहीं दिख रहा: पूरा शरीर, सिर से पैर तक, दिखना चाहिए</string>
@@ -123,7 +120,7 @@
     <string name="cs_reason_unreliable">गिनती भरोसेमंद नहीं: कैमरे पर बहुत बार खड़े होना साफ़ नहीं दिखा। जाँच फिर से करें।</string>
     <string name="cs_reason_low_fps">कैमरा इतना धीमा चला कि गिनती पर भरोसा नहीं किया जा सकता। दूसरे ऐप बंद करें और जाँच फिर से करें।</string>
     <string name="cs_no_cdc_under_60">60 से कम उम्र के लोगों के लिए CDC में कुर्सी से उठने का कोई मान नहीं है।</string>
-    <string name="cs_no_cdc_sex">CDC में महिलाओं और पुरुषों के मान अलग हैं, और लिंग दर्ज नहीं किया गया।</string>
+    <string name="cs_no_cdc_sex">CDC में महिलाओं और पुरुषों के मान अलग हैं, और लिंग नहीं बताया गया।</string>
     <string name="cs_no_cdc_value">CDC तालिका में इस उम्र के लिए कोई मान नहीं है: %1$s.</string>
     <string name="cs_no_cdc_file">CDC संदर्भ फ़ाइल पढ़ी नहीं जा सकी।</string>
 

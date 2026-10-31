@@ -2,24 +2,17 @@
 <!-- Home screen text. Tamil. -->
 <resources>
     <string name="home_tagline">வீட்டு பிசியோதெரபிக்கு நிலையான மதிப்பெண்கள்</string>
-    <string name="home_chip_offline">இணையம் இல்லாமல் இயங்கும் · இணைய அனுமதி இல்லை</string>
-    <string name="home_chip_steadi">CDC STEADI சோதனைகள்</string>
-    <string name="home_tests_heading">சோதனைகள்</string>
+    <string name="home_tests_heading">ஒரு சோதனையைத் தேர்ந்தெடுங்கள்</string>
     <string name="home_test_chair_title">30 வினாடி நாற்காலி எழுதல் சோதனை</string>
-    <string name="home_test_chair_measures">கால் வலிமை: முழுமையாக எழுந்த முறைகள், கேமரா எண்ணும்</string>
-    <string name="home_test_chair_duration">30 வி</string>
+    <string name="home_test_chair_measures">முடிந்தவரை பல முறை எழுந்து உட்காருங்கள்</string>
     <string name="home_test_balance_title">4 நிலை சமநிலைச் சோதனை</string>
-    <string name="home_test_balance_measures">நான்கு நிலைகளில் நின்று சமநிலை, நேரத்தை நீங்கள் அளப்பீர்கள்</string>
-    <string name="home_test_balance_duration">4 × 10 வி</string>
+    <string name="home_test_balance_measures">நான்கு நிலைகளில் அசையாமல் நில்லுங்கள்</string>
     <string name="home_test_tug_title">Timed Up and Go (எழுந்து நடக்கும் சோதனை)</string>
-    <string name="home_test_tug_measures">நடமாட்டம்: எழுந்து, நடந்து, திரும்பி, உட்காருதல், நேரத்தை நீங்கள் அளப்பீர்கள்</string>
-    <string name="home_test_tug_duration">ஒரு நிமிடத்துக்குள்</string>
-    <string name="home_card_takes">%1$s ஆகும்</string>
-    <string name="home_card_open">திற</string>
+    <string name="home_test_tug_measures">எழுந்து, நடந்து, திரும்பி வந்து உட்காருங்கள்</string>
     <string name="home_badge_ready">தயார்</string>
-    <string name="home_badge_not_tuned">கவுண்டர் இன்னும் டியூன் செய்யப்படவில்லை</string>
-    <string name="home_badge_invalid">கவுண்டர் அமைப்புகள் சரியில்லை</string>
-    <string name="home_badge_missing">கவுண்டர் அமைப்புகள் இல்லை</string>
+    <string name="home_badge_not_tuned">இப்போது டைமர் மட்டும். எண்ணுதல் பின்னர் வரும்.</string>
+    <string name="home_badge_invalid">இப்போது டைமர் மட்டும். கவுண்டர் அமைப்புகளில் சிக்கல் உள்ளது.</string>
+    <string name="home_badge_missing">இப்போது டைமர் மட்டும். கவுண்டர் அமைப்புகள் கிடைக்கவில்லை.</string>
     <string name="home_footer_disclaimer">முன்மாதிரி. இது மருத்துவக் கருவி அல்ல. நோயைக் கண்டறியாது, விழுவதை முன்கூட்டியே கணிக்காது. CDC அமெரிக்க குறிப்பு மதிப்புகளைப் பயன்படுத்துகிறது.</string>
     <string name="home_link_privacy">தனியுரிமை</string>
     <string name="home_link_terms">விதிமுறைகள்</string>

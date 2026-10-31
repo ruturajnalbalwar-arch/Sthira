@@ -2,7 +2,6 @@
 <!-- Shared UI text: top bar, text size, theme and language controls. Hindi. -->
 <resources>
     <string name="common_back">वापस</string>
-    <string name="common_close">बंद करें</string>
 
     <string name="common_text_smaller">अक्षर छोटे करें</string>
     <string name="common_text_larger">अक्षर बड़े करें</string>
@@ -13,11 +12,24 @@
     <string name="common_theme_system">फ़ोन जैसा</string>
     <string name="common_theme_light">हल्का</string>
     <string name="common_theme_dark">गहरा</string>
-    <string name="common_theme_change">रंग-रूप बदलें। अभी: %1$s</string>
 
     <string name="common_language_title">भाषा</string>
     <string name="common_language_phone">फ़ोन की भाषा</string>
     <string name="common_language_phone_help">वही भाषा इस्तेमाल करें जो इस फ़ोन में है।</string>
     <string name="common_language_change">भाषा बदलें। अभी: %1$s</string>
     <string name="common_selected">चुनी हुई</string>
+
+    <string name="common_settings_title">सेटिंग</string>
+    <string name="common_start">शुरू करें</string>
+    <string name="common_step_of">%2$d में से चरण %1$d</string>
+    <string name="common_on">चालू</string>
+    <string name="common_off">बंद</string>
+    <string name="common_text_size_title">अक्षर का आकार</string>
+    <string name="common_text_smaller_short">छोटा</string>
+    <string name="common_text_larger_short">बड़ा</string>
+    <string name="common_text_size_sample">अक्षर इतने बड़े दिखेंगे।</string>
+    <string name="common_voice_title">बोलकर निर्देश</string>
+    <string name="common_voice_help">चरण ज़ोर से पढ़कर सुनाएँ</string>
+    <string name="common_about_title">ऐप के बारे में</string>
+    <string name="common_about_offline">बिना इंटरनेट चलता है। इस ऐप को इंटरनेट की अनुमति नहीं है।</string>
 </resources>

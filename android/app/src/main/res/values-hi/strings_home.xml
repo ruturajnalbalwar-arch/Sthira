@@ -2,27 +2,20 @@
 <!-- Home screen text. Hindi. -->
 <resources>
     <string name="home_tagline">घर पर फ़िज़ियोथेरेपी के लिए सधे हुए स्कोर</string>
-    <string name="home_chip_offline">बिना इंटरनेट चलता है · इंटरनेट की अनुमति नहीं</string>
-    <string name="home_chip_steadi">CDC STEADI जाँच</string>
 
-    <string name="home_tests_heading">जाँच</string>
+    <string name="home_tests_heading">एक जाँच चुनें</string>
 
     <string name="home_test_chair_title">30 सेकंड कुर्सी से उठना</string>
-    <string name="home_test_chair_measures">पैरों की ताकत: पूरा खड़े होना, कैमरा गिनता है</string>
-    <string name="home_test_chair_duration">30 से.</string>
+    <string name="home_test_chair_measures">जितनी बार हो सके, उठें और बैठें</string>
     <string name="home_test_balance_title">4 चरण संतुलन</string>
-    <string name="home_test_balance_measures">चार तरह से खड़े होकर संतुलन, समय आप नापते हैं</string>
-    <string name="home_test_balance_duration">4 × 10 से.</string>
+    <string name="home_test_balance_measures">चार तरह से स्थिर खड़े रहें</string>
     <string name="home_test_tug_title">Timed Up and Go (उठें, चलें, लौटकर बैठें)</string>
-    <string name="home_test_tug_measures">चलने-फिरने की क्षमता: उठना, चलना, मुड़ना और बैठना, समय आप नापते हैं</string>
-    <string name="home_test_tug_duration">एक मिनट से कम</string>
-    <string name="home_card_takes">समय: %1$s</string>
-    <string name="home_card_open">खोलें</string>
+    <string name="home_test_tug_measures">उठें, चलें, मुड़कर लौटें और बैठें</string>
 
     <string name="home_badge_ready">तैयार</string>
-    <string name="home_badge_not_tuned">गिनती अभी सेट नहीं है</string>
-    <string name="home_badge_invalid">गिनती की सेटिंग गलत है</string>
-    <string name="home_badge_missing">गिनती की सेटिंग नहीं मिली</string>
+    <string name="home_badge_not_tuned">अभी सिर्फ़ टाइमर। गिनती बाद में आएगी।</string>
+    <string name="home_badge_invalid">अभी सिर्फ़ टाइमर। गिनती की सेटिंग में गड़बड़ है।</string>
+    <string name="home_badge_missing">अभी सिर्फ़ टाइमर। गिनती की सेटिंग नहीं मिली।</string>
 
     <string name="home_footer_disclaimer">प्रोटोटाइप। यह मेडिकल उपकरण नहीं है। यह बीमारी नहीं बताता और गिरने का अनुमान नहीं लगाता। CDC के अमेरिकी संदर्भ मान इस्तेमाल करता है।</string>
     <string name="home_link_privacy">निजता</string>
