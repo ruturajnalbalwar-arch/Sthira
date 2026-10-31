@@ -41,11 +41,12 @@ data class ChairStandUiState(
     val durationS: Double = 0.0,
     val normsNote: String? = null,
     val form: SetupForm = SetupForm(),
-    val formErrors: Map<SetupField, UiText> = emptyMap(),
     val session: Session? = null,
     val lens: Lens = Lens.Back,
     val camera: CameraStatus = CameraStatus.Starting,
     val stage: Stage = Stage.Idle,
+    /** Run time the current stage began; changes when calibration is redone, so the cue is spoken again. */
+    val stageStartT: Double = 0.0,
     val startRequested: Boolean = false,
     val countdownS: Int? = null,
     val elapsedS: Int? = null,
@@ -60,12 +61,29 @@ data class ChairStandUiState(
 
     /** Start was tapped but nobody is in view yet: calibration waits for a detected person. */
     val waitingForPerson: Boolean get() = startRequested && stage == Stage.Idle && !stats.personDetected
+
+    /** Which of the three screens is shown: about the person, the camera, or the result. */
+    val step: FlowStep
+        get() = when {
+            session == null -> FlowStep.Person
+            stage == Stage.Done -> FlowStep.Result
+            else -> FlowStep.Camera
+        }
+}
+
+/** The three steps of the chair-stand flow, in order; [number] is shown as "Step n of 3". */
+enum class FlowStep(val number: Int) {
+    Person(1),
+    Camera(2),
+    Result(3),
 }
 
 sealed interface ChairStandEvent {
     class FormChanged(val edit: SetupEdit) : ChairStandEvent
     data object Submit : ChairStandEvent
     data object EditSession : ChairStandEvent
+    /** Back to step 1 with an empty form, for the next person. */
+    data object NewPerson : ChairStandEvent
     data class Camera(val status: CameraStatus) : ChairStandEvent
     data object SwitchLens : ChairStandEvent
     data object StartTest : ChairStandEvent

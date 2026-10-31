@@ -28,7 +28,7 @@ import kotlin.math.round
 /**
  * Chair-stand screen. Every change to the run goes through one inbox processed by a single
  * coroutine, so camera frames (MediaPipe thread), clock ticks and taps never race.
- * Nothing about landmarks or the participant is logged or saved.
+ * Nothing about landmarks or the person is logged or saved.
  */
 class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
     private val config: ChairStandConfig?
@@ -119,6 +119,10 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
                 run = m.reset(run)
                 _state.update { it.copy(session = null, result = null, camera = CameraStatus.Starting) }
             }
+            ChairStandEvent.NewPerson -> if (!run.isRunning) {
+                run = m.reset(run)
+                _state.update { it.copy(form = SetupForm(), session = null, result = null, camera = CameraStatus.Starting) }
+            }
             is ChairStandEvent.Camera -> onCamera(m, event.status, now)
             ChairStandEvent.SwitchLens -> if (!run.isRunning) {
                 // The other lens has its own capture clock and its own picture: start both afresh.
@@ -134,8 +138,10 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
             ChairStandEvent.RedoCalibration -> run = m.redoCalibration(run, now)
             ChairStandEvent.Cancel -> run = m.cancel(run)
             ChairStandEvent.RunAgain -> if (!run.phase.stage.isActive) {
-                run = m.reset(run)
-                _state.update { it.copy(result = null) }
+                // The result step has no camera: it starts afresh when the camera step opens again.
+                run = m.reset(run).copy(clock = FrameClock(), personDetected = false)
+                _overlay.value = null
+                _state.update { it.copy(result = null, camera = CameraStatus.Starting) }
             }
             ChairStandEvent.AppHidden -> if (run.isRunning) run = m.interrupt(run, now, CaptureIssue.AppHidden)
         }
@@ -154,8 +160,9 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
 
     private fun submit() {
         when (val result = SessionSetup.validate(_state.value.form)) {
-            is SetupResult.Invalid -> _state.update { it.copy(formErrors = result.errors) }
-            is SetupResult.Ok -> _state.update { it.copy(formErrors = emptyMap(), session = result.session) }
+            // Next is disabled until both answers are given, and the missing ones are listed under it.
+            is SetupResult.Invalid -> Unit
+            is SetupResult.Ok -> _state.update { it.copy(session = result.session, camera = CameraStatus.Starting) }
         }
     }
 
@@ -174,6 +181,7 @@ class ChairStandViewModel(app: Application) : AndroidViewModel(app) {
         _state.update { s ->
             s.copy(
                 stage = r.phase.stage,
+                stageStartT = r.phase.stageStartT,
                 startRequested = r.startRequested,
                 countdownS = PhaseMachine.countdown(r.phase, r.nowT, cfg.phaseConfig),
                 elapsedS = elapsed?.toInt(),

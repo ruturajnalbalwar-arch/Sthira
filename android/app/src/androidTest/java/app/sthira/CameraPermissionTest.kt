@@ -2,6 +2,7 @@ package app.sthira
 
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.hasClickAction
+import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -70,21 +71,22 @@ class CameraDeniedFlowTest {
     @Test
     fun continueWithoutPermissionShowsTheRationaleCard_andBackLeaves() {
         assumeFalse("CAMERA is granted; this test needs it revoked", cameraGranted())
-        rule.openCard("30-second chair stand")
-        rule.type(str(R.string.cs_code_label), "P07")
+        rule.openCard(str(R.string.home_test_chair_title))
         rule.chip(str(R.string.cs_age_75_79)).tap()
         rule.chip(str(R.string.cs_sex_not_recorded)).tap()
         rule.eventually { rule.button(str(R.string.cs_continue)).assertIsEnabled() }
         rule.tapButton(str(R.string.cs_continue))
         rule.assertScreen(str(R.string.cs_title))
         rule.onNode(hasText(str(R.string.pose_perm_needed_title))).assertExists()
+        // Still step 2 of 3: the step indicator stays above the permission card.
+        rule.onNode(hasContentDescription(str(R.string.cs_step_of, 2, 3), substring = true)).assertExists()
         rule.onNode(hasText(str(R.string.pose_perm_allow)) and hasClickAction()).assertExists() // not tapped: it opens the system dialog
         rule.onNode(hasText(str(R.string.cs_start))).assertDoesNotExist()
         rule.shot("e-01-permission-card")
         rule.tapBackArrow()
         rule.assertHome()
         // Back in: the session is kept, so the card shows again; system back leaves too.
-        rule.openCard("30-second chair stand")
+        rule.openCard(str(R.string.home_test_chair_title))
         rule.onNode(hasText(str(R.string.pose_perm_needed_title))).assertExists()
         rule.systemBack()
         rule.assertHome()

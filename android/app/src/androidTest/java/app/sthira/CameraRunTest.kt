@@ -3,6 +3,9 @@ package app.sthira
 import android.util.Log
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.assertIsNotSelected
+import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.assert
@@ -34,10 +37,11 @@ val START get() = str(R.string.cs_start)
 val PERSON_LOST get() = str(R.string.cs_pill_person_lost)
 val STEP_INTO_VIEW get() = str(R.string.cs_step_into_view)
 
-/** Fills the setup form and continues to the camera screen. */
-fun AppRule.startSession(code: String = "P07", band: String = "70-74", sex: String = "Female") {
-    openCard("30-second chair stand")
-    type(str(R.string.cs_code_label), code)
+val STOP get() = str(R.string.cs_stop)
+
+/** Step 1: picks the age and sex tiles and goes on to step 2, the camera. */
+fun AppRule.startSession(band: String = str(R.string.cs_age_70_74), sex: String = str(R.string.cs_sex_female)) {
+    openCard(str(R.string.home_test_chair_title))
     chip(band).tap()
     chip(sex).tap()
     eventually { button(str(R.string.cs_continue)).assertIsEnabled() }
@@ -73,7 +77,10 @@ class CameraRunTest {
 
     @Test
     fun cameraGoesLive_withFpsAndDelegate_andLensSwitchWorks() {
-        rule.onNode(hasText("P07 · 70-74 · Female")).assertExists()
+        val details = str(R.string.cs_details_line, str(R.string.cs_age_70_74), str(R.string.cs_sex_female))
+        rule.onNode(hasText(details)).assertExists()
+        rule.onNode(hasContentDescription(str(R.string.cs_step_of, 2, 3), substring = true)).assertExists()
+        rule.onNode(hasText(str(R.string.cs_camera_checklist))).assertExists()
         val pill = rule.waitLive()
         rule.button(START).assertIsEnabled()
         rule.onNode(hasText(PERSON_LOST)).assertDoesNotExist() // only shown while a run is active
@@ -101,8 +108,10 @@ class CameraRunTest {
         rule.waitFor(hasText(STAND), STAGE_WAIT_MS)
         // The lens switch is hidden while a run is active.
         rule.onNode(hasContentDescription(str(R.string.cs_switch_to_front))).assertDoesNotExist()
+        // One big button that now means Stop; Redo is the only small one (Stop already cancels here).
+        rule.button(STOP).assertExists()
         rule.button(str(R.string.cs_redo_calibration)).assertExists()
-        rule.button(str(R.string.cs_cancel_test)).assertExists()
+        rule.onNode(hasText(str(R.string.cs_cancel_test))).assertDoesNotExist()
         rule.onNode(hasText(START)).assertDoesNotExist()
         rule.button(str(R.string.cs_edit_session)).assert(SemanticsMatcher.keyIsDefined(androidx.compose.ui.semantics.SemanticsProperties.Disabled))
         val pill = rule.onNode(hasTextMatching(LIVE_PILL)).text()
@@ -114,14 +123,17 @@ class CameraRunTest {
         rule.shot("e-05-calibration-sit")
 
         rule.waitFor(hasText(NOT_COUNTING), STAGE_WAIT_MS)
-        rule.button(str(R.string.cs_stop)).assertExists()
+        rule.button(STOP).assertExists()
         rule.button(str(R.string.cs_cancel_test)).assertExists()
         rule.onNode(hasText(str(R.string.cs_redo_calibration))).assertDoesNotExist()
         assertEquals(0, rule.onAllNodes(noCountShown()).fetchSemanticsNodes().size)
         rule.shot("e-06-test-untuned")
 
-        rule.tapButton(str(R.string.cs_stop))
+        rule.tapButton(STOP)
+        // Step 3: the result, with Run again and New person.
         rule.waitFor(hasText(str(R.string.cs_stage_done)))
+        rule.onNode(hasContentDescription(str(R.string.cs_step_of, 3, 3), substring = true)).assertExists()
+        rule.onNode(hasText(str(R.string.cs_new_person)) and hasClickAction()).assertExists()
         rule.onNode(hasText(str(R.string.cs_no_count_not_tuned))).assertExists()
         assertEquals(0, rule.onAllNodes(noCountShown()).fetchSemanticsNodes().size)
         rule.onNode(hasText(str(R.string.cs_issues_title))).assertDoesNotExist()
@@ -154,7 +166,8 @@ class CameraRunTest {
         rule.waitFor(hasText(STAND), 3_000)
         rule.waitGone(hasText(SIT), 3_000)
 
-        rule.tapButton(str(R.string.cs_cancel_test))
+        // Stop during calibration goes back to Ready, without a result.
+        rule.tapButton(STOP)
         rule.waitFor(hasText(START))
         rule.onNode(hasText(STAND)).assertDoesNotExist()
         rule.onNode(hasText(str(R.string.cs_stage_done))).assertDoesNotExist()
@@ -171,6 +184,19 @@ class CameraRunTest {
     }
 
     @Test
+    fun newPersonFromTheResultClearsTheAnswers() {
+        rule.waitLive()
+        rule.tapButton(START)
+        rule.waitFor(hasText(NOT_COUNTING), STAGE_WAIT_MS * 2)
+        rule.tapButton(STOP)
+        rule.eventually(5_000) { rule.button(str(R.string.cs_new_person)).assertExists() }
+        rule.tapButton(str(R.string.cs_new_person))
+        rule.eventually { rule.chip(str(R.string.cs_age_70_74)).assertIsNotSelected() }
+        rule.chip(str(R.string.cs_sex_female)).assertIsNotSelected()
+        rule.button(str(R.string.cs_continue)).assertIsNotEnabled()
+    }
+
+    @Test
     fun systemBackDuringRunCancels_thenSecondBackLeaves() {
         rule.waitLive()
         rule.tapButton(START)
@@ -183,11 +209,12 @@ class CameraRunTest {
     }
 
     @Test
-    fun editSessionReturnsToTheFilledForm() {
+    fun editDetailsReturnsToTheFilledForm() {
         rule.waitLive()
         rule.tapButton(str(R.string.cs_edit_session))
         // The ViewModel handles this on a background coroutine that waitForIdle() does not track.
-        rule.eventually { rule.field(str(R.string.cs_code_label)).assert(hasText("P07")) }
+        rule.eventually { rule.chip(str(R.string.cs_age_70_74)).assertIsSelected() }
+        rule.chip(str(R.string.cs_sex_female)).assertIsSelected()
         rule.button(str(R.string.cs_continue)).assertIsEnabled()
         rule.tapButton(str(R.string.cs_continue))
         rule.waitLive()

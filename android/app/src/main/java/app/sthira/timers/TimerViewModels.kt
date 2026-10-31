@@ -50,8 +50,11 @@ data class BalanceUiState(
     val errors: List<UiText>? = null,
     val test: BalanceState = BALANCE_START,
     val nowT: Double = 0.0,
+    /** True from the moment a stage is held until Next stage is pressed, so the result is seen first. */
+    val reviewing: Boolean = false,
 ) {
     val running: Boolean get() = test.current?.startT != null
+    val phase: BalancePhase get() = BalanceSteps.phase(test, reviewing)
     val heldS: Double
         get() {
             val start = test.current?.startT ?: return 0.0
@@ -64,7 +67,19 @@ sealed interface BalanceUiEvent {
     data object StartStage : BalanceUiEvent
     data object Lost : BalanceUiEvent
     data object CancelStage : BalanceUiEvent
+    data object NextStage : BalanceUiEvent
     data object Reset : BalanceUiEvent
+}
+
+/** Applies an engine event; a newly recorded stage result opens the review step, Reset closes it. */
+internal fun BalanceUiState.advance(event: BalanceEvent, t: Double, norms: BalanceNorms): BalanceUiState {
+    val next = balanceReducer(test, event, norms)
+    val reviewNow = when {
+        event is BalanceEvent.Reset -> false
+        next.results.size > test.results.size -> true
+        else -> reviewing
+    }
+    return copy(test = next, nowT = t, reviewing = reviewNow)
 }
 
 /** CDC 4-stage balance, timed by the physio. The engine reducer decides every transition. */
@@ -87,8 +102,12 @@ class BalanceViewModel(app: Application) : AndroidViewModel(app) {
             BalanceUiEvent.Lost -> BalanceEvent.Lost(t)
             BalanceUiEvent.CancelStage -> BalanceEvent.CancelStage
             BalanceUiEvent.Reset -> BalanceEvent.Reset
+            BalanceUiEvent.NextStage -> {
+                _state.update { it.copy(reviewing = false) }
+                return
+            }
         }
-        _state.update { it.copy(test = balanceReducer(it.test, engineEvent, norms), nowT = t) }
+        _state.update { it.advance(engineEvent, t, norms) }
         syncTicker(norms)
     }
 
@@ -103,7 +122,7 @@ class BalanceViewModel(app: Application) : AndroidViewModel(app) {
             while (isActive && _state.value.running) {
                 delay(TICK_MS)
                 val t = nowSeconds()
-                _state.update { it.copy(test = balanceReducer(it.test, BalanceEvent.Tick(t), norms), nowT = t) }
+                _state.update { it.advance(BalanceEvent.Tick(t), t, norms) }
             }
             ticker = null
         }

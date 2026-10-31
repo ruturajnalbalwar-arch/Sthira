@@ -29,21 +29,26 @@ val NormSex.labelRes: Int
         NormSex.NOT_RECORDED -> R.string.cs_sex_not_recorded
     }
 
-/** What the form holds before validation. Nothing here is ever saved. */
+/**
+ * What step 1 holds before Next: only the two answers the CDC comparison needs. There is no
+ * participant code: nothing is saved, so a code would have no use. Nothing here is ever saved.
+ */
 data class SetupForm(
-    val participantCode: String = "",
     val ageBand: AgeBand? = null,
     val sex: NormSex? = null,
-)
+) {
+    /** Kept so the debug font-scale previews still build; the code is ignored. */
+    @Suppress("UNUSED_PARAMETER")
+    constructor(participantCode: String, ageBand: AgeBand? = null, sex: NormSex? = null) : this(ageBand, sex)
+}
 
 /** In form order; [blocker] names the field in the "To continue, add ..." line. */
 enum class SetupField(@StringRes val blocker: Int) {
-    ParticipantCode(R.string.cs_blocker_code),
     AgeBand(R.string.cs_blocker_age),
     Sex(R.string.cs_blocker_sex),
 }
 
-data class Session(val participantCode: String, val ageBand: AgeBand, val sex: NormSex)
+data class Session(val ageBand: AgeBand, val sex: NormSex)
 
 sealed interface SetupResult {
     data class Ok(val session: Session) : SetupResult
@@ -51,45 +56,20 @@ sealed interface SetupResult {
 }
 
 object SessionSetup {
-    /** The same code rule as the web app and the labelling tool, so a code means the same everywhere. */
-    private val CODE_CHARS = Regex("^[A-Za-z0-9_-]+$")
-
-    /** Same limit as the ids in the labelling tool. */
-    const val MAX_CODE = 40
-
-    private fun codeError(code: String): UiText? = when {
-        code.isEmpty() -> uiText(R.string.cs_error_code_empty)
-        code.length > MAX_CODE -> uiText(R.string.cs_error_code_too_long, MAX_CODE)
-        !CODE_CHARS.matches(code) -> uiText(R.string.cs_error_code_chars)
-        else -> null
-    }
-
     fun validate(form: SetupForm): SetupResult {
-        val code = form.participantCode.trim()
-        val errors = buildMap {
-            codeError(code)?.let { put(SetupField.ParticipantCode, it) }
-            if (form.ageBand == null) put(SetupField.AgeBand, uiText(R.string.cs_error_age_band))
-            if (form.sex == null) put(SetupField.Sex, uiText(R.string.cs_error_sex))
-        }
         val band = form.ageBand
         val sex = form.sex
-        if (errors.isNotEmpty() || band == null || sex == null) return SetupResult.Invalid(errors)
-        return SetupResult.Ok(Session(code, band, sex))
+        if (band != null && sex != null) return SetupResult.Ok(Session(band, sex))
+        val errors = buildMap {
+            if (band == null) put(SetupField.AgeBand, uiText(R.string.cs_error_age_band))
+            if (sex == null) put(SetupField.Sex, uiText(R.string.cs_error_sex))
+        }
+        return SetupResult.Invalid(errors)
     }
 
-    /** What is still missing, in form order; empty when Continue may be pressed. */
+    /** What is still missing, in form order; empty when Next may be pressed. */
     fun blockers(form: SetupForm): List<SetupField> {
         val errors = (validate(form) as? SetupResult.Invalid)?.errors ?: return emptyList()
         return SetupField.entries.filter { it in errors }
-    }
-
-    /**
-     * Errors shown inline while typing: only for a code that already holds something invalid, so an
-     * untouched form is not covered in red. Missing choices are listed by [blockers] instead.
-     */
-    fun inlineErrors(form: SetupForm): Map<SetupField, UiText> {
-        if (form.participantCode.isBlank()) return emptyMap()
-        val all = (validate(form) as? SetupResult.Invalid)?.errors ?: return emptyMap()
-        return all.filterKeys { it == SetupField.ParticipantCode }
     }
 }

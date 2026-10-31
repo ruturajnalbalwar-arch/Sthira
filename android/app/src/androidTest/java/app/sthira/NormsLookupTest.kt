@@ -36,7 +36,7 @@ class NormsLookupTest {
         var available = 0
         AgeBand.entries.forEach { band ->
             NormSex.entries.forEach { sex ->
-                val choice = config.normChoice(Session("P07", band, sex))
+                val choice = config.normChoice(Session(band, sex))
                 val label = "$band/$sex"
                 val normBand = band.normBand
                 if (normBand == null || sex == NormSex.NOT_RECORDED) {

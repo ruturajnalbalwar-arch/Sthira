@@ -5,6 +5,9 @@ import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.isSelectable
+import androidx.compose.ui.test.isToggleable
+import androidx.compose.ui.test.assertIsOff
+import androidx.compose.ui.test.assertIsOn
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import app.sthira.engine.CounterResult
@@ -120,8 +123,19 @@ class HomeAndLegalTest {
     }
 
     @Test
-    fun displayRow_textZoomStepsAndLanguageScreenListsEveryLanguageInItsOwnScript() {
+    fun homeHasNoZoomOrTrustChips_settingsHoldsThemeTextSizeVoiceAndAbout() {
         rule.assertHome()
+        // Home is only for picking a test: text zoom moved to Settings.
+        rule.onAllNodes(hasContentDescription(str(R.string.common_text_larger), substring = true)).assertCountEquals0()
+
+        rule.onNode(hasContentDescription(str(R.string.common_settings_title)) and hasClickAction()).tap()
+        rule.waitForIdle()
+        rule.assertScreen(str(R.string.common_settings_title))
+        listOf(R.string.common_theme_system, R.string.common_theme_light, R.string.common_theme_dark).forEach {
+            rule.onNode(hasText(str(it)) and isSelectable()).assertExists()
+        }
+        rule.onNode(hasText(str(R.string.common_about_offline))).assertExists()
+
         val larger = str(R.string.common_text_larger)
         val smaller = str(R.string.common_text_smaller)
         rule.onNode(hasContentDescription(str(R.string.common_text_size_state, 100))).assertExists()
@@ -132,13 +146,46 @@ class HomeAndLegalTest {
         rule.waitForIdle()
         rule.onNode(hasContentDescription(str(R.string.common_text_size_state, 100))).assertExists()
 
-        rule.onNode(hasText(str(R.string.common_language_button)) and hasClickAction()).tap()
+        // Voice is on by default; the switch turns it off and on again (restored for other tests).
+        val voice = rule.onNode(hasText(str(R.string.common_voice_help)) and isToggleable())
+        voice.assertIsOn()
+        voice.tap()
         rule.waitForIdle()
+        voice.assertIsOff()
+        voice.tap()
+        rule.waitForIdle()
+        voice.assertIsOn()
+
+        rule.tapBackArrow()
+        rule.assertHome()
+    }
+
+    @Test
+    fun languageButtonsOpenTheListOfEveryLanguageInItsOwnScript() {
+        rule.assertHome()
+        val change = str(R.string.common_language_change, "")
+        rule.onNode(hasContentDescription(change, substring = true) and hasClickAction()).tap()
+        rule.waitForIdle()
+        assertLanguageList()
+        rule.systemBack()
+        rule.assertHome()
+
+        // From Settings, the list returns to Settings.
+        rule.onNode(hasContentDescription(str(R.string.common_settings_title)) and hasClickAction()).tap()
+        rule.waitForIdle()
+        rule.onNode(hasContentDescription(change, substring = true) and hasClickAction()).tap()
+        rule.waitForIdle()
+        assertLanguageList()
+        rule.systemBack()
+        rule.assertScreen(str(R.string.common_settings_title))
+        rule.systemBack()
+        rule.assertHome()
+    }
+
+    private fun assertLanguageList() {
         rule.assertScreen(str(R.string.common_language_title))
         AppLocales.LANGUAGES.forEach { rule.onNode(hasText(str(it.nativeName)) and isSelectable()).assertExists() }
         rule.onNode(hasText(str(R.string.common_language_phone)) and isSelectable()).assertExists()
-        rule.systemBack()
-        rule.assertHome()
     }
 
     private fun assertLegalDoc(doc: LegalDoc) {

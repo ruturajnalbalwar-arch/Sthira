@@ -15,7 +15,7 @@ class NeuContrastTest {
 
     private fun base(t: SthiraColors) = if (t.isDark) Neu.DARK_BASE else Neu.LIGHT_BASE
 
-    /** Every text token that is drawn on a soft surface (titles, body, labels, tone titles). */
+    /** Every text token that is drawn on a surface (titles, body, labels, tone titles). */
     private fun textTokens(t: SthiraColors) = mapOf(
         "text" to t.text, "muted" to t.muted, "primary" to t.primary,
         "danger" to t.danger, "warn" to t.warn, "success" to t.success,
@@ -30,7 +30,7 @@ class NeuContrastTest {
     }
 
     @Test
-    fun `every text token keeps AA contrast on the soft base colour in both themes`() {
+    fun `every text token keeps AA contrast on the screen base colour in both themes`() {
         listOf(LightTokens, DarkTokens).forEach { t ->
             textTokens(t).forEach { (name, color) ->
                 val ratio = Contrast.ratio(rgb(color), base(t))
@@ -52,7 +52,7 @@ class NeuContrastTest {
     }
 
     @Test
-    fun `the palette is black and white with the soft base equal to the screen colour`() {
+    fun `the palette is black and white with the base equal to the screen colour`() {
         assertEquals(Contrast.BLACK, rgb(LightTokens.text))
         assertEquals(Contrast.BLACK, rgb(LightTokens.primary))
         assertEquals(Contrast.WHITE, rgb(LightTokens.surface))
@@ -114,23 +114,41 @@ class NeuContrastTest {
     }
 
     @Test
-    fun `the soft shadows are visibly different from the base so raised and pressed read at a glance`() {
-        listOf(
-            Triple("light", Neu.LIGHT_HIGHLIGHT to Neu.LIGHT_SHADE, Neu.LIGHT_BASE),
-            Triple("dark", Neu.DARK_HIGHLIGHT to Neu.DARK_SHADE, Neu.DARK_BASE),
-        ).forEach { (name, shadows, base) ->
-            assertTrue("$name highlight", Contrast.ratio(shadows.first, base) >= MIN_SHADOW_STEP)
-            assertTrue("$name shade", Contrast.ratio(shadows.second, base) >= MIN_SHADOW_STEP)
+    fun `card and button edges are at least 3 to 1 against the screen and the card colour`() {
+        // Flat design: a Raised surface is the card colour with a borderStrong edge, so the edge (not a
+        // shadow) is what separates it from the screen. Outlined buttons use the text colour.
+        listOf(LightTokens, DarkTokens).forEach { t ->
+            listOf("bg" to t.bg, "surface" to t.surface).forEach { (ground, g) ->
+                listOf("borderStrong" to t.borderStrong, "text" to t.text).forEach { (name, edge) ->
+                    val ratio = Contrast.ratio(rgb(edge), rgb(g))
+                    assertTrue("${t.isDark} $name on $ground = ${"%.2f".format(ratio)}", ratio >= Contrast.AA_UI)
+                }
+            }
+        }
+    }
+
+    @Test
+    fun `disabled controls are grey but their text keeps AA contrast`() {
+        listOf(LightTokens, DarkTokens).forEach { t ->
+            val text = Contrast.ratio(rgb(t.onDisabled), rgb(t.disabled))
+            assertTrue("${t.isDark} onDisabled on disabled = ${"%.2f".format(text)}", text >= Contrast.AA_TEXT)
+            // Grey, not a tone: clearly different from the primary fill of an enabled button.
+            assertTrue(Contrast.ratio(rgb(t.disabled), rgb(t.primary)) >= Contrast.AA_UI)
+        }
+    }
+
+    @Test
+    fun `selected choices are filled with primary and their text and check keep AA`() {
+        listOf(LightTokens, DarkTokens).forEach { t ->
+            assertTrue(Contrast.ratio(rgb(t.onPrimary), rgb(t.primary)) >= Contrast.AA_TEXT)
+            // A filled tile stands out from the card colour and the screen at 3:1 or more.
+            assertTrue(Contrast.ratio(rgb(t.primary), rgb(t.surface)) >= Contrast.AA_UI)
+            assertTrue(Contrast.ratio(rgb(t.primary), rgb(t.bg)) >= Contrast.AA_UI)
         }
     }
 
     @Test
     fun `a text colour inside the backdrop span is reported as failing`() {
         assertEquals(1.0, Contrast.worstOverBackdrop(0x777777, 0x777777, 0.1), 0.0)
-    }
-
-    private companion object {
-        /** Not a WCAG rule: the least step between the base and a shadow for the depth to be visible at all. */
-        const val MIN_SHADOW_STEP = 1.15
     }
 }

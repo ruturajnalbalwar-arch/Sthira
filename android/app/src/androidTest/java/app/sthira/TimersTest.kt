@@ -51,7 +51,10 @@ class BalanceTest {
     private val lost get() = str(R.string.timer_lost_position)
     private val restart get() = str(R.string.timer_restart_stage)
     private val results get() = str(R.string.timer_stage_results)
-    private fun startStage(stage: Int) = str(R.string.timer_start_stage, stage)
+    private val start get() = str(R.string.timer_start)
+    private val nextStage get() = str(R.string.timer_next_stage)
+    private val how get() = str(R.string.timer_how_heading)
+    private fun stageOf(stage: Int) = str(R.string.timer_stage_of, stage, norms.stages.size)
 
     @Before
     fun open() {
@@ -70,21 +73,34 @@ class BalanceTest {
         }
     }
 
+    /** Holds [stage] for the full time; before the last stage it checks the passed line and presses Next stage. */
     private fun hold(stage: Int) {
-        rule.tapButton(startStage(stage))
+        rule.onNode(hasText(stageOf(stage))).assertExists()
+        rule.tapButton(start)
         rule.button(lost).assertExists()
         rule.button(restart).assertExists()
-        val next = if (stage < norms.stages.size) hasText(startStage(stage + 1)) else hasText(startOver)
-        rule.waitFor(next, HOLD_WAIT_MS)
-        val row = str(R.string.timer_stage_result_cd, stage, secs(norms.stageDurationS), str(R.string.timer_outcome_held))
-        rule.onNode(hasContentDescription(row)).assertExists()
+        val passed = str(R.string.timer_stage_passed, stage, secs(norms.stageDurationS))
+        rule.waitFor(hasText(passed), HOLD_WAIT_MS)
+        if (stage < norms.stages.size) {
+            rule.button(nextStage).assertExists()
+            rule.onNode(hasText(start)).assertDoesNotExist()
+            rule.tapButton(nextStage)
+            rule.onNode(hasText(stageOf(stage + 1))).assertExists()
+        } else {
+            val row = str(R.string.timer_stage_result_cd, stage, secs(norms.stageDurationS), str(R.string.timer_outcome_held))
+            rule.onNode(hasContentDescription(row)).assertExists()
+        }
     }
 
     private fun loseAt(stage: Int) {
-        rule.tapButton(startStage(stage))
+        rule.tapButton(start)
         Thread.sleep(1_500)
         rule.tapButton(lost)
         rule.waitFor(hasText(startOver))
+        val stopped = Regex(
+            "^" + Regex.escape(str(R.string.timer_stage_stopped, stage, PLACEHOLDER)).replace(PLACEHOLDER, "\\E.+\\Q") + "$",
+        )
+        assertTrue(rule.exists(hasTextMatching(stopped)))
         val row = Regex(
             "^" + Regex.escape(str(R.string.timer_stage_result_cd, stage, PLACEHOLDER, str(R.string.timer_outcome_lost)))
                 .replace(PLACEHOLDER, "\\E.+\\Q") + "$",
@@ -95,11 +111,24 @@ class BalanceTest {
     @Test
     fun initialState() {
         assertStepper(*fresh)
-        rule.onNode(hasText(str(R.string.timer_stage_heading, 1, str(R.string.timer_stage_name_1)))).assertExists()
-        rule.onNode(hasText(str(R.string.timer_stage_quote, str(R.string.timer_stage_cdc_1)))).assertExists()
+        rule.onNode(hasText(stageOf(1))).assertExists()
+        rule.onNode(hasText(str(R.string.timer_stage_name_1))).assertExists()
+        rule.onNode(hasText(str(R.string.timer_stage_do_1))).assertExists()
         rule.onNode(hasContentDescription(str(R.string.timer_hold_for, secs(norms.stageDurationS)))).assertExists()
+        rule.button(start).assertExists()
         rule.onNode(hasText(startOver)).assertDoesNotExist()
         rule.onNode(hasText(results)).assertDoesNotExist()
+        rule.onNode(hasText(nextStage)).assertDoesNotExist()
+    }
+
+    @Test
+    fun howToRunIsFoldedUntilTapped() {
+        val safety = str(R.string.timer_balance_safety)
+        rule.onNode(hasText(safety)).assertDoesNotExist()
+        rule.tapButton(how)
+        rule.waitFor(hasText(safety))
+        rule.tapButton(how)
+        rule.waitGone(hasText(safety))
     }
 
     @Test
@@ -162,10 +191,11 @@ class BalanceTest {
 
     @Test
     fun notReadyRestartsTheStage_andStartOverMidTest() {
-        rule.tapButton(startStage(1))
+        rule.tapButton(start)
         Thread.sleep(1_500)
         rule.tapButton(restart)
-        rule.button(startStage(1)).assertExists()
+        rule.button(start).assertExists()
+        rule.onNode(hasText(stageOf(1))).assertExists()
         rule.onNode(hasText(lost)).assertDoesNotExist()
         rule.onNode(hasText(results)).assertDoesNotExist()
         assertStepper(*fresh)
@@ -173,7 +203,8 @@ class BalanceTest {
         hold(1)
         rule.tapButton(startOver)
         assertStepper(*fresh)
-        rule.button(startStage(1)).assertExists()
+        rule.button(start).assertExists()
+        rule.onNode(hasText(stageOf(1))).assertExists()
     }
 
     @Test
@@ -239,6 +270,19 @@ class TugTest {
         val (s, isUnder) = runFor(12_300)
         assertTrue("at or above", !isUnder)
         assertTrue("$s", s >= 12.0)
+    }
+
+    @Test
+    fun initialState_oneGoButton_threeSteps_andFoldedRules() {
+        rule.button(go).assertExists()
+        rule.onNode(hasText(stop)).assertDoesNotExist()
+        listOf(R.string.timer_tug_step_sit, R.string.timer_tug_step_go, R.string.timer_tug_step_stop).forEachIndexed { i, id ->
+            rule.onNode(hasText(str(R.string.timer_tug_numbered, i + 1, str(id)))).assertExists()
+        }
+        val footwear = str(R.string.timer_tug_footwear)
+        rule.onNode(hasText(footwear)).assertDoesNotExist()
+        rule.tapButton(str(R.string.timer_how_heading))
+        rule.waitFor(hasText(footwear))
     }
 
     @Test
