@@ -77,6 +77,17 @@ fun stageTitle(stage: Stage, startRequested: Boolean, personDetected: Boolean = 
     Stage.Done -> R.string.cs_stage_done
 }
 
+/**
+ * The instruction read aloud when the voice setting is on: the same text the screen shows for the
+ * step, plus "Step into view" while calibration waits for a person. Null when nothing is to be said.
+ */
+@StringRes
+fun spokenCue(state: ChairStandUiState): Int? = when {
+    state.waitingForPerson -> R.string.cs_step_into_view
+    state.stage == Stage.Idle -> null
+    else -> stageTitle(state.stage, state.startRequested)
+}
+
 /** Giant digits are sized in dp: they already fill the panel, so font scaling must not push them off screen. */
 @Composable
 private fun display(size: Dp): TextUnit = with(LocalDensity.current) { size.toSp() }
@@ -196,7 +207,7 @@ private fun BoxScope.StagePanel(state: ChairStandUiState) {
                         textAlign = TextAlign.Center, modifier = Modifier.semantics { liveRegion = LiveRegionMode.Assertive },
                     )
                 } else {
-                    PanelText(stringResource(if (state.startRequested) R.string.cs_stage_starting else R.string.cs_idle_hint), SthiraType.titleSmall)
+                    PanelText(stringResource(if (state.startRequested) R.string.cs_stage_starting else R.string.cs_camera_checklist), SthiraType.titleSmall)
                 }
             }
             Stage.CalibrationStand, Stage.CalibrationSit -> CountdownPanel(stage, state.countdownS)

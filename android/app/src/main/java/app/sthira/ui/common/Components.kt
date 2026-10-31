@@ -29,6 +29,7 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,13 +37,20 @@ import app.sthira.ui.theme.Space
 import app.sthira.ui.theme.Sthira
 import app.sthira.ui.theme.SthiraType
 
-/** Minimum touch target (Android accessibility guidance); the big actions use more. */
+/** Minimum touch target (Android accessibility guidance); main actions use [MainTarget] or [BigTarget]. */
 val MinTarget = 48.dp
-val BigTarget = 60.dp
+/** The least height of a main action button. */
+val MainTarget = 56.dp
+val BigTarget = 64.dp
 val CardShape = RoundedCornerShape(16.dp)
 
 enum class Tone { Primary, Secondary, Danger }
 
+/**
+ * A button that looks like a button. Primary is solid black (white in dark) with white (black) text;
+ * Secondary is outlined 2dp; Danger is solid in the danger colour. Disabled is grey with grey text,
+ * still readable. At least [MainTarget] tall ([BigTarget] when [big]); long labels wrap, centred.
+ */
 @Composable
 fun ActionButton(
     text: String,
@@ -54,22 +62,25 @@ fun ActionButton(
     icon: ImageVector? = null,
 ) {
     val c = Sthira.colors
-    val (fill, content) = when {
-        !enabled -> null to c.muted
-        tone == Tone.Primary -> c.primary to c.onPrimary
-        tone == Tone.Danger -> c.danger to c.onDanger
-        else -> null to c.text
+    val (fill, content) = when (tone) {
+        Tone.Primary -> c.primary to c.onPrimary
+        Tone.Danger -> c.danger to c.onDanger
+        Tone.Secondary -> null to c.text
     }
     NeuSurface(
-        modifier.heightIn(min = if (big) BigTarget else MinTarget),
-        shape = Neu.ButtonShape, elevation = 6.dp, onClick = onClick, enabled = enabled, fill = fill, contentColor = content,
+        modifier.heightIn(min = if (big) BigTarget else MainTarget),
+        shape = Neu.ButtonShape, onClick = onClick, enabled = enabled, fill = fill, contentColor = content,
+        rim = if (tone == Tone.Secondary) c.text else null, rimWidth = Neu.StrongEdgeWidth,
     ) {
         Row(
             Modifier.align(Alignment.Center).padding(horizontal = 20.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            if (icon != null) Icon(icon, contentDescription = null, Modifier.padding(end = Space.s).size(20.dp))
-            Text(text, style = if (big) SthiraType.titleSmall else SthiraType.label.copy(fontSize = SthiraType.body.fontSize))
+            if (icon != null) Icon(icon, contentDescription = null, Modifier.padding(end = Space.s).size(if (big) 26.dp else 22.dp))
+            Text(
+                text, textAlign = TextAlign.Center,
+                style = if (big) SthiraType.title else SthiraType.titleSmall,
+            )
         }
     }
 }
@@ -103,7 +114,8 @@ fun Banner(kind: BannerKind, modifier: Modifier = Modifier, content: @Composable
     NeuSurface(
         modifier.fillMaxWidth().animateContentSize(Sthira.motion())
             .semantics { if (kind != BannerKind.Plain) liveRegion = live },
-        shape = CardShape, elevation = 5.dp, rim = if (kind == BannerKind.Plain) null else tone,
+        shape = CardShape, rim = if (kind == BannerKind.Plain) null else tone,
+        rimWidth = if (kind == BannerKind.Plain) Neu.EdgeWidth else Neu.StrongEdgeWidth,
     ) {
         Row(Modifier.padding(Space.m), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
             toneIcon(kind)?.let { Icon(it, contentDescription = null, tint = tone, modifier = Modifier.size(22.dp)) }
@@ -165,7 +177,7 @@ fun BulletList(items: List<String>, color: Color = Color.Unspecified, mono: Bool
     }
 }
 
-/** A small raised pill with an optional icon, for status and metadata. Text carries the meaning, not colour. */
+/** A small outlined pill with an optional icon, for status and metadata. Text carries the meaning, not colour. */
 @Composable
 fun StatusChip(text: String, kind: BannerKind, modifier: Modifier = Modifier, icon: ImageVector? = toneIcon(kind)) {
     val c = Sthira.colors
@@ -175,7 +187,7 @@ fun StatusChip(text: String, kind: BannerKind, modifier: Modifier = Modifier, ic
         BannerKind.Danger -> c.danger to null
         BannerKind.Plain -> c.text to null
     }
-    NeuSurface(modifier, shape = Neu.ChipShape, elevation = 3.dp, fill = fill, contentColor = fg) {
+    NeuSurface(modifier, shape = Neu.ChipShape, fill = fill, contentColor = fg, rim = fg) {
         Row(
             Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
             verticalAlignment = Alignment.CenterVertically,

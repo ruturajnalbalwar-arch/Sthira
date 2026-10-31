@@ -10,15 +10,19 @@ enum class ThemeMode { System, Light, Dark }
 val TEXT_SCALE_STEPS: List<Int> = listOf(100, 125, 150, 175, 200)
 const val DEFAULT_TEXT_SCALE = 100
 
-/** One snapshot of the user's display choices. [languageTag] null means "follow the phone language". */
+/**
+ * One snapshot of the user's choices. [languageTag] null means "follow the phone language".
+ * [voiceOn]: the test screens read their steps out loud (on by default).
+ */
 data class SettingsValues(
     val themeMode: ThemeMode = ThemeMode.System,
     val textScalePercent: Int = DEFAULT_TEXT_SCALE,
     val languageTag: String? = null,
+    val voiceOn: Boolean = true,
 )
 
 /**
- * The display choices on disk: a private SharedPreferences file (backup is off for the whole app).
+ * The user's choices on disk: a private SharedPreferences file (backup is off for the whole app).
  * Nothing here is health data. Unknown or corrupt values fall back to the defaults.
  */
 class SettingsStore(context: Context) {
@@ -28,12 +32,14 @@ class SettingsStore(context: Context) {
         themeMode = ThemeMode.entries.firstOrNull { it.name == prefs.getString(KEY_THEME, null) } ?: ThemeMode.System,
         textScalePercent = prefs.getInt(KEY_SCALE, DEFAULT_TEXT_SCALE).takeIf { it in TEXT_SCALE_STEPS } ?: DEFAULT_TEXT_SCALE,
         languageTag = prefs.getString(KEY_LANGUAGE, null)?.takeIf { tag -> AppLocales.find(tag) != null },
+        voiceOn = prefs.getBoolean(KEY_VOICE, true),
     )
 
     fun write(values: SettingsValues) {
         prefs.edit()
             .putString(KEY_THEME, values.themeMode.name)
             .putInt(KEY_SCALE, values.textScalePercent)
+            .putBoolean(KEY_VOICE, values.voiceOn)
             .apply { if (values.languageTag == null) remove(KEY_LANGUAGE) else putString(KEY_LANGUAGE, values.languageTag) }
             .apply()
     }
@@ -43,5 +49,6 @@ class SettingsStore(context: Context) {
         const val KEY_THEME = "theme_mode"
         const val KEY_SCALE = "text_scale_percent"
         const val KEY_LANGUAGE = "language_tag"
+        const val KEY_VOICE = "voice_on"
     }
 }

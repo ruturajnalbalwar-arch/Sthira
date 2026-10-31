@@ -3,7 +3,9 @@ package app.sthira.legal
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import app.sthira.R
 import app.sthira.ui.common.Body
@@ -69,7 +71,7 @@ fun LegalScreen(doc: LegalDoc, onBack: () -> Unit, onLicences: (() -> Unit)? = n
         Muted(stringResource(R.string.legal_last_updated, stringResource(doc.updated)))
         Body(stringResource(doc.intro), size = 18)
         doc.sections.forEach { section ->
-            Column(verticalArrangement = Arrangement.spacedBy(Space.s)) {
+            Column(Modifier.padding(top = Space.s), verticalArrangement = Arrangement.spacedBy(Space.s)) {
                 Heading(stringResource(section.heading), size = 20)
                 section.body.forEach { Body(it.asString()) }
             }

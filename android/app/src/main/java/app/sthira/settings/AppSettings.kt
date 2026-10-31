@@ -13,7 +13,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.platform.LocalContext
 
 /**
- * The user's display choices as Compose state, with setters that save them. Read it anywhere below
+ * The user's choices (display, language, voice) as Compose state, with setters that save them. Read it anywhere below
  * SthiraApp through [LocalAppSettings]. Outside the app (previews, isolated UI tests) the default is an
  * in-memory copy with the defaults, so nothing is written to disk.
  */
@@ -28,11 +28,16 @@ class AppSettings internal constructor(private val store: SettingsStore?, initia
     val textScale: Float get() = values.textScalePercent / PERCENT
     /** The picked language tag, or null when the app follows the phone. */
     val languageTag: String? get() = values.languageTag
+    /** True when the test screens should speak their instructions. Read it as `LocalAppSettings.current.voiceOn`. */
+    val voiceOn: Boolean get() = values.voiceOn
 
     val canZoomIn: Boolean get() = textScalePercent < TEXT_SCALE_STEPS.last()
     val canZoomOut: Boolean get() = textScalePercent > TEXT_SCALE_STEPS.first()
 
     fun setThemeMode(mode: ThemeMode) = update(values.copy(themeMode = mode))
+
+    /** Turns the spoken instructions on or off (saved). */
+    fun setVoiceOn(on: Boolean) = update(values.copy(voiceOn = on))
 
     fun setTextScalePercent(percent: Int) {
         if (percent in TEXT_SCALE_STEPS) update(values.copy(textScalePercent = percent))

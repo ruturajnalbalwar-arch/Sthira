@@ -25,6 +25,7 @@ import app.sthira.legal.TERMS
 import app.sthira.settings.AppSettings
 import app.sthira.settings.LanguageScreen
 import app.sthira.settings.LocalAppSettings
+import app.sthira.settings.SettingsScreen
 import app.sthira.settings.rememberAppSettings
 import app.sthira.timers.BalanceScreen
 import app.sthira.timers.TugScreen
@@ -41,6 +42,9 @@ enum class Screen(val parent: Screen?) {
     Terms(Home),
     Licences(Home),
     Language(Home),
+    Settings(Home),
+    /** The language list opened from Settings: back returns to Settings. */
+    SettingsLanguage(Settings),
     LicenceApache(Licences),
     LicenceBsd(Licences),
     LicenceMit(Licences),
@@ -79,6 +83,7 @@ private fun Screens(settings: AppSettings) {
                 HomeAction.Terms -> Screen.Terms
                 HomeAction.Licences -> Screen.Licences
                 HomeAction.Language -> Screen.Language
+                HomeAction.Settings -> Screen.Settings
             }
         })
         Screen.ChairStand -> ChairStandScreen(onBack = up)
@@ -93,6 +98,11 @@ private fun Screens(settings: AppSettings) {
         // Back to Home first: the activity is recreated in the new language and reopens on the saved screen.
         Screen.Language -> LanguageScreen(settings.languageTag, onPick = { tag ->
             screen = Screen.Home
+            settings.setLanguage(context, tag)
+        }, onBack = up)
+        Screen.Settings -> SettingsScreen(onLanguage = { screen = Screen.SettingsLanguage }, onBack = up)
+        Screen.SettingsLanguage -> LanguageScreen(settings.languageTag, onPick = { tag ->
+            screen = Screen.Settings
             settings.setLanguage(context, tag)
         }, onBack = up)
     }
